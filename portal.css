@@ -273,3 +273,17 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-main>.panel>.calendar-section-heading{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;flex-wrap:wrap!important}
 .ars-v2 .gov-main>.panel>.calendar-section-heading .gov-detail-date{font-size:12px!important;font-weight:500!important;color:#647996!important;white-space:nowrap!important;margin-left:auto!important}
 @media(max-width:600px){.ars-v2 .gov-main>.panel>.calendar-section-heading .gov-detail-date{font-size:11px!important}}
+
+/* Contextual notices: action lives on each notice, not a misleading page arrow */
+.ars-v2 .gov-notice{grid-template-columns:127px minmax(0,1fr)!important}
+.ars-v2 .gov-personal-notices{min-width:0}
+.ars-v2 .gov-personal-notices p{display:flex!important;align-items:center;gap:10px;margin:0!important;padding:6px 0!important;font-size:12px!important;line-height:1.5!important}
+.ars-v2 .gov-personal-notices p+p{border-top:1px solid #e1e8f1}
+.ars-v2 .gov-personal-notices a,.ars-v2 .gov-personal-notices button{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:1;min-width:0;text-align:left;color:#183455!important;font:inherit!important;text-decoration:none!important;background:transparent!important;border:0!important;padding:0!important;cursor:pointer}
+.ars-v2 .gov-personal-notices a:hover,.ars-v2 .gov-personal-notices button:hover{color:#235da1!important}
+.ars-v2 .gov-personal-notices a span,.ars-v2 .gov-personal-notices button span{white-space:nowrap;font-size:11px;font-weight:750;color:#335e94}
+.ars-v2 .gov-notice-tag{flex:0 0 auto;display:inline-block;border-radius:3px;padding:3px 7px;font-size:11px!important;line-height:1.4;font-weight:800!important}
+.ars-v2 .gov-notice-alert{background:#fbe8ec;color:#a92138!important}
+.ars-v2 .gov-notice-goal{background:#e6eefb;color:#244e87!important}
+.ars-v2 .gov-notice-ok{background:#e8eef6;color:#284d75!important}
+@media(max-width:700px){.ars-v2 .gov-notice{grid-template-columns:1fr!important}.ars-v2 .gov-personal-notices p{align-items:flex-start}.ars-v2 .gov-personal-notices a,.ars-v2 .gov-personal-notices button{flex-wrap:wrap}}
