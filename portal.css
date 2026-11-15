@@ -223,3 +223,99 @@ body.ars-v2{margin:0;background:#f5f6f8;color:var(--ink);font-family:"Noto Sans 
 @media(max-width:1250px){.ars-v2 .gov-workspace{grid-template-columns:215px minmax(0,1fr)!important}.ars-v2 .gov-sidebar{padding:25px 14px!important}.ars-v2 .gov-main{padding:26px 20px!important}.ars-v2 .gov-header-tagline{left:37%;padding-left:20px;font-size:12px}.ars-v2 .gov-building{width:28%;opacity:.6}.ars-v2 .gov-top-cards{grid-template-columns:1fr 1fr!important}.ars-v2 .gov-goal{grid-column:1/-1}.ars-v2 .gov-card{padding:18px!important}}
 @media(max-width:800px){.ars-v2 .gov-workspace{display:flex!important;flex-direction:column!important}.ars-v2 .gov-main{order:1;width:100%;padding:19px 12px!important}.ars-v2 .gov-sidebar{order:2;width:100%;min-height:0!important}.ars-v2 .gov-header-tagline,.ars-v2 .gov-building{display:none!important}.ars-v2 .gov-top-cards{grid-template-columns:1fr 1fr!important}.ars-v2 .gov-bottom-cards{grid-template-columns:1fr!important}.ars-v2 .gov-goal{grid-column:1/-1}.ars-v2 .gov-card{padding:15px!important}.ars-v2 .gov-mini-grid{gap:3px!important}.ars-v2 .gov-pledge .pledge-display{padding:16px 40px!important}}
 @media(max-width:440px){.ars-v2 .gov-top-cards{grid-template-columns:1fr!important}.ars-v2 .gov-goal{grid-column:auto}.ars-v2 .gov-feature-number .gov-streak-value{font-size:64px!important}.ars-v2 .gov-laurel{height:112px!important}.ars-v2 .gov-pledge-shortcut{font-size:11px!important}}
+
+/* Approved visual reference — cohesive finishing pass, Nov 2026 */
+.ars-v2{--ink:#0c2547;--navy:#0d294e;--line:#dbe2ee;--red:#c92838;background:#f7f8fa!important;color:#0d2547!important}
+.ars-v2 .app{max-width:1536px!important;padding:0!important}
+.ars-v2 .agency-strip{height:47px!important;background:#f3f6fb!important}
+.ars-v2 .agency-strip-inner{height:47px!important;max-width:1536px!important;padding:0 4.2%!important}
+.ars-v2 .agency-ministry{gap:13px!important}
+.ars-v2 .agency-ministry strong{font-size:16px!important;letter-spacing:-.045em}
+.ars-v2 .agency-ministry>span:last-child{font-size:13px!important}
+.ars-v2 .system-header{min-height:115px!important;padding:24px 4.2% 19px!important;background:linear-gradient(102deg,#fff 0%,#fff 62%,#edf3fa 100%)!important}
+.ars-v2 .system-header-name h1{font-size:30px!important;font-weight:850!important}
+.ars-v2 .header-eyebrow{font-size:16px!important}
+.ars-v2 .gov-header-tagline{left:30%!important;padding-left:36px!important;font-size:15px!important;line-height:1.7!important}
+.ars-v2 .gov-building{opacity:.72!important;width:31%!important}
+.ars-v2 .v2-service-nav{min-height:60px!important;background:#0c294e!important}
+.ars-v2 .v2-service-nav a{font-size:17px!important;font-weight:750!important;border-bottom-width:5px!important}
+.ars-v2 .v2-service-nav a:first-child{border-bottom-color:#df293b!important}
+.ars-v2 .gov-workspace{grid-template-columns:273px minmax(0,1fr)!important;background:#fff!important}
+.ars-v2 .gov-sidebar{background:#f7f9fc!important;padding:35px 27px 25px!important;min-height:765px!important}
+.ars-v2 .gov-sidebar-head{background:#fff!important;border-color:#d4dce8!important;margin-bottom:23px!important}
+.ars-v2 .gov-sidebar-head strong{font-size:16px!important}
+.ars-v2 .gov-sidebar-links{gap:2px!important}
+.ars-v2 .gov-sidebar-links a{font-size:16px!important;padding:15px 17px!important;border-radius:4px!important}
+.ars-v2 .gov-sidebar-links a.active{background:linear-gradient(90deg,#d9e4f2,#e7eef8)!important;border-left:5px solid #102e54!important}
+.ars-v2 .gov-sidebar-links a span{font-size:22px!important}
+.ars-v2 .gov-sidebar-note{gap:8px!important}
+.ars-v2 .gov-sidebar-note strong{font-size:16px!important}
+.ars-v2 .gov-main{padding:30px 34px 46px!important}
+.ars-v2 .gov-main-intro{padding-bottom:27px!important}
+.ars-v2 .gov-main-intro h2{font-size:31px!important;font-weight:850!important;margin-bottom:7px!important}
+.ars-v2 .gov-main-intro h2:before{background:#d52637!important;width:6px!important;border-radius:2px!important}
+.ars-v2 .gov-main-intro h2 small{font-size:21px!important}
+.ars-v2 .gov-main-intro p{font-size:14px!important;color:#172e4e!important}
+.ars-v2 .gov-top-cards{grid-template-columns:1fr 1.06fr 1.5fr!important;gap:18px!important}
+.ars-v2 .gov-bottom-cards{grid-template-columns:1fr 1.13fr!important;gap:18px!important;margin-top:19px!important}
+.ars-v2 .gov-card{border:1px solid #d4deeb!important;border-radius:8px!important;padding:19px 22px!important;box-shadow:0 1px 3px #1b345a0b!important}
+.ars-v2 .gov-top-cards>.gov-card{height:275px!important;min-height:275px!important}
+.ars-v2 .gov-card h3{font-size:20px!important;margin-bottom:16px!important;font-weight:850!important}
+.ars-v2 .gov-streak{justify-content:space-between!important}
+.ars-v2 .gov-feature-number{flex:1!important;min-height:0!important;max-height:151px!important;gap:0!important;background:radial-gradient(ellipse at center,#f1f5fa 0%,#fff 70%)!important}
+.ars-v2 .gov-feature-number .gov-streak-value{font-size:clamp(48px,5.3vw,80px)!important;font-family:Georgia,"Noto Serif KR",serif!important;color:#092b56!important}
+.ars-v2 .gov-laurel{width:clamp(35px,4vw,59px)!important;height:132px!important;color:#bdcbdd!important;flex-shrink:1!important}
+.ars-v2 .gov-month-compare{font-size:14px!important;font-weight:800!important;min-height:30px!important;line-height:1.35!important;padding:0!important;white-space:normal!important}
+.ars-v2 .gov-month-compare .gov-compare-arrow{font-size:26px!important}
+.ars-v2 .gov-streak p{display:none!important}
+.ars-v2 .gov-mini{display:flex!important;flex-direction:column!important}
+.ars-v2 .gov-mini .gov-card-heading{flex:0 0 auto!important;margin-bottom:5px!important}
+.ars-v2 .gov-mini .gov-card-heading h3{font-size:21px!important;margin-bottom:6px!important;white-space:nowrap!important}
+.ars-v2 .gov-mini .gov-card-heading button{font-size:30px!important;font-weight:800!important;padding:0 8px!important}
+.ars-v2 .gov-mini-grid{display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;grid-auto-rows:minmax(0,1fr)!important;gap:5px!important;flex:1 1 auto!important;min-height:0!important;align-content:stretch!important}
+.ars-v2 .gov-mini-grid .week{font-size:11px!important;display:flex!important;align-items:center!important;justify-content:center!important;background:#edf2f9!important;color:#1c3659!important;border-radius:5px!important;padding:0!important;min-height:22px!important}
+.ars-v2 .gov-mini-grid button{appearance:none!important;display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;min-height:0!important;width:100%!important;height:100%!important;aspect-ratio:auto!important;border:0!important;border-radius:5px!important;background:#f0f4fa!important;color:#142e52!important;font-size:12px!important;font-weight:750!important;line-height:1!important;padding:0!important;box-shadow:none!important;outline-offset:-2px!important}
+.ars-v2 .gov-mini-grid button.drink{background:#c72a3c!important;color:#fff!important;border:0!important}
+.ars-v2 .gov-mini-grid button.dry{background:#dce8f8!important;color:#153c69!important;border:0!important}
+.ars-v2 .gov-mini-grid button.unknown{background:#f0f4fa!important;color:#142e52!important}
+.ars-v2 .gov-mini-grid button.today{outline:2px solid #2768d1!important;outline-offset:-2px!important}
+.ars-v2 .gov-mini-grid .blank{visibility:hidden!important}
+.ars-v2 .gov-mini-caption{display:flex!important;gap:12px!important;align-items:center!important;justify-content:center!important;flex-wrap:wrap!important;margin:9px 0 0!important;font-size:10px!important;color:#687e9b!important;line-height:1!important}
+.ars-v2 .gov-mini-caption span{display:inline-flex;gap:4px;align-items:center}
+.ars-v2 .gov-mini-caption i{display:inline-block;width:9px;height:9px;border-radius:2px}
+.ars-v2 .gov-mini-caption .legend-drink{background:#c72a3c}
+.ars-v2 .gov-mini-caption .legend-dry{background:#dce8f8}
+.ars-v2 .gov-mini-caption .legend-unknown{background:#f0f4fa;border:1px solid #dbe2ed}
+.ars-v2 .gov-goal h3{font-size:20px!important;margin-bottom:16px!important}
+.ars-v2 .gov-goal .card-icon{font-size:25px!important;color:#d22638!important}
+.ars-v2 .gov-goal-heading{font-size:13px!important;font-weight:750!important;color:#203a5a!important}
+.ars-v2 .gov-goal-heading strong{font-size:17px!important}
+.ars-v2 .gov-progress{height:13px!important;margin:13px 0 10px!important;background:#e7ecf3!important}
+.ars-v2 .gov-progress div{background:#0b2c56!important}
+.ars-v2 .gov-goal>p{font-size:10px!important;margin:0 0 8px!important}
+.ars-v2 .gov-goal-row{padding:8px 0!important;font-size:13px!important}
+.ars-v2 .gov-goal-row strong{font-size:21px!important}
+.ars-v2 .gov-bottom-cards>.gov-card{min-height:187px!important;padding:17px 22px!important}
+.ars-v2 .gov-pledge h3{margin-bottom:13px!important}
+.ars-v2 .gov-pledge .pledge-display{height:110px!important;min-height:110px!important;padding:12px 47px!important;background:#eaf1fb!important;border-radius:6px!important}
+.ars-v2 .gov-pledge .pledge-display>span{font-family:"Noto Serif KR","Nanum Myeongjo",Georgia,serif!important;font-size:clamp(17px,1.8vw,24px)!important;line-height:1.5!important;color:#10294c!important;font-weight:750!important}
+.ars-v2 .gov-pledge .pledge-display:before{color:#8eb1e5!important;font-size:60px!important;top:8px!important}
+.ars-v2 .gov-pledge .pledge-display:after{color:#8eb1e5!important;font-size:60px!important;bottom:-4px!important}
+.ars-v2 .gov-pledge .pledge-actions{display:none!important}
+.ars-v2 .gov-pledge-shortcut{font-size:13px!important;color:#203b5c!important}
+.ars-v2 .gov-month-summary h3{margin-bottom:15px!important}
+.ars-v2 .gov-summary-grid{border:0!important;border-bottom:1px solid #e0e6ee!important}
+.ars-v2 .gov-summary-grid span{font-size:12px!important;background:#eef1f7!important;padding:10px 3px!important}
+.ars-v2 .gov-summary-grid strong{font-size:23px!important;padding:15px 3px!important}
+.ars-v2 .gov-month-summary>p{margin:9px 0 0!important;font-size:10px!important}
+.ars-v2 .gov-notice{margin-top:27px!important;min-height:98px!important;background:#f8fafc!important;border-radius:8px!important;padding:17px 22px!important;gap:25px!important}
+.ars-v2 .gov-notice>strong{font-size:20px!important;min-width:160px!important;padding-right:24px!important}
+.ars-v2 .gov-notice .notice-symbol{font-size:23px!important;color:#143c69!important;margin-right:7px}
+.ars-v2 .gov-notice p{padding:5px 0!important;margin:0!important;font-size:12px!important}
+.ars-v2 .gov-notice p:last-child{border-bottom:0!important}
+.ars-v2 .gov-notice b{border-radius:4px!important;background:#285685!important;font-size:11px!important}
+.ars-v2 .gov-notice p:first-child b{background:#c72b3a!important}
+.ars-v2 .gov-main>.panel{margin-top:35px!important}
+@media(max-width:1250px){.ars-v2 .gov-top-cards{grid-template-columns:1fr 1fr!important}.ars-v2 .gov-goal{grid-column:1/-1!important}.ars-v2 .gov-top-cards>.gov-goal{height:auto!important;min-height:240px!important}.ars-v2 .gov-workspace{grid-template-columns:215px minmax(0,1fr)!important}.ars-v2 .gov-main{padding:25px 19px!important}.ars-v2 .gov-header-tagline{left:36%!important;font-size:12px!important}.ars-v2 .gov-bottom-cards{grid-template-columns:1fr!important}}
+@media(max-width:800px){.ars-v2 .gov-workspace{display:flex!important;flex-direction:column!important}.ars-v2 .gov-main{order:1!important;width:100%!important;padding:19px 12px!important}.ars-v2 .gov-sidebar{order:2!important;width:100%!important;min-height:0!important}.ars-v2 .gov-top-cards{grid-template-columns:1fr 1fr!important}.ars-v2 .gov-goal{grid-column:1/-1!important}.ars-v2 .gov-bottom-cards{grid-template-columns:1fr!important}.ars-v2 .gov-header-tagline,.ars-v2 .gov-building{display:none!important}.ars-v2 .gov-card{padding:15px!important}.ars-v2 .gov-mini-grid{gap:3px!important}.ars-v2 .gov-notice>strong{min-width:0!important;font-size:14px!important}.ars-v2 .gov-mini-caption{gap:6px!important}}
+@media(max-width:440px){.ars-v2 .gov-top-cards{grid-template-columns:1fr!important}.ars-v2 .gov-goal{grid-column:auto!important}.ars-v2 .gov-top-cards>.gov-card{height:auto!important;min-height:260px!important}.ars-v2 .gov-mini{height:310px!important}.ars-v2 .gov-mini-grid{gap:5px!important}.ars-v2 .gov-mini-grid button{min-height:27px!important}.ars-v2 .gov-streak{min-height:220px!important}.ars-v2 .gov-feature-number{min-height:120px!important}.ars-v2 .gov-bottom-cards>.gov-card{min-height:0!important}.ars-v2 .gov-pledge .pledge-display{height:auto!important;min-height:120px!important}}
