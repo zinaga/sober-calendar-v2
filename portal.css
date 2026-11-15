@@ -294,3 +294,22 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .analysis-subsection-title::before{content:"";display:block;flex:0 0 4px;width:4px;height:24px;margin-right:15px;background:#1c3d69;border-radius:2px}
 .ars-v2 .analysis-subsection-title h2{margin-left:0!important}
 @media(max-width:650px){.ars-v2 .analysis-subsection-title::before{height:21px;margin-right:11px}}
+
+/* Unified card treatment: dashboard and analytics share the same white bordered tiles */
+.ars-v2 .gov-notice .gov-personal-notices .gov-notice-tag{background:#e7eef8!important;color:#1b4778!important;border:0!important;box-shadow:none!important;opacity:1!important;font-size:11px!important;font-weight:800!important;line-height:1.4!important;min-width:39px;text-align:center}
+.ars-v2 .gov-notice .gov-personal-notices .gov-notice-alert{background:#b92336!important;color:#fff!important}
+.ars-v2 .gov-notice .gov-personal-notices .gov-notice-goal{background:#234f85!important;color:#fff!important}
+.ars-v2 .gov-notice .gov-personal-notices .gov-notice-ok{background:#e4edf8!important;color:#173d69!important}
+.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-ok{background:#e4edf8!important;color:#173d69!important}
+.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-alert{background:#b92336!important;color:#fff!important}
+.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-goal{background:#234f85!important;color:#fff!important}
+.ars-v2 .trend-report .weekly-report,
+.ars-v2 .trend-report .trend-chart,
+.ars-v2 .trend-report .analysis-left .weekly-report,
+.ars-v2 .trend-report .analysis-trend .trend-chart{background:#fff!important;border:1px solid #d3deec!important;border-radius:7px!important;box-shadow:0 2px 9px rgba(22,48,83,.035)!important}
+.ars-v2 .trend-report .weekly-report{padding:20px!important}
+.ars-v2 .trend-report .analysis-dashboard .analysis-heading{margin-bottom:12px!important}
+.ars-v2 .trend-report .analysis-dashboard .analysis-heading h3{color:#17375f!important}
+.ars-v2 .trend-report .analysis-period-switch{background:#eef2f8!important;border-radius:6px!important}
+.ars-v2 .trend-report .analysis-period-switch button{color:#506582!important}
+.ars-v2 .trend-report .analysis-period-switch button[aria-pressed="true"]{background:#fff!important;color:#17375f!important}
