@@ -148,3 +148,78 @@ body.ars-v2{margin:0;background:#f5f6f8;color:var(--ink);font-family:"Noto Sans 
 .ars-v2 .gov-pledge .pledge-actions button{font-size:12px!important}
 .ars-v2 .gov-pledge .gov-card-title{margin-bottom:12px}
 @media(max-width:440px){.ars-v2 .gov-laurel{height:105px;width:43px}.ars-v2 .gov-pledge .pledge-display{padding:20px 31px!important}}
+
+/* ARS 2026 — precise reference composition pass */
+.ars-v2 .agency-strip{background:linear-gradient(#f8f9fb,#f0f2f6)!important}
+.ars-v2 .agency-strip-inner{min-height:48px!important;padding:0 5%!important}
+.ars-v2 .agency-mark{width:35px!important;height:35px!important;font-size:15px!important;border:3px solid #fff;box-shadow:0 0 0 1px #d5dbe4}
+.ars-v2 .agency-ministry strong{font-size:15px!important;color:#172b45}
+.ars-v2 .agency-ministry>span:last-child{font-size:13px!important;color:#293a50}
+.ars-v2 .system-header{position:relative!important;overflow:hidden;min-height:116px!important;padding:24px 4.4% 20px!important;background:linear-gradient(100deg,#fff 0%,#fff 62%,#e9eff6 100%)!important}
+.ars-v2 .system-header-top{position:relative;z-index:2}
+.ars-v2 .system-header-name h1{font-size:32px!important;letter-spacing:-.065em!important}
+.ars-v2 .system-header-brand{max-width:450px}
+.ars-v2 .system-account{align-self:flex-start;position:relative;z-index:3;max-width:250px}
+.ars-v2 .gov-header-tagline{position:absolute;z-index:2;top:27px;left:33%;border-left:1px solid #c3cbd7;padding-left:45px;font-size:15px;line-height:1.75;color:#263a53;font-weight:500}
+.ars-v2 .gov-building{position:absolute;right:0;bottom:0;width:34%;height:112px;opacity:.85;pointer-events:none}
+.ars-v2 .gov-building svg{width:100%;height:100%}
+.ars-v2 .v2-service-nav{min-height:61px!important;background:linear-gradient(110deg,#102a4d,#19385e 60%,#102a4d)!important}
+.ars-v2 .v2-service-nav a{font-size:17px!important;padding:16px 7px!important;border-bottom-width:5px!important}
+.ars-v2 .gov-workspace{grid-template-columns:273px minmax(0,1fr)!important}
+.ars-v2 .gov-sidebar{background:linear-gradient(100deg,#f9fafc,#f3f5f8)!important;padding:36px 27px 25px!important;min-height:800px}
+.ars-v2 .gov-sidebar-head{min-height:77px!important;margin-bottom:29px!important;padding:14px 17px!important}
+.ars-v2 .gov-sidebar-head span{color:#324b6a!important;font-size:12px!important}
+.ars-v2 .gov-sidebar-head strong{display:flex;justify-content:space-between;align-items:center;font-size:16px!important}
+.ars-v2 .gov-sidebar-head strong span{font-size:22px!important}
+.ars-v2 .gov-sidebar-links a{padding:16px 15px!important;font-size:16px!important;gap:17px!important}
+.ars-v2 .gov-sidebar-links a span{width:27px!important;font-size:22px!important;color:#152d4a!important}
+.ars-v2 .gov-sidebar-links a.active{background:linear-gradient(100deg,#e0e7f0,#d7e2f0)!important;border-left-color:#102f58!important}
+.ars-v2 .gov-sidebar-note{padding:30px 0 10px!important}
+.ars-v2 .sidebar-seal{border:0!important;border-radius:0!important;padding:0!important;display:block!important;width:145px!important;height:75px!important;color:#bdc7d4!important}
+.ars-v2 .sidebar-seal svg{width:100%;height:100%}
+.ars-v2 .gov-sidebar-note strong{font-size:16px!important;line-height:1.6!important}
+.ars-v2 .gov-sidebar-note small{font-size:11px!important}
+.ars-v2 .gov-main{padding:34px 38px 44px!important}
+.ars-v2 .gov-main-intro{padding-bottom:29px!important}
+.ars-v2 .gov-main-intro h2{font-size:30px!important}
+.ars-v2 .gov-main-intro h2:before{height:31px!important}
+.ars-v2 .gov-main-intro p{font-size:14px!important}
+.ars-v2 .gov-top-cards{grid-template-columns:1fr 1.06fr 1.56fr!important;gap:18px!important}
+.ars-v2 .gov-bottom-cards{grid-template-columns:1fr 1.15fr!important;gap:19px!important;margin-top:20px!important}
+.ars-v2 .gov-card{border:1px solid #cbd4e0!important;border-radius:6px!important;padding:23px 24px!important;box-shadow:0 1px 2px #19385805!important}
+.ars-v2 .gov-top-cards>.gov-card{min-height:266px}
+.ars-v2 .gov-card h3{font-size:20px!important;margin-bottom:17px!important}
+.ars-v2 .gov-streak{justify-content:space-between!important}
+.ars-v2 .gov-feature-number{min-height:118px!important}
+.ars-v2 .gov-laurel{height:139px!important;width:clamp(38px,4.3vw,66px)!important;color:#c1cbd9!important}
+.ars-v2 .gov-feature-number .gov-streak-value{font-family:Georgia,"Noto Serif KR",serif!important;font-size:clamp(48px,5.4vw,87px)!important;font-weight:600!important;letter-spacing:-.07em!important}
+.ars-v2 .gov-month-compare{font-size:14px!important;font-weight:750!important;padding-top:2px!important}
+.ars-v2 .gov-month-compare.decrease .gov-compare-arrow{color:#136bd6!important}
+.ars-v2 .gov-mini-grid{gap:5px!important}
+.ars-v2 .gov-mini-grid button{border:0!important;border-radius:5px!important;background:#f0f3f8!important;min-height:25px!important}
+.ars-v2 .gov-mini-grid button.drink{background:#b72a39!important;color:#fff!important}
+.ars-v2 .gov-mini-grid button.dry{background:#d6e3f5!important;color:#15395f!important}
+.ars-v2 .gov-mini-grid button.today{outline:2px solid #2c6dca!important}
+.ars-v2 .gov-mini-grid .week{background:#f1f4f8;border-radius:4px;padding:5px 0!important}
+.ars-v2 .gov-mini-caption{font-size:10px!important;text-align:center}
+.ars-v2 .gov-goal-heading{font-size:13px!important;font-weight:650!important}
+.ars-v2 .gov-goal-heading strong{font-size:16px!important}
+.ars-v2 .gov-progress{height:13px!important;margin:12px 0 17px!important}
+.ars-v2 .gov-goal-row{padding:11px 0!important}
+.ars-v2 .gov-goal-row strong{font-size:22px!important}
+.ars-v2 .gov-pledge h3{display:flex;align-items:center;gap:5px}
+.ars-v2 .gov-pledge-shortcut{margin-left:auto!important;border:0!important;background:transparent!important;color:#24446b!important;font-size:12px!important;font-weight:600!important;cursor:pointer!important;white-space:nowrap}
+.ars-v2 .gov-pledge .pledge-display{min-height:126px!important;padding:16px 50px!important;border-radius:5px!important}
+.ars-v2 .gov-pledge .pledge-display>span{font-size:clamp(18px,1.7vw,24px)!important;font-weight:700!important}
+.ars-v2 .gov-pledge .pledge-display:before{font-size:63px!important;left:16px!important;top:10px!important}
+.ars-v2 .gov-pledge .pledge-display:after{font-size:63px!important;right:16px!important;bottom:-2px!important}
+.ars-v2 .gov-pledge .pledge-actions{position:absolute!important;right:8px!important;bottom:2px!important}
+.ars-v2 .gov-pledge .pledge-actions button{font-size:10px!important;opacity:.8}
+.ars-v2 .gov-summary-grid span{background:#eef1f6!important;font-size:12px!important}
+.ars-v2 .gov-summary-grid strong{font-size:25px!important}
+.ars-v2 .gov-notice{margin-top:30px!important;min-height:108px!important;background:linear-gradient(#fafbfc,#f4f6f9)!important;box-shadow:0 6px 15px #1a355515!important}
+.ars-v2 .gov-notice>strong{font-size:20px!important}
+.ars-v2 .gov-notice p{font-size:13px!important;padding:5px 0;border-bottom:1px solid #e5e9ef}
+@media(max-width:1250px){.ars-v2 .gov-workspace{grid-template-columns:215px minmax(0,1fr)!important}.ars-v2 .gov-sidebar{padding:25px 14px!important}.ars-v2 .gov-main{padding:26px 20px!important}.ars-v2 .gov-header-tagline{left:37%;padding-left:20px;font-size:12px}.ars-v2 .gov-building{width:28%;opacity:.6}.ars-v2 .gov-top-cards{grid-template-columns:1fr 1fr!important}.ars-v2 .gov-goal{grid-column:1/-1}.ars-v2 .gov-card{padding:18px!important}}
+@media(max-width:800px){.ars-v2 .gov-workspace{display:flex!important;flex-direction:column!important}.ars-v2 .gov-main{order:1;width:100%;padding:19px 12px!important}.ars-v2 .gov-sidebar{order:2;width:100%;min-height:0!important}.ars-v2 .gov-header-tagline,.ars-v2 .gov-building{display:none!important}.ars-v2 .gov-top-cards{grid-template-columns:1fr 1fr!important}.ars-v2 .gov-bottom-cards{grid-template-columns:1fr!important}.ars-v2 .gov-goal{grid-column:1/-1}.ars-v2 .gov-card{padding:15px!important}.ars-v2 .gov-mini-grid{gap:3px!important}.ars-v2 .gov-pledge .pledge-display{padding:16px 40px!important}}
+@media(max-width:440px){.ars-v2 .gov-top-cards{grid-template-columns:1fr!important}.ars-v2 .gov-goal{grid-column:auto}.ars-v2 .gov-feature-number .gov-streak-value{font-size:64px!important}.ars-v2 .gov-laurel{height:112px!important}.ars-v2 .gov-pledge-shortcut{font-size:11px!important}}
