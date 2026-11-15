@@ -873,10 +873,10 @@ el('govGapPrev').innerHTML=comparable&&prevGap!==null&&thisGap!==null?'('+previo
 el('v2Streak').innerHTML=recorded?drink+'<span class="gov-day-unit">일</span>':'—';
 const compare=el('govMonthCompare');
 if(!recorded){compare.textContent='이번 달 신고 기록이 없습니다.';compare.className='gov-month-compare';}
-else if(!previousRecorded){compare.textContent='지난달 기록 부족 · 비교 불가';compare.className='gov-month-compare';}
+else if(!comparable){compare.textContent='동일 기간 기록 부족 · 비교 불가';compare.className='gov-month-compare';}
 else{
- const diff=drink-previousDrinks;
- compare.innerHTML='<span class="gov-compare-arrow" aria-hidden="true">'+(diff<0?'↘':diff>0?'↗':'→')+'</span> 지난달 '+previousDrinks+'일 대비 '+(diff===0?'변동 없음':diff<0?Math.abs(diff)+'일 감소':diff+'일 증가');
+ const diff=currentWindowDrinks-previousDrinks;
+ compare.innerHTML='<span class="gov-compare-arrow" aria-hidden="true">'+(diff<0?'↘':diff>0?'↗':'→')+'</span> 지난달 동일 기간 '+previousDrinks+'일 대비 '+(diff===0?'변동 없음':diff<0?Math.abs(diff)+'일 감소':diff+'일 증가');
  compare.className='gov-month-compare '+(diff<0?'decrease':diff>0?'increase':'same');
 }
 el('v2StreakNote').textContent='이번 달 '+recorded+'일 신고 · 지난달 '+previousRecorded+'일 신고';
