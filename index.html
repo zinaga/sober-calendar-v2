@@ -931,6 +931,7 @@ window.addEventListener('focus',update);update();
   if(['monthly-report','calendar','editor','detailSection'].includes(hash))return 'records';
   if(['trend-analysis','stats','extraStats'].includes(hash))return 'analytics';
   if(['record-management','cloudPanel'].includes(hash))return 'mypage';
+  if(['center-info','gov-pledge-card','gov-goal-card','gov-summary-card','top'].includes(hash))return 'home';
   return 'home';
  }
  function renderRoute(scroll=true){
@@ -941,11 +942,12 @@ window.addEventListener('focus',update);update();
   document.title=routeNames[route]+' | 나의 절주관리센터 (ARS)';
   if(scroll)window.scrollTo({top:0,behavior:'instant'});
  }
+ function connectedName(){return typeof cloudUser!=='undefined'&&!!cloudUser}
  function updateSide(){
   const reporter=document.querySelector('#cloudReporterName');
-  const header=document.querySelector('#headerReporterName');
+  const header=document.querySelector('#headerReporter');
   const name=(reporter?.textContent||header?.textContent||'').trim();
-  document.querySelector('#govSideReporter').textContent=name||'미등록';
+  document.querySelector('#govSideReporter').textContent=!connectedName()?'미등록':name||'신고자';
   const connected=typeof cloudUser!=='undefined'&&!!cloudUser;
   document.querySelector('#govSideCloud').textContent=connected?'연결됨':'브라우저 보관';
   let latest='';
@@ -960,6 +962,8 @@ window.addEventListener('focus',update);update();
  const observer=new MutationObserver(updateSide);
  const reporterNode=document.querySelector('#cloudReporterName');
  if(reporterNode)observer.observe(reporterNode,{childList:true,characterData:true,subtree:true});
+ const headerReporterNode=document.querySelector('#headerReporter');
+ if(headerReporterNode)observer.observe(headerReporterNode,{childList:true,characterData:true,subtree:true});
  const summaryNode=document.querySelector('#monthSummary');
  if(summaryNode)observer.observe(summaryNode,{childList:true,subtree:true,characterData:true});
  nav.addEventListener('click',e=>{const a=e.target.closest('[data-route]');if(a&&location.hash==='#'+a.dataset.route)renderRoute()});
