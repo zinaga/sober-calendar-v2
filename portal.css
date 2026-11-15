@@ -66,9 +66,9 @@ body.ars-v2{margin:0;background:#f5f6f8;color:var(--ink);font-family:"Noto Sans 
 .ars-v2 .gov-mini-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px;text-align:center}
 .ars-v2 .gov-mini-grid .week{font-size:11px;color:#344a64;font-weight:800;padding:5px 0}
 .ars-v2 .gov-mini-grid .blank{visibility:hidden}
-.ars-v2 .gov-mini-grid button{border:0;background:transparent;border-radius:50%;min-width:0;width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:#1e344f;font-size:12px;cursor:pointer}
-.ars-v2 .gov-mini-grid button.drink{background:#b52a39;color:#fff;font-weight:800}
-.ars-v2 .gov-mini-grid button.dry{background:#d9e5f3;color:#15395f;font-weight:700}
+.ars-v2 .gov-mini-grid button{border:1px solid #e1e6ef;background:#f8f9fc;border-radius:4px;min-width:0;width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:#1e344f;font-size:12px;cursor:pointer}
+.ars-v2 .gov-mini-grid button.drink{background:#b52a39;border-color:#b52a39;color:#fff;font-weight:800}
+.ars-v2 .gov-mini-grid button.dry{background:#d9e5f3;border-color:#c4d4e8;color:#15395f;font-weight:700}
 .ars-v2 .gov-mini-grid button.today{outline:2px solid #b28c53;outline-offset:1px}
 .ars-v2 .gov-mini-grid button:hover{box-shadow:inset 0 0 0 1px #3b5f87}
 .ars-v2 .gov-mini-caption{font-size:10px;color:#8a9aac;margin:11px 0 0}
