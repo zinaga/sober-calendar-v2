@@ -313,3 +313,20 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .trend-report .analysis-period-switch{background:#eef2f8!important;border-radius:6px!important}
 .ars-v2 .trend-report .analysis-period-switch button{color:#506582!important}
 .ars-v2 .trend-report .analysis-period-switch button[aria-pressed="true"]{background:#fff!important;color:#17375f!important}
+
+/* Analytics hierarchy: navy rule only on the two main subsection titles */
+.ars-v2 .trend-report .analysis-dashboard .analysis-heading h3,
+.ars-v2 .trend-report .analysis-heading h3{border-left:0!important;padding-left:0!important}
+.ars-v2 .trend-report .report-bar-title,
+.ars-v2 .trend-report .frequency-bar-heading{border-left:0!important;padding-left:0!important}
+.ars-v2 .trend-report .analysis-subsection-title::before{display:block!important}
+
+/* Restore the original muted analysis chart panels */
+.ars-v2 .trend-report .weekly-report,
+.ars-v2 .trend-report .analysis-left .weekly-report,
+.ars-v2 .trend-report .trend-chart,
+.ars-v2 .trend-report .analysis-trend .trend-chart{background:#f4f6f9!important;border:1px solid #dce3ee!important;border-radius:10px!important;box-shadow:none!important}
+.ars-v2 .trend-report .weekly-report{padding:20px!important}
+
+/* Settings panel echoes the home center-notice background and border */
+.ars-v2 .trend-report .limit-settings{background:#f4f6fa!important;border:1px solid #d3deec!important;border-radius:8px!important;box-shadow:none!important}
