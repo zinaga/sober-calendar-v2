@@ -212,3 +212,8 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-month-summary #govVolumeUnit{box-sizing:border-box!important;display:block!important;max-width:100%!important;min-width:0!important}
 @media(max-width:1300px){.ars-v2 .gov-goal .gov-goal-row{grid-template-columns:minmax(0,1fr) auto!important;gap:5px 9px!important}.ars-v2 .gov-goal .gov-goal-row>small{grid-column:1/-1!important;justify-content:flex-end!important}}
 @media(max-width:650px){.ars-v2 .gov-goal .gov-goal-row{grid-template-columns:minmax(0,1fr) auto!important}}
+
+/* Abstinence headline and direction-aware drinking-interval trend */
+.ars-v2 .gov-goal .gov-goal-row #govGapPrev .gov-trend.up.positive{color:#236ed8!important}
+.ars-v2 .gov-goal .gov-goal-row #govGapPrev .gov-trend.down.negative{color:#c72b3b!important}
+.ars-v2 .gov-sidebar-head strong #govPersonalNumber{font-size:14px!important;line-height:1.35!important;font-weight:800!important;letter-spacing:-.02em!important;overflow-wrap:anywhere!important}
