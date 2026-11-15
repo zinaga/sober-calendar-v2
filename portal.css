@@ -187,3 +187,9 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-goal-buttons button[type=submit]{background:#15355e;color:white;border-color:#15355e}
 @media(max-width:1200px){.ars-v2 .gov-goal-row{grid-template-columns:minmax(0,1fr) auto!important}.ars-v2 .gov-goal-row small{grid-column:1/-1!important;text-align:right!important}}
 @media(max-width:480px){.ars-v2 .gov-month-summary .gov-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.ars-v2 .gov-goal h3{font-size:16px!important}.ars-v2 .gov-goal-edit{font-size:10px!important}}
+
+/* Monthly goal dialog: prior-month reference and safe goal-only reset */
+.ars-v2 .gov-goal-dialog .gov-goal-previous{padding:12px 14px!important;background:#edf3fa!important;border:1px solid #d9e4f2!important;border-left:3px solid #1c416f!important;border-radius:5px!important;color:#15375e!important;font-size:13px!important;font-weight:700!important;line-height:1.6!important}
+.ars-v2 .gov-goal-dialog .gov-goal-buttons{align-items:center!important;flex-wrap:wrap!important}
+.ars-v2 .gov-goal-dialog .gov-goal-reset{margin-right:auto!important;color:#a23b47!important;border-color:#e8cbd0!important;background:#fff!important}
+.ars-v2 .gov-goal-dialog .gov-goal-reset:disabled{color:#a9b4c4!important;border-color:#e2e7ee!important;cursor:not-allowed!important}
