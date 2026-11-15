@@ -1,0 +1,784 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>음주내역신고센터 | ARS 2026</title><style>
+:root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;;}*{box-sizing:border-box}body{margin:0}.app{;margin:auto;padding:24px 14px 80px}header,.nav,.stats,.actions,.line,.sessionhead{display:flex;align-items:center;justify-content:space-between;gap:12px}header{}h1{font-size:26px;margin:0}h2{font-size:20px;margin:0}p{color:#68758a}.panel{background:white;;;padding:18px;}.stats{display:grid;grid-template-columns:1fr;;}.chartbox{}.chartrow{display:grid;;align-items:center;gap:14px}.chartrow strong{font-size:15px}.chartrow small{color:#64748b;text-align:right;font-size:12px}.stack{min-width:0}.segment{display:flex;align-items:center;justify-content:center;;font-weight:700;color:#fff;;}.segment.light{color:#38455b}.legend-shared{;;;}.legend-shared .legenditem{font-size:12px}.charttitle{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:9px}.charttitle strong{font-size:16px}.charttitle small{color:#64748b}.stack{display:flex;overflow:hidden;;background:#eef1f6}.segment{height:100%;;}.segment:not(:last-child){box-shadow:inset -1px 0 #ffffff88}.legend{display:flex;flex-wrap:wrap;gap:8px 15px;margin-top:12px}.legenditem{font-size:12px;color:#4c596d;display:flex;align-items:center;gap:5px}.dot{width:10px;height:10px;border-radius:3px;display:inline-block}.chartnote{font-size:12px;color:#64748b;margin-top:9px}.chartcounts{font-size:13px;color:#44546a;margin-top:8px}.stat{padding:16px}.stat b{font-size:26px;display:block}.stat small{color:#69788e}.nav{margin-bottom:15px}button,select,input{font:inherit;color:#233047;color-scheme:light}select option{color:#233047;background:#fff}select{appearance:auto;-webkit-appearance:menulist}button{cursor:pointer;border:1px solid #d9e1ed;;padding:9px 12px;background:white;color:#24334b}button.primary{;color:white;}button.danger{color:#b42335}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #a4baff}.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));}.weekday{text-align:center;color:#7c8799;font-size:13px;padding:8px}.day{border:1px solid #e2e8f1;background:white;;;text-align:left;;overflow:hidden}.day{position:relative}.day-main{;width:100%;;border:0;background:transparent;;padding:0;color:inherit;cursor:pointer}.dry-toggle{position:absolute;right:6px;top:6px;width:23px;height:23px;min-width:23px;border:1.5px solid #aebdd1;border-radius:6px;background:#fff;padding:0;display:flex;align-items:center;justify-content:center;font-size:15px;color:#23764a;z-index:2}.dry-toggle.checked{background:#dcf6e5;border-color:#43a66b}.dry-toggle:focus-visible{outline:3px solid #a4baff}.day.empty{background:transparent;border:0}.day.today{}.day.selected{background:#eff4ff}.day.dry-day{background:#d9f3e1;border-color:#7fc99b}.day.dry-day .number{color:#17633b}.day.dry-day.selected{box-shadow:inset 0 0 0 2px #3864df}.day.dry-day .pill.dry{background:#bce9cc;color:#17633b;font-weight:700}.day .number{font-weight:700;;}.pill{display:block;background:#edf2f9;padding:5px;border-radius:7px;font-size:11px;margin:4px 0;overflow:hidden;text-overflow:ellipsis}.pill.solo{background:#fff0dd}.pill.after{background:#ffe0e0;color:#a11f2b}.pill .drinkdetail{display:block;font-size:10px;margin-top:3px;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.pill.dry{background:#e3f7e9;color:#236b42}.pill.unknown{color:#8792a5;background:transparent}.editor{margin-top:18px}.session{border:1px solid #e1e7ef;;padding:14px;margin:12px 0}.session.solo{border-left:4px solid #efa84c}.sessionhead{}.drinkrow{display:grid;grid-template-columns:1.2fr 1.4fr .65fr 78px auto;gap:7px;margin:8px 0}.session-actions{display:flex;;align-items:center;;;margin-top:14px}.share-field{display:flex;align-items:center;gap:3px;white-space:nowrap}.share-field input{text-align:center;padding:8px 3px}.field{display:flex;flex-direction:column;gap:6px;margin:10px 0}label{font-size:13px;font-weight:600}input,select{min-width:0;border:1px solid #d7dfeb;border-radius:9px;padding:10px;background:white;width:100%}.choice{display:flex;gap:8px;flex-wrap:wrap}.choice button.active{background:#e9efff;border-color:#5076e8}.muted{font-size:12px;color:#728096}.actions{justify-content:flex-start;flex-wrap:wrap;margin-top:15px}.empty-note{padding:22px;text-align:center;color:#8490a2}.foot{margin-top:18px;font-size:12px;color:#6b788b}.tag{background:#f0f3fa;;padding:5px 10px;font-size:12px}.summary{margin-top:10px;color:#64748b;font-size:13px}@media(max-width:650px){.chartrow{;}.chartrow strong{font-size:12px}.chartrow small{font-size:9px}.stack{height:25px}.segment{}.legend-shared{}.app{padding:16px 8px 65px}h1{font-size:22px}.stats{grid-template-columns:1fr;gap:10px}.chartbox{}.legend{gap:6px 10px}.stat{padding:12px}.stat b{font-size:23px}.panel{padding:12px}.calendar{}.day{;;}.day .number{font-size:12px}.dry-toggle{right:3px;top:3px;width:19px;height:19px;min-width:19px;font-size:12px}.pill{font-size:9px;padding:3px;margin:2px 0}.weekday{font-size:11px}.drinkrow{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 48px 58px auto}.drinkrow select,.drinkrow input{font-size:12px;padding:7px}.session{padding:10px}.drinkrow .share-field{font-size:11px}}
+.day.multi-selected{;;background:#e6efff}.bulkbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;;font-size:12px;color:#64748b}.bulkbar button{padding:6px 9px;font-size:12px}.bulkbar button[hidden]{display:none}
+.cloudpanel{;border:1px solid #dfe6f4;padding:14px;border-radius:12px;margin:14px 0}.cloudpanel h3{margin:0 0 8px;font-size:16px}.cloudpanel .actions{margin-top:8px}.session-title{display:flex;align-items:center;gap:12px}.company-inline{width:auto;min-width:108px;padding:6px 10px;font-size:13px;border-radius:9px}.after-inline{display:flex;align-items:center;justify-content:flex-start;gap:8px;font-size:13px;;}.after-inline input{;;margin:0}.drinks-title{}.sessionhead{margin-bottom:8px}@media(max-width:650px){.company-inline{min-width:95px;padding:5px}.session-title{gap:7px}}
+
+/* 공공기관 신고 포털 · 통계 보고서 디자인 */
+:root{background:#f1f4f8;color:#213752}body{}.app{max-width:1180px}header{background:#193d65;color:white;border-radius:10px;padding:24px 28px;margin-bottom:22px;border-bottom:4px solid #2f6399}header h1{color:#fff;letter-spacing:-.5px}header p{color:#d9e5f2}header .tag{background:#315779;color:#e7f0f9;border-radius:3px}.panel{border-radius:8px;border:1px solid #d6e0eb;box-shadow:0 2px 8px #1a385609}.stats{background:#fff;border:1px solid #d6e0eb;border-radius:8px;;margin-bottom:20px;gap:0}.report-heading{display:flex;align-items:center;gap:12px;padding:0 0 14px;border-bottom:2px solid #193d65}.report-heading h2{}.report-heading p{font-size:11px;margin:4px 0 0}.report-index{background:#193d65;color:#fff;font-size:12px;font-weight:700;padding:8px;border-radius:3px}.report-status{margin-left:auto;background:#eaf0f6;color:#355a79;font-size:11px;padding:5px 8px;white-space:nowrap}.report-table{border:1px solid #d6e0eb;border-top:0}.chartbox{;background:#fff}.chartbox+.chartbox{border-top:1px solid #d6e0eb}.chartrow{grid-template-columns:115px minmax(0,1fr) 145px}.stack{border-radius:3px}.legend-shared{display:flex;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;gap:14px;padding:15px 2px 1px}.legenditem{flex-shrink:0}.nav{border-bottom:2px solid #193d65;padding-bottom:13px}.nav h2{color:#193d65}.day{;}.day.kind-dry{;}.day.kind-solo{;}.day.kind-with{background:#e8effd;border-color:#a6bbea}.day.kind-mixed{background:#f0e5fc;border-color:#c6a9e8}.day.kind-after{;}.day.kind-unknown{}.day.kind-solo .number{color:#885513}.day.kind-with .number{color:#294f9c}.day.kind-mixed .number{color:#71419b}.day.kind-after .number{color:#9f2934}.day.kind-dry .number{}.day .pill{;;;;;font-size:11px}.day .pill .drinkdetail{font-size:10px}.day.selected{}.day.multi-selected{;}.day.today{}.bulkbar button{border-radius:4px}.bulkbar #bulkDry{;;}.session{border-radius:6px}.tag{border-radius:4px}button{border-radius:5px}button.primary{background:#245d98;border-color:#245d98}.session-actions button.primary{background:#245d98!important;border-color:#245d98}.editor>.line{border-bottom:2px solid #193d65;padding-bottom:12px}.editor>.line h2{color:#193d65}
+@media(max-width:650px){header{padding:17px 15px}.stats{}.report-heading h2{font-size:15px}.report-status{font-size:9px}.chartrow{grid-template-columns:75px minmax(0,1fr) 82px;gap:6px}.chartbox{}.day{}.day .pill{font-size:9px}.day .pill .drinkdetail{font-size:9px}.legend-shared{gap:10px}}
+
+.header-eyebrow{font-size:11px;color:#bfd0e2;letter-spacing:.5px;margin-bottom:9px}.chart-period{display:flex;align-items:center;;}.chart-period strong{;color:#29425d;font-weight:500}.chart-period small{margin-left:auto;font-size:12px;color:#78899b}.chart-index{background:#e7edf3;border-radius:4px;color:#52677d;font-size:12px;padding:5px 11px}.chartbox{}.chartbox .stack{}.segment{font-size:11px;overflow:visible;position:relative}.segment:not(:last-child){z-index:1}.segment{min-width:0}.segment:has(+ .segment){overflow:visible}.segment{white-space:nowrap}.segment[style*="width:"]{font-variant-numeric:tabular-nums}.day.today{border:2px dashed #b47b27;box-shadow:none}.day.selected{box-shadow:none}.day.multi-selected{;;box-shadow:inset 0 0 0 1px #fff}.day.today.multi-selected{border:2px dashed #b47b27;}.session-title{flex-wrap:wrap}.after-inline{margin:0 0 0 5px;white-space:nowrap;font-weight:500}.after-inline input{width:16px;height:16px}.sessionhead{align-items:center}
+@media(max-width:650px){.chartbox{}.chart-period{gap:7px;}.chart-period strong{font-size:12px}.chart-period small{font-size:10px}.chart-index{padding:3px 6px;font-size:10px}.chartbox .stack{}.segment{font-size:9px}.after-inline{font-size:11px}}
+
+/* 밀도 높은 보고서 + 둥근 음주 유형 카드 */
+.stats{padding:13px 16px 11px}.report-heading{padding-bottom:9px}.report-heading h2{font-size:17px}.report-heading p{margin-top:2px}.chartbox{padding:11px 14px}.chart-period{margin-bottom:8px;gap:10px}.chart-period strong{font-size:15px}.chartbox .stack{height:30px;border-radius:8px}.legend-shared{padding-top:10px}.day{border-radius:13px!important}.day.kind-solo{;}.day.kind-with,.day.kind-mixed{;}.day.kind-after{;}.day.kind-dry{;}.day.kind-unknown{;border-color:#dfe6ef}.day.kind-with .number,.day.kind-mixed .number{color:#425267}.day .pill{border-radius:9px!important;padding:5px 7px!important;margin:5px 0!important;background:#ffffffa8!important;color:#263b53!important;line-height:1.35}.day.kind-solo .pill{;color:#87540e!important}.day.kind-with .pill,.day.kind-mixed .pill{;color:#415064!important}.day.kind-after .pill{;color:#9f2e3b!important}.day.kind-dry .pill{background:#bfe6ca!important;color:#1b693b!important}.day.kind-unknown .pill{background:transparent!important}.day .pill .drinkdetail{margin-top:3px}.day{min-height:100px;padding:8px}.calendar{gap:6px}
+@media(max-width:650px){.stats{padding:10px 9px}.chartbox{padding:10px 7px}.chart-period{margin-bottom:7px}.chartbox .stack{height:25px}.day{min-height:72px;padding:4px;border-radius:9px!important}.day .pill{padding:3px!important;margin:3px 0!important}.calendar{gap:3px}}
+
+/* 음주일: 옅은 바탕, 선명한 미니블록, 검정 글자 */
+.day.kind-solo{;}.day.kind-with,.day.kind-mixed{;}.day.kind-after{;}.day.kind-solo .number,.day.kind-with .number,.day.kind-mixed .number,.day.kind-after .number{}.day.kind-solo .pill,.day.kind-with .pill,.day.kind-mixed .pill,.day.kind-after .pill{color:#182438!important}.day.kind-solo .pill{background:#f8dcae!important}.day.kind-with .pill,.day.kind-mixed .pill{background:#cbd5e3!important}.day.kind-after .pill{background:#f2b9be!important}.day.kind-after .pill.solo{background:#f8dcae!important}.day.kind-after .pill:not(.after):not(.solo){background:#cbd5e3!important}.day.kind-after .pill.after{}
+
+/* 기존 달력 미니블록 색상 복원, 금주와 동일한 글자 굵기 */
+.day.kind-solo{;border-color:#e8d8bb}.day.kind-with,.day.kind-mixed{;border-color:#dce3ee}.day.kind-after{background:#fff5f5;border-color:#e9d5d7}.day.kind-solo .pill.solo,.day.kind-after .pill.solo{;}.day.kind-with .pill,.day.kind-mixed .pill,.day.kind-after .pill:not(.solo):not(.after){;}.day.kind-after .pill.after{;}.day.kind-solo .pill,.day.kind-with .pill,.day.kind-mixed .pill,.day.kind-after .pill{font-weight:700!important}.day.kind-solo .pill .drinkdetail,.day.kind-with .pill .drinkdetail,.day.kind-mixed .pill .drinkdetail,.day.kind-after .pill .drinkdetail{font-weight:700!important}.day.kind-solo .number,.day.kind-with .number,.day.kind-mixed .number,.day.kind-after .number{;}
+
+/* 달력 1안: 음주일 흰 배경 + 유형별 테두리, 기존 색상 미니블록 */
+.day.kind-solo,.day.kind-with,.day.kind-mixed,.day.kind-after{background:#fff!important}
+.day.kind-solo{}
+.day.kind-with,.day.kind-mixed{}
+.day.kind-after{}
+.day.kind-solo .pill.solo,.day.kind-after .pill.solo{background:#fff0dd!important;color:#17253b!important}
+.day.kind-with .pill,.day.kind-mixed .pill,.day.kind-after .pill:not(.solo):not(.after){background:#edf2f9!important;color:#17253b!important}
+.day.kind-after .pill.after{;}
+.day.kind-solo .pill,.day.kind-with .pill,.day.kind-mixed .pill,.day.kind-after .pill,.day.kind-solo .pill .drinkdetail,.day.kind-with .pill .drinkdetail,.day.kind-mixed .pill .drinkdetail,.day.kind-after .pill .drinkdetail{font-weight:400!important}
+.day.kind-solo .number,.day.kind-with .number,.day.kind-mixed .number,.day.kind-after .number{color:#17253b;font-weight:700}
+.day.kind-dry{;}
+.day.today.kind-solo,.day.today.kind-with,.day.today.kind-mixed,.day.today.kind-after{}
+
+/* 신고 현황 섹션 번호 및 날짜별 금주 표시 */
+.calendar-section-heading{display:flex;align-items:center;gap:12px;padding:0 0 12px;border-bottom:2px solid #193d65;margin-bottom:14px}.calendar-section-heading h2{font-size:17px;color:#193d65}.calendar-section-heading p{font-size:11px;color:#7b8b9e;margin:4px 0 0}.calendar-panel .nav{border-bottom:0;}.dry-date-label{font-size:11px;font-weight:700;color:#17633b;margin-left:7px;vertical-align:middle}.day.kind-after{}.day.today.kind-after{border:3px dashed #d93036!important}.day.kind-after.multi-selected{outline:3px solid #245d98;outline-offset:1px}
+@media(max-width:650px){.calendar-section-heading{gap:8px;margin-bottom:9px}.calendar-section-heading h2{font-size:14px}.calendar-section-heading p{font-size:10px}.dry-date-label{font-size:9px;margin-left:3px}.day.kind-after{border-width:2px!important}}
+
+/* 음주일 테두리는 동석 여부만 반영, 전부 같은 굵기 */
+.day.kind-solo{}.day.kind-with,.day.kind-mixed{}.day.kind-after{border:1px solid #aebbcf!important}.day.today.kind-solo,.day.today.kind-with,.day.today.kind-mixed,.day.today.kind-after{border:2px dashed #b47b27!important}
+/* 금주 미니블록을 날짜 숫자 바로 옆에 배치 */
+.day.kind-dry .number{;align-items:center;gap:7px;flex-wrap:wrap}.day.kind-dry .pill.dry-inline{display:inline-flex;align-items:center;margin:0!important;padding:4px 8px!important;border-radius:8px!important;background:#bfe6ca!important;color:#17633b!important;font-size:11px;font-weight:700!important;line-height:1.25}.day.kind-dry .day-main{}
+@media(max-width:650px){.day.kind-dry .number{gap:3px}.day.kind-dry .pill.dry-inline{font-size:9px;padding:2px 4px!important}}
+
+/* 추가 음주 미니블록은 원래 분홍색 유지, 날짜는 좌상단 고정 */
+.day .pill.after,.day.kind-after .pill.after{background:#ffe0e0!important;color:#a11f2b!important;font-weight:400!important}
+.day-main{display:flex!important;flex-direction:column;align-items:stretch;justify-content:flex-start!important;height:100%;text-align:left}
+.day .number{align-self:flex-start;flex-shrink:0;margin-top:0;margin-bottom:6px}
+.day.kind-dry .number{}
+
+/* 오늘은 테마 네이비, 금주 미니블록은 날짜 아래 중앙 영역으로 복귀 */
+.day.today,.day.today.kind-solo,.day.today.kind-with,.day.today.kind-mixed,.day.today.kind-after,.day.today.kind-dry,.day.today.kind-unknown{}
+.day.kind-dry .number{;align-self:flex-start!important;}.day.kind-dry .pill.dry{display:block!important;width:100%;margin:5px 0!important;padding:5px 7px!important;;;border-radius:9px!important;}
+
+/* 월간 신고 현황의 하위 섹션: 날짜별 상세 신고 */
+.detail-subsection[hidden]{display:none!important}
+.calendar-panel{overflow:hidden}.detail-subsection{margin-top:20px;padding-top:16px;border-top:1px solid #d7e2ed}.detail-subheading{display:flex;align-items:center;gap:9px;margin-bottom:10px;font-size:12px;font-weight:700;color:#315a84}.detail-marker{width:4px;height:17px;border-radius:3px;background:#315a84}.calendar-panel .editor{background:#f3f7fc;border:1px solid #d9e5f2;border-radius:8px;padding:17px 18px;margin:0;box-shadow:none}.calendar-panel .editor .line{border-bottom:1px solid #b7cbe1;padding-bottom:10px}.calendar-panel .editor .line h2{font-size:19px}.calendar-panel .editor .muted{margin-top:11px}.day.kind-dry .pill.dry{margin-top:auto!important;margin-bottom:auto!important;flex-shrink:0}.day.kind-dry .day-main{display:flex!important;flex-direction:column;align-items:stretch;justify-content:flex-start!important}.day.kind-dry .number{margin-bottom:0!important}
+@media(max-width:650px){.detail-subsection{margin-top:13px;padding-top:12px}.calendar-panel .editor{padding:12px 10px}.calendar-panel .editor .line h2{font-size:16px}.detail-subheading{font-size:11px}}
+
+/* 오늘: 네이비 배지 + 짙은 네이비 테두리, 선택: 별도 블루 테두리 */
+.day.today,.day.today.kind-solo,.day.today.kind-with,.day.today.kind-mixed,.day.today.kind-after,.day.today.kind-dry,.day.today.kind-unknown{}
+.day .number{display:flex!important;align-items:center;gap:6px;flex-wrap:wrap}.today-badge{display:inline-flex;align-items:center;border-radius:99px;;;font-size:10px;line-height:1.4;padding:2px 7px;font-weight:700}.day.multi-selected,.day.selected.multi-selected{;}.day.today.multi-selected{;}.day.selected:not(.multi-selected){outline:none!important;box-shadow:none!important}.day.kind-dry .number{display:flex!important}
+
+/* 선택 툴바의 높이를 상시 확보해 달력 위치 고정 */
+.bulkbar{min-height:35px;align-content:center;margin-bottom:12px}.bulkbar:has(#bulkDry:not([hidden])){min-height:35px}
+
+/* 날짜 선택 툴바를 압축하고 달력과의 간격 최소화 */
+.calendar-panel .nav{margin-bottom:4px!important;padding-bottom:4px!important}
+.calendar-panel .bulkbar{min-height:28px!important;height:28px!important;margin:0 0 3px!important;padding:0!important;gap:5px!important;align-content:center!important;align-items:center!important;flex-wrap:nowrap!important;overflow:hidden}
+.calendar-panel .bulkbar button{padding:3px 8px!important;font-size:11px!important;line-height:18px!important;border-radius:5px!important;white-space:nowrap}
+.calendar-panel .bulkbar #bulkHint{font-size:11px;white-space:nowrap}
+.calendar-panel .weekday{padding-top:4px!important;padding-bottom:4px!important}
+@media(max-width:650px){.calendar-panel .bulkbar{gap:3px!important}.calendar-panel .bulkbar button{font-size:10px!important;padding:3px 5px!important}.calendar-panel .bulkbar #bulkHint{font-size:10px}}
+
+/* 신고서 입력 열 제목 및 공동 음주 인원 안내 */
+.drink-columns{display:grid;grid-template-columns:1.2fr 1.4fr .65fr 78px auto;gap:7px;margin:9px 0 0;color:#64748b;font-size:11px;font-weight:700;align-items:end}.drink-columns span{}.drink-columns span:nth-child(4){}.share-help{font-size:11px;color:#64748b;margin:4px 0 10px;line-height:1.6}.session-actions{;flex-wrap:nowrap!important;}.session-action-buttons{;;;flex-shrink:0}.filing-status{display:inline-flex;align-items:center;gap:4px;min-width:85px;text-align:left;font-size:12px;color:#64748b;white-space:nowrap}.filing-status.complete{color:#26734d}.filing-status.pending{color:#80612b}
+@media(max-width:650px){.drink-columns{;grid-template-columns:1.2fr 1.4fr .65fr 78px auto;gap:4px}.drink-columns span:nth-child(4){white-space:normal}.session-actions{flex-wrap:wrap!important}.session-action-buttons{margin-left:auto}.filing-status{min-width:0}}
+
+/* 확정 팔레트: 금주만 테마 블루, 추가 음주 미니블록은 기존 분홍 유지 */
+.day.kind-dry{;}.day.kind-dry .number{}.day.kind-dry .pill.dry{;;font-weight:700!important}.day.kind-after .pill.after{background:#ffe0e0!important;color:#a11f2b!important}
+/* 신고 항목 헤더의 접수 상태 및 입력열의 공통 정렬 */
+.drinks-title{;;;;}.drinks-title .filing-status{;min-width:auto}.session-actions{}.drink-columns,.drinkrow{grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,.65fr) minmax(0,.5fr) 54px!important;column-gap:10px!important}.drink-columns{margin-top:8px!important}.drink-columns span{padding-left:0!important}.drink-columns span:nth-child(4){white-space:normal!important}.drinkrow .share-field{min-width:0;display:grid;grid-template-columns:12px minmax(0,1fr);gap:4px;align-items:center}.drinkrow .share-field input{width:100%;min-width:0;box-sizing:border-box}.drinkrow>button{min-width:0}.share-help{margin-top:6px!important}
+@media(max-width:650px){.drink-columns,.drinkrow{grid-template-columns:minmax(0,1.15fr) minmax(0,1.2fr) minmax(0,.55fr) minmax(0,.55fr) 30px!important;column-gap:4px!important}.drink-columns{font-size:9px!important}.drinkrow .share-field{grid-template-columns:8px minmax(0,1fr);gap:1px}.drinkrow .share-field input{padding:6px 1px}.drinkrow>button{padding:6px 2px!important}.drinks-title .filing-status{font-size:11px}}
+
+/* 신고서 열 제목과 입력 컨트롤의 열 너비를 완전히 동일하게 유지 */
+.session{;}
+.session .drink-columns,.session .drinkrow{display:grid!important;;column-gap:var(--drink-gap)!important;width:100%!important;box-sizing:border-box!important;align-items:center}
+.session .drink-columns>span,.session .drinkrow>select,.session .drinkrow>input,.session .drinkrow>.share-field,.session .drinkrow>button{min-width:0!important;max-width:100%!important;width:100%!important;box-sizing:border-box!important;margin-left:0!important;margin-right:0!important}
+.session .drink-columns>span{padding-left:2px!important}.session .drinkrow>.share-field{display:grid!important;grid-template-columns:12px minmax(0,1fr)!important;gap:3px!important}.session .drinkrow>.share-field input{min-width:0!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important}
+.calendar-panel .bulkbar #bulkHint{display:inline-block!important;color:#8b98ac!important;min-width:70px!important}
+@media(max-width:650px){.session{--drink-cols:minmax(0,1.15fr) minmax(0,1.2fr) minmax(0,.55fr) minmax(0,.55fr) 30px;--drink-gap:4px}.session .drinkrow>.share-field{grid-template-columns:8px minmax(0,1fr)!important;gap:1px!important}.calendar-panel .bulkbar #bulkHint{min-width:59px!important}}
+
+/* Compact 신고 입력 행: 열 제목과 입력을 같은 컬럼에 정확히 정렬 */
+.session{--drink-cols:minmax(155px,1.05fr) minmax(180px,1.2fr) minmax(95px,.55fr) minmax(150px,.7fr) 36px;--drink-gap:8px}
+.session .drink-columns,.session .drinkrow{grid-template-columns:var(--drink-cols)!important;gap:var(--drink-gap)!important}
+.session .drinkrow .share-field{grid-template-columns:14px minmax(0,1fr)!important;gap:5px!important;text-align:left!important;justify-items:stretch!important}
+.session .drinkrow .share-field input{text-align:left!important;padding-left:10px!important}
+.session .drinkrow input[data-drink="qty"]{text-align:left!important}
+.session .drink-columns span:nth-child(4){padding-left:0!important}
+.drinks-title{display:flex!important;align-items:center!important;justify-content:flex-start!important;flex-wrap:wrap;gap:7px 15px!important}
+.drinks-title .share-inline-help{;color:#72819a;font-weight:400;line-height:1.4;}
+.drinks-title .filing-status{margin-left:auto!important;flex-shrink:0}
+.session .drinkrow .drink-remove{display:flex!important;align-items:center;justify-content:center;padding:7px!important;width:36px!important;height:36px!important;border:1px solid #d9e2ed!important;border-radius:7px!important;background:#fff!important;color:#7b8799!important;cursor:pointer}
+.session .drinkrow .drink-remove:hover{background:#fff1f2!important;color:#bd3348!important;border-color:#f0b5bd!important}
+@media(max-width:700px){.session{--drink-cols:minmax(0,1.1fr) minmax(0,1.2fr) minmax(0,.65fr) minmax(0,.85fr) 30px;--drink-gap:4px}.session .drinkrow .drink-remove{width:30px!important;height:34px!important;padding:4px!important}.session .drinkrow .share-field{grid-template-columns:9px minmax(0,1fr)!important;gap:2px!important}.session .drinkrow .share-field input{padding-left:4px!important}.drinks-title .share-inline-help{flex-basis:100%;order:3}}
+
+/* 단일 네이비 기반의 공통 UI 색상 체계 */
+:root{--portal-navy:#193d65;--portal-blue:#315f91;--portal-blue-hover:#254c78;--portal-blue-soft:#e7f0fa;--portal-blue-mid:#c9dff3;--portal-blue-border:#9cb9d9;--portal-muted:#647b97}
+button.primary,.session-actions button.primary,.calendar-panel .bulkbar #bulkDry{background:var(--portal-blue)!important;border-color:var(--portal-blue)!important;color:#fff!important}
+button.primary:hover,.session-actions button.primary:hover,.calendar-panel .bulkbar #bulkDry:hover{background:var(--portal-blue-hover)!important}
+.day.multi-selected,.day.selected.multi-selected{;outline-offset:-3px!important;}
+.day.today.multi-selected{outline:2px solid var(--portal-blue)!important;outline-offset:-5px!important}
+.day.today,.day.today.kind-solo,.day.today.kind-with,.day.today.kind-mixed,.day.today.kind-after,.day.today.kind-dry,.day.today.kind-unknown{}
+.today-badge{background:var(--portal-blue-mid)!important;color:var(--portal-navy)!important}
+.day.kind-dry{;border-color:var(--portal-blue-border)!important}.day.kind-dry .pill.dry{;}
+.session-action-buttons{display:flex;align-items:center;justify-content:flex-end;gap:8px}.session-action-buttons .filing-status{margin-right:5px;min-width:82px;justify-content:flex-end;color:var(--portal-muted)}.session-action-buttons .filing-status.complete{color:#26734d}
+@media(max-width:650px){.session-action-buttons{flex-wrap:wrap;justify-content:flex-end}.session-action-buttons .filing-status{min-width:0}}
+
+/* 통일된 보고서 헤더: 인덱스는 회색 배경 대신 네이비 윤곽선 */
+.report-heading .report-index,.calendar-section-heading .report-index{background:transparent!important;color:#193d65!important;border:1px solid #b7c9dd!important;border-radius:6px!important;min-width:37px;min-height:36px;display:inline-flex;align-items:center;justify-content:center;font-weight:700!important;padding:6px 8px!important}
+.report-title-line{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:14px;row-gap:2px}.report-title-line p{margin:0!important;color:#7588a1;font-size:11px!important;font-weight:400}.report-title-line h2{margin:0}
+/* 오늘은 날짜 배지만 표시. 선택한 날짜는 네이비 테두리 2px */
+.day.today,.day.today.kind-solo,.day.today.kind-with,.day.today.kind-mixed,.day.today.kind-after,.day.today.kind-dry,.day.today.kind-unknown{border:1px solid var(--day-border,#dfe5ee)!important}
+.day.today.kind-dry{border-color:#9cb9d9!important}.day.today.kind-solo{border-color:#e4b977!important}.day.today.kind-with{border-color:#b9c5d5!important}
+.day.multi-selected,.day.selected.multi-selected{outline:none!important;box-shadow:none!important;border:2px solid #193d65!important}
+.day.today.multi-selected,.day.today.selected.multi-selected{outline:none!important;box-shadow:none!important;border:2px solid #193d65!important}
+@media(max-width:650px){.report-title-line{column-gap:8px}.report-title-line p{font-size:10px!important}}
+
+/* 번호 표시는 배경 없이 네이비 아웃라인으로 통일 */
+.report-heading > .report-index,.calendar-section-heading > .report-index{;;;;;;}
+
+/* 섹션 번호(상위 01/02)는 기존 네이비 배경으로 복구 */
+.report-heading > .report-index,.calendar-section-heading > .report-index{background:#193d65!important;background-color:#193d65!important;color:#fff!important;border:1px solid #193d65!important;border-radius:4px!important;box-shadow:none!important;font-weight:700!important}
+/* 누적 현황 01/02에만 아웃라인 디자인 적용 */
+.report-table .chart-period .chart-index{background:#fff!important;background-color:#fff!important;color:#193d65!important;border:1px solid #b7c9dd!important;border-radius:6px!important;font-weight:600!important;padding:5px 11px!important}
+
+/* 입력 회차 및 작업 버튼: 조밀한 공공기관 신고서 스타일 */
+.session-count{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;background:#e7f0fa;color:#193d65;border-radius:5px;padding:5px 9px;font-size:12px;font-weight:700;line-height:1.35}
+.calendar-panel .editor button[data-add-drink],.calendar-panel .editor button[data-delete-session],.calendar-panel .editor #saveDay,.calendar-panel .editor #cancelDay{font-size:12px!important;line-height:1.4!important;padding:6px 10px!important;border-radius:6px!important;min-height:0!important;min-width:0!important}
+.calendar-panel .editor button[data-delete-session]{font-size:11px!important;padding:5px 9px!important}
+/* 월 이동은 테두리 없는 아이콘, 현재 월 복귀는 간결한 아웃라인 */
+.calendar-panel .nav .month-arrow{display:inline-flex!important;align-items:center;justify-content:center;width:32px;height:32px;padding:5px!important;background:transparent!important;border:1px solid transparent!important;color:#193d65!important;border-radius:7px!important}
+.calendar-panel .nav .month-arrow:hover{background:#e7f0fa!important}
+.calendar-panel .nav .month-current{padding:6px 10px!important;font-size:12px!important;border:1px solid #b7c9dd!important;color:#193d65!important;border-radius:6px!important;background:#fff!important}
+.calendar-panel .nav>div{display:flex;align-items:center;gap:3px}
+/* 0일 선택 시에만 금주 안내, 달력은 선택 상태와 무관하게 같은 높이 */
+.calendar-panel .bulkbar #bulkHelp{font-size:10px;color:#788aa1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.calendar-panel .bulkbar #bulkHelp[hidden]{display:none!important}
+@media(max-width:650px){.calendar-panel .bulkbar #bulkHelp{font-size:9px}.calendar-panel .nav .month-arrow{width:28px;height:28px}}
+
+/* Compact pill-shaped filing controls and consistent administrative palette */
+.calendar-panel .editor button[data-add-drink],.calendar-panel .editor button[data-delete-session],.calendar-panel .editor #saveDay,.calendar-panel .editor #cancelDay,.records-admin button{height:32px!important;min-height:32px!important;padding:5px 12px!important;border-radius:999px!important;font-size:12px!important;font-weight:500!important;line-height:20px!important;white-space:nowrap}
+.calendar-panel .editor button[data-delete-session]{display:inline-flex;align-items:center;gap:5px;border:1px solid #c5303e!important;background:transparent!important;color:#b42335!important}
+.calendar-panel .editor #saveDay{;;color:#fff!important}
+.calendar-panel .editor #cancelDay,.calendar-panel .editor button[data-add-drink]{background:#fff!important;border-color:#bdcadb!important;color:#193d65!important}
+.calendar-panel .editor input[data-field="note"]::placeholder{font-size:12px!important;color:#8997aa;opacity:1}
+.calendar-panel .editor input[data-field="note"]{font-size:14px!important}
+.calendar-panel .bulkbar #bulkDry:disabled{opacity:.42;cursor:not-allowed;background:#a5b1c0!important;border-color:#a5b1c0!important}
+.records-admin-heading{display:flex;align-items:baseline;gap:15px;flex-wrap:wrap;border-bottom:2px solid #193d65;padding-bottom:12px;margin-bottom:12px}
+.records-admin-heading h2{font-size:20px;color:#193d65}
+.records-admin-heading>span{font-size:12px;color:#6e819b}
+.records-admin .cloudpanel{background:#F4F6F9;border:none;border-radius:10px;padding:16px;margin:12px 0}
+.records-admin .cloud-heading{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.records-admin .cloud-heading h3{display:flex;align-items:center;gap:8px;color:#193d65;font-size:15px;margin:0}
+.records-admin .cloud-connection{color:#217b45;background:#e3f4e9;padding:4px 9px;border-radius:999px;font-size:11px;font-weight:600}
+.records-admin .cloud-connection[hidden]{display:none!important}
+.records-admin .actions{justify-content:flex-start;gap:8px;flex-wrap:wrap}
+.records-admin #cloudStatus{font-size:12px;margin:10px 0}
+.records-admin #logout,.records-admin #syncNow,.records-admin #export,.records-admin #importBtn{border:1px solid #bdcadb!important;color:#193d65!important;background:#fff!important}
+.records-admin .cloud-signout-help,.records-admin .backup-help{font-size:11px;color:#788aa1;margin:9px 0 0}
+.records-admin .cloud-signout-help{display:none}
+.records-admin .cloudpanel:has(#logout:not([hidden])) .cloud-signout-help{display:block}
+.records-admin .records-backup{margin-top:12px}
+@media(max-width:650px){.records-admin-heading{gap:5px}.records-admin .cloudpanel{padding:12px}}
+
+/* Unified reporting palette: semantic tokens are the sole source of active status colors. */
+:root{
+ --ui-navy:#193D65;--ui-blue:#315F91;--ui-blue-soft:#E7F0FA;--ui-blue-border:#9CB9D9;
+ --ui-text:#233047;--ui-muted:#64748B;--ui-canvas:#F5F7FB;--ui-border:#DCE3EE;
+ --solo-main:#D7A334;--solo-border:#E8CA88;--solo-chip:#FFF1D5;--solo-bg:#FFFBF3;
+ --with-main:#3D9489;--with-border:#A4D2CB;--with-chip:#E4F4F1;--with-bg:#F3FAF8;
+ --after-main:#C54B55;--after-border:#E9ADB3;--after-chip:#FFF0F1;--after-bg:#FFF8F8;
+ --dry-main:#41618F;--dry-border:#A7BBDD;--dry-chip:#D0E0F3;--dry-bg:#EAF1FA;
+ --unknown-main:#B7C0CE;--unknown-border:#DCE3EE;--unknown-chip:#E8EDF4;--unknown-bg:#F5F7FB;
+}
+body{background:var(--ui-canvas)}
+.day.kind-dry{background:var(--dry-bg)!important;border:1px solid var(--dry-border)!important}
+.day.kind-dry .number{color:var(--ui-navy)!important;font-weight:700}
+.day.kind-dry .pill.dry{background:var(--dry-chip)!important;color:var(--ui-navy)!important;font-weight:700}
+.day.kind-solo{background:#fff!important;border:1px solid var(--solo-border)!important}
+.day.kind-with,.day.kind-mixed{background:#fff!important;border:1px solid var(--with-border)!important}
+.day.kind-solo .pill.solo{background:var(--solo-chip)!important;color:var(--ui-text)!important;font-weight:400!important}
+.day.kind-with .pill:not(.after),.day.kind-mixed .pill:not(.after){background:var(--with-chip)!important;color:var(--ui-text)!important;font-weight:400!important}
+.day .pill.after{;;font-weight:400!important}
+.day.kind-solo .number,.day.kind-with .number,.day.kind-mixed .number{color:var(--ui-text)!important;font-weight:700}
+.day.kind-unknown{background:#fff!important;border:1px solid var(--unknown-border)!important}
+.day.kind-unknown .pill.unknown{color:var(--ui-muted)!important;background:transparent!important}
+.day.today,.day.today.kind-solo,.day.today.kind-with,.day.today.kind-mixed,.day.today.kind-dry,.day.today.kind-unknown{border-width:1px!important;border-style:solid!important;box-shadow:none}
+.day.selected,.day.selected.kind-dry,.day.selected.kind-solo,.day.selected.kind-with,.day.selected.kind-mixed,.day.selected.kind-unknown{}
+.day.multi-selected{;}
+.day .pill .drinkdetail{font-weight:400!important}
+.bulkbar #bulkDry{background:var(--ui-blue)!important;border-color:var(--ui-blue)!important;color:#fff!important}
+.bulkbar #bulkClear{border-color:var(--ui-blue-border)!important;color:var(--ui-navy)!important;background:#fff!important}
+.bulk-done{font-size:12px;color:var(--ui-blue);font-weight:600}
+.bulk-done[hidden]{display:none!important}
+.session.solo{border-left-color:var(--solo-main)!important}
+.session:not(.solo){border-left-color:var(--with-main)!important}
+.session:has(.after-inline input:checked){border-left-color:var(--after-main)!important}
+.calendar-panel .editor #saveDay{background:var(--ui-navy)!important;border-color:var(--ui-navy)!important}
+.stack .segment,.stack .segment.light{color:#fff!important;text-shadow:none!important;font-weight:700!important}
+
+/* Reporting UI refinements — reuse semantic tokens throughout. */
+.drinks-title{margin:5px 0 6px!important;min-height:0!important}
+.drinks-title .share-inline-help{flex:1 1 auto!important;font-size:11px!important}
+#addSession.compact-add-session{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:auto!important;max-width:max-content!important;min-height:32px!important;height:32px!important;padding:5px 14px!important;border-radius:999px!important;background:#fff!important;color:var(--ui-navy)!important;border:1px solid var(--ui-blue-border)!important;font-size:12px!important;font-weight:500!important;box-shadow:none!important;margin-top:9px!important}
+#addSession.compact-add-session:hover{background:var(--ui-blue-soft)!important}
+.session-actions button{height:32px!important;min-height:32px!important;padding:5px 13px!important;border-radius:999px!important;font-size:12px!important}
+[data-delete-session]{border:1px solid var(--after-main)!important;color:var(--after-main)!important;background:transparent!important;border-radius:999px!important;font-size:12px!important;min-height:32px!important;padding:5px 12px!important}
+[data-delete-session]:hover{background:var(--after-bg)!important}
+.drinkrow .drink-remove{color:var(--after-main)!important}
+.drinkrow .drink-remove:hover{background:var(--after-bg)!important;border-color:var(--after-border)!important;color:var(--after-main)!important}
+.day .pill.after{;}
+.legenditem .dot.after{background:var(--after-main)!important}
+.records-admin .actions button{height:32px!important;min-height:32px!important;padding:5px 13px!important;font-size:12px!important;border-radius:999px!important}
+
+/* B-3 semantic palette and non-shifting selection */
+.day.selected,.day.selected.kind-dry,.day.selected.kind-solo,.day.selected.kind-with,.day.selected.kind-mixed,.day.selected.kind-unknown{box-shadow:inset 0 0 0 1px var(--ui-navy)!important;border-width:1px!important;box-sizing:border-box!important}
+.day.multi-selected{outline:1px solid var(--ui-navy)!important;outline-offset:-1px!important;box-sizing:border-box!important}
+.day .pill.after{background:var(--after-chip)!important;color:var(--after-main)!important}
+.drink-add-line{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:7px;margin-bottom:9px}
+.drink-add-line [data-add-drink]{margin:0!important;flex-shrink:0}
+.drink-add-line .share-inline-help{font-size:11px;color:var(--ui-muted);line-height:1.45}
+
+.chart-period .chart-accent{display:block;flex:0 0 3px;width:3px;height:19px;background:var(--ui-navy);border-radius:99px}
+
+/* C — national statistics/reporting system header */
+header.system-header{display:block;background:#203D65;border:0;border-radius:16px;padding:25px 26px 23px;color:#fff;margin-bottom:22px;box-shadow:none}
+.system-header-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.system-header-name h1{font-size:27px;letter-spacing:-.6px;line-height:1.3;color:#fff}
+.system-header .header-eyebrow{font-size:11px;color:#C6D6E9;letter-spacing:.2px;margin:0 0 9px}
+.system-code{flex-shrink:0;border:1px solid #8BA5C2;color:#E0EAF6;border-radius:6px;padding:5px 10px;font-size:12px;line-height:1.3}
+.system-header-rule{height:1px;background:#7893B2;;opacity:.85}
+.system-header-message p{margin:0;color:#fff;font-size:16px;line-height:1.5}
+.system-header-message .system-header-caution{color:#AFC3DC;font-size:13px;margin-top:8px}
+@media(max-width:550px){header.system-header{padding:20px 18px}.system-header-name h1{}.system-code{font-size:10px;padding:5px 7px}.system-header-message p{font-size:14px}}
+
+.system-header-brand{display:flex;align-items:center;gap:14px;min-width:0}
+.system-header-emblem{width:44px;height:44px;flex:0 0 44px;border:1px solid #819BB9;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#EAF2FC}
+@media(max-width:550px){.system-header-brand{gap:10px}.system-header-emblem{width:40px;height:40px;flex-basis:40px}.system-header-emblem svg{width:23px;height:23px}}
+
+.system-account{display:flex;flex-direction:column;align-items:flex-end;;min-width:0}.header-identity{display:flex;flex-direction:column;align-items:flex-end;;text-align:right}.header-identity[hidden]{display:none!important}.header-person{color:#fff;font-size:12px;font-weight:600}.header-online{display:flex;align-items:center;gap:6px;color:#C1D8EA;font-size:11px}.header-online-dot{height:6px;width:6px;border-radius:50%;background:#77D5A7}.header-email{color:#B6CAE2;;max-width:240px;overflow-wrap:anywhere}.records-admin #editReporter{border:1px solid #bdcadb!important;color:#193d65!important;background:#fff!important;height:32px!important;padding:5px 13px!important;border-radius:999px!important;font-size:12px!important}@media(max-width:550px){.system-header-top{align-items:flex-start}.system-header-brand{min-width:0}.system-header-name h1{font-size:20px}.system-account{flex:0 0 auto}.header-email{max-width:120px}}
+
+.header-reporter-edit{display:flex;align-items:center;justify-content:flex-end;;background:transparent!important;border:0!important;color:#fff!important;padding:2px 0!important;font-size:12px!important;font-weight:600!important;line-height:1.5;flex-wrap:wrap;text-align:right}.header-reporter-edit:hover .header-edit-icon{opacity:1}.header-edit-icon{opacity:.65}.header-online-label{color:#C1D8EA;font-weight:400;font-size:11px}.header-reporter-edit .header-online-dot{flex:0 0 6px}.records-admin #editReporter[hidden]{display:none!important}
+
+.header-guest-label{font-size:12px;font-weight:600;color:#C1D8EA;white-space:nowrap}
+/* Compact A header: single-line identity and status dot */
+header.system-header{padding-top:20px;padding-bottom:20px}
+.system-account{gap:5px}
+.header-identity{gap:3px}
+.system-header-rule{margin:17px 0 17px}
+.header-reporter-edit{gap:6px;white-space:nowrap}
+.header-reporter-edit .header-online-dot{display:inline-block;width:6px;height:6px;min-width:6px;background:#77D5A7;border-radius:50%}
+.header-email{font-size:10px;line-height:1.3}
+@media(max-width:550px){header.system-header{padding-top:17px;padding-bottom:17px}.system-account{gap:4px}.header-reporter-edit{white-space:normal}.system-header-rule{margin:15px 0}}
+
+.reporter-dialog{border:1px solid #DCE3EE;border-radius:12px;padding:0;width:min(400px,calc(100vw - 32px));max-width:calc(100vw - 32px);box-shadow:0 20px 70px #142B4860;color:#233047;background:#fff}.reporter-dialog::backdrop{background:#0F223A99}.reporter-form{padding:23px;display:flex;flex-direction:column;gap:11px}.reporter-form h2{font-size:19px;color:#193D65;margin:0}.reporter-form p{font-size:12px;margin:0;color:#64748B}.reporter-form label{font-size:13px}.reporter-form input{width:100%}.reporter-dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}.reporter-dialog-actions button{border-radius:999px;padding:8px 18px;font-size:13px}.reporter-dialog-actions #reporterSave{background:#193D65;color:white;border-color:#193D65}.reporter-form .reporter-error{color:#B42335;font-size:12px}.reporter-form .reporter-error[hidden]{display:none!important}
+.trend-report{margin-top:18px}.trend-report .stats{}.trend-report .extra-analysis{}.trend-report .report-heading{border-bottom:0}.strength-section-heading{margin:22px 0 14px;border-left:3px solid #193d65;padding:8px 0 8px 14px}.strength-section-heading h2{font-size:18px;color:#193d65;margin:0}.trend-report .analysis-heading h3{}.trend-report .report-heading h2{font-size:18px}.trend-report .records-admin-heading{margin-bottom:0}.extra-analysis{margin-top:18px}.weekly-report-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}.analysis-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.analysis-metric{background:#F1F3F6;border-radius:10px;padding:14px;min-width:0}.analysis-metric-label{font-size:12px;color:#687587}.analysis-metric-value{font-size:22px;font-weight:750;color:#193D65;margin-top:9px;word-break:keep-all}.analysis-metric-value small{font-size:12px;font-weight:500;margin-left:2px}.analysis-overall-status{margin:9px 0 0}.trend-stack i{display:flex!important;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;font-style:normal;text-shadow:0 1px 2px #0005;white-space:nowrap}.analysis-metric-status{font-size:11px;color:#718096;margin:9px 0 0}.trend-stack{width:min(62px,85%);display:flex;flex-direction:column-reverse;overflow:hidden;border-radius:5px 5px 0 0}.trend-stack i{display:block;width:100%;min-height:0}.trend-legend{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px;font-size:11px;color:#52637A}.trend-legend span{display:inline-flex;align-items:center;gap:5px}.trend-legend b{display:inline-block;width:10px;height:10px;border-radius:2px}.analysis-dashboard{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}.analysis-dashboard .analysis-heading{margin-top:0}.analysis-trend{min-width:0}.trend-chart{border:1px solid #DCE3EE;border-radius:10px;padding:15px;background:#F9FBFE}.trend-bars{display:flex;align-items:flex-end;justify-content:space-around;gap:12px;height:205px;padding:15px 5px 0;border-bottom:1px solid #C6D1DF}.trend-col{height:100%;min-width:0;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px}.trend-bar{width:min(62px,85%);background:#315F91;border-radius:5px 5px 0 0;min-height:2px}.trend-value{font-size:11px;font-weight:700;color:#193D65;white-space:nowrap}.trend-months{display:flex;justify-content:space-around;gap:12px;margin:9px 5px 0;text-align:center}.trend-months span{flex:1;font-size:12px;color:#52637A}.trend-chart .analysis-note{margin:12px 0 0}@media(max-width:720px){.analysis-dashboard{grid-template-columns:minmax(0,1fr)}.trend-bars{height:160px}}.day.kind-over{box-shadow:inset 0 0 0 2px #C74B55}.day.kind-over.selected{box-shadow:inset 0 0 0 2px #C74B55,0 0 0 2px #315F91}.over-day-badge{font-size:10px;font-weight:700;color:#B93F4C;border:1px solid #E9B8BF;background:#FFF1F2;border-radius:4px;padding:1px 4px;margin-left:4px}.weekly-report{border:1px solid #DCE3EE;border-radius:10px;padding:15px;background:#F9FBFE}.weekly-report-top{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;color:#193D65}.weekly-report-top small{color:#718096;font-size:11px}.weekly-report-main{font-size:14px;margin:19px 0;color:#193D65;line-height:1.5}.weekly-report-main strong{font-size:25px}.weekly-report-stats{display:flex;flex-direction:column;gap:7px;font-size:12px}.weekly-report-stats span{display:flex;justify-content:space-between;gap:8px}.weekly-report-stats b{color:#193D65}.weekly-report-stats b small{font-size:11px;font-weight:500}.analysis-left .weekly-report{min-height:225px}.analysis-left .analysis-overall-status{padding-left:2px}@media(max-width:550px){.weekly-report-grid{grid-template-columns:1fr}}.month-summary{font-size:13px;color:#52637A;margin:12px 0 14px;line-height:1.7}.month-summary strong{color:#193D65}.month-summary .summary-over{color:#B93F4C}.month-summary .summary-warning{font-size:11px;color:#8A6471}.analysis-period-switch{display:inline-flex;gap:3px;background:#EEF2F7;border-radius:8px;padding:3px}.analysis-period-switch button{border:0;background:transparent;color:#617189;padding:6px 10px;font-size:11px;border-radius:6px;cursor:pointer}.analysis-period-switch button[aria-pressed="true"]{background:#fff;color:#193D65;font-weight:700;box-shadow:0 1px 4px #2330471A}.analysis-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:20px 0 12px;border-left:3px solid #193D65;padding-left:10px}.analysis-heading:first-child{margin-top:0}.analysis-heading h3{font-size:15px;margin:0;color:#193D65}.analysis-heading small,.analysis-note{font-size:11px;color:#718096}.analysis-week-row{display:grid;grid-template-columns:25px 1fr 42px 45px;gap:10px;align-items:center;margin:9px 0;font-size:12px}.analysis-week-row small{color:#718096;text-align:right}.analysis-track{height:11px;background:#EDF2F8;border-radius:4px;overflow:hidden}.analysis-track i,.analysis-month-track i{display:block;background:#315F91;border-radius:4px;height:100%}.analysis-months{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px}.analysis-month{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px}.analysis-month-track{height:95px;width:100%;max-width:50px;background:#EDF2F8;border-radius:5px;display:flex;align-items:flex-end;overflow:hidden}.analysis-month-track i{width:100%;height:0}.analysis-month small{font-size:10px;color:#718096}.analysis-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.analysis-summary>div{background:#F5F7FB;padding:12px;border-radius:9px;font-size:12px}.analysis-summary strong{display:block;font-size:23px;color:#193D65;margin:6px 0}.analysis-summary small{font-size:11px;color:#718096}.limit-settings{border-top:1px solid #DCE3EE;padding-top:13px;margin-top:16px}.limit-settings summary{cursor:pointer;color:#193D65;font-weight:700;font-size:13px}.limit-settings p{font-size:12px}.limit-rows{display:grid;gap:8px;margin:13px 0}.limit-row{display:grid;grid-template-columns:minmax(110px,1fr) 80px minmax(110px,1fr);gap:8px;align-items:center;font-size:12px}.limit-row input,.limit-row select{width:100%;min-width:0;padding:7px;font-size:12px}.limit-settings button{background:#193D65;color:#fff;border-color:#193D65;border-radius:999px;font-size:12px}@media(max-width:550px){.analysis-heading{flex-wrap:wrap}.limit-row{grid-template-columns:90px 65px minmax(90px,1fr)}.analysis-months{gap:4px}.analysis-month small{font-size:9px}}.trend-report .stats{margin-top:24px}.trend-report .extra-analysis{margin-top:26px;padding-top:24px;border-top:1px solid #D9E2EE}.analysis-subsection-title{display:flex;align-items:center;gap:12px;margin:0 0 16px}.analysis-subsection-title h2{;font-weight:700;color:#193D65;margin:0}.analysis-subsection-number{font-size:12px;font-weight:700;color:#62748E;background:#EEF2F7;border-radius:5px;padding:5px 8px;white-space:nowrap}.frequency-chart-frame{;;;}.frequency-chart-frame .report-table{;;overflow:hidden}.frequency-chart-frame .legend-shared{}.trend-report .charttitle,.trend-report .analysis-heading{border-left:0!important;box-shadow:none!important;padding-left:0!important}.trend-report .charttitle::before,.trend-report .analysis-heading::before{display:none!important}.trend-report .charttitle strong{font-size:14px;font-weight:650}.trend-report .analysis-heading h3{font-size:15px}.trend-report .analysis-dashboard{}.trend-report .analysis-left,.trend-report .analysis-trend{;flex-direction:column;}.trend-report .weekly-report-grid,.trend-report .trend-chart{}.trend-report .analysis-overall-status{margin-top:10px}/* Analysis layout refinements: no redundant outer frame, aligned subtitles, compact summary */
+.frequency-chart-frame{border:0;border-radius:0;padding:0;background:transparent}
+.frequency-chart-frame .report-table{border:1px solid #D6E0EB;border-radius:9px}
+.frequency-chart-frame .legend-shared{padding:13px 2px 0}
+.trend-report .analysis-dashboard{align-items:start}
+.trend-report .analysis-left,.trend-report .analysis-trend{display:block;min-width:0}
+.trend-report .weekly-report-grid,.trend-report .trend-chart{flex:none}
+.trend-report .analysis-dashboard .analysis-heading{min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 10px;padding:0!important}
+.trend-report .analysis-dashboard .analysis-heading h3{margin:0;font-size:15px;}
+.trend-report .analysis-left .weekly-report{min-height:0;height:auto;padding:15px}
+.trend-report .weekly-report-main{margin:14px 0}
+.trend-report .weekly-report-stats{margin-bottom:0}
+.trend-report .analysis-trend .trend-chart{height:auto}
+@media(max-width:720px){.trend-report .analysis-dashboard .analysis-heading{min-height:0}}
+/* Consistent analysis hierarchy: subsection frames only around actual charts */
+.trend-report .frequency-chart-frame{border:0!important;box-shadow:none!important;border-radius:0!important;background:transparent!important;padding:0!important}
+.trend-report .frequency-chart-frame .report-table{border:1px solid #D6E0EB;border-radius:9px}
+.purpose-section{margin:18px 0;background:#fff;border:1px solid #D9E2EE;border-radius:10px;padding:17px 20px}
+.purpose-section .calendar-section-heading{margin-bottom:10px;padding-bottom:10px}
+.purpose-section .purpose-copy{margin:0;color:#40536D;font-size:14px;line-height:1.8}
+@media(max-width:600px){.purpose-section{padding:14px}}
+/* Remove the actual outer 2-1 border, which belongs to .stats (not .frequency-chart-frame). */
+.trend-report .stats{border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;padding:0!important}
+.analysis-subsection-purpose{font-size:12px;font-weight:400;color:#8390A4;margin-left:5px;white-space:normal}
+@media(max-width:550px){.analysis-subsection-title{flex-wrap:wrap}.analysis-subsection-purpose{margin-left:0}}
+.pledge-form[hidden],.pledge-display[hidden]{display:none!important}.pledge-panel{;border-radius:9px;padding:14px 16px;margin-top:17px}.pledge-heading,.pledge-display,.pledge-form{display:flex;align-items:center;gap:10px}.pledge-heading{justify-content:space-between;margin-bottom:9px}.pledge-heading strong{font-size:13px;color:#263E5D}.pledge-heading span{font-size:11px;color:#7A889B}.pledge-display{justify-content:space-between}.pledge-display>span{font-size:14px;color:#243A55;overflow-wrap:anywhere}.pledge-display .pledge-placeholder{color:#8A97A8}.pledge-display button,.pledge-form button{font-size:12px;white-space:nowrap;padding:7px 11px}.pledge-form input{min-width:0;flex:1;font-size:14px}.pledge-feedback{margin:5px 0 0;font-size:11px;color:#6C7E93}.pledge-feedback:empty{display:none}@media(max-width:550px){.pledge-form{flex-wrap:wrap}.pledge-form input{flex-basis:100%}}/* Restore matching navy accent bars for both 2-2 chart subheadings, as in 2-1. */
+.trend-report .analysis-dashboard .analysis-heading h3{border-left:3px solid #193D65!important;padding-left:12px!important;line-height:1.55}
+/* Keep monthly totals on the left and multi-select actions on the right. */
+.calendar-panel .calendar-summary-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0 14px;flex-wrap:wrap}
+.calendar-panel .calendar-summary-actions .month-summary{margin:0;;min-width:0}
+.calendar-panel .calendar-summary-actions .bulkbar{;;gap:8px;flex:0 0 auto}
+@media(max-width:700px){.calendar-panel .calendar-summary-actions .month-summary{}.calendar-panel .calendar-summary-actions .bulkbar{;}}
+.session .drink-volume-guide{font-size:11px;color:#718198;margin:8px 0 4px;line-height:1.6}.session .other-abv-field{display:flex;align-items:center;gap:5px;font-size:12px;color:#52637A;white-space:nowrap;grid-column:1/-1}.session .other-abv-field input{width:72px;min-width:0;padding:6px;font-size:12px}/* Calendar controls first, monthly totals aligned to the far right. */
+.calendar-panel .calendar-summary-actions .bulkbar{order:0;margin:0 auto 0 0;justify-content:flex-start}
+.calendar-panel .calendar-summary-actions .month-summary{order:1;flex:0 1 auto;text-align:right;margin-left:auto}
+.pledge-actions{display:flex;align-items:center;gap:5px;flex-shrink:0}.pledge-actions button[hidden]{display:none!important}
+@media(max-width:700px){.calendar-panel .calendar-summary-actions .bulkbar{width:100%;justify-content:flex-start;margin:0}.calendar-panel .calendar-summary-actions .month-summary{flex-basis:100%;text-align:right}}
+/* Custom ABV stays inside the type column, so delete controls never wrap. */
+.session .drinkrow .drink-type-cell{min-width:0;display:flex;flex-direction:column;gap:4px}
+.session .drinkrow .drink-type-cell>select{width:100%;min-width:0}
+.session .custom-drinkrow .other-abv-field{grid-column:auto!important;display:flex!important;flex-direction:row;align-items:center;gap:4px;font-size:11px;line-height:1.2;color:#60748f;white-space:nowrap}
+.session .custom-drinkrow .other-abv-field input{width:57px!important;height:27px!important;min-width:0!important;padding:3px 6px!important;font-size:12px!important}
+.session .custom-drinkrow>.drink-remove{;;}
+.session .custom-drinkrow>select,.session .custom-drinkrow>input,.session .custom-drinkrow>.share-field{align-self:start}
+.session .drink-type-cell .other-drink-name{width:100%;min-width:0;padding:6px 8px;font-size:12px;height:31px}.session .custom-drinkrow>.drink-remove{;;}.session .drinkrow.custom-drinkrow{display:grid!important;grid-template-columns:var(--drink-cols,1.2fr 1.4fr .65fr 78px auto)!important;align-items:center!important}.session .custom-drinkrow>.custom-name-cell,.session .custom-drinkrow>.custom-abv-cell,.session .custom-drinkrow>.custom-ml-cell{min-width:0;display:flex;align-items:center;position:relative;margin:0}.session .custom-drinkrow>.custom-name-cell input{padding-right:36px!important}.session .custom-drinkrow>.custom-name-cell .custom-change-type{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:29px;height:29px;padding:0!important;font-size:18px;line-height:1;border:1px solid #d7dfeb;border-radius:7px;background:#f6f8fc;color:#315f91;cursor:pointer}.session .custom-drinkrow>.custom-abv-cell input,.session .custom-drinkrow>.custom-ml-cell input{width:100%;min-width:0;padding-right:37px!important}.session .custom-drinkrow>.custom-abv-cell span,.session .custom-drinkrow>.custom-ml-cell span{position:absolute;right:12px;color:#667994;font-size:12px;pointer-events:none;font-weight:500}.session .custom-drinkrow>.drink-remove{grid-column:5!important;grid-row:1!important;align-self:center!important}.session .custom-drinkrow>.share-field{align-self:center!important}/* Match custom entry typography to standard drink dropdowns. */
+.session .custom-drinkrow input{font-family:inherit!important;font-size:inherit!important;font-weight:400!important;letter-spacing:normal!important;color:#243a55!important}
+.session .custom-drinkrow input::placeholder{font-family:inherit!important;font-size:inherit!important;font-weight:400!important;letter-spacing:normal!important;color:#718198!important;opacity:1}
+.session .custom-drinkrow .custom-name-cell input{font-family:inherit!important;font-size:inherit!important}
+/* Explicit typography parity across custom name, ABV and volume fields. */
+.session .custom-drinkrow .custom-name-cell input,
+.session .custom-drinkrow .custom-abv-cell input,
+.session .custom-drinkrow .custom-ml-cell input{font-family:inherit!important;font-size:16px!important;font-weight:400!important;line-height:1.4!important;letter-spacing:normal!important;color:#243a55!important}
+.session .custom-drinkrow .custom-name-cell input::placeholder,
+.session .custom-drinkrow .custom-abv-cell input::placeholder,
+.session .custom-drinkrow .custom-ml-cell input::placeholder{font-family:inherit!important;font-size:16px!important;font-weight:400!important;line-height:1.4!important;letter-spacing:normal!important;color:#718198!important;opacity:1!important}
+/* Submission guidance sits at left, actions at right. */
+.session-actions{justify-content:space-between!important;gap:14px!important}
+.session-submit-help{display:flex;flex:1 1 320px;min-width:0;flex-direction:column;gap:4px;color:#718198;font-size:11px;line-height:1.5;font-weight:400}
+.session-action-buttons{margin-left:auto;flex:0 0 auto}
+@media(max-width:800px){.session-submit-help{flex-basis:100%}.session-action-buttons{margin-left:auto}}
+/* Match frequency chart container to the intensity analysis cards. */
+.trend-report .report-table{background:#F4F6F9!important}
+.trend-report .report-table .chartbox{background:#F4F6F9!important}
+/* Shared soft-blue surface for pledge, intensity report, and cloud sync. */
+.pledge-panel{background:#F4F6F9!important}
+.cloudpanel{background:#F4F6F9!important}
+.trend-report .trend-chart{}
+/* Match the weekly and monthly intensity chart card surfaces. */
+.trend-report .weekly-report{background:#F4F6F9!important}
+.trend-report .trend-chart{background:#F4F6F9!important}
+.records-admin .cloud-account-info{display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px;margin:8px 0 12px;font-size:12px;color:#687b94}.records-admin .cloud-account-info strong{color:#193d65;font-weight:650;overflow-wrap:anywhere}.records-admin .cloud-account-info[hidden]{display:none!important}
+.missing-date-details{display:inline-block;font-size:12px;color:#536b89}.missing-date-details summary{cursor:pointer;color:#315b8b;font-weight:650;list-style:none;border:1px solid #d5e0ec;border-radius:7px;padding:4px 8px;background:#fff}.missing-date-details summary::-webkit-details-marker{display:none}.missing-date-details[open]{display:block;margin-top:6px}.missing-date-details>div{padding:7px 0;line-height:1.8;overflow-wrap:anywhere}.monthly-missing-row{display:flex;align-items:center;flex-wrap:wrap;gap:7px 12px;margin-top:6px}.monthly-missing-row .missing-date-details[open]{flex-basis:100%}.analysis-overall-status{display:inline-block;margin-right:10px}
+.trend-report .missing-date-details{display:block;width:fit-content;max-width:100%;margin-top:9px;font-size:12px;color:#64748b}.trend-report .missing-date-details summary{display:inline-flex;align-items:center;;cursor:pointer;list-style:none;border:0;background:transparent;padding:0;color:#64748b;font-size:12px;font-weight:500;}.trend-report .missing-date-details summary::-webkit-details-marker{display:none}.trend-report .missing-date-details summary:hover{color:#315b8b}.trend-report .missing-date-details summary:focus-visible{outline:2px solid #a4baff;outline-offset:3px;border-radius:3px}.trend-report .missing-chevron{;font-size:15px;line-height:1;}.trend-report .missing-date-details[open] .missing-chevron{}.trend-report .missing-date-details[open]{margin-top:9px}.trend-report .missing-date-list{padding:6px 0 2px 10px;margin-top:5px;border-left:2px solid #dce4ee;color:#536b89;line-height:1.9;overflow-wrap:anywhere}.trend-report .missing-date-label{font-weight:650;margin-right:7px}.trend-report .monthly-missing-row{display:block;margin-top:0}.trend-report .monthly-missing-row .missing-date-details[open]{margin-top:9px}.trend-report .monthly-missing-notices{margin-top:10px}
+.trend-report .missing-date-details summary{min-height:20px;line-height:20px;gap:7px;vertical-align:middle}.trend-report .missing-chevron{width:14px;height:14px;flex:0 0 14px;display:block;transform:rotate(0deg);transform-origin:center;transition:transform .15s ease}.trend-report .missing-date-details[open] .missing-chevron{transform:rotate(180deg)}.trend-report .missing-date-details[open] summary{min-height:20px}.trend-report .intensity-criteria{margin:6px 0 17px 0;color:#64748b;font-size:12px;line-height:1.6}.trend-report .intensity-criteria p{margin:2px 0;color:inherit;font-size:inherit;line-height:inherit}
+.trend-report .limit-settings{border:none;border-radius:12px;background:#F4F6F9;padding:15px 18px;margin:0 0 10px}
+.trend-report .limit-settings summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;font-size:13px;font-weight:700;color:#193D65}
+.trend-report .limit-settings summary::-webkit-details-marker{display:none}
+.trend-report .limit-settings summary::after{content:"";width:8px;height:8px;flex:0 0 8px;border-right:2px solid #6B7F99;border-bottom:2px solid #6B7F99;transform:rotate(-45deg);transition:transform .15s ease;margin-right:3px}
+.trend-report .limit-settings[open] summary::after{transform:rotate(45deg)}
+.trend-report .limit-settings summary:focus-visible{outline:2px solid #8CA9CF;outline-offset:4px;border-radius:3px}
+.trend-report .limit-settings>p:first-of-type{margin-top:12px}
+.trend-report .weekly-report-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:19px}
+.trend-report .weekly-report-top .weekly-report-main{margin:0;flex:0 1 auto}
+.trend-report .weekly-report-top small{white-space:nowrap;margin-left:auto;font-size:11px}
+@media(max-width:550px){.trend-report .weekly-report-top{align-items:baseline;row-gap:4px}}
+.trend-report .analysis-trend .trend-bars{height:170px;padding-top:4px}
+.calendar-section-heading h2,.records-admin-heading h2{font-size:20px;color:#193d65}
+.analysis-subsection-title h2{font-size:18px}
+.trend-report .limit-method{margin-top:12px;border-top:1px solid #d6e0eb;padding-top:10px}
+.trend-report .limit-method summary{font-size:12px;font-weight:600;color:#526b89;cursor:pointer}
+.trend-report .limit-method summary::after{display:none}
+.trend-report .limit-method .analysis-note{margin-top:9px;line-height:1.7}
+@media(max-width:650px){.calendar-section-heading h2,.records-admin-heading h2{font-size:18px}.analysis-subsection-title h2{font-size:17px}}
+.chartbox .stack{border:1px solid #B7C0CE;box-sizing:border-box;overflow:hidden}
+.stack .segment.segment-unknown{color:#52637A!important;background:#FFFFFF!important;box-shadow:none!important;text-shadow:none!important}
+.stack .segment.segment-unknown:not(:first-child){border-left:1px solid #B7C0CE;box-sizing:border-box}
+.stack .segment:not(:last-child){box-shadow:none}
+.legenditem .dot.dot-unknown{background:#FFFFFF!important;border:1px solid #B7C0CE;box-sizing:border-box}
+.trend-col-button{appearance:none;border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;padding:0;min-width:0}
+.trend-col-button:focus-visible{outline:2px solid #315F91;outline-offset:3px;border-radius:5px}
+.trend-col-button[aria-pressed="true"] .trend-value{text-decoration:underline}
+.trend-month-detail{font-size:12px;line-height:1.6;color:#193D65;text-align:center;background:#E9EFF7;border-radius:7px;padding:9px;margin-top:10px}
+.trend-month-detail[hidden]{display:none}
+.sync-conflict-dialog{border:1px solid #C9D5E3;border-radius:12px;padding:22px;max-width:min(460px,calc(100vw - 28px));color:#233047;box-shadow:0 15px 45px #172D4B33}
+.sync-conflict-dialog::backdrop{background:#15253B80}
+.sync-conflict-dialog h3{margin:0 0 12px;font-size:18px;color:#193D65}
+.sync-conflict-dialog p{font-size:13px;line-height:1.7}
+.sync-conflict-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.sync-conflict-actions button{font-size:12px;padding:9px 11px}
+/* Indent analysis subsections to clarify hierarchy below section 02. */
+.analysis-subsection-title{padding-left:14px;box-sizing:border-box}
+@media(max-width:650px){.analysis-subsection-title{padding-left:14px}}
+.pledge-display>span:not(.pledge-placeholder){font-size:14px;font-weight:400;line-height:1.7;text-align:center;flex:1;white-space:normal}
+.pledge-display>span{transform:translateY(-2px)}
+/* Pledge editing: clearly distinguish save from destructive reset. */
+.pledge-form .pledge-save{background:#193D65;color:#fff;border:1px solid #193D65}
+.pledge-form .pledge-save:hover{background:#285583}
+.pledge-form .pledge-reset{background:#fff;color:#B42332;border:1px solid #D85C68}
+.pledge-form .pledge-reset:hover{background:#FFF0F1}
+/* Conflict resolution: make the two priority choices explicit. */
+.sync-conflict-dialog{width:min(500px,calc(100vw - 28px));max-height:calc(100dvh - 32px);overflow-y:auto}
+.sync-conflict-dialog .conflict-dates{font-size:12px;color:#52657D;overflow-wrap:anywhere}
+.conflict-backup{background:#F4F6F9;padding:12px;border-radius:8px;font-size:13px}
+.conflict-backup .sync-conflict-actions{margin-bottom:0}
+.conflict-choice-list{display:grid;gap:9px}
+.conflict-choice-list button{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:5px;padding:12px;border:1px solid #C9D5E3;border-radius:8px;background:#fff;color:#193D65;cursor:pointer}
+.conflict-choice-list button:hover{background:#F0F5FA;border-color:#193D65}
+.conflict-choice-list small{font-size:12px;line-height:1.5;font-weight:400;color:#52657D}
+.sync-conflict-dialog .conflict-cancel{margin-top:12px;background:transparent;border:0;color:#52657D;text-align:left;font-size:12px;cursor:pointer;padding:6px 0}
+
+/* Clickable agency brand without changing its layout. */
+.system-header-home{color:inherit;text-decoration:none;cursor:pointer}
+.system-header-home:hover{opacity:.88}
+.system-header-home:focus-visible{outline:2px solid #DCE7F5;outline-offset:5px;border-radius:6px}
+/* Center the pledge against the entire panel, independent of its edit button. */
+.pledge-panel{padding-top:12px;padding-bottom:12px}
+.pledge-heading{margin-bottom:3px}
+.pledge-display{position:relative;min-height:38px;justify-content:center;padding:0 88px}
+.pledge-display>span{min-width:0}
+.pledge-display .pledge-actions{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+@media(max-width:550px){.pledge-display{padding:0 66px;min-height:36px}}
+/* Frequency chart: insufficient data empty state */
+.frequency-empty{display:flex!important;align-items:center;justify-content:center;background:#F4F6F9!important;color:#8793A5;font-size:20px;font-weight:400}
+.frequency-empty-note{text-align:center;font-size:12px;color:#78899B;margin:8px 0 2px}
+ .trend-col-empty{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;color:#8290a5;min-height:155px}.trend-empty-caption{font-size:12px;line-height:20px;font-weight:500;white-space:nowrap}.monthly-insufficient-note{text-align:center;font-size:12px;color:#78899b;margin:12px 0}.monthly-missing-row{line-height:1.8}.monthly-missing-row strong{font-weight:600}.monthly-missing-row .missing-date-details{display:block}.monthly-missing-row .missing-date-details summary{display:inline-flex;align-items:center;gap:7px;flex-wrap:wrap}
+ .monthly-missing-row details[data-no-missing="true"] summary{opacity:.45;pointer-events:none;cursor:default}.monthly-missing-row details[data-no-missing="true"] .missing-chevron{display:none}
+/* Consistent position and typography for weekly analysis status, with or without missing days */
+.trend-report .analysis-left .weekly-report-grid > .missing-date-details,
+.trend-report .analysis-left .weekly-report-grid > .analysis-overall-status{display:block;width:fit-content;max-width:100%;margin:12px 0 0;padding:0 0 0 2px;font-size:12px;font-weight:500;line-height:20px;color:#64748b}
+.trend-report .analysis-left .weekly-report-grid > .missing-date-details summary{font-size:inherit;font-weight:inherit;line-height:inherit;color:inherit;padding:0;margin:0}
+/* Shared baseline for monthly record-status rows, including expanded state */
+.trend-report .monthly-missing-row .missing-date-details,
+.trend-report .monthly-missing-row .missing-date-details[open]{margin:0;font-size:12px;line-height:20px;font-weight:500}
+.trend-report .monthly-missing-row .missing-date-details summary{font-size:inherit;line-height:inherit;font-weight:inherit}
+
+/* Mobile-only compact calendar: independent badges preserve overlapping day attributes. */
+.mobile-day-markers{display:none}
+@media(max-width:650px){
+ .calendar-panel .calendar{grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+ .calendar-panel .weekday{padding:7px 0;font-size:11px}
+ .calendar-panel .day:not(.empty){min-width:0;min-height:58px;height:58px;border-radius:9px;overflow:hidden}
+ .calendar-panel .day .day-main{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:5px 1px 6px;gap:3px}
+ .calendar-panel .day .number{display:flex;align-items:center;justify-content:center;font-size:13px;line-height:17px;gap:2px;width:100%}
+ .calendar-panel .day .pill,.calendar-panel .day .over-day-badge,.calendar-panel .day .today-badge{display:none!important}
+ .calendar-panel .day .mobile-day-markers{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2px;min-height:17px;width:100%}
+ .calendar-panel .mobile-marker{display:inline-flex;align-items:center;justify-content:center;min-width:13px;height:15px;border-radius:4px;padding:0 2px;font-size:9px;line-height:1;font-weight:700;color:white}
+ .calendar-panel .mobile-marker.dry{background:#41618f}.calendar-panel .mobile-marker.solo{background:#d7a334}.calendar-panel .mobile-marker.with{background:#3d9489}.calendar-panel .mobile-marker.after{background:#c54b55}.calendar-panel .mobile-marker.over{background:#b42335}.calendar-panel .mobile-marker.unknown{color:#9aa7b8;background:transparent}
+ .calendar-panel .day.kind-over{border-color:#c54b55}
+ .calendar-panel .day.selected{outline:2px solid #193d65;outline-offset:-2px}
+ .calendar-panel .day .dry-toggle{display:none}
+ .calendar-panel .mobile-calendar-legend{display:flex}
+}
+.mobile-calendar-legend{display:none;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 11px;margin:10px 0 4px;color:#64748b;font-size:11px}
+.mobile-calendar-legend span{display:inline-flex;align-items:center;gap:3px}
+.mobile-calendar-legend b{display:inline-flex;align-items:center;justify-content:center;min-width:14px;height:15px;border-radius:4px;font-size:9px;color:#fff}
+
+/* Mobile calendar overflow fix: override legacy desktop cell layout rules. */
+@media(max-width:650px){
+ .calendar-panel .calendar{grid-auto-rows:64px;align-items:stretch}
+ .calendar-panel .calendar .day:not(.empty){height:64px!important;min-height:0!important;max-height:64px!important;padding:0!important;overflow:hidden!important}
+ .calendar-panel .calendar .day .day-main{box-sizing:border-box!important;width:100%!important;height:100%!important;min-height:0!important;max-height:100%!important;padding:5px 2px 6px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:space-between!important;gap:2px!important;overflow:hidden!important}
+ .calendar-panel .calendar .day .number{margin:0!important;padding:0!important;min-height:17px!important;flex:0 0 17px!important;align-self:center!important;justify-content:center!important;flex-wrap:nowrap!important;font-size:13px!important;line-height:17px!important}
+ .calendar-panel .calendar .day .mobile-day-markers{margin:0!important;padding:0!important;min-height:17px!important;max-height:34px!important;flex:0 0 auto!important;align-content:center!important;overflow:hidden!important}
+ .calendar-panel .calendar .day .pill,.calendar-panel .calendar .day .dry-toggle{display:none!important}
+}
+/* Mobile today indicator, independent of drinking status and selection */
+@media(max-width:650px){
+ .calendar-panel .calendar .day.today{position:relative}
+ .calendar-panel .calendar .day.today::after{content:"오늘";position:absolute;right:2px;top:2px;padding:1px 2px;border-radius:3px;background:#193d65;color:#fff;font-size:8px;font-weight:700;line-height:11px;pointer-events:none;z-index:3}
+ .calendar-panel .calendar .day.today .number{padding-right:0!important}
+}
+/* Keep the mobile today label on its own row, never over the date number. */
+@media(max-width:650px){
+ .calendar-panel .calendar .day.today::after{top:23px!important;right:50%!important;transform:translateX(50%);font-size:8px!important;line-height:10px!important;padding:0 3px!important;white-space:nowrap}
+ .calendar-panel .calendar .day.today .day-main{justify-content:space-between!important}
+}
+
+/* ARS v2 — Government service portal visual system.
+   Presentation only: existing storage, auth, reporting and interaction logic are unchanged. */
+:root{--v2-navy:#142f51;--v2-blue:#244c77;--v2-red:#b62d37;--v2-line:#d4dce5;--v2-ink:#182b43;--v2-paper:#fff}
+html{scroll-behavior:smooth;scroll-padding-top:18px}
+body.ars-v2{background:#f5f6f8;color:var(--v2-ink);font-family:"Pretendard Variable","Noto Sans KR","Malgun Gothic",system-ui,sans-serif}
+.ars-v2 .agency-strip{background:#edf0f4;border-bottom:1px solid #d8dfe7;color:#304660;font-size:12px;letter-spacing:-.02em}
+.ars-v2 .agency-strip-inner{max-width:1320px;margin:auto;padding:9px 22px;display:flex;align-items:center;gap:12px}
+.ars-v2 .agency-mark{display:inline-flex;align-items:center;justify-content:center;width:31px;height:24px;background:var(--v2-navy);color:white;font-size:10px;font-weight:800;letter-spacing:.05em}
+.ars-v2 .agency-strip-right{margin-left:auto;color:#65768a;font-size:10px;letter-spacing:.08em}
+.ars-v2 .app{max-width:1320px;padding:0 22px 72px}
+.ars-v2 header.system-header{margin:0!important;padding:31px 30px 27px!important;background:#fff!important;border:0!important;border-radius:0!important;box-shadow:none!important;color:var(--v2-navy)!important}
+.ars-v2 .system-header h1,.ars-v2 header h1{color:var(--v2-navy)!important;font-size:clamp(24px,2.6vw,34px);letter-spacing:-.055em}
+.ars-v2 .system-header .header-eyebrow{color:#6b7c90!important;letter-spacing:.1em;font-size:10px}
+.ars-v2 .system-header p{color:#42566d!important}
+.ars-v2 .system-header .system-header-emblem{background:var(--v2-navy)!important;color:#fff!important;border-radius:3px!important;box-shadow:none!important}
+.ars-v2 .system-header .system-code{background:#edf1f6!important;color:var(--v2-navy)!important;border:1px solid var(--v2-line)!important;border-radius:2px!important}
+.ars-v2 .system-header .system-header-rule{background:#dce2e9!important}
+.ars-v2 .system-header .system-header-message{color:var(--v2-ink)!important}
+.ars-v2 .v2-service-nav{display:flex;align-items:stretch;gap:0;background:var(--v2-navy);border-bottom:3px solid #a62b35;overflow-x:auto;scrollbar-width:thin}
+.ars-v2 .v2-service-nav a{color:#fff;text-decoration:none;padding:17px 24px;font-size:14px;font-weight:700;white-space:nowrap;border-right:1px solid #ffffff1c;transition:background .15s}
+.ars-v2 .v2-service-nav a:hover,.ars-v2 .v2-service-nav a:focus-visible{background:#31577e}
+.ars-v2 .v2-service-nav a[aria-current]{box-shadow:inset 0 -3px #f3b9b8}
+.ars-v2 .purpose-section{margin-top:26px!important}
+.ars-v2 .purpose-section,.ars-v2 .panel,.ars-v2 .stats,.ars-v2 .cloudpanel{background:#fff!important;border:1px solid var(--v2-line)!important;border-radius:3px!important;box-shadow:none!important}
+.ars-v2 .purpose-section,.ars-v2 .panel{padding:24px 28px}
+.ars-v2 .calendar-panel,.ars-v2 .trend-report,.ars-v2 .records-admin{margin-top:22px!important}
+.ars-v2 .calendar-section-heading{border-bottom:1px solid #d8e0e9!important;padding-bottom:15px!important;margin-bottom:20px!important}
+.ars-v2 .calendar-section-heading h2{color:var(--v2-navy)!important;font-size:22px!important;font-weight:800;letter-spacing:-.04em}
+.ars-v2 .report-index{background:var(--v2-navy)!important;border-radius:2px!important}
+.ars-v2 button,.ars-v2 input,.ars-v2 select{border-radius:3px}
+.ars-v2 button.primary,.ars-v2 .session-actions button.primary{background:var(--v2-blue)!important;border-color:var(--v2-blue)!important}
+.ars-v2 button:focus-visible,.ars-v2 input:focus-visible,.ars-v2 select:focus-visible,.ars-v2 a:focus-visible{outline:3px solid #c34b53;outline-offset:2px}
+.ars-v2 .pledge-panel,.ars-v2 .cloudpanel,.ars-v2 .session{border-radius:3px!important;box-shadow:none!important}
+.ars-v2 .day{border-radius:2px!important}
+.ars-v2 .day.selected{outline-color:var(--v2-navy)}
+.ars-v2 .chartbox,.ars-v2 .stat{box-shadow:none!important}
+.ars-v2 .report-heading{border-bottom-color:var(--v2-navy)}
+.ars-v2 .tag{border-radius:2px}
+@media(max-width:650px){
+ .ars-v2 .agency-strip-inner{padding:8px 12px;font-size:10px}
+ .ars-v2 .agency-strip-right{display:none}
+ .ars-v2 .app{padding:0 8px 48px}
+ .ars-v2 header.system-header{padding:20px 15px!important}
+ .ars-v2 .v2-service-nav a{padding:13px 14px;font-size:12px}
+ .ars-v2 .purpose-section,.ars-v2 .panel{padding:15px 12px}
+ .ars-v2 .calendar-section-heading h2{font-size:18px!important}
+}
+
+</style></head><body class="ars-v2"><div class="agency-strip"><div class="agency-strip-inner"><span class="agency-mark" aria-hidden="true">ARS</span><span>음주내역신고센터 · 가상 절주행정 서비스</span><span class="agency-strip-right">ALCOHOL REPORTING SERVICE · 2026</span></div></div><main class="app" id="top"><header class="system-header"><div class="system-header-top"><a class="system-header-brand system-header-home" href="#top" aria-label="음주내역신고센터 홈으로 이동" title="홈으로 이동"><span class="system-header-emblem" aria-hidden="true"><svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-5 9 5"/><path d="M4 10h16M5 20h14M3 22h18M7 10v10M12 10v10M17 10v10"/></svg></span><div class="system-header-name"><div class="header-eyebrow">ALCOHOL REPORTING SYSTEM</div><h1>음주내역신고센터</h1></div></a><div class="system-account"><span class="system-code">ARS · 2026</span><div id="headerGuest" class="header-identity"><span class="header-guest-label">미인증 신고자</span></div><div id="headerIdentity" class="header-identity" hidden><button type="button" id="headerReporterEdit" class="header-reporter-edit" title="신고자 이름 등록 또는 변경"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg><span id="headerReporter">신고자</span><span class="header-online-dot" title="접속 중" aria-label="접속 중"></span><svg class="header-edit-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 5 4 4M4 20l4-.8L20 7a2 2 0 0 0-3-3L5 16z"/></svg></button><span class="header-email" id="headerAccountEmail"></span></div></div></div><div class="system-header-rule"></div><div class="system-header-message"><p>모든 음주 사실은 신고 대상입니다.</p><p class="system-header-caution">습관적인 음주를 줄이고 건강한 일상을 지켜갑시다.</p></div></header><nav class="v2-service-nav" aria-label="주요 서비스"><a href="#top" aria-current="page">센터 안내</a><a href="#monthly-report">월간 신고 현황</a><a href="#trend-analysis">음주 동향 분석</a><a href="#record-management">신고 기록 관리</a></nav><section class="purpose-section"><div class="calendar-section-heading"><span class="report-index">00</span><div class="report-title-line"><h2>센터 설립 목적</h2></div></div><p class="purpose-copy">본 센터는 음주 내역을 달력과 통계로 기록·분석하여 자신의 음주 습관을 돌아보고, 잦은 음주와 과음을 줄이는 것을 목적으로 합니다.</p><div class="pledge-panel"><div class="pledge-heading"><strong>✎ 나의 절주 다짐</strong></div><div class="pledge-display" id="pledgeDisplay"><span id="pledgeText" class="pledge-placeholder">예: 습관적인 음주와 과음을 줄이겠습니다.</span><div class="pledge-actions"><button type="button" id="pledgeEdit">✎ 작성</button></div></div><form id="pledgeForm" class="pledge-form" hidden><input id="pledgeInput" type="text" maxlength="50" placeholder="예: 습관적인 음주와 과음을 줄이겠습니다." aria-label="나의 절주 다짐"><button type="submit" class="pledge-save">저장</button><button type="button" id="pledgeReset" class="pledge-reset" hidden>초기화</button><button type="button" id="pledgeCancel">취소</button></form><p class="pledge-feedback" id="pledgeFeedback" aria-live="polite"></p></div></section><dialog id="reporterDialog" class="reporter-dialog" aria-labelledby="reporterDialogTitle"><form id="reporterForm" class="reporter-form"><h2 id="reporterDialogTitle">신고자 이름 등록·변경</h2><p>신고자 이름은 계정에 저장되며 언제든 변경할 수 있습니다.</p><label for="reporterNameInput">신고자 이름</label><input id="reporterNameInput" type="text" maxlength="40" autocomplete="name" required placeholder="이름을 입력해 주세요"><p id="reporterError" class="reporter-error" role="alert" hidden></p><div class="reporter-dialog-actions"><button type="button" id="reporterCancel">취소</button><button type="submit" id="reporterSave">저장</button></div></form></dialog><section class="panel calendar-panel" id="monthly-report"><div class="calendar-section-heading"><span class="report-index">01</span><div class="report-title-line"><h2>월간 음주 신고 현황</h2></div></div><div class="nav"><button id="prev" class="month-arrow" aria-label="이전 달"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><h2 id="month"></h2><div><button id="today" class="month-current">이번 달</button> <button id="next" class="month-arrow" aria-label="다음 달"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div></div><div class="calendar-summary-actions"><div class="bulkbar"><span id="bulkHint">0일 선택됨</span><button id="bulkDry" type="button" hidden>선택한 날짜 금주 처리</button><button id="bulkClear" type="button" hidden>금주 해제</button><span id="bulkDone" class="bulk-done" hidden></span></div><p id="monthSummary" class="month-summary" aria-live="polite"></p></div><div class="calendar" id="calendar"></div><div class="mobile-calendar-legend" aria-label="달력 표시 설명"><span><b style="background:#41618f">✓</b>금주</span><span><b style="background:#d7a334">혼</b>혼술</span><span><b style="background:#3d9489">술</b>술자리</span><span><b style="background:#c54b55">+</b>귀가 후 추가</span><span><b style="background:#b42335">!</b>과음</span></div><div class="detail-subsection" id="detailSection" hidden><section class="editor" id="editor"></section></div></section><section class="panel trend-report" id="trend-analysis"><div class="calendar-section-heading"><span class="report-index">02</span><div class="report-title-line"><h2>음주 동향 분석 보고</h2></div></div><section class="stats" id="stats"></section><section class="extra-analysis" id="extraStats"></section></section><section class="panel records-admin" id="record-management" style="margin-top:18px"><div class="calendar-section-heading records-admin-heading"><span class="report-index">03</span><div class="report-title-line"><h2>신고 기록 관리</h2></div></div><p class="muted">이메일로 로그인하면 신고 내역이 자동으로 저장·동기화됩니다. 로그인 전에는 이 브라우저에만 저장됩니다.</p><div id="cloudPanel" class="cloudpanel"><div class="cloud-heading"><h3><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 16.5a4.5 4.5 0 0 0-3.5-7.3 6 6 0 0 0-11.4 2.2A4 4 0 0 0 6 19h13a3 3 0 0 0 1-2.5Z"/></svg> 신고 기록 동기화</h3><span id="cloudConnection" class="cloud-connection" hidden>✓ 연결됨</span></div><p class="muted" id="cloudStatus">클라우드 설정이 아직 없어요. 브라우저에만 저장 중입니다.</p><div id="cloudAccountInfo" class="cloud-account-info" hidden><span>신고자 <strong id="cloudReporterName"></strong></span><span>연결 계정 <strong id="cloudAccountAddress"></strong></span></div><div class="actions" id="authActions"><input type="email" id="email" placeholder="로그인 이메일" aria-label="로그인 이메일" style="max-width:260px"><button id="login">이메일 로그인 링크 보내기</button><span id="loginSent" role="status" aria-live="polite" hidden style="font-size:12px;font-weight:700;color:#28734C">✓ 전송됨 · 이메일을 확인해 주세요</span><button id="logout" title="클라우드 계정에서 로그아웃합니다. 브라우저의 기록은 유지됩니다." hidden>↪ 연결 해제</button><button id="syncNow" hidden>⟳ 동기화 실행</button><button id="editReporter" hidden>✎ 신고자 이름 변경</button></div><p class="cloud-signout-help">※ 연결 해제는 로그아웃만 진행합니다. 클라우드에 동기화된 신고 기록은 계정에 그대로 보관됩니다.</p></div><div class="actions records-backup"><button id="export">↓ 기록 내보내기</button><button id="importBtn">↑ 기록 가져오기</button><input type="file" id="import" accept="application/json,.json" hidden></div><p class="backup-help">기록은 JSON 형식으로 내보내거나 가져올 수 있습니다.</p></section></main><script>
+const KEY='sober-calendar-v1';let data={};try{data=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch{};let now=new Date(),today=key(now);let year=now.getFullYear(),month=now.getMonth(),selected=null;const multiSelected=new Set();let selectionAnchor=null;
+const types={beer:'🍺 맥주',wine:'🍷 와인',soju:'🟢 소주',liquor:'🥃 위스키·칵테일',cheongju:'🍶 청주·약주',takju:'🥛 탁주',sake:'🌸 사케',other:'✎ 직접 입력'};const units={beer:[['smallcan','작은 캔 (355mL)'],['largecan','큰 캔 (500mL)'],['bottle','병 (330mL)'],['glass','잔 (500mL)'],['ml','직접 입력 (mL)']],wine:[['glass','잔 (150mL)'],['half','반 병 (375mL)'],['bottle','병 (750mL)'],['ml','직접 입력 (mL)']],soju:[['shot','잔 (50mL)'],['half','반 병 (180mL)'],['bottle','병 (360mL)'],['ml','직접 입력 (mL)']],liquor:[['glass','잔'],['half','반 병'],['bottle','한 병'],['ml','직접 입력 (mL)']],whisky:[['glass','잔'],['half','반 병'],['bottle','한 병'],['ml','직접 입력 (mL)']],cocktail:[['glass','잔'],['half','반 병'],['bottle','한 병'],['ml','직접 입력 (mL)']],cheongju:[['glass','잔'],['half','반 병'],['bottle','한 병'],['ml','직접 입력 (mL)']],takju:[['glass','잔'],['half','반 병'],['bottle','한 병'],['ml','직접 입력 (mL)']],sake:[['glass','잔'],['half','반 병'],['bottle','한 병'],['ml','직접 입력 (mL)']],spirits:[['shot','샷 (45mL)'],['glass','잔 (90mL)'],['ml','직접 입력 (mL)']],other:[['ml','직접 입력 (mL)']]};
+function key(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}function save(){localStorage.setItem(KEY,JSON.stringify(data));scheduleCloudSave()}function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function getDay(k){return data[k]||{status:'unknown',sessions:[]}}function setDay(k,v){data[k]=v;save();render()}
+function isRecordedDay(k){const v=getDay(k);return v.status==='dry'||(v.status==='drink'&&(v.sessions||[]).length>0)}
+function analysisDate(offset){const d=new Date(now.getFullYear(),now.getMonth(),now.getDate());d.setDate(d.getDate()-offset-(isRecordedDay(today)?0:1));return d}
+// Browser-native navigation warning only for locally recorded days without an authenticated account.
+window.addEventListener('beforeunload',event=>{
+ if(typeof cloudUser!=='undefined'&&cloudUser)return;
+ const hasRecords=Object.values(data).some(v=>v&&(v.status==='dry'||v.status==='drink'));
+ if(!hasRecords)return;
+ event.preventDefault();event.returnValue='';
+});function shareCount(d){return Math.max(1,Math.round(Number(d.share)||1))}function drinkAmount(d){return (d.type==='other'?Number(d.qty||0):Number(d.qty||1))/shareCount(d)}function fmtAmount(n){return Number.isInteger(n)?String(n):String(Number(n.toFixed(2)))}function fmtDrink(d){let u=units[d.type]?.find(x=>x[0]===d.unit);let name=d.type==='other'?(d.name?.trim()||'직접 입력'):(types[['spirits','whisky','cocktail'].includes(d.type)?'liquor':d.type]||'기타');return `${name} ×${fmtAmount(drinkAmount(d))} ${u?.[1]||d.unit}${d.type==='other'&&Number(d.abv)>0?' · '+Number(d.abv)+'%':''}${shareCount(d)>1?' (총 '+d.qty+' ÷ '+shareCount(d)+'명)':''}`}function shortDrink(d){const labels={smallcan:'작캔',largecan:'큰캔',bottle:'병',glass:'잔',shot:'샷',half:'반병',ml:'mL'};let unit=labels[d.unit]||d.unit;return `${d.type==='other'?(d.name?.trim()||'✎ 직접 입력'):(types[['spirits','whisky','cocktail'].includes(d.type)?'liquor':d.type]||'🍸 기타')} ${d.type==='other'?fmtAmount(drinkAmount(d))+'mL':unit+' ×'+fmtAmount(drinkAmount(d))}${d.type==='other'&&Number(d.abv)>0?' · '+Number(d.abv)+'%':''}`}
+function updateBulk(){
+ const eligible=[...multiSelected].filter(k=>k<=key(new Date()));
+ const unknown=eligible.filter(k=>getDay(k).status==='unknown');
+ const dry=eligible.filter(k=>getDay(k).status==='dry');
+ const drinking=eligible.filter(k=>getDay(k).status==='drink');
+ const n=eligible.length;
+ document.getElementById('bulkHint').textContent=n+`일 선택됨`;
+ document.getElementById('bulkHint').hidden=false;
+ const dryButton=document.getElementById('bulkDry');
+ const clearButton=document.getElementById('bulkClear');
+ dryButton.textContent='금주 처리'+(drinking.length&&unknown.length?` (${unknown.length}일)`:'');
+ clearButton.textContent='금주 해제'+(drinking.length&&dry.length?` (${dry.length}일)`:'');
+ dryButton.hidden=!unknown.length;
+ clearButton.hidden=!dry.length;
+ dryButton.disabled=false;clearButton.disabled=false;
+ dryButton.title='미기록 날짜만 금주 처리합니다. 음주 기록은 유지됩니다.';
+ clearButton.title='금주로 표시한 날짜만 미기록으로 변경합니다.';
+ const done=document.getElementById('bulkDone');
+ done.hidden=!n||unknown.length>0||dry.length>0;
+ done.textContent=drinking.length===n?'음주 신고 완료':'금주 처리 완료';
+}
+document.getElementById('bulkClear').onclick=()=>{const keys=[...multiSelected].filter(k=>k<=key(new Date())&&getDay(k).status==='dry');if(!keys.length)return;if(!confirm(`선택한 금주일 ${keys.length}일을 미기록으로 변경할까요?`))return;for(const k of keys){data[k]={status:'unknown',sessions:[]};if(editorDraftKey===k){editorDraft=null;editorDraftKey=null}}save();multiSelected.clear();selectionAnchor=null;render()};
+document.getElementById('bulkDry').onclick=()=>{const keys=[...multiSelected].filter(k=>k<=key(new Date())&&getDay(k).status==='unknown');if(!keys.length)return;for(const k of keys){data[k]={status:'dry',sessions:[]};if(editorDraftKey===k){editorDraft=null;editorDraftKey=null}}save();multiSelected.clear();selectionAnchor=null;render()};
+function renderMonthSummary(){
+ const monthStart=new Date(year,month,1),todayStart=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+ const total=new Date(year,month+1,0).getDate(),isCurrent=year===now.getFullYear()&&month===now.getMonth();
+ const lastDay=monthStart>todayStart?0:isCurrent?now.getDate()-(isRecordedDay(today)?0:1):total;
+ if(!lastDay){document.getElementById('monthSummary').textContent=isCurrent?'어제까지 집계할 날짜가 없습니다.':'아직 집계할 날짜가 없습니다.';return}
+ let drink=0,dry=0,over=0,unclassified=0;
+ for(let day=1;day<=lastDay;day++){
+  const v=getDay(key(new Date(year,month,day)));
+  if(v.status==='dry'){dry++;continue}
+  if(v.status!=='drink'||!(v.sessions||[]).length)continue;
+  drink++;
+  const ratio=dailyLimitRatio(v);
+  if(ratio===null)unclassified++;else if(ratio>=1)over++;
+ }
+ const extra=unclassified?' <span class="summary-warning">(과음 판정 불가 '+unclassified+'일)</span>':'';
+ const period=isCurrent?(isRecordedDay(today)?'오늘까지 <strong>':'어제까지 <strong>')+lastDay+'일</strong> 중':'총 <strong>'+total+'일</strong> 중';
+ document.getElementById('monthSummary').innerHTML=period+' · <strong>음주 '+drink+'일</strong> · <strong>금주 '+dry+'일</strong> · <strong class="summary-over">과음 '+over+'일</strong>'+extra;
+}
+function render(){if(editorDraftKey!==selected){editorDraft=null;editorDraftKey=null}document.getElementById('month').textContent=`${year}년 ${month+1}월`;let first=new Date(year,month,1).getDay(),length=new Date(year,month+1,0).getDate(),html=['일','월','화','수','목','금','토'].map(x=>`<div class="weekday">${x}</div>`).join('');for(let i=0;i<first;i++)html+='<div class="day empty"></div>';for(let d=1;d<=length;d++){let k=key(new Date(year,month,d)),v=getDay(k);let sessions=v.sessions||[],solo=sessions.some(x=>x.company==='solo'),withOthers=sessions.some(x=>x.company!=='solo'),kind=v.status==='dry'?'dry':v.status!=='drink'||!sessions.length?'unknown':withOthers?'with':'solo';let overDay=v.status==='drink'&&sessions.length>0&&dailyLimitRatio(v)>=1;let pills=v.status==='dry'?'<span class="pill dry">✓ 금주</span>':v.status==='drink'?v.sessions.map(s=>`<span class="pill ${s.after?'after':s.company==='solo'?'solo':''}">${s.after?'🔴 귀가 후 추가 음주 · ':s.company==='solo'?'🏠 혼술 · ':'🍻 술자리 · '}<span class="drinkdetail">${(s.drinks||[]).map(shortDrink).map(esc).join('<br>')||'술 미입력'}</span></span>`).join(''):'<span class="pill unknown">미기록</span>';html+=`<div class="day ${k===today?'today':''} ${k===selected?'selected':''} kind-${kind} ${overDay?'kind-over':''} ${multiSelected.has(k)?'multi-selected':''}"><button type="button" class="day-main" data-day="${k}"><span class="number">${d}${k===today?'<span class="today-badge">오늘</span>':''}${overDay?'<span class="over-day-badge">과음</span>':''}</span>${pills}<span class="mobile-day-markers" aria-label="${v.status==='dry'?'금주':v.status!=='drink'?'미기록':[(solo?'혼술':''),(withOthers?'술자리':''),(sessions.some(x=>x.after)?'귀가 후 추가 음주':''),(overDay?'과음':'')].filter(Boolean).join(', ')}">${v.status==='dry'?'<span class="mobile-marker dry" title="금주">✓</span>':v.status!=='drink'||!sessions.length?'<span class="mobile-marker unknown">·</span>':(solo?'<span class="mobile-marker solo" title="혼술">혼</span>':'')+(withOthers?'<span class="mobile-marker with" title="술자리">술</span>':'')+(sessions.some(x=>x.after)?'<span class="mobile-marker after" title="귀가 후 추가 음주">+</span>':'')+(overDay?'<span class="mobile-marker over" title="과음">!</span>':'')}</span></button></div>`}document.getElementById('calendar').innerHTML=html;renderMonthSummary();document.querySelectorAll('[data-day]').forEach(b=>b.onclick=e=>{const k=b.dataset.day;if(e.shiftKey){const anchor=selectionAnchor||selected||k;const start=new Date(anchor+'T12:00:00');const end=new Date(k+'T12:00:00');if(!(e.ctrlKey||e.metaKey))multiSelected.clear();const lo=start<end?start:end,hi=start<end?end:start;for(let t=new Date(lo);t<=hi;t.setDate(t.getDate()+1)){const tk=key(t);if(tk<=key(new Date()))multiSelected.add(tk);}}else if(e.ctrlKey||e.metaKey){if(multiSelected.has(k))multiSelected.delete(k);else if(k<=key(new Date()))multiSelected.add(k);selectionAnchor=k;}else{selected=k;selectionAnchor=k;multiSelected.clear();if(k<=key(new Date()))multiSelected.add(k);}render()});updateBulk();renderStats();renderEditor()}
+document.addEventListener('click',e=>{if(e.target.closest('.day-main, .bulkbar, .detail-subsection, .nav'))return;if(!multiSelected.size&&!selected)return;if(editorDraftKey===selected&&editorDraft){return;}multiSelected.clear();selectionAnchor=null;selected=null;render()});
+function renderStats(){
+ const colors={after:'#C54B55',solo:'#D7A334',with:'#3D9489',mixed:'#3D9489',dry:'#41618F',unknown:'#FFFFFF'};
+ const names={after:'귀가 후 추가 음주',solo:'혼술',with:'술자리',mixed:'혼술+술자리',dry:'금주',unknown:'미기록'};
+ const order=['solo','with','after','dry','unknown'];
+ const todayDate=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+ function oneWindow(days,label){
+  const counts={after:0,solo:0,with:0,mixed:0,dry:0,unknown:0};
+  for(let i=days-1;i>=0;i--){const date=analysisDate(i);const v=getDay(key(date));
+   if(v.status==='dry'){counts.dry++;continue}
+   if(v.status!=='drink'||!(v.sessions||[]).length){counts.unknown++;continue}
+   const sessions=v.sessions||[];
+   if(sessions.some(x=>x.after)){counts.after++;continue}
+   const solo=sessions.some(x=>x.company==='solo'),withOthers=sessions.some(x=>x.company!=='solo');
+   counts[withOthers?'with':'solo']++;
+  }
+  const recorded=days-counts.unknown;
+  const minimum=days===90?21:7;
+  if(recorded<minimum){
+   const notice='기록 '+recorded+'/'+minimum+'일 · 기록이 더 쌓이면 분석 결과가 표시돼요.';
+   return `<div class="chartbox"><div class="chart-period"><span class="chart-accent" aria-hidden="true"></span><strong>${label} 음주 현황</strong></div><div class="stack frequency-empty" role="img" aria-label="데이터 부족">—</div><p class="frequency-empty-note">${notice}</p></div>`;
+  }
+  const bar=order.filter(k=>counts[k]).map(k=>{let pct=counts[k]/days*100;return `<div class="segment ${k==='unknown'?'segment-unknown':''}" title="${names[k]} ${counts[k]}일" style="width:${pct}%;background:${colors[k]};color:${k==='unknown'?'#193D65':'#FFFFFF'}">${counts[k]+'일'}</div>`}).join('');
+  return `<div class="chartbox"><div class="chart-period"><span class="chart-accent" aria-hidden="true"></span><strong>${label} 음주 현황</strong></div><div class="stack" role="img" aria-label="${label}: ${order.map(k=>names[k]+' '+counts[k]+'일').join(', ')}">${bar}</div></div>`;
+ }
+ const legend=order.map(k=>`<span class="legenditem"><i class="dot ${k==='unknown'?'dot-unknown':''}" style="background:${colors[k]}"></i>${names[k]}</span>`).join('');
+ document.getElementById('stats').innerHTML=`<div class="analysis-subsection-title"><span class="analysis-subsection-number">2-1</span><h2>음주 빈도 분석</h2><span class="analysis-subsection-purpose">습관적인 음주 점검</span></div><div class="frequency-chart-frame"><div class="report-table">`+oneWindow(90,'최근 90일')+oneWindow(30,'최근 30일')+`</div><div class="legend-shared">${legend}</div></div>`;renderExtraStats();
+}
+
+
+// A one-line pledge: local for guests, Supabase Auth metadata for signed-in users.
+const PLEDGE_KEY='sober-personal-pledge-v1';
+let personalPledge=localStorage.getItem(PLEDGE_KEY)||'';
+const pledgeText=document.getElementById('pledgeText'),pledgeEdit=document.getElementById('pledgeEdit');
+const pledgeDisplay=document.getElementById('pledgeDisplay'),pledgeForm=document.getElementById('pledgeForm');
+const pledgeInput=document.getElementById('pledgeInput'),pledgeCancel=document.getElementById('pledgeCancel');
+const pledgeFeedback=document.getElementById('pledgeFeedback');
+const pledgeReset=document.getElementById('pledgeReset');
+function renderPledge(){
+ pledgeText.textContent=personalPledge?'「 '+personalPledge+' 」':'예: 습관적인 음주와 과음을 줄이겠습니다.';
+ pledgeText.classList.toggle('pledge-placeholder',!personalPledge);
+ pledgeEdit.textContent=personalPledge?'✎ 수정':'✎ 작성';
+ pledgeReset.hidden=!personalPledge;
+}
+pledgeEdit.addEventListener('click',()=>{pledgeInput.value=personalPledge;pledgeDisplay.hidden=true;pledgeForm.hidden=false;pledgeFeedback.textContent='';pledgeInput.focus()});
+pledgeReset.addEventListener('click',async()=>{
+ if(!personalPledge||!confirm('절주 다짐을 초기화할까요?'))return;
+ personalPledge='';localStorage.removeItem(PLEDGE_KEY);renderPledge();
+ pledgeForm.hidden=true;pledgeDisplay.hidden=false;
+ pledgeFeedback.textContent='절주 다짐이 초기화되었습니다.';
+ if(typeof saveCloudPledge==='function')await saveCloudPledge('');
+});
+pledgeCancel.addEventListener('click',()=>{pledgeForm.hidden=true;pledgeDisplay.hidden=false;pledgeFeedback.textContent=''});
+pledgeForm.addEventListener('submit',async e=>{
+ e.preventDefault();const next=pledgeInput.value.trim();
+ if(!next){pledgeFeedback.textContent='다짐을 입력해 주세요.';return}
+ personalPledge=next;localStorage.setItem(PLEDGE_KEY,next);renderPledge();
+ pledgeForm.hidden=true;pledgeDisplay.hidden=false;pledgeFeedback.textContent='저장되었습니다.';
+ if(typeof saveCloudPledge==='function')await saveCloudPledge(next);
+});
+renderPledge();
+
+const LIMIT_KEY='sober-personal-limits-v1';
+let personalLimits={};try{personalLimits=JSON.parse(localStorage.getItem(LIMIT_KEY)||'{}')||{}}catch{}
+const mlUnits={beer:{smallcan:355,largecan:500,bottle:330,glass:500,ml:1},wine:{glass:150,half:375,bottle:750,ml:1},soju:{shot:50,half:180,bottle:360,ml:1},liquor:{shot:45,glass:45,half:350,bottle:700,ml:1},cheongju:{glass:50,half:375,bottle:750,ml:1},takju:{glass:200,half:375,bottle:750,ml:1},sake:{glass:50,half:375,bottle:750,ml:1},other:{ml:1}};
+function limitType(t){return ['whisky','cocktail','spirits'].includes(t)?'liquor':t}
+function limitMl(t,u,q){return (mlUnits[limitType(t)]?.[u]||0)*Number(q||0)}
+
+const defaultAbv={beer:0.05,wine:0.12,soju:0.16,liquor:0.40,cheongju:0.15,takju:0.06,sake:0.15};
+function pureAlcohol(t,u,q,abv){
+ t=limitType(t);
+ if(t==='other')return limitMl(t,u,q)*((Number(abv)>0&&Number(abv)<=100)?Number(abv)/100:0);
+ if(t==='liquor'&&u==='glass')return Number(q||0)*20;
+ return limitMl(t,u,q)*(defaultAbv[t]||0);
+}
+function personalPureLimit(t,l){
+ if(!l)return 0;
+ if(Number(l.qty)>0&&l.unit)return pureAlcohol(t,l.unit,l.qty);
+ return Number(l.ml||0)*(defaultAbv[t]||0);
+}
+function dailyLimitRatio(v){
+ if(v.status!=='drink')return null;
+ const known=Object.entries(personalLimits).filter(([t,l])=>t!=='other'&&defaultAbv[t]&&personalPureLimit(t,l)>0).map(([t,l])=>personalPureLimit(t,l));
+ const fallback=known.length?known.reduce((a,b)=>a+b,0)/known.length:0;
+ let sum=0,found=false,missing=false;
+ for(const session of v.sessions||[])for(const d of session.drinks||[]){
+  const t=limitType(d.type);
+  const pure=pureAlcohol(t,d.unit,drinkAmount(d),d.abv);
+  const own=personalPureLimit(t,personalLimits[t]);
+  if(!pure){missing=true;continue}
+  if(own>0){sum+=pure/own;found=true}
+  else if(fallback){sum+=pure/fallback;found=true}
+  else missing=true;
+ }
+ return found&&!missing?sum:null;
+}
+
+function limitFailureReason(v){
+ if(!Object.entries(personalLimits).some(([t,l])=>t!=='other'&&personalPureLimit(t,l)>0))return '개인 주량 미설정';
+ if(!(v.sessions||[]).length)return '음주 내역 없음';
+ let any=false;
+ for(const session of v.sessions||[])for(const d of session.drinks||[]){
+  any=true;const t=limitType(d.type),qty=drinkAmount(d);
+  if(!(Number(qty)>0))return '수량 누락 또는 잘못된 수량';
+  if(t==='other'&&!(Number(d.abv)>0&&Number(d.abv)<=100))return '직접 입력 주종의 도수 누락';
+  if(!limitMl(t,d.unit,qty))return '용량 누락 또는 잘못된 단위';
+  if(!pureAlcohol(t,d.unit,qty,d.abv))return '알코올량 환산 정보 누락';
+ }
+ return any?'주량 환산 기준 확인 필요':'음주 수량 누락';
+}
+let analysisPeriod=30,monthlyTrendData=[];
+function renderExtraStats(){
+ const el=document.getElementById('extraStats');if(!el)return;
+ function weeklyWindow(length,label){
+  const counts={light:0,half:0,over:0,unknown:0,known:0,drink:0,failures:[],missingDates:[]};
+  for(let i=length-1;i>=0;i--){
+   const date=analysisDate(i),v=getDay(key(date));
+   if(v.status==='unknown'||(v.status==='drink'&&!(v.sessions||[]).length)){counts.missingDates.push(key(date));continue;}
+   counts.known++;
+   if(v.status!=='drink')continue;
+   counts.drink++;
+   const ratio=dailyLimitRatio(v);
+   if(ratio===null){counts.unknown++;counts.failures.push({date:key(date),reason:limitFailureReason(v)})}else if(ratio>=1)counts.over++;else if(ratio>.5)counts.half++;else counts.light++;
+  }
+  const minimum=length===90?21:7;
+  const enough=counts.known>=minimum;
+  const weekly=enough?counts.drink/counts.known*7:null;
+  const avg=n=>!enough?'—':(n/counts.known*7).toFixed(1)+'<small>일/주</small>';
+  const status=counts.known===0?'신고된 날짜가 없습니다':counts.known<minimum?'기록 '+counts.known+'일 · 최소 '+minimum+'일의 신고 기록 필요':counts.known<length?'미기록 '+counts.missingDates.length+'일 제외':'집계 완료 · 기록 '+counts.known+'일 기준';
+  const missingInfo=counts.missingDates.length?'<details class="missing-date-details"><summary>'+status+'<svg class="missing-chevron" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="missing-date-list"><span class="missing-date-label">미기록 날짜</span> '+counts.missingDates.join(' · ')+'</div></details>':'<p class="analysis-metric-status analysis-overall-status">'+status+'</p>';
+  const summary=weekly===null?(counts.known===0?'판정 불가 · 기록 없음':'판정 불가 · 데이터 부족'):'<strong>'+weekly.toFixed(1)+'일</strong>';
+  const details=[['가벼운 음주',avg(counts.light)],['주의 음주',avg(counts.half)],['과음',avg(counts.over)]].map(([name,value])=>'<span><span>'+name+'</span><b>'+value+'</b></span>').join('');
+  return '<div class="weekly-report"><div class="weekly-report-top"><p class="weekly-report-main">'+(weekly===null?'기록이 더 쌓이면 분석 결과가 표시돼요.':'일주일에 평균 '+summary+' 음주')+'</p><small>기록 '+counts.known+'/'+length+'일</small></div><div class="weekly-report-stats">'+details+'</div></div>'+missingInfo+(counts.unknown?'<p class="analysis-note">강도 판정 불가 '+counts.unknown+'일 · 강도별 평균에서 제외 · '+counts.failures.map(x=>x.date+' ('+x.reason+')').join(', ')+'</p>':'');
+ }
+ function monthlyTrend(){
+  const months=[];
+  for(let offset=2;offset>=0;offset--){
+   const date=new Date(now.getFullYear(),now.getMonth()-offset,1),y=date.getFullYear(),m=date.getMonth();
+   const days=new Date(y,m+1,0).getDate(),counts={light:0,caution:0,over:0,unknown:0,missing:0,known:0,missingDates:[]};
+   for(let d=1;d<=days;d++){
+    const day=new Date(y,m,d);if(day>new Date(now.getFullYear(),now.getMonth(),now.getDate())||(key(day)===today&&!isRecordedDay(today)))continue;
+    const v=getDay(key(day));
+    if(v.status==='unknown'||(v.status==='drink'&&!(v.sessions||[]).length)){counts.missing++;counts.missingDates.push(key(day));continue}
+    counts.known++;
+    if(v.status!=='drink')continue;
+    const ratio=dailyLimitRatio(v);
+    if(ratio===null)counts.unknown++;
+    else if(ratio>=1)counts.over++;
+    else if(ratio>.5)counts.caution++;
+    else counts.light++;
+   }
+   months.push({label:(m+1)+'월',counts,current:offset===0});
+  }
+  monthlyTrendData=months;
+  const max=Math.max(1,...months.filter(x=>x.counts.known>=7).map(x=>x.counts.light+x.counts.caution+x.counts.over));
+  const colors={light:'#7CA7CC',caution:'#E1AD52',over:'#C74B55'};
+  const bars=months.map(x=>{
+   const c=x.counts,total=c.light+c.caution+c.over;
+   if(c.known<7)return '<div class="trend-col trend-col-empty" aria-label="'+x.label+' 기록 부족"><span class="trend-value">—</span><span class="trend-empty-caption">기록 '+c.known+'/7일</span></div>';
+   const pieces=['light','caution','over'].map(k=>c[k]?'<i style="height:'+c[k]/max*130+'px;background:'+colors[k]+'" title="'+({light:'가벼운 음주',caution:'주의 음주',over:'과음'}[k])+' '+c[k]+'일">'+(c[k]/max*130>=23?c[k]+'일':'')+'</i>':'').join('');
+   return '<button type="button" class="trend-col trend-col-button" data-month-detail="'+x.label+'" aria-label="'+x.label+' 음주 강도 상세 보기"><span class="trend-value">'+total+'일</span><span class="trend-stack">'+pieces+'</span></button>';
+  }).join('');
+  const labels=months.map(x=>'<span>'+x.label+(x.current?' · 진행 중':'')+'</span>').join('');
+  const notices=months.filter(x=>x.counts.missing>0).map(x=>{
+   const c=x.counts;
+   const status=x.label+' · 미기록 '+c.missing+'일'+(c.known<7?' · 최소 7일의 신고 기록 필요':'')+(c.unknown?' · 강도 판정 불가 '+c.unknown+'일':'');
+   return '<div class="monthly-missing-row"><details class="missing-date-details"'+(c.missing===0?' data-no-missing="true"':'')+'><summary>'+status+'<svg class="missing-chevron" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="missing-date-list"><span class="missing-date-label">미기록 날짜</span> '+c.missingDates.join(' · ')+'</div></details></div>';
+  }).join('');
+  const legend='<div class="trend-legend">'+[['light','가벼운 음주'],['caution','주의 음주'],['over','과음']].map(([k,label])=>'<span><b style="background:'+colors[k]+'"></b>'+label+'</span>').join('')+'</div>';
+  return '<div class="analysis-heading"><h3>월별 음주 강도 현황</h3></div><div class="trend-chart"><div class="trend-bars" role="img" aria-label="최근 3개월 월별 음주일 수">'+bars+'</div><div class="trend-months">'+labels+'</div><div class="trend-month-detail" id="trendMonthDetail" role="status" aria-live="polite" hidden></div>'+legend+(notices?'<div class="analysis-note monthly-missing-notices">'+notices+'</div>':'')+'</div>';
+ }
+ const rows=Object.entries(types).filter(([t])=>t!=='other').map(([t,name])=>'<div class="limit-row"><label>'+name+'</label><input type="number" min="0" step="1" data-limit-qty="'+t+'" value="'+(personalLimits[t]?.qty||'')+'" placeholder="수량"><select data-limit-unit="'+t+'">'+units[t].map(([u,l])=>'<option value="'+u+'" '+(personalLimits[t]?.unit===u?'selected':'')+'>'+l+'</option>').join('')+'</select></div>').join('');
+ el.innerHTML='<div class="analysis-subsection-title"><span class="analysis-subsection-number">2-2</span><h2>음주 강도 분석</h2><span class="analysis-subsection-purpose">과음 여부 점검</span></div><details class="limit-settings"><summary>개인 주량 설정 · 변경</summary><p>입력한 개인 주량을 기준으로 음주 강도를 계산합니다. 설정하지 않은 주종은 입력된 주량을 바탕으로 추정합니다.</p><div class="limit-rows">'+rows+'</div><button type="button" id="saveLimits">주량 설정 저장</button><details class="limit-method"><summary>상세 계산 기준</summary><p class="analysis-note">주량을 설정하지 않으면 음주 강도는 판정 불가로 표시됩니다. 미입력 주종은 기본 도수로 순수 알코올량을 계산한 뒤, 입력된 주량의 평균 알코올량을 기준으로 추정합니다. 직접 입력한 주종도 도수·용량과 환산 기준이 유효하면 계산에 포함됩니다. 가정 도수: 맥주 5%, 와인 12%, 소주 16%, 청주·약주·사케 15%, 탁주 6%. 위스키·칵테일 1잔은 순수 알코올 20mL로 추정합니다(기존 샷 45mL는 40% 기준 18mL). 반 병·한 병·mL 입력은 원액 40% 기준입니다.</p></details></details><div class="intensity-criteria"><p>가벼운 음주 50% 이하 · 주의 음주 50% 초과~100% 미만 · 과음 100% 이상. 개인 주량은 건강상 안전 기준이 아닙니다.</p></div><div class="analysis-dashboard"><div class="analysis-left"><div class="analysis-heading"><h3>주간 음주 강도별 평균</h3><div class="analysis-period-switch" role="group" aria-label="분석 기간"><button type="button" data-analysis-period="30" aria-pressed="'+(analysisPeriod===30)+'">최근 30일</button><button type="button" data-analysis-period="90" aria-pressed="'+(analysisPeriod===90)+'">최근 90일</button></div></div><div class="weekly-report-grid">'+weeklyWindow(analysisPeriod,analysisPeriod===30?'최근 30일':'최근 90일')+'</div></div><div class="analysis-trend">'+monthlyTrend()+'</div></div>';
+ el.querySelectorAll('[data-month-detail]').forEach((button,index)=>button.onclick=()=>{
+  const x=monthlyTrendData[index],c=x.counts,detail=el.querySelector('#trendMonthDetail');
+  detail.textContent=c.known<7?x.label+' · 기록 '+c.known+'/7일 · 분석 결과를 표시하려면 기록이 더 필요해요.':x.label+' · 가벼운 '+c.light+'일 · 주의 '+c.caution+'일 · 과음 '+c.over+'일'+(c.unknown?' · 판정 불가 '+c.unknown+'일':'');
+  detail.hidden=false;
+  el.querySelectorAll('[data-month-detail]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+ });
+ el.querySelectorAll('[data-analysis-period]').forEach(button=>button.onclick=()=>{analysisPeriod=Number(button.dataset.analysisPeriod);renderExtraStats()});
+ el.querySelector('#saveLimits').onclick=()=>{const next={};for(const t of Object.keys(types).filter(t=>t!=='other')){const qty=Number(el.querySelector('[data-limit-qty="'+t+'"]').value),unit=el.querySelector('[data-limit-unit="'+t+'"]').value;if(qty>0&&Number.isFinite(qty)){const ml=limitMl(t,unit,qty);if(ml>0)next[t]={qty,unit,ml}}}personalLimits=next;localStorage.setItem(LIMIT_KEY,JSON.stringify(next));if(typeof saveCloudLimits==='function')void saveCloudLimits(next);renderExtraStats();el.querySelector('.limit-settings').open=true;renderMonthSummary();render()};
+}
+
+let editorDraft=null,editorDraftKey=null;
+function editDay(k,v){editorDraftKey=k;editorDraft=v;renderEditor()}
+function renderEditor(){
+ const detail=document.getElementById('detailSection');detail.hidden=!selected;if(!selected){document.getElementById('editor').innerHTML='';return;}
+ const future=selected>key(new Date());const v=editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected), sessions=v.status==='drink'?(v.sessions||[]):[];
+ let h=`<div class="line"><h2>${selected} 음주 신고 내역</h2><span class="tag">${sessions.length?'음주':v.status==='dry'?'금주':'미기록'}</span></div>`;
+ if(future){document.getElementById('editor').innerHTML=h+'<p class="muted">미래 날짜는 아직 음주 내역을 신고할 수 없습니다. 해당 날짜가 되면 신고할 수 있습니다.</p>';return;} h+=sessions.map((s,i)=>`<div class="session ${s.company==='solo'?'solo':''}">
+ <div class="sessionhead"><div class="session-title"><span class="session-count">음주 회차 ${String(i+1).padStart(2,'0')}</span><select class="company-inline" aria-label="${i+1}차 음주 상황" data-s="${i}" data-field="company"><option value="solo" ${s.company==='solo'?'selected':''}>🏠 혼술</option><option value="with" ${s.company==='with'?'selected':''}>🍻 술자리</option></select><label class="after-inline"><input type="checkbox" data-s="${i}" data-field="after" ${s.after?'checked':''}> 귀가 후 추가 음주</label></div><button class="danger" data-delete-session="${i}"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 10v7M14 10v7"/></svg> 신고 항목 삭제</button></div>
+ <div class="drink-columns" aria-hidden="true"><span>주종</span><span>용량</span><span>총 수량</span><span>나눠 마신 인원</span><span></span></div>
+ ${(s.drinks||[]).map((d,j)=>d.type==='other'?`<div class="drinkrow custom-drinkrow"><div class="custom-name-cell"><input type="text" maxlength="40" placeholder="술 이름 (예: 서울의 밤)" aria-label="직접 입력 술 이름" data-s="${i}" data-d="${j}" data-drink="name" value="${esc(d.name||'')}"><button type="button" class="custom-change-type" title="일반 주종으로 변경" aria-label="주종 다시 선택" data-change-type="${i},${j}">↺</button></div><label class="custom-abv-cell"><input type="number" min="0.1" max="100" step="0.1" inputmode="decimal" placeholder="도수 입력" aria-label="알코올 도수 (%)" data-s="${i}" data-d="${j}" data-drink="abv" value="${esc(d.abv??'')}"><span>%</span></label><label class="custom-ml-cell"><input type="number" min="1" step="any" inputmode="decimal" placeholder="용량 입력" aria-label="총 음주량 (mL)" data-s="${i}" data-d="${j}" data-drink="qty" value="${esc(d.qty??'')}"><span>mL</span></label><label class="share-field" title="나를 포함해 함께 나눠 마신 총 인원">÷ <input aria-label="나눠 마신 총 인원 (본인 포함)" type="number" min="1" step="1" inputmode="numeric" data-s="${i}" data-d="${j}" data-drink="share" value="${shareCount(d)}"></label><button class="drink-remove" title="주종 삭제" aria-label="주종 삭제" data-remove-drink="${i},${j}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 10v7M14 10v7"/></svg></button></div>`:`<div class="drinkrow"><select data-s="${i}" data-d="${j}" data-drink="type">${Object.entries(types).map(([id,t])=>`<option value="${id}" ${(['spirits','whisky','cocktail'].includes(d.type)?'liquor':d.type)===id?'selected':''}>${t}</option>`).join('')}</select><select data-s="${i}" data-d="${j}" data-drink="unit">${units[d.type].map(([id,t])=>`<option value="${id}" ${d.unit===id?'selected':''}>${t}</option>`).join('')}</select><input aria-label="수량" type="number" min="1" step="1" inputmode="numeric" data-s="${i}" data-d="${j}" data-drink="qty" value="${esc(d.qty)}"><label class="share-field" title="나를 포함해 함께 나눠 마신 총 인원">÷ <input aria-label="나눠 마신 총 인원 (본인 포함)" type="number" min="1" step="1" inputmode="numeric" data-s="${i}" data-d="${j}" data-drink="share" value="${shareCount(d)}"></label><button class="drink-remove" title="주종 삭제" aria-label="주종 삭제" data-remove-drink="${i},${j}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 10v7M14 10v7"/></svg></button></div>`).join('')}
+ <div class="drink-add-line"><button data-add-drink="${i}">+ 주종 추가</button></div>
+ <div class="field"><label>비고 (선택)</label><input data-s="${i}" data-field="note" value="${esc([s.who,s.note].filter(Boolean).join(' · '))}" placeholder="음주 경위, 장소, 동석자 및 특이사항을 기재해 주세요."></div>${i===sessions.length-1?`<div class="session-actions"><div class="session-submit-help"><span>용량 참고 · 소주 1병 360mL · 맥주 1병 330~500mL · 위스키(글렌피딕 등) 1병 700mL · 서울의 밤 1병 375mL (제품별 상이, 라벨 확인)</span><span>※ 나눠 마신 인원에는 본인이 포함됩니다. 1명 입력 시 전량 음주로 계산됩니다.</span></div><div class="session-action-buttons"><span class="filing-status ${editorDraftKey===selected?'pending':'complete'}">${editorDraftKey===selected?'◷ 미접수':'✓ 접수 완료'}</span><button class="primary" id="saveDay">신고서 제출</button><button id="cancelDay">수정 취소</button></div></div>`:''}</div>`).join('');
+ if(!sessions.length&&editorDraftKey===selected&&editorDraft){h+='<div class="session-actions"><div class="session-submit-help"><span>용량 참고 · 소주 1병 360mL · 맥주 1병 330~500mL · 위스키(글렌피딕 등) 1병 700mL · 서울의 밤 1병 375mL (제품별 상이, 라벨 확인)</span><span>※ 나눠 마신 인원에는 본인이 포함됩니다. 1명 입력 시 전량 음주로 계산됩니다.</span></div><div class="session-action-buttons"><span class="filing-status pending">◷ 삭제 미접수</span><button class="primary" id="saveDay">삭제 내용 제출</button><button id="cancelDay">수정 취소</button></div></div>'}
+ h+='<button class="primary compact-add-session" id="addSession">'+(sessions.length?'+ 음주 내역 추가 신고':'+ 음주 내역 신고')+'</button>';
+ document.getElementById('editor').innerHTML=h;
+ document.querySelectorAll('[data-delete-session]').forEach(b=>b.onclick=()=>{let a=structuredClone(editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected));a.sessions.splice(+b.dataset.deleteSession,1);editDay(selected,a.sessions.length?{status:'drink',sessions:a.sessions}:{status:getDay(selected).status==='dry'?'dry':'unknown',sessions:[]})});
+ document.getElementById('saveDay')?.addEventListener('click',e=>{e.stopPropagation();if(editorDraftKey===selected&&editorDraft){const v=editorDraft;if(getDay(selected).status==='dry'&&v.status==='drink'&&!confirm('금주 처리를 해제하고 음주 신고서를 제출할까요?'))return;editorDraft=null;editorDraftKey=null;setDay(selected,v)}else{renderEditor()}});
+ document.getElementById('cancelDay')?.addEventListener('click',()=>{editorDraft=null;editorDraftKey=null;renderEditor()});
+ document.getElementById('addSession').onclick=()=>{let a=structuredClone(editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected));if(a.status==='dry'&&!confirm('금주 체크를 해제하고 음주 세션을 추가할까요?'))return;let ss=a.status==='drink'?(a.sessions||[]):[];ss.push(newSession());editDay(selected,{status:'drink',sessions:ss})};
+ document.querySelectorAll('[data-add-drink]').forEach(b=>b.onclick=()=>{let a=structuredClone(editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected));a.sessions[+b.dataset.addDrink].drinks.push({type:'beer',unit:'smallcan',qty:1});editDay(selected,a)});
+ document.querySelectorAll('[data-change-type]').forEach(b=>b.onclick=()=>{let [i,j]=b.dataset.changeType.split(',').map(Number),a=structuredClone(editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected));a.sessions[i].drinks[j]={type:'beer',unit:'smallcan',qty:1,share:shareCount(a.sessions[i].drinks[j])};editDay(selected,a)});
+ document.querySelectorAll('[data-remove-drink]').forEach(b=>b.onclick=()=>{let [i,j]=b.dataset.removeDrink.split(',').map(Number),a=structuredClone(editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected));a.sessions[i].drinks.splice(j,1);editDay(selected,a)});
+ document.querySelectorAll('[data-field],[data-drink]').forEach(el=>el.onchange=()=>{let a=structuredClone(editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected)),i=+el.dataset.s;if(el.dataset.field){if(el.dataset.field==='note'){a.sessions[i].note=el.value;a.sessions[i].who=''}else a.sessions[i][el.dataset.field]=el.dataset.field==='after'?el.checked:el.value}else{let d=a.sessions[i].drinks[+el.dataset.d],f=el.dataset.drink;d[f]=f==='qty'&&d.type==='other'?(el.value===''?'':Math.max(0,Number(el.value)||0)):f==='qty'||f==='share'?Math.max(1,Math.round(Number(el.value)||1)):el.value;if(f==='type'){d.unit=units[d.type][0][0];if(d.type==='other'){d.qty='';delete d.abv}else{delete d.abv;delete d.name;d.qty=1}}if(f==='abv')d.abv=Math.min(100,Math.max(0,Number(el.value)||0))}editDay(selected,a)})
+}
+function newSession(){return{company:'solo',who:'',note:'',after:false,drinks:[{type:'beer',unit:'smallcan',qty:1}]}}document.getElementById('prev').onclick=()=>{multiSelected.clear();selectionAnchor=null;selected=null;editorDraft=null;editorDraftKey=null;month--;if(month<0){month=11;year--}render()};document.getElementById('next').onclick=()=>{multiSelected.clear();selectionAnchor=null;selected=null;editorDraft=null;editorDraftKey=null;month++;if(month>11){month=0;year++}render()};document.getElementById('today').onclick=()=>{multiSelected.clear();selectionAnchor=null;const current=new Date();year=current.getFullYear();month=current.getMonth();selected=key(current);render();document.getElementById('calendar').querySelector('.day.today')?.scrollIntoView({behavior:'smooth',block:'nearest'})};function refreshCalendarDay(){
+ const current=new Date(),nextKey=key(current);
+ if(nextKey===today)return;
+ now=current;today=nextKey;render();renderStats();
+}
+window.addEventListener('focus',refreshCalendarDay);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshCalendarDay()});
+setInterval(refreshCalendarDay,30000);
+document.getElementById('export').onclick=()=>{let blob=new Blob([JSON.stringify({app:'sober-calendar',version:1,days:data},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`sober-calendar-backup-${today}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};document.getElementById('importBtn').onclick=()=>document.getElementById('import').click();document.getElementById('import').onchange=async e=>{let file=e.target.files[0];if(!file)return;try{let obj=JSON.parse(await file.text());if(obj.app!=='sober-calendar'||!obj.days||typeof obj.days!=='object'||Array.isArray(obj.days))throw Error('백업 파일 형식이 아닙니다');const dates=Object.keys(obj.days);const overlaps=dates.filter(k=>Object.prototype.hasOwnProperty.call(data,k));if(!confirm(`${dates.length}일의 기록을 추가할까요? 기존 기록은 유지하고, 날짜가 겹치는 ${overlaps.length}일만 가져온 기록으로 교체합니다. 먼저 JSON 백업을 권장합니다.`))return;data={...data,...obj.days};save();render();alert(`${dates.length}일 가져오기 완료 (기존 기록 유지, 중복 날짜 ${overlaps.length}일 교체)`)}catch(err){alert('불러오기 실패: '+err.message)}e.target.value=''};render();
+</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script src="config.js"></script><script src="cloud.js?v=20261115-conflict-copy3"></script></body></html>
