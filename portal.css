@@ -223,3 +223,23 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-sidebar-head strong #govPersonalNumber{display:block!important;min-width:0!important;flex:1 1 auto!important;font-size:11px!important;line-height:1.5!important;letter-spacing:.01em!important;overflow-wrap:anywhere!important;word-break:break-all!important}
 .ars-v2 .gov-sidebar-head strong>span:last-child{flex:0 0 auto!important;font-size:19px!important}
 .ars-v2 #gov-goal-card,.ars-v2 #gov-pledge-card,.ars-v2 #gov-summary-card{scroll-margin-top:22px!important}
+
+/* v2 portal navigation: four real views, with a non-navigational account sidebar */
+.ars-v2 .v2-service-nav{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+.ars-v2 .v2-service-nav a:first-child:after{display:none!important}
+.ars-v2 .v2-service-nav a[aria-current="page"]:after{content:"";display:block!important;position:absolute;bottom:0;left:14%;right:14%;height:4px;border-radius:3px 3px 0 0;background:#df2438!important}
+.ars-v2 .v2-service-nav a:hover{background:rgba(255,255,255,.09)!important}
+.ars-v2 .gov-personal-panel{background:#fff;border:1px solid #d7e0ec;border-radius:6px;padding:4px 13px;margin:0 0 17px}
+.ars-v2 .gov-personal-row{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 0;border-bottom:1px solid #e9edf3}
+.ars-v2 .gov-personal-row:last-child{border-bottom:0}
+.ars-v2 .gov-personal-row>span{font-size:11px;color:#72819a;font-weight:650}
+.ars-v2 .gov-personal-row>strong{font-size:13px;color:#142e53;font-weight:750;line-height:1.4;overflow-wrap:anywhere}
+.ars-v2 .gov-sidebar-guide{border-top:1px solid #d9e2ee;padding:17px 2px 0}
+.ars-v2 .gov-sidebar-guide h3{font-size:13px;font-weight:800;color:#19375c;margin:0 0 11px}
+.ars-v2 .gov-sidebar-guide p{font-size:11px!important;color:#64758b!important;line-height:1.7!important;margin:0 0 10px!important}
+.ars-v2 .gov-sidebar-note{margin-top:auto!important;padding-top:55px!important}
+.ars-v2 .gov-sidebar-head strong #govPersonalNumber{font-size:14px!important;line-height:1.4!important;word-break:normal!important;overflow-wrap:normal!important;white-space:nowrap!important}
+.ars-v2 .gov-main>[hidden]{display:none!important}
+.ars-v2[data-ars-route="records"] .gov-main,.ars-v2[data-ars-route="analytics"] .gov-main,.ars-v2[data-ars-route="mypage"] .gov-main{min-height:68vh}
+.ars-v2[data-ars-route="records"] #monthly-report,.ars-v2[data-ars-route="analytics"] #trend-analysis,.ars-v2[data-ars-route="mypage"] #record-management{margin-top:0!important}
+@media(max-width:850px){.ars-v2 .gov-personal-panel{padding:2px 9px}.ars-v2 .gov-sidebar-head strong #govPersonalNumber{font-size:11px!important}.ars-v2 .gov-sidebar-guide p{font-size:10px!important}}
