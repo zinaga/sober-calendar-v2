@@ -243,3 +243,18 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2[data-ars-route="records"] .gov-main,.ars-v2[data-ars-route="analytics"] .gov-main,.ars-v2[data-ars-route="mypage"] .gov-main{min-height:68vh}
 .ars-v2[data-ars-route="records"] #monthly-report,.ars-v2[data-ars-route="analytics"] #trend-analysis,.ars-v2[data-ars-route="mypage"] #record-management{margin-top:0!important}
 @media(max-width:850px){.ars-v2 .gov-personal-panel{padding:2px 9px}.ars-v2 .gov-sidebar-head strong #govPersonalNumber{font-size:11px!important}.ars-v2 .gov-sidebar-guide p{font-size:10px!important}}
+
+/* Routed pages — shared dashboard visual language */
+.ars-v2 .gov-personal-row{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);align-items:center!important;gap:8px!important;padding:12px 0!important}
+.ars-v2 .gov-personal-row>span{font-size:12px!important;color:#71809a!important}
+.ars-v2 .gov-personal-row>strong{text-align:right!important;font-size:13px!important;white-space:normal}
+.ars-v2 .gov-main>.panel{border:1px solid #d3deec!important;border-radius:7px!important;box-shadow:0 2px 9px rgba(22,48,83,.035)!important;background:#fff!important;padding:23px 24px 25px!important}
+.ars-v2 .gov-main>.panel .calendar-section-heading{border-bottom:1px solid #e1e8f1!important;margin-bottom:20px!important;padding:0 0 16px!important}
+.ars-v2 .gov-main>.panel .calendar-section-heading h2{font-size:23px!important;font-weight:850!important;color:#112d50!important;letter-spacing:-.04em!important;line-height:1.35!important}
+.ars-v2 .gov-main>.panel .calendar-section-heading h2:before{content:"";display:inline-block;width:5px;height:23px;background:#cc2535;border-radius:2px;vertical-align:-4px;margin-right:13px}
+.ars-v2 .gov-main>.panel .report-title-line{display:flex!important;align-items:center!important;gap:0!important}
+.ars-v2 .gov-main>.panel .report-index{display:none!important}
+.ars-v2 #trend-analysis .stats,.ars-v2 #trend-analysis .extra-analysis{border-radius:6px}
+.ars-v2 #record-management .cloudpanel{border-radius:7px!important}
+.ars-v2 #monthly-report .nav{border-radius:5px!important}
+@media(max-width:650px){.ars-v2 .gov-main>.panel{padding:16px 12px!important}.ars-v2 .gov-personal-row{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)!important}}
