@@ -217,3 +217,9 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-goal .gov-goal-row #govGapPrev .gov-trend.up.positive{color:#236ed8!important}
 .ars-v2 .gov-goal .gov-goal-row #govGapPrev .gov-trend.down.negative{color:#c72b3b!important}
 .ars-v2 .gov-sidebar-head strong #govPersonalNumber{font-size:14px!important;line-height:1.35!important;font-weight:800!important;letter-spacing:-.02em!important;overflow-wrap:anywhere!important}
+
+/* Sidebar is now a personal dashboard index; top navigation remains the service navigation. */
+.ars-v2 .gov-sidebar-head strong{align-items:flex-start!important;min-width:0!important}
+.ars-v2 .gov-sidebar-head strong #govPersonalNumber{display:block!important;min-width:0!important;flex:1 1 auto!important;font-size:11px!important;line-height:1.5!important;letter-spacing:.01em!important;overflow-wrap:anywhere!important;word-break:break-all!important}
+.ars-v2 .gov-sidebar-head strong>span:last-child{flex:0 0 auto!important;font-size:19px!important}
+.ars-v2 #gov-goal-card,.ars-v2 #gov-pledge-card,.ars-v2 #gov-summary-card{scroll-margin-top:22px!important}
