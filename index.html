@@ -509,7 +509,7 @@ function updateBulk(){
  done.hidden=!n||unknown.length>0||dry.length>0;
  done.textContent=drinking.length===n?'음주 신고 완료':'금주 처리 완료';
 }
-document.getElementById('bulkClear').onclick=()=>{const keys=[...multiSelected].filter(k=>k<=key(new Date())&&getDay(k).status==='dry');if(!keys.length)return;if(!confirm(`선택한 금주일 ${keys.length}일을 미기록으로 변경할까요?`))return;for(const k of keys){data[k]={status:'unknown',sessions:[]};if(editorDraftKey===k){editorDraft=null;editorDraftKey=null}}save();multiSelected.clear();selectionAnchor=null;render()};
+document.getElementById('bulkClear').onclick=()=>{const keys=[...multiSelected].filter(k=>k<=key(new Date())&&getDay(k).status==='dry');if(!keys.length)return;for(const k of keys){data[k]={status:'unknown',sessions:[]};if(editorDraftKey===k){editorDraft=null;editorDraftKey=null}}save();multiSelected.clear();selectionAnchor=null;render()};
 document.getElementById('bulkDry').onclick=()=>{
  const keys=[...multiSelected].filter(k=>k<=key(new Date())&&getDay(k).status==='unknown');
  if(!keys.length)return;
@@ -772,9 +772,9 @@ function renderEditor(){
   editorDraft=null;editorDraftKey=null;
   setDay(dayKey,result);
  });
- document.getElementById('saveDay')?.addEventListener('click',e=>{e.stopPropagation();if(editorDraftKey===selected&&editorDraft){const v=editorDraft;if(getDay(selected).status==='dry'&&v.status==='drink'&&!confirm('금주 처리를 해제하고 음주 신고서를 제출할까요?'))return;editorDraft=null;editorDraftKey=null;setDay(selected,v)}else{renderEditor()}});
+ document.getElementById('saveDay')?.addEventListener('click',e=>{e.stopPropagation();if(editorDraftKey===selected&&editorDraft){const v=editorDraft;editorDraft=null;editorDraftKey=null;setDay(selected,v)}else{renderEditor()}});
  document.getElementById('cancelDay')?.addEventListener('click',()=>{editorDraft=null;editorDraftKey=null;renderEditor()});
- document.getElementById('addSession').onclick=()=>{let a=structuredClone(editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected));if(a.status==='dry'&&!confirm('금주 체크를 해제하고 음주 세션을 추가할까요?'))return;let ss=a.status==='drink'?(a.sessions||[]):[];ss.push(newSession());editDay(selected,{status:'drink',sessions:ss})};
+ document.getElementById('addSession').onclick=()=>{let a=structuredClone(editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected));let ss=a.status==='drink'?(a.sessions||[]):[];ss.push(newSession());editDay(selected,{status:'drink',sessions:ss})};
  document.querySelectorAll('[data-add-drink]').forEach(b=>b.onclick=()=>{let a=structuredClone(editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected));a.sessions[+b.dataset.addDrink].drinks.push({type:'beer',unit:'smallcan',qty:1});editDay(selected,a)});
  document.querySelectorAll('[data-change-type]').forEach(b=>b.onclick=()=>{let [i,j]=b.dataset.changeType.split(',').map(Number),a=structuredClone(editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected));a.sessions[i].drinks[j]={type:'beer',unit:'smallcan',qty:1,share:shareCount(a.sessions[i].drinks[j])};editDay(selected,a)});
  document.querySelectorAll('[data-remove-drink]').forEach(b=>b.onclick=()=>{let [i,j]=b.dataset.removeDrink.split(',').map(Number),a=structuredClone(editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected));a.sessions[i].drinks.splice(j,1);editDay(selected,a)});
