@@ -877,3 +877,7 @@ html{scrollbar-gutter:stable}
 .ars-v2 .calendar-panel .calendar .day.multi-selected:not(.empty),
 .ars-v2 .calendar-panel .calendar .day.kind-over.selected:not(.empty),
 .ars-v2 .calendar-panel .calendar .day.today.multi-selected:not(.empty){box-sizing:border-box!important;border-width:1px!important;outline:2px solid #142C50!important;outline-offset:-2px!important;box-shadow:none!important}
+
+/* Restore subtle gradient only on the five bordered home dashboard cards. */
+.ars-v2 .gov-dashboard .gov-top-cards>.gov-card,
+.ars-v2 .gov-dashboard .gov-bottom-cards>.gov-card{background:linear-gradient(125deg,#FFFFFF,#F7F8FA)!important;border-color:#D7DFEA!important}
