@@ -1,5 +1,5 @@
 /* ARS dashboard — compact reference layout. The app's reporting styles remain in index.html. */
-:root{--ink:#102849;--navy:#0b294d;--line:#cfd9e6;--red:#c82033;--muted:#66788c}
+:root{--ink:#102849;--navy:#0b294d;--line:#cfd9e6;--red:#be3447;--muted:#66788c}
 html{scroll-behavior:smooth}
 body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!important;font-family:"Noto Sans KR","Apple SD Gothic Neo",Pretendard,"Segoe UI",sans-serif}
 .ars-v2 *{box-sizing:border-box}
@@ -9,7 +9,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .agency-strip-inner{max-width:1536px;margin:auto;padding:0 4.2%;height:39px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;color:#172d4a}
 .ars-v2 .agency-ministry{display:flex;align-items:center;gap:12px}
 .ars-v2 .agency-ministry strong{font-size:15px;font-weight:800;letter-spacing:-.045em}
-.ars-v2 .agency-mark{display:grid;place-items:center;width:27px;height:27px;background:conic-gradient(#b82335 0 45%,#173e69 45% 100%);border:2px solid white;border-radius:50%;color:white;font-size:12px}
+.ars-v2 .agency-mark{display:grid;place-items:center;width:27px;height:27px;background:conic-gradient(#be3447 0 45%,#173e69 45% 100%);border:2px solid white;border-radius:50%;color:white;font-size:12px}
 .ars-v2 .agency-divider{height:18px;width:1px;background:#9eacbd;margin:0 5px}
 .ars-v2 .agency-strip-right{color:#62768d;font-size:11px;white-space:nowrap}
 .ars-v2 header.system-header{position:relative!important;isolation:isolate;display:block!important;height:98px!important;min-height:0!important;margin:0!important;padding:13px 4.2%!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:linear-gradient(100deg,#f8f9fb,#eef3fa)!important;overflow:hidden}
@@ -32,7 +32,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .system-header-rule,.ars-v2 .system-header-message{display:none!important}
 .ars-v2 .v2-service-nav{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;min-height:50px!important;gap:0!important;background:linear-gradient(100deg,#0b2748,#0b3057 55%,#0b2849)!important;margin:0!important}
 .ars-v2 .v2-service-nav a{display:flex!important;align-items:center;justify-content:center;position:relative;text-decoration:none;color:white!important;font-size:16px!important;font-weight:750!important;padding:8px 5px!important;line-height:1.4!important;border:0!important;border-radius:0!important}
-.ars-v2 .v2-service-nav a:first-child:after{content:"";position:absolute;left:13%;right:13%;bottom:0;height:4px;border-radius:4px 4px 0 0;background:#df1d30}
+.ars-v2 .v2-service-nav a:first-child:after{content:"";position:absolute;left:13%;right:13%;bottom:0;height:4px;border-radius:4px 4px 0 0;background:#be3447}
 .ars-v2 .v2-service-nav a:hover{background:#20496e}
 .ars-v2 .gov-workspace{display:grid!important;grid-template-columns:17.7% minmax(0,1fr)!important;align-items:stretch;background:#f8f9fb!important;gap:0!important}
 .ars-v2 .gov-sidebar{min-width:0;background:linear-gradient(110deg,#f5f7fa,#f0f4fa)!important;border-right:1px solid #e2e7ef;padding:25px 15px 22px 20px!important;display:flex!important;flex-direction:column;min-height:0!important}
@@ -55,7 +55,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-main-intro{padding:0 0 22px!important}
 .ars-v2 .gov-main-intro-title{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .ars-v2 .gov-main-intro h2{font-size:26px!important;line-height:1.28!important;font-weight:850!important;letter-spacing:-.055em!important;margin:0 0 4px!important;color:#102849}
-.ars-v2 .gov-main-intro h2:before{content:"";display:inline-block;width:6px;height:25px;border-radius:2px;background:#d91c2b;vertical-align:-4px;margin-right:13px}
+.ars-v2 .gov-main-intro h2:before{content:"";display:inline-block;width:6px;height:25px;border-radius:2px;background:#be3447;vertical-align:-4px;margin-right:13px}
 .ars-v2 .gov-main-intro h2 small{font-size:19px;font-weight:650;letter-spacing:-.025em}
 .ars-v2 .gov-main-intro p{font-size:13px!important;line-height:1.4!important;margin:0 0 0 19px!important;color:#172b43}
 .ars-v2 .gov-date{font-size:12px;white-space:nowrap;color:#183552}
@@ -75,7 +75,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-month-compare{font-size:12px!important;font-weight:750;text-align:center;display:flex;align-items:center;justify-content:center;gap:4px;color:#445f7d;line-height:1.35;padding:0!important;margin:0!important}
 .ars-v2 .gov-compare-arrow{font-size:23px;line-height:1;font-weight:900}
 .ars-v2 .gov-month-compare.decrease{color:#102f58}.ars-v2 .gov-month-compare.decrease .gov-compare-arrow{color:#0068d9}
-.ars-v2 .gov-month-compare.increase,.ars-v2 .gov-month-compare.increase .gov-compare-arrow{color:#ca2534}
+.ars-v2 .gov-month-compare.increase,.ars-v2 .gov-month-compare.increase .gov-compare-arrow{color:#be3447}
 .ars-v2 .gov-streak p{font-size:10px!important;text-align:center;margin:5px 0 0!important;color:#526984}
 .ars-v2 .gov-mini{display:flex!important;flex-direction:column;padding:12px 13px!important}
 .ars-v2 .gov-card-heading{display:flex;justify-content:space-between;align-items:center;gap:6px;margin:0 0 9px!important}
@@ -84,20 +84,20 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-card-heading button{font-size:25px!important;line-height:1!important;font-weight:800!important;padding:0 4px!important;border:0!important;background:transparent!important;color:#102849!important;box-shadow:none!important;cursor:pointer}
 .ars-v2 .gov-mini-grid{display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;grid-template-rows:18px!important;grid-auto-rows:25px!important;gap:3px!important;align-content:start!important;flex:0 0 auto!important;min-height:0!important}
 .ars-v2 .gov-mini-grid .week{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#273b54;background:none!important;border-bottom:1px solid #cbd5e3;border-radius:0!important;line-height:1;padding:0!important}
-.ars-v2 .gov-mini-grid .week:first-child{color:#bf2636}.ars-v2 .gov-mini-grid .week:nth-child(7){color:#365c85}
+.ars-v2 .gov-mini-grid .week:first-child{color:#be3447}.ars-v2 .gov-mini-grid .week:nth-child(7){color:#365c85}
 .ars-v2 .gov-mini-grid .blank{visibility:hidden}
 .ars-v2 .gov-mini-grid button{appearance:none!important;display:flex!important;justify-content:center;align-items:center;padding:0!important;min-width:0!important;min-height:0!important;width:100%!important;height:100%!important;line-height:1!important;border:0!important;border-radius:2px!important;background:#edf0f5!important;color:#122940!important;box-shadow:none!important;font-size:12px!important;font-weight:700!important;cursor:pointer}
 .ars-v2 .gov-mini-grid button.dry{background:#dce7f6!important;color:#163b69!important}
-.ars-v2 .gov-mini-grid button.drink{background:#d21c2e!important;color:white!important}
+.ars-v2 .gov-mini-grid button.drink{background:#be3447!important;color:white!important}
 .ars-v2 .gov-mini-grid button.today{outline:1.5px solid #0069ec!important;outline-offset:-1.5px!important;color:#0655b8!important}
 .ars-v2 .gov-mini-grid button.today.drink{color:#fff!important}
 .ars-v2 .gov-mini-grid button:hover{box-shadow:inset 0 0 0 1px #426a96!important}
 .ars-v2 .gov-mini-caption{display:flex!important;gap:9px;align-items:center;justify-content:center;flex-wrap:wrap;font-size:9px!important;color:#5b7390;margin:6px 0 0!important;line-height:1.1}
 .ars-v2 .gov-mini-caption span{display:inline-flex;align-items:center;gap:3px}
 .ars-v2 .gov-mini-caption i{display:inline-block;width:8px;height:8px;border-radius:1px}
-.ars-v2 .legend-drink{background:#d21c2e}.ars-v2 .legend-dry{background:#dce7f6}.ars-v2 .legend-unknown{background:#edf0f5;border:1px solid #d9e1eb}
+.ars-v2 .legend-drink{background:#be3447}.ars-v2 .legend-dry{background:#dce7f6}.ars-v2 .legend-unknown{background:#edf0f5;border:1px solid #d9e1eb}
 .ars-v2 .gov-target-icon,.ars-v2 .gov-heading-icon{width:21px!important;height:21px!important;flex:0 0 21px!important;color:#102849}
-.ars-v2 .gov-target-icon,.ars-v2 .gov-pledge .gov-heading-icon{color:#d91b2a}
+.ars-v2 .gov-target-icon,.ars-v2 .gov-pledge .gov-heading-icon{color:#be3447}
 .ars-v2 .gov-goal-heading{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:13px;font-weight:750;line-height:1.3;color:#122b49}
 .ars-v2 .gov-goal-heading strong{font-size:16px;color:#0d294d}
 .ars-v2 .gov-progress{height:10px!important;overflow:hidden;border-radius:6px;background:#e1e6ee;margin:8px 0 3px!important}
@@ -133,11 +133,11 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-notice p{display:flex;align-items:center;gap:8px;line-height:1.35;margin:0!important;padding:4px 0!important;font-size:12px;color:#1c334e;border-bottom:1px solid #dce3ed}
 .ars-v2 .gov-notice p:last-child{border:0}
 .ars-v2 .gov-notice b{display:inline-block;flex-shrink:0;padding:2px 7px;background:#235582;color:white;border-radius:3px;font-size:11px}
-.ars-v2 .gov-notice p:first-child b{background:#c81e30}
+.ars-v2 .gov-notice p:first-child b{background:#be3447}
 .ars-v2 .gov-notice>a{text-decoration:none;color:#102849;font-size:25px;line-height:1}
 .ars-v2 .gov-main>.panel{background:white;border:1px solid #d8dfe8;border-radius:5px;padding:24px;margin-top:28px;min-width:0}
 .ars-v2 .gov-main>.panel .calendar-section-heading{border-bottom:1px solid #e2e6ed;padding-bottom:12px;margin-bottom:16px}
-.ars-v2 .gov-main>.panel .report-index{color:#b42a38;font-weight:800}
+.ars-v2 .gov-main>.panel .report-index{color:#8f3443;font-weight:800}
 .ars-v2 .gov-main>.panel .calendar-section-heading h2{font-size:22px;color:#183a61}
 .ars-v2 .calendar-panel .calendar{display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:5px!important}
 .ars-v2 .calendar-panel .day,.ars-v2 .calendar-panel .day:not(.empty){border-radius:2px!important;box-shadow:none!important;overflow:hidden!important}
@@ -166,7 +166,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-goal-row small{font-size:10px!important;white-space:nowrap!important}
 .ars-v2 .gov-trend{font-size:19px!important;font-weight:900!important;vertical-align:middle!important}
 .ars-v2 .gov-trend.down{color:#236ed8!important}
-.ars-v2 .gov-trend.up{color:#c72b3b!important}
+.ars-v2 .gov-trend.up{color:#be3447!important}
 .ars-v2 .gov-trend.flat{color:#8391a5!important}
 .ars-v2 .gov-month-summary .gov-summary-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important}
 .ars-v2 .gov-month-summary .gov-summary-grid>div{min-width:0!important}
@@ -191,7 +191,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 /* Monthly goal dialog: prior-month reference and safe goal-only reset */
 .ars-v2 .gov-goal-dialog .gov-goal-previous{padding:12px 14px!important;background:#edf3fa!important;border:1px solid #d9e4f2!important;border-left:3px solid #1c416f!important;border-radius:5px!important;color:#15375e!important;font-size:13px!important;font-weight:700!important;line-height:1.6!important}
 .ars-v2 .gov-goal-dialog .gov-goal-buttons{align-items:center!important;flex-wrap:wrap!important}
-.ars-v2 .gov-goal-dialog .gov-goal-reset{margin-right:auto!important;color:#a23b47!important;border-color:#e8cbd0!important;background:#fff!important}
+.ars-v2 .gov-goal-dialog .gov-goal-reset{margin-right:auto!important;color:#8f3443!important;border-color:#e8cbd0!important;background:#fff!important}
 .ars-v2 .gov-goal-dialog .gov-goal-reset:disabled{color:#a9b4c4!important;border-color:#e2e7ee!important;cursor:not-allowed!important}
 
 /* Unit selector in the monthly consumption summary */
@@ -215,7 +215,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 
 /* Abstinence headline and direction-aware drinking-interval trend */
 .ars-v2 .gov-goal .gov-goal-row #govGapPrev .gov-trend.up.positive{color:#236ed8!important}
-.ars-v2 .gov-goal .gov-goal-row #govGapPrev .gov-trend.down.negative{color:#c72b3b!important}
+.ars-v2 .gov-goal .gov-goal-row #govGapPrev .gov-trend.down.negative{color:#be3447!important}
 .ars-v2 .gov-sidebar-head strong #govPersonalNumber{font-size:14px!important;line-height:1.35!important;font-weight:800!important;letter-spacing:-.02em!important;overflow-wrap:anywhere!important}
 
 /* Sidebar is now a personal dashboard index; top navigation remains the service navigation. */
@@ -227,7 +227,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 /* v2 portal navigation: four real views, with a non-navigational account sidebar */
 .ars-v2 .v2-service-nav{grid-template-columns:repeat(4,minmax(0,1fr))!important}
 .ars-v2 .v2-service-nav a:first-child:after{display:none!important}
-.ars-v2 .v2-service-nav a[aria-current="page"]:after{content:"";display:block!important;position:absolute;bottom:0;left:14%;right:14%;height:4px;border-radius:3px 3px 0 0;background:#df2438!important}
+.ars-v2 .v2-service-nav a[aria-current="page"]:after{content:"";display:block!important;position:absolute;bottom:0;left:14%;right:14%;height:4px;border-radius:3px 3px 0 0;background:#be3447!important}
 .ars-v2 .v2-service-nav a:hover{background:rgba(255,255,255,.09)!important}
 .ars-v2 .gov-personal-panel{background:#fff;border:1px solid #d7e0ec;border-radius:6px;padding:4px 13px;margin:0 0 17px}
 .ars-v2 .gov-personal-row{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 0;border-bottom:1px solid #e9edf3}
@@ -251,7 +251,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-main>.panel{border:1px solid #d3deec!important;border-radius:7px!important;box-shadow:0 2px 9px rgba(22,48,83,.035)!important;background:#fff!important;padding:23px 24px 25px!important}
 .ars-v2 .gov-main>.panel .calendar-section-heading{border-bottom:1px solid #e1e8f1!important;margin-bottom:20px!important;padding:0 0 16px!important}
 .ars-v2 .gov-main>.panel .calendar-section-heading h2{font-size:23px!important;font-weight:850!important;color:#112d50!important;letter-spacing:-.04em!important;line-height:1.35!important}
-.ars-v2 .gov-main>.panel .calendar-section-heading h2:before{content:"";display:inline-block;width:5px;height:23px;background:#cc2535;border-radius:2px;vertical-align:-4px;margin-right:13px}
+.ars-v2 .gov-main>.panel .calendar-section-heading h2:before{content:"";display:inline-block;width:5px;height:23px;background:#be3447;border-radius:2px;vertical-align:-4px;margin-right:13px}
 .ars-v2 .gov-main>.panel .report-title-line{display:flex!important;align-items:center!important;gap:0!important}
 .ars-v2 .gov-main>.panel .report-index{display:none!important}
 .ars-v2 #trend-analysis .stats,.ars-v2 #trend-analysis .extra-analysis{border-radius:6px}
@@ -283,7 +283,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-personal-notices a:hover,.ars-v2 .gov-personal-notices button:hover{color:#235da1!important}
 .ars-v2 .gov-personal-notices a span,.ars-v2 .gov-personal-notices button span{white-space:nowrap;font-size:11px;font-weight:750;color:#335e94}
 .ars-v2 .gov-notice-tag{flex:0 0 auto;display:inline-block;border-radius:3px;padding:3px 7px;font-size:11px!important;line-height:1.4;font-weight:800!important}
-.ars-v2 .gov-notice-alert{background:#fbe8ec;color:#a92138!important}
+.ars-v2 .gov-notice-alert{background:#fbe8ec;color:#8f3443!important}
 .ars-v2 .gov-notice-goal{background:#e6eefb;color:#244e87!important}
 .ars-v2 .gov-notice-ok{background:#e8eef6;color:#284d75!important}
 @media(max-width:700px){.ars-v2 .gov-notice{grid-template-columns:1fr!important}.ars-v2 .gov-personal-notices p{align-items:flex-start}.ars-v2 .gov-personal-notices a,.ars-v2 .gov-personal-notices button{flex-wrap:wrap}}
@@ -297,11 +297,11 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 
 /* Unified card treatment: dashboard and analytics share the same white bordered tiles */
 .ars-v2 .gov-notice .gov-personal-notices .gov-notice-tag{background:#e7eef8!important;color:#1b4778!important;border:0!important;box-shadow:none!important;opacity:1!important;font-size:11px!important;font-weight:800!important;line-height:1.4!important;min-width:39px;text-align:center}
-.ars-v2 .gov-notice .gov-personal-notices .gov-notice-alert{background:#b92336!important;color:#fff!important}
+.ars-v2 .gov-notice .gov-personal-notices .gov-notice-alert{background:#be3447!important;color:#fff!important}
 .ars-v2 .gov-notice .gov-personal-notices .gov-notice-goal{background:#234f85!important;color:#fff!important}
 .ars-v2 .gov-notice .gov-personal-notices .gov-notice-ok{background:#e4edf8!important;color:#173d69!important}
 .ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-ok{background:#e4edf8!important;color:#173d69!important}
-.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-alert{background:#b92336!important;color:#fff!important}
+.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-alert{background:#be3447!important;color:#fff!important}
 .ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-goal{background:#234f85!important;color:#fff!important}
 .ars-v2 .trend-report .weekly-report,
 .ars-v2 .trend-report .trend-chart,
@@ -350,18 +350,18 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-summary-grid>div[class*="gov-alcohol-stage-"]{border-radius:6px!important;padding:10px!important}
 .ars-v2 .gov-summary-grid .gov-alcohol-stage-1{background:#fff7ed!important;border:1px solid #f4d5ae!important}
 .ars-v2 .gov-summary-grid .gov-alcohol-stage-2{background:#fff0e9!important;border:1px solid #efb89f!important}
-.ars-v2 .gov-summary-grid .gov-alcohol-stage-3{background:#fff0f1!important;border:1px solid #e8a5ae!important}
+.ars-v2 .gov-summary-grid .gov-alcohol-stage-3{background:#fff0f1!important;border:1px solid #d36b77!important}
 .ars-v2 .gov-summary-grid .gov-alcohol-stage-4{background:#f7effa!important;border:1px solid #d3b0df!important}
 .ars-v2 .gov-summary-grid .gov-alcohol-stage-1 strong{color:#c47a19!important}
 .ars-v2 .gov-summary-grid .gov-alcohol-stage-2 strong{color:#d75d32!important}
-.ars-v2 .gov-summary-grid .gov-alcohol-stage-3 strong{color:#bf293b!important}
+.ars-v2 .gov-summary-grid .gov-alcohol-stage-3 strong{color:#be3447!important}
 .ars-v2 .gov-summary-grid .gov-alcohol-stage-4 strong{color:#783b8c!important}
 .ars-v2 .gov-alcohol-warning{margin-top:10px;padding:11px 13px;border:1px solid #efd1b8;border-radius:6px;background:#fff7f0;color:#7b4a2c;display:flex;flex-direction:column;gap:4px;font-size:12px;line-height:1.5}
 .ars-v2 .gov-alcohol-warning[hidden]{display:none!important}
 .ars-v2 .gov-alcohol-warning strong{font-size:12px;font-weight:800;color:#a94c27}
 .ars-v2 .gov-alcohol-warning small{font-size:10px;color:#756c70;line-height:1.5}
 .ars-v2 .gov-month-summary:has(.gov-alcohol-stage-3) .gov-alcohol-warning{background:#fff1f2;border-color:#edbbc3}
-.ars-v2 .gov-month-summary:has(.gov-alcohol-stage-3) .gov-alcohol-warning strong{color:#b5293b}
+.ars-v2 .gov-month-summary:has(.gov-alcohol-stage-3) .gov-alcohol-warning strong{color:#be3447}
 .ars-v2 .gov-month-summary:has(.gov-alcohol-stage-4) .gov-alcohol-warning{background:#f8f0fb;border-color:#d7b7e2}
 .ars-v2 .gov-month-summary:has(.gov-alcohol-stage-4) .gov-alcohol-warning strong{color:#783b8c}
 
@@ -369,7 +369,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .calendar-panel .day.kind-solo:not(.empty){border-color:var(--solo-border,#e5bf79)!important}
 .ars-v2 .calendar-panel .day.kind-with:not(.empty),
 .ars-v2 .calendar-panel .day.kind-mixed:not(.empty){border-color:var(--with-border,#8bcac1)!important}
-.ars-v2 .calendar-panel .day.kind-over:not(.empty){border-color:#c54b55!important;box-shadow:inset 0 0 0 1px #c54b55!important}
+.ars-v2 .calendar-panel .day.kind-over:not(.empty){border-color:#d36b77!important;box-shadow:inset 0 0 0 1px #d36b77!important}
 .ars-v2 .calendar-panel .day.kind-dry:not(.empty){border-color:var(--dry-border,#c6d5ed)!important}
 .ars-v2 .calendar-panel .day.selected:not(.empty){outline:2px solid #193d65!important;outline-offset:-2px!important}
 
@@ -409,7 +409,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-solo-warning.gov-solo-warning-active{color:#b66c24!important}
 .ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="1"]{color:#bf7b22!important}
 .ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="2"]{color:#d45f35!important}
-.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="3"]{color:#bb3040!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="3"]{color:#8f3443!important}
 .ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="4"]{color:#773e90!important}
 @media(max-width:520px){.ars-v2 .gov-goal-heading #govGoalRate b{font-size:27px!important}.ars-v2 .gov-goal-heading #govGoalRate span{font-size:15px!important}.ars-v2 .gov-goal-heading .gov-goal-percent{font-size:20px!important}}
 
@@ -429,8 +429,8 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-goal-foot #govGoalNote{flex:1;min-width:0}
 .ars-v2 .gov-goal-foot .gov-goal-percent{font-size:12px!important;font-weight:700!important;color:#526982!important}
 .ars-v2 .gov-solo-warning{padding-left:0!important}
-.ars-v2 .gov-solo-warning.gov-solo-warning-active{color:#c32e3e!important}
-.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage]{color:#c32e3e!important}
+.ars-v2 .gov-solo-warning.gov-solo-warning-active{color:#8f3443!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage]{color:#8f3443!important}
 .ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="3"],
 .ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="4"]{font-weight:750!important}
 .ars-v2 .gov-warning-info{font-weight:500!important;margin-right:3px}
@@ -440,3 +440,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 
 /* Slightly emphasize over-limit dates without double inner border. */
 .ars-v2 .calendar-panel .day.kind-over:not(.empty){border-width:1.5px!important;box-shadow:none!important}
+
+/* Unified red palette: semantic over-limit borders and warning copy. */
+.ars-v2 .calendar-panel .day.kind-over:not(.empty){border-color:#d36b77!important;border-width:1.5px!important}
+.ars-v2 .gov-solo-warning.gov-solo-warning-active,.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage]{color:#8f3443!important}
