@@ -1,0 +1,566 @@
+{
+  "app": "sober-calendar",
+  "version": 1,
+  "days": {
+    "2026-09-01": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-02": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-03": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "친구",
+          "note": "",
+          "after": false,
+          "company": "with",
+          "drinks": [
+            {
+              "qty": 1,
+              "type": "beer",
+              "unit": "largecan"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-09-04": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-05": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-06": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "친구",
+          "note": "",
+          "after": false,
+          "company": "with",
+          "drinks": [
+            {
+              "qty": 2,
+              "type": "wine",
+              "unit": "glass"
+            }
+          ]
+        },
+        {
+          "who": "",
+          "note": "",
+          "after": true,
+          "company": "solo",
+          "drinks": [
+            {
+              "qty": 2,
+              "type": "beer",
+              "unit": "smallcan"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-09-07": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-08": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-09": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-10": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-11": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "친구",
+          "note": "",
+          "after": false,
+          "company": "with",
+          "drinks": [
+            {
+              "qty": 3,
+              "type": "soju",
+              "unit": "shot"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-09-12": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-13": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-14": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-15": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-16": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "",
+          "note": "",
+          "after": false,
+          "company": "solo",
+          "drinks": [
+            {
+              "qty": 2,
+              "type": "beer",
+              "unit": "smallcan"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-09-17": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-18": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-19": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-20": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "친구",
+          "note": "",
+          "after": false,
+          "company": "with",
+          "drinks": [
+            {
+              "qty": 1,
+              "type": "wine",
+              "unit": "glass"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-09-21": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-22": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-23": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-24": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-25": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "친구",
+          "note": "",
+          "after": false,
+          "company": "with",
+          "drinks": [
+            {
+              "qty": 1,
+              "type": "soju",
+              "unit": "half"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-09-26": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-27": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-28": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-09-29": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "친구",
+          "note": "",
+          "after": false,
+          "company": "with",
+          "drinks": [
+            {
+              "qty": 2,
+              "type": "beer",
+              "unit": "largecan"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-09-30": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-01": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-02": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "",
+          "note": "",
+          "after": false,
+          "company": "solo",
+          "drinks": [
+            {
+              "qty": 1,
+              "type": "beer",
+              "unit": "largecan"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-10-03": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-04": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-05": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-06": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-07": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-08": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-09": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-10": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "친구",
+          "note": "",
+          "after": false,
+          "company": "with",
+          "drinks": [
+            {
+              "qty": 3,
+              "type": "soju",
+              "unit": "shot"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-10-11": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-12": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-13": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-14": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-15": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "친구",
+          "note": "",
+          "after": false,
+          "company": "with",
+          "drinks": [
+            {
+              "qty": 3,
+              "type": "beer",
+              "unit": "largecan"
+            },
+            {
+              "qty": 2,
+              "type": "liquor",
+              "unit": "glass"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-10-16": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-17": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-18": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "",
+          "note": "",
+          "after": false,
+          "company": "solo",
+          "drinks": [
+            {
+              "qty": 1,
+              "type": "wine",
+              "unit": "glass"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-10-19": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-20": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-21": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-22": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-23": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-24": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "친구",
+          "note": "",
+          "after": false,
+          "company": "with",
+          "drinks": [
+            {
+              "qty": 1,
+              "type": "soju",
+              "unit": "half"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-10-25": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-26": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-27": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-28": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-29": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-10-30": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "친구",
+          "note": "",
+          "after": false,
+          "company": "with",
+          "drinks": [
+            {
+              "qty": 2,
+              "type": "beer",
+              "unit": "largecan"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-10-31": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-11-01": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "친구",
+          "note": "",
+          "after": false,
+          "company": "solo",
+          "drinks": [
+            {
+              "qty": 1,
+              "type": "beer",
+              "unit": "largecan"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-11-02": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-11-03": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-11-04": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-11-05": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "",
+          "note": "",
+          "after": false,
+          "company": "with",
+          "drinks": [
+            {
+              "qty": 2,
+              "type": "wine",
+              "unit": "glass"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-11-06": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-11-07": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "",
+          "note": "",
+          "after": false,
+          "company": "solo",
+          "drinks": [
+            {
+              "qty": 2,
+              "type": "beer",
+              "unit": "largecan"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-11-08": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-11-09": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-11-10": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-11-11": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-11-12": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-11-13": {
+      "status": "drink",
+      "sessions": [
+        {
+          "who": "친구",
+          "note": "",
+          "after": false,
+          "company": "with",
+          "drinks": [
+            {
+              "qty": 2,
+              "type": "beer",
+              "unit": "smallcan"
+            }
+          ]
+        }
+      ]
+    },
+    "2026-11-14": {
+      "status": "dry",
+      "sessions": []
+    },
+    "2026-11-15": {
+      "status": "dry",
+      "sessions": []
+    }
+  }
+}
