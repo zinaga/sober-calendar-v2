@@ -1032,3 +1032,9 @@ html{scrollbar-gutter:stable}
  body.ars-v2 #monthly-report.calendar-panel > .nav > div > #next{position:absolute!important;right:0!important;top:50%!important;transform:translateY(-50%)!important;width:40px!important;height:40px!important;margin:0!important}
  body.ars-v2 #monthly-report.calendar-panel > .nav > div > #today{margin-right:48px!important;font-size:11px!important;white-space:nowrap!important;padding:7px 9px!important}
 }
+
+/* Mobile records calendar: match the home calendar's current-month button and gently inset the title. */
+@media(max-width:700px){
+ body.ars-v2 #monthly-report.calendar-panel > .nav > #month{padding-left:10px!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > div > #today{border:1px solid #D7DFEA!important;background:#FFFFFF!important;color:#142C50!important;border-radius:5px!important;padding:4px 7px!important;font-size:11px!important;font-weight:700!important;line-height:normal!important;box-shadow:none!important}
+}
