@@ -576,3 +576,10 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
  margin-top:2px!important;margin-bottom:2px!important;
  background:#d0dff1!important;color:#17395f!important;
 }
+
+/* Vertically center the pledge quotation in the remaining card body. */
+.ars-v2 .gov-pledge{display:flex!important;flex-direction:column!important}
+.ars-v2 .gov-pledge>.purpose-section{flex:1 1 auto!important;display:flex!important;flex-direction:column!important;justify-content:center!important;min-height:0!important}
+.ars-v2 .gov-pledge .pledge-panel{width:100%!important}
+.ars-v2 .gov-goal .gov-target-icon{color:#102849!important}
+.ars-v2 .gov-pledge h3>.gov-heading-icon{position:relative!important;top:2px!important}
