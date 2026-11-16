@@ -915,3 +915,11 @@ html{scrollbar-gutter:stable}
 
 /* Header identity is display-only; rename from My Page instead. */
 .ars-v2 #headerReporterEdit{pointer-events:none!important;cursor:default!important}
+
+/* Keep account information exclusively in the left sidebar. */
+.ars-v2 .system-header .system-account,.ars-v2 header.system-header .system-account{display:none!important}
+.ars-v2 .gov-personal-panel .gov-personal-reporter-link{display:flex!important;align-items:center!important;justify-content:space-between!important;text-decoration:none!important;color:inherit!important;cursor:pointer;border-radius:4px}
+.ars-v2 .gov-personal-panel .gov-personal-reporter-link:hover{background:#F7F8FA!important}
+.ars-v2 .gov-personal-panel .gov-personal-reporter-link:focus-visible{outline:2px solid #41618F!important;outline-offset:2px}
+.ars-v2 .gov-reporter-identity{display:inline-flex;align-items:center;gap:6px;min-width:0}
+.ars-v2 .gov-side-online-dot:not([hidden]){display:inline-block;width:6px;height:6px;min-width:6px;border-radius:50%;background:#3D9489}
