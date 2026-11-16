@@ -612,3 +612,9 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]) + .gov-alcohol-warning:not([hidden]){
  margin-top:4px!important;
 }
+
+/* Compact home calendar cells with a clearer title-to-weekday pause. */
+.ars-v2 .gov-mini .gov-card-heading{margin-bottom:22px!important}
+.ars-v2 .gov-mini-grid{grid-auto-rows:30px!important}
+/* Keep the first summary warning's table spacing; tighten only warning-to-warning gap. */
+.ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]) + .gov-alcohol-warning:not([hidden]){margin-top:0!important}
