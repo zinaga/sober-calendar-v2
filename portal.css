@@ -569,3 +569,10 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
  transform:translateY(-50%)!important;margin-left:12px!important;
  vertical-align:initial!important;
 }
+
+/* Align dry record strip with drinking strips directly below the date. */
+.ars-v2 .calendar-panel .day.kind-dry .number{margin-bottom:6px!important}
+.ars-v2 .calendar-panel .day.kind-dry .pill.dry{
+ margin-top:2px!important;margin-bottom:2px!important;
+ background:#d0dff1!important;color:#17395f!important;
+}
