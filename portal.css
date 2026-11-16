@@ -397,7 +397,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-goal-active .gov-goal-heading{background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;margin:8px 0 12px!important;align-items:center!important}
 .ars-v2 .gov-goal-heading .gov-goal-count{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex:1;min-width:0}
 .ars-v2 .gov-goal-heading #govGoalLabel{display:none!important}
-.ars-v2 .gov-goal-heading #govGoalRate{color:#142C50!important;white-space:nowrap!important;line-height:1.25}
+
 .ars-v2 .gov-goal-heading #govGoalRate b{font-size:32px!important;font-weight:850!important}
 .ars-v2 .gov-goal-heading #govGoalRate span{font-size:19px!important;font-weight:450!important;color:#66788C!important}
 .ars-v2 .gov-goal-heading .gov-goal-percent{font-size:23px;font-weight:800;color:#142C50;white-space:nowrap}
@@ -593,7 +593,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-goal .gov-goal-percent{color:#142C50!important;font-weight:700!important}
 
 /* Mini calendar: give the weekday header breathing room, keep date cells compact. */
-.ars-v2 .gov-mini .gov-card-heading{margin-bottom:15px!important}
+
 .ars-v2 .gov-mini-grid{gap:4px!important}
 /* Monthly summary warning: match the goal card's 8px spacing below its progress bar. */
 .ars-v2 .gov-month-summary .gov-summary-grid + .gov-alcohol-warning:not([hidden]){
@@ -604,7 +604,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 }
 
 /* Compact home calendar cells with a clearer title-to-weekday pause. */
-.ars-v2 .gov-mini .gov-card-heading{margin-bottom:22px!important}
+
 
 /* Keep the first summary warning's table spacing; tighten only warning-to-warning gap. */
 .ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]) + .gov-alcohol-warning:not([hidden]){margin-top:0!important}
