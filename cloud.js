@@ -231,27 +231,39 @@ googleLogin.onclick=async()=>{
  }catch(e){cloudSetStatus('Google 로그인 오류: '+e.message);googleLogin.disabled=false}
 };
 // Only clear local personal data after a verified cloud save and successful sign-out.
+function clearSignedOutDeviceData(){
+ clearTimeout(cloudTimer);
+ for(const key of [KEY,LIMIT_KEY,PLEDGE_KEY,GOAL_KEY,VOLUME_KEY])localStorage.removeItem(key);
+ // Clear in-memory state immediately as well, even if navigation is delayed.
+ data={};personalLimits={};personalPledge='';
+ window.arsMonthlyGoals?.set({});
+ render();renderPledge();renderExtraStats();
+}
 cloudLogout.onclick=async()=>{
  if(!cloudClient||!cloudUser)return;
  cloudLogout.disabled=true;
+ let syncError=null;
  try{
   clearTimeout(cloudTimer);
   if(cloudPullInFlight)await cloudPullInFlight;
-  if(!cloudReady)throw new Error('클라우드 동기화가 완료되지 않았어요. 기록을 보호하기 위해 로그아웃을 중단했어요.');
-  // Wait for any ongoing write before taking the final snapshot.
   while(cloudBusy)await new Promise(resolve=>setTimeout(resolve,100));
+  if(!cloudReady)throw new Error('클라우드 동기화가 완료되지 않았어요.');
   await pushCloud(true);
   const snapshot=JSON.parse(JSON.stringify(data));
-  const {data:verified,error:verifyError}=await cloudClient.from('sober_records').select('days').eq('user_id',cloudUser.id).maybeSingle();
-  if(verifyError)throw verifyError;
-  if(!sameCloudRecord(verified?.days||{},snapshot))throw new Error('클라우드 기록 확인에 실패했어요.');
-  const {error:signOutError}=await cloudClient.auth.signOut();
-  if(signOutError)throw signOutError;
-  for(const key of [KEY,LIMIT_KEY,PLEDGE_KEY,GOAL_KEY,VOLUME_KEY])localStorage.removeItem(key);
-  // Reload to reset all in-memory data and derived statistics as well.
-  location.replace(location.pathname+location.search+location.hash);
+  const {data:verified,error}=await cloudClient.from('sober_records').select('days').eq('user_id',cloudUser.id).maybeSingle();
+  if(error)throw error;
+  if(!sameCloudRecord(verified?.days||{},snapshot))throw new Error('클라우드 저장 내용이 일치하지 않아요.');
+ }catch(err){syncError=err}
+ if(syncError&&!confirm('클라우드 동기화를 확인하지 못했어요: '+syncError.message+'\\n\\n계속 로그아웃하면 이 기기의 기록이 삭제될 수 있어요. 기록 내보내기로 백업한 뒤 다시 시도하는 것을 권장해요. 그래도 로그아웃할까요?')){
+  cloudSetStatus('로그아웃 취소 · 기기 기록은 유지됩니다.');cloudLogout.disabled=false;return;
+ }
+ try{
+  const {error}=await cloudClient.auth.signOut();
+  if(error)throw error;
+  clearSignedOutDeviceData();
+  location.reload();
  }catch(err){
-  cloudSetStatus('로그아웃 중단: '+err.message+' · 기기 기록은 유지됩니다.');
+  cloudSetStatus('로그아웃 실패: '+err.message);
   cloudLogout.disabled=false;
  }
 };
