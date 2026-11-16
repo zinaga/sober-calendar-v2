@@ -773,6 +773,8 @@ updatePersonalNumber();
 window.addEventListener('ars-cloud-user-changed',updatePersonalNumber);
 const GOAL_KEY='ars-v2-monthly-drinking-goals';
 let monthGoals={};try{monthGoals=JSON.parse(localStorage.getItem(GOAL_KEY)||'{}')||{}}catch{}
+// Explicit bridge for the separately loaded cloud sync script.
+window.arsMonthlyGoals={get:()=>({...monthGoals}),set:(goals)=>{monthGoals={...goals};localStorage.setItem(GOAL_KEY,JSON.stringify(monthGoals));}};
 const monthId=()=>year+'-'+String(month+1).padStart(2,'0');
 const targetForMonth=()=>{
  const id=monthId(),max=new Date(year,month+1,0).getDate();
@@ -828,6 +830,7 @@ el('govGoalForm').onsubmit=e=>{
  if(!Number.isInteger(v)||v<0||v>new Date(year,month+1,0).getDate())return;
  monthGoals[monthId()]=v;
  localStorage.setItem(GOAL_KEY,JSON.stringify(monthGoals));
+ if(typeof saveCloudMonthlyGoals==='function')void saveCloudMonthlyGoals(monthGoals);
  if(goalDialog.close)goalDialog.close();else goalDialog.removeAttribute('open');
  update();
 };
@@ -991,7 +994,7 @@ el('govMiniTitle').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' 
 el('govMiniCalendar').onclick=e=>{let b=e.target.closest('[data-mini-date]');if(!b)return;location.hash='#records';let t=document.querySelector('#calendar [data-day="'+b.dataset.miniDate+'"]');if(t)t.click()};
 window.addEventListener('focus',update);update();
 })();
-</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script src="config.js"></script><script src="cloud.js?v=20261115-18"></script>
+</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script src="config.js"></script><script src="cloud.js?v=20261115-19"></script>
 <script>
 (function(){
  const routeNames={home:'절주 현황',records:'음주 기록',analytics:'통계 분석',mypage:'마이페이지'};
