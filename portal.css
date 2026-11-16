@@ -451,3 +451,11 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .v2-service-nav a[aria-current="page"]{background:#fff!important;color:#142c50!important;border-radius:7px 7px 0 0!important;box-shadow:none!important;border-bottom:0!important;font-weight:800!important}
 .ars-v2 .v2-service-nav a[aria-current="page"]::after,.ars-v2 .v2-service-nav a[aria-current="page"]::before{display:none!important}
 .ars-v2 .gov-goal-actual #govDryPrev{font-size:11px!important;font-weight:500!important;color:#65768e!important;line-height:1.3!important;white-space:nowrap!important}
+
+/* Active tab: restrained government portal treatment, no white slab. */
+.ars-v2 .v2-service-nav a[aria-current="page"]{
+ background:#233d63!important;color:#fff!important;border-radius:0!important;
+ box-shadow:inset 0 -4px 0 #be3447!important;font-weight:800!important;
+}
+.ars-v2 .v2-service-nav a[aria-current="page"]::before,
+.ars-v2 .v2-service-nav a[aria-current="page"]::after{display:none!important}
