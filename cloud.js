@@ -253,7 +253,7 @@ cloudLogout.onclick=async()=>{
   if(error)throw error;
   if(!sameCloudRecord(verified?.days||{},snapshot))throw new Error('클라우드 저장 내용이 일치하지 않아요.');
  }catch(err){syncError=err}
- if(syncError&&!confirm('클라우드 동기화를 확인하지 못했어요: '+syncError.message+'\\n\\n계속 로그아웃하면 이 기기의 기록이 삭제될 수 있어요. 기록 내보내기로 백업한 뒤 다시 시도하는 것을 권장해요. 그래도 로그아웃할까요?')){
+ if(syncError&&!confirm('클라우드 동기화를 확인하지 못했어요: '+syncError.message+'\\n\\n클라우드 저장을 확인하지 못해 이 기기의 기록은 삭제하지 않고 보존합니다. 다른 계정으로 로그인하기 전에 기록 내보내기로 백업해 주세요. 그래도 로그아웃할까요?')){
   cloudSetStatus('로그아웃 취소 · 기기 기록은 유지됩니다.');cloudLogout.disabled=false;return;
  }
  try{
