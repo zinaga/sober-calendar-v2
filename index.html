@@ -691,7 +691,7 @@ function renderExtraStats(){
   }
   monthlyTrendData=months;
   const max=Math.max(1,...months.filter(x=>x.counts.known>=7).map(x=>x.counts.light+x.counts.caution+x.counts.over));
-  const colors={light:'#7CA7CC',caution:'#E1AD52',over:'#D36B77'};
+  const colors={light:'#41618F',caution:'#D7A334',over:'#BE3447'};
   const bars=months.map(x=>{
    const c=x.counts,total=c.light+c.caution+c.over;
    if(c.known<7)return '<div class="trend-col trend-col-empty" aria-label="'+x.label+' 기록 부족"><span class="trend-value">—</span><span class="trend-empty-caption">기록 '+c.known+'/7일</span></div>';
