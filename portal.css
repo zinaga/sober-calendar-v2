@@ -1015,3 +1015,20 @@ html{scrollbar-gutter:stable}
  body.ars-v2 #monthly-report.calendar-panel > .nav > .month-nav-actions > #prev,
  body.ars-v2 #monthly-report.calendar-panel > .nav > .month-nav-actions > #next{display:inline-flex!important;position:static!important;flex:0 0 40px!important;width:40px!important;height:40px!important;margin:0!important}
 }
+
+/* Desktop records calendar retains its original previous / month / today-next layout. */
+@media(min-width:701px){
+ body.ars-v2 #monthly-report.calendar-panel > .nav{display:grid!important;grid-template-columns:40px minmax(0,1fr) auto!important;align-items:center!important;gap:8px!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > #prev{grid-column:1!important;grid-row:1!important;justify-self:start!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > #month{grid-column:2!important;grid-row:1!important;text-align:center!important;margin:0!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > div{grid-column:3!important;grid-row:1!important;display:flex!important;align-items:center!important;gap:8px!important}
+}
+/* Only mobile groups both arrows to the right, with month on the left. */
+@media(max-width:700px){
+ body.ars-v2 #monthly-report.calendar-panel > .nav{position:relative!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:6px!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > #month{grid-column:1!important;grid-row:1!important;text-align:left!important;justify-self:start!important;margin:0!important;min-width:0!important;font-size:clamp(18px,4.8vw,24px)!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > div{grid-column:2!important;grid-row:1!important;display:flex!important;align-items:center!important;gap:8px!important;padding-right:48px!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > #prev{position:absolute!important;right:48px!important;top:50%!important;transform:translateY(-50%)!important;width:40px!important;height:40px!important;margin:0!important;z-index:1!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > div > #next{position:absolute!important;right:0!important;top:50%!important;transform:translateY(-50%)!important;width:40px!important;height:40px!important;margin:0!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > div > #today{margin-right:48px!important;font-size:11px!important;white-space:nowrap!important;padding:7px 9px!important}
+}
