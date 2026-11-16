@@ -798,7 +798,66 @@ function newSession(){return{company:'solo',who:'',note:'',after:false,drinks:[{
 window.addEventListener('focus',refreshCalendarDay);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshCalendarDay()});
 setInterval(refreshCalendarDay,30000);
-document.getElementById('export').onclick=()=>{let blob=new Blob([JSON.stringify({app:'sober-calendar',version:1,days:data},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`sober-calendar-backup-${today}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};document.getElementById('importBtn').onclick=()=>document.getElementById('import').click();document.getElementById('import').onchange=async e=>{let file=e.target.files[0];if(!file)return;try{let obj=JSON.parse(await file.text());if(obj.app!=='sober-calendar'||!obj.days||typeof obj.days!=='object'||Array.isArray(obj.days))throw Error('백업 파일 형식이 아닙니다');const dates=Object.keys(obj.days);const overlaps=dates.filter(k=>Object.prototype.hasOwnProperty.call(data,k));if(!confirm(`${dates.length}일의 기록을 추가할까요? 기존 기록은 유지하고, 날짜가 겹치는 ${overlaps.length}일만 가져온 기록으로 교체합니다. 먼저 JSON 백업을 권장합니다.`))return;data={...data,...obj.days};save();render();alert(`${dates.length}일 가져오기 완료 (기존 기록 유지, 중복 날짜 ${overlaps.length}일 교체)`)}catch(err){alert('불러오기 실패: '+err.message)}e.target.value=''};render();
+document.getElementById('export').onclick=()=>{let blob=new Blob([JSON.stringify({app:'sober-calendar',version:1,days:data},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`sober-calendar-backup-${today}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};document.getElementById('importBtn').onclick=()=>document.getElementById('import').click();function describeBackupDay(day){
+ if(!day)return '기록 없음';
+ if(day.status==='dry')return '금주';
+ if(day.status!=='drink')return '미기록';
+ const typeNames={beer:'맥주',wine:'와인',soju:'소주',liquor:'위스키·칵테일',cheongju:'청주·약주',takju:'탁주'};
+ const unitNames={smallcan:'작은 캔',largecan:'큰 캔',shot:'잔',glass:'잔',half:'반병',bottle:'병'};
+ return (day.sessions||[]).map((session,i)=>{
+  const drinks=(session.drinks||[]).map(d=>(typeNames[d.type]||d.type)+' '+(unitNames[d.unit]||d.unit)+' ×'+d.qty).join(', ');
+  return (i+1)+'회차 '+(session.company==='solo'?'혼술':'술자리')+(session.who?' ('+session.who+')':'')+(session.after?' · 귀가 후 추가 음주':'')+' · '+(drinks||'종류 미입력')+(session.note?' · '+session.note:'');
+ }).join(' / ')||'음주 (상세 내역 없음)';
+}
+function backupDaysEqual(a,b){
+ // Ignore object property order when comparing equivalent backup entries.
+ const canonical=v=>Array.isArray(v)?v.map(canonical):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,canonical(v[k])])):v;
+ return JSON.stringify(canonical(a))===JSON.stringify(canonical(b));
+}
+function confirmBackupImport(dates,days){
+ const changed=dates.filter(k=>Object.prototype.hasOwnProperty.call(data,k)&&!backupDaysEqual(data[k],days[k]));
+ const identical=dates.filter(k=>Object.prototype.hasOwnProperty.call(data,k)&&backupDaysEqual(data[k],days[k]));
+ return new Promise(resolve=>{
+  const overlay=document.createElement('div');
+  overlay.style.cssText='position:fixed;inset:0;z-index:99999;background:rgba(14,30,54,.6);display:flex;align-items:center;justify-content:center;padding:16px';
+  const dialog=document.createElement('section');dialog.setAttribute('role','dialog');dialog.setAttribute('aria-modal','true');dialog.setAttribute('aria-label','백업 기록 충돌 확인');
+  dialog.style.cssText='width:min(660px,100%);max-height:85vh;display:flex;flex-direction:column;background:white;color:#142C50;border-radius:12px;padding:22px;box-shadow:0 15px 50px #0003';
+  const title=document.createElement('h3');title.textContent='백업 기록 가져오기 확인';title.style.cssText='margin:0 0 12px;font-size:21px';dialog.append(title);
+  const summary=document.createElement('p');summary.style.cssText='margin:0 0 12px;line-height:1.6';summary.textContent=dates.length+'일 중 새로운 날짜 '+(dates.length-changed.length-identical.length)+'일 · 내용이 다른 날짜 '+changed.length+'일 · 동일한 날짜 '+identical.length+'일';dialog.append(summary);
+  const help=document.createElement('p');help.style.cssText='margin:0 0 12px;color:#66788c;font-size:13px';help.textContent='가져오기를 진행하면 아래 날짜의 기존 기록이 백업 내용으로 교체됩니다. 먼저 기록 내보내기를 권장합니다.';dialog.append(help);
+  const scroll=document.createElement('div');scroll.style.cssText='overflow:auto;min-height:0;flex:1;border-top:1px solid #d7dfea;border-bottom:1px solid #d7dfea';
+  if(!changed.length){const empty=document.createElement('p');empty.textContent='내용이 다른 중복 기록이 없습니다.';scroll.append(empty)}
+  changed.forEach(k=>{
+   const item=document.createElement('div');item.style.cssText='padding:12px 0;border-bottom:1px solid #e3e8f1';
+   const heading=document.createElement('strong');heading.textContent=k+' · 내용 충돌';item.append(heading);
+   for(const [label,value] of [['기존 기록',describeBackupDay(data[k])],['가져올 기록',describeBackupDay(days[k])]]){
+    const line=document.createElement('p');line.style.cssText='margin:7px 0;font-size:13px;line-height:1.6;overflow-wrap:anywhere';
+    const bold=document.createElement('strong');bold.textContent=label+': ';line.append(bold,document.createTextNode(value));item.append(line);
+   }
+   scroll.append(item);
+  });dialog.append(scroll);
+  const actions=document.createElement('div');actions.style.cssText='display:flex;justify-content:flex-end;gap:8px;margin-top:16px;flex-wrap:wrap';
+  const cancel=document.createElement('button');cancel.textContent='취소';cancel.style.cssText='padding:9px 16px;border:1px solid #cbd7e8;border-radius:7px;background:white;color:#142C50;cursor:pointer';
+  const ok=document.createElement('button');ok.textContent='확인 후 가져오기';ok.style.cssText='padding:9px 16px;border:0;border-radius:7px;background:#192f53;color:white;cursor:pointer';
+  const close=value=>{document.removeEventListener('keydown',esc);overlay.remove();resolve(value)};
+  const esc=e=>{if(e.key==='Escape')close(false)};
+  cancel.onclick=()=>close(false);ok.onclick=()=>close(true);overlay.onclick=e=>{if(e.target===overlay)close(false)};
+  actions.append(cancel,ok);dialog.append(actions);overlay.append(dialog);document.body.append(overlay);document.addEventListener('keydown',esc);cancel.focus();
+ });
+}
+document.getElementById('import').onchange=async e=>{
+ const file=e.target.files[0];if(!file)return;
+ try{
+  const obj=JSON.parse(await file.text());
+  if(obj.app!=='sober-calendar'||!obj.days||typeof obj.days!=='object'||Array.isArray(obj.days))throw Error('백업 파일 형식이 아닙니다');
+  const dates=Object.keys(obj.days);
+  const changed=dates.filter(k=>Object.prototype.hasOwnProperty.call(data,k)&&!backupDaysEqual(data[k],obj.days[k]));
+  if(!await confirmBackupImport(dates,obj.days))return;
+  data={...data,...obj.days};save();render();
+  alert(dates.length+'일 가져오기 완료 (내용이 다른 중복 날짜 '+changed.length+'일 교체)');
+ }catch(err){alert('불러오기 실패: '+err.message)}
+ finally{e.target.value=''}
+};render();
 </script><script>
 (function(){
 const el=id=>document.getElementById(id);
