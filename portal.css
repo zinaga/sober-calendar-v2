@@ -417,3 +417,20 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 #govMiniTitle{cursor:pointer}
 .ars-v2 #govMiniTitle:hover{text-decoration:underline;text-underline-offset:4px}
 .ars-v2 #govMiniTitle:focus-visible{outline:2px solid #2b64bc;outline-offset:4px;border-radius:2px}
+
+/* Goal-first layout: distinct target and actual, no duplicated day row. */
+.ars-v2 .gov-goal-heading .gov-goal-count{display:grid!important;grid-template-columns:1fr 1fr!important;gap:14px!important;width:100%!important;align-items:end!important}
+.ars-v2 .gov-goal-heading .gov-goal-target,.ars-v2 .gov-goal-heading .gov-goal-actual{display:flex!important;flex-direction:column!important;gap:5px!important}
+.ars-v2 .gov-goal-heading .gov-goal-actual{align-items:flex-end!important;text-align:right!important}
+.ars-v2 .gov-goal-heading .gov-goal-target>span,.ars-v2 .gov-goal-heading .gov-goal-actual>span{font-size:11px!important;font-weight:500!important;color:#728096!important}
+.ars-v2 .gov-goal-heading #govGoalTarget,.ars-v2 .gov-goal-heading #govGoalRate{font-size:28px!important;line-height:1.25!important;font-weight:850!important;color:#102849!important;white-space:nowrap!important}
+.ars-v2 .gov-goal-heading .gov-goal-label-hidden{display:none!important}
+.ars-v2 .gov-goal-foot{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.ars-v2 .gov-goal-foot #govGoalNote{flex:1;min-width:0}
+.ars-v2 .gov-goal-foot .gov-goal-percent{font-size:12px!important;font-weight:700!important;color:#526982!important}
+.ars-v2 .gov-solo-warning{padding-left:0!important}
+.ars-v2 .gov-solo-warning.gov-solo-warning-active{color:#c32e3e!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage]{color:#c32e3e!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="3"],
+.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="4"]{font-weight:750!important}
+.ars-v2 .gov-warning-info{font-weight:500!important;margin-right:3px}
