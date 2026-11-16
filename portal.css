@@ -412,3 +412,8 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="3"]{color:#bb3040!important}
 .ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="4"]{color:#773e90!important}
 @media(max-width:520px){.ars-v2 .gov-goal-heading #govGoalRate b{font-size:27px!important}.ars-v2 .gov-goal-heading #govGoalRate span{font-size:15px!important}.ars-v2 .gov-goal-heading .gov-goal-percent{font-size:20px!important}}
+
+/* Home mini calendar month heading acts as a records link. */
+.ars-v2 #govMiniTitle{cursor:pointer}
+.ars-v2 #govMiniTitle:hover{text-decoration:underline;text-underline-offset:4px}
+.ars-v2 #govMiniTitle:focus-visible{outline:2px solid #2b64bc;outline-offset:4px;border-radius:2px}
