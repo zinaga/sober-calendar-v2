@@ -533,7 +533,7 @@ function render(){try{sessionStorage.setItem('ars-calendar-view-month',JSON.stri
 document.addEventListener('click',e=>{if(e.target.closest('.day-main, .bulkbar, .detail-subsection, .nav'))return;if(!multiSelected.size&&!selected)return;if(editorDraftKey===selected&&editorDraft){return;}multiSelected.clear();selectionAnchor=null;selected=null;render()});
 function renderStats(){
  const colors={after:'#BE3447',solo:'#D7A334',with:'#3D9489',mixed:'#3D9489',dry:'#41618F',unknown:'#FFFFFF'};
- const names={after:'귀가 후 추가 음주',solo:'혼술',with:'술자리',mixed:'혼술+술자리',dry:'금주',unknown:'미기록'};
+ const names={after:'추가음주',solo:'혼술',with:'술자리',mixed:'혼술+술자리',dry:'금주',unknown:'미기록'};
  const order=['solo','with','after','dry','unknown'];
  const todayDate=new Date(now.getFullYear(),now.getMonth(),now.getDate());
  function oneWindow(days,label){
