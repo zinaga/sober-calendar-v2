@@ -128,10 +128,22 @@ async function pullCloudLimits(){
 }
 function updateCloudUI(){cloudLogin.hidden=!!cloudUser;cloudEmail.hidden=!!cloudUser;cloudLogout.hidden=!cloudUser;cloudSync.hidden=!cloudUser;editReporter.hidden=!cloudUser;headerIdentity.hidden=!cloudUser;headerGuest.hidden=!!cloudUser;if(cloudUser){headerReporter.textContent=reporterName()?'신고자 · '+reporterName()+' 님':'신고자 · 이름 미등록';headerAccountEmail.textContent='계정: '+(cloudUser.email||'');editReporter.textContent=reporterName()?'✎ 신고자 이름 변경':'✎ 신고자 이름 등록'}const info=document.getElementById('cloudAccountInfo');if(info){info.hidden=!cloudUser;if(cloudUser){document.getElementById('cloudReporterName').textContent=(reporterName()||'이름 미등록')+(reporterName()?' 님':'');document.getElementById('cloudAccountAddress').textContent=cloudUser.email||'이메일 없음'}}const badge=document.getElementById('cloudConnection');if(badge)badge.hidden=!cloudUser;window.dispatchEvent(new Event('ars-cloud-user-changed'))}
 function scheduleCloudSave(){if(!cloudReady||!cloudUser)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>void pushCloud(),850)}
-async function pushCloud(){if(!cloudReady||!cloudUser)return;if(cloudBusy){scheduleCloudSave();return}cloudBusy=true;try{
- const {error}=await cloudClient.from('sober_records').upsert({user_id:cloudUser.id,days:data,updated_at:new Date().toISOString()},{onConflict:'user_id'});
- if(error)throw error;cloudSetStatus('☁️ 동기화 완료 · '+new Date().toLocaleTimeString('ko-KR'));
-}catch(err){cloudSetStatus('동기화 실패: '+err.message+' · 로컬 기록은 남아 있어요. JSON 백업을 권장해요.')}finally{cloudBusy=false}}
+async function pushCloud(throwOnError=false){
+ if(!cloudReady||!cloudUser)return false;
+ if(cloudBusy){scheduleCloudSave();return false}
+ cloudBusy=true;
+ try{
+  const snapshot=JSON.parse(JSON.stringify(data));
+  const {error}=await cloudClient.from('sober_records').upsert({user_id:cloudUser.id,days:snapshot,updated_at:new Date().toISOString()},{onConflict:'user_id'});
+  if(error)throw error;
+  cloudSetStatus('☁️ 동기화 완료 · '+new Date().toLocaleTimeString('ko-KR'));
+  return true;
+ }catch(err){
+  cloudSetStatus('동기화 실패: '+err.message+' · 기기 기록은 유지됩니다. 클라우드 연결 상태를 확인해 주세요.');
+  if(throwOnError)throw err;
+  return false;
+ }finally{cloudBusy=false}
+}
 function downloadCloudSnapshot(days,source){
  const blob=new Blob([JSON.stringify({app:'sober-calendar',version:1,days},null,2)],{type:'application/json'});
  const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;
@@ -156,6 +168,15 @@ function chooseCloudConflict(local,remote,conflicts){
   });dlg.showModal();
  });
 }
+function sameCloudRecord(a,b){
+ // JSON object property order is not meaningful for a saved drinking record.
+ const normalize=v=>{
+  if(Array.isArray(v))return v.map(normalize);
+  if(v&&typeof v==='object')return Object.fromEntries(Object.keys(v).sort().map(k=>[k,normalize(v[k])]));
+  return v;
+ };
+ return JSON.stringify(normalize(a))===JSON.stringify(normalize(b));
+}
 let cloudPullInFlight=null;
 function pullCloud(){
  if(cloudPullInFlight)return cloudPullInFlight;
@@ -172,7 +193,7 @@ async function pullCloudOnce(){if(!cloudUser)return;cloudReady=false;cloudSetSta
  // Merge by date rather than asking users to overwrite an entire device.
  // When both sources contain different records for one date, preserve the cloud
  // version and keep a local recovery copy before merging.
- const conflicts=Object.keys(local).filter(k=>Object.prototype.hasOwnProperty.call(remote,k)&&JSON.stringify(local[k])!==JSON.stringify(remote[k]));
+ const conflicts=Object.keys(local).filter(k=>Object.prototype.hasOwnProperty.call(remote,k)&&!sameCloudRecord(local[k],remote[k]));
  let priority='remote';
  if(conflicts.length){
   const backupKey='sober-calendar-recovery-'+cloudUser.id+'-'+Date.now();
@@ -181,8 +202,20 @@ async function pullCloudOnce(){if(!cloudUser)return;cloudReady=false;cloudSetSta
   if(!priority){cloudSetStatus('기록 충돌 '+conflicts.length+'일 · 선택 전까지 동기화가 일시 중지됐어요. 다시 동기화 버튼을 눌러 결정할 수 있어요.');return}
  }
  data=priority==='local'?{...remote,...local}:{...local,...remote};
- localStorage.setItem(KEY,JSON.stringify(data));await pullCloudLimits();await pullCloudPledge();await pullCloudMonthlyGoals();render();cloudReady=true;await pushCloud();
- }catch(err){cloudSetStatus('클라우드 불러오기 실패: '+err.message+' · 로컬 기록은 유지돼요.');cloudReady=false}}
+ localStorage.setItem(KEY,JSON.stringify(data));
+ render();
+ cloudReady=true;
+ // A conflict is resolved only when the chosen merged snapshot is actually
+ // written to the cloud. Do not silently report success on an upsert failure.
+ if(conflicts.length){
+  const saved=await pushCloud(true);
+  if(!saved)throw new Error('클라우드 저장이 아직 진행 중입니다. 잠시 후 다시 동기화해 주세요.');
+  const {data:verified,error:verifyError}=await cloudClient.from('sober_records').select('days').eq('user_id',cloudUser.id).maybeSingle();
+  if(verifyError)throw verifyError;
+  if(!sameCloudRecord(verified?.days||{},data))throw new Error('클라우드에 선택한 기록이 반영되지 않았습니다. 다른 기기의 동기화 상태를 확인해 주세요.');
+ }else await pushCloud();
+ await pullCloudLimits();await pullCloudPledge();await pullCloudMonthlyGoals();
+ }catch(err){cloudSetStatus('클라우드 동기화 확인 필요: '+err.message+' · 기기 기록은 유지됩니다.');cloudReady=false}}
 async function setupCloud(){
  if(!window.SOBER_SUPABASE_URL||!window.SOBER_SUPABASE_PUBLISHABLE_KEY){cloudSetStatus('클라우드 미설정 · 현재 브라우저에만 저장 중 (config.js 설정 필요)');return}
  if(!window.supabase){cloudSetStatus('Supabase 라이브러리를 불러오지 못했어요. 인터넷 연결을 확인해 주세요.');return}
