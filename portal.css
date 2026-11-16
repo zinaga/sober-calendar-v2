@@ -1052,3 +1052,14 @@ body.ars-v2 .gov-streak .gov-month-compare.no-baseline{font-size:12px!important;
 body.ars-v2 .gov-streak .gov-month-compare .gov-compare-arrow,
 body.ars-v2 .gov-streak .gov-month-compare .gov-compare-arrow::after{display:none!important;content:none!important}
 body.ars-v2 .gov-streak .gov-month-compare{gap:0!important;text-align:center!important;justify-content:center!important;padding:0!important}
+
+/* Keep the laurel-and-number block at the same vertical position for every month. */
+body.ars-v2 .gov-streak .gov-month-compare{min-height:44px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;box-sizing:border-box!important;font-size:12px!important;font-weight:500!important;line-height:1.45!important;color:#142C50!important}
+body.ars-v2 .gov-streak .gov-month-compare.no-baseline{font-size:12px!important;font-weight:500!important;line-height:1.45!important;color:#142C50!important}
+/* Center the desktop records month independently of the return-to-current control. */
+@media(min-width:701px){
+ body.ars-v2 #monthly-report.calendar-panel > .nav{position:relative!important;display:grid!important;grid-template-columns:1fr auto 1fr!important;align-items:center!important;gap:8px!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > #prev{grid-column:1!important;grid-row:1!important;justify-self:start!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > #month{grid-column:2!important;grid-row:1!important;justify-self:center!important;position:static!important;transform:none!important;white-space:nowrap!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > div{grid-column:3!important;grid-row:1!important;justify-self:end!important;display:flex!important;align-items:center!important;gap:8px!important}
+}
