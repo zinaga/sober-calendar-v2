@@ -330,3 +330,11 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 
 /* Settings panel echoes the home center-notice background and border */
 .ars-v2 .trend-report .limit-settings{background:#f4f6fa!important;border:1px solid #d3deec!important;border-radius:8px!important;box-shadow:none!important}
+
+/* 2026-11-15: inverted heading hierarchy — accent only on chart-level headings */
+.ars-v2 .trend-report .analysis-subsection-title::before{display:none!important}
+.ars-v2 .trend-report .analysis-subsection-title{padding-left:0!important;gap:8px!important}
+.ars-v2 .trend-report .analysis-dashboard .analysis-heading h3,
+.ars-v2 .trend-report .analysis-heading h3{border-left:3px solid #193d65!important;padding-left:12px!important;line-height:1.5!important}
+.ars-v2 .trend-report .chart-period{display:flex!important;align-items:center!important;gap:12px!important}
+.ars-v2 .trend-report .chart-period .chart-accent{display:block!important;flex:0 0 3px!important;width:3px!important;height:22px!important;background:#193d65!important;border-radius:1px!important}
