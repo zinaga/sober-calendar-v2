@@ -444,3 +444,10 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 /* Unified red palette: semantic over-limit borders and warning copy. */
 .ars-v2 .calendar-panel .day.kind-over:not(.empty){border-color:#d36b77!important;border-width:1.5px!important}
 .ars-v2 .gov-solo-warning.gov-solo-warning-active,.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage]{color:#8f3443!important}
+
+/* White selected navigation tab connects to the light content surface. */
+.ars-v2 .v2-service-nav{background:#142c50!important}
+.ars-v2 .v2-service-nav a{color:#c9d4e2!important;opacity:1!important}
+.ars-v2 .v2-service-nav a[aria-current="page"]{background:#fff!important;color:#142c50!important;border-radius:7px 7px 0 0!important;box-shadow:none!important;border-bottom:0!important;font-weight:800!important}
+.ars-v2 .v2-service-nav a[aria-current="page"]::after,.ars-v2 .v2-service-nav a[aria-current="page"]::before{display:none!important}
+.ars-v2 .gov-goal-actual #govDryPrev{font-size:11px!important;font-weight:500!important;color:#65768e!important;line-height:1.3!important;white-space:nowrap!important}
