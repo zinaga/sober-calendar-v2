@@ -837,3 +837,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-month-compare.increase .gov-compare-arrow{color:#3D9489!important}
 .ars-v2 .gov-month-compare.decrease .gov-compare-arrow{color:#BE3447!important}
 .ars-v2 .gov-month-compare.same .gov-compare-arrow{color:#66788C!important}
+
+/* Warm gold pledge quotation (palette B); keep outer card and navy text unchanged. */
+.ars-v2 .gov-pledge .pledge-display:not([hidden]){background:#FFF0D1!important}
+.ars-v2 .gov-pledge .pledge-display::before,.ars-v2 .gov-pledge .pledge-display::after{color:#D7A334!important}
