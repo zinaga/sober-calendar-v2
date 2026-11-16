@@ -1317,3 +1317,14 @@ body.ars-v2 .calendar-panel .editor .session .session-actions{margin-top:5px!imp
  }
  body.ars-v2 .calendar-panel .editor .session .drinkrow .drink-remove{height:32px!important;width:30px!important}
 }
+
+/* Give the share-count column more room by narrowing the volume selector.
+   Heading and input rows intentionally use the same grid tracks. */
+body.ars-v2 .calendar-panel .editor .session{
+ --drink-cols:minmax(0,1.2fr) minmax(0,1.1fr) minmax(0,.65fr) minmax(0,.95fr) 42px;
+}
+@media(max-width:700px){
+ body.ars-v2 .calendar-panel .editor .session{
+  --drink-cols:minmax(0,1.1fr) minmax(0,1fr) minmax(0,.65fr) minmax(0,1.05fr) 30px;
+ }
+}
