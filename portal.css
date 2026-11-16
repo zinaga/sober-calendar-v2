@@ -893,3 +893,13 @@ html{scrollbar-gutter:stable}
 
 /* Monthly summary column labels: regular weight instead of bold. */
 .ars-v2 .gov-month-summary .gov-summary-grid>div>span{font-weight:400!important}
+
+/* Monthly summary: consistent header backgrounds and neutral numeric values. */
+.ars-v2 .gov-month-summary .gov-summary-grid>div>span,
+.ars-v2 .gov-month-summary .gov-summary-grid>div[class*="gov-alcohol-stage-"]>span{background:#D7DFEA!important;color:#233047!important;font-weight:400!important}
+.ars-v2 .gov-month-summary .gov-summary-grid>div>strong,
+.ars-v2 .gov-month-summary .gov-summary-grid>div.gov-alcohol-avg-alert>strong,
+.ars-v2 .gov-month-summary .gov-summary-grid>div.gov-alcohol-max-alert>strong{color:#142C50!important}
+/* Keep the month-over-month comparison neatly centered on two lines. */
+.ars-v2 .gov-month-compare{font-weight:500!important;line-height:1.45!important;text-align:center!important}
+.ars-v2 .gov-month-compare .gov-compare-arrow{flex:0 0 auto!important}
