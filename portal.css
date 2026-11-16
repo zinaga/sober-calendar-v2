@@ -792,3 +792,18 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 #gov-goal-card .gov-solo-warning.gov-solo-warning-active{color:#BE3447!important}
 .ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]),.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage]:not([hidden]){font-size:11px!important;line-height:1.5!important;font-weight:400!important;letter-spacing:normal!important}
 .ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]) b{font-size:inherit!important;line-height:inherit!important}
+
+/* Restore the restrained dry-day palette (option 1). */
+.ars-v2 .calendar-panel .day.kind-dry:not(.empty){background:#F7F8FA!important;border-color:#D0DFF1!important}
+.ars-v2 .calendar-panel .day.kind-dry .pill.dry{background:#D0DFF1!important;color:#142C50!important}
+/* Home page title uses the same typography, date, baseline and divider as routed page headings. */
+.ars-v2 .gov-home-frame .gov-main-intro{padding:0 0 16px!important;margin:0 0 20px!important;border-bottom:1px solid #D7DFEA!important}
+.ars-v2 .gov-home-frame .gov-main-intro-title{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;flex-wrap:wrap!important}
+.ars-v2 .gov-home-frame .gov-main-intro-title h2{font-size:23px!important;font-weight:850!important;letter-spacing:-.04em!important;line-height:1.35!important;margin:0!important;color:#142C50!important}
+.ars-v2 .gov-home-frame .gov-main-intro-title h2 small{font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important}
+.ars-v2 .gov-home-frame .gov-main-intro-title .gov-date{font-size:12px!important;font-weight:500!important;color:#66788C!important;white-space:nowrap!important;margin-left:auto!important}
+@media(max-width:600px){.ars-v2 .gov-home-frame .gov-main-intro-title .gov-date{font-size:11px!important}}
+/* Both monthly warning variants start the same distance below the summary grid. */
+.ars-v2 .gov-month-summary #govAvgAlcoholWarning:not([hidden]){margin-top:12px!important}
+.ars-v2 .gov-month-summary #govMaxAlcoholWarning:not([hidden]){margin-top:12px!important}
+.ars-v2 .gov-month-summary #govAvgAlcoholWarning:not([hidden]) ~ #govMaxAlcoholWarning:not([hidden]){margin-top:0!important}
