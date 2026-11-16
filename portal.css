@@ -545,3 +545,19 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 
 /* Home heading badge sits slightly lower for optical vertical centering. */
 .ars-v2 .gov-main-intro-title .ars-current-month-badge{top:2px!important}
+
+/* Neutral drinking-day cells; category remains visible only in record strips. */
+.ars-v2 .calendar-panel .day.kind-solo:not(.empty),
+.ars-v2 .calendar-panel .day.kind-with:not(.empty),
+.ars-v2 .calendar-panel .day.kind-mixed:not(.empty){background:#fff!important;border-color:#d7dfea!important}
+.ars-v2 .calendar-panel .day.kind-solo .number,
+.ars-v2 .calendar-panel .day.kind-with .number,
+.ars-v2 .calendar-panel .day.kind-mixed .number{color:#142c50!important}
+.ars-v2 .calendar-panel .day .pill.solo,
+.ars-v2 .calendar-panel .day.kind-with .pill:not(.after),
+.ars-v2 .calendar-panel .day.kind-mixed .pill:not(.after){color:#233047!important}
+.ars-v2 .calendar-panel .day .pill .drinkdetail{color:#233047!important}
+.ars-v2 .calendar-panel .day.kind-over:not(.empty){border-color:#d36b77!important;box-shadow:inset 0 0 0 1px #d36b77!important}
+.ars-v2 .gov-main-intro-title .ars-current-month-badge{top:0!important}
+.ars-v2 .agency-mark-emblem{display:inline-flex!important;align-items:center!important;justify-content:center!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important}
+.ars-v2 .agency-mark-emblem svg{display:block;width:26px;height:26px;flex-shrink:0}
