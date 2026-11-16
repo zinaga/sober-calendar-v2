@@ -923,3 +923,7 @@ html{scrollbar-gutter:stable}
 .ars-v2 .gov-personal-panel .gov-personal-reporter-link:focus-visible{outline:2px solid #41618F!important;outline-offset:2px}
 .ars-v2 .gov-reporter-identity{display:inline-flex;align-items:center;gap:6px;min-width:0}
 .ars-v2 .gov-side-online-dot:not([hidden]){display:inline-block;width:6px;height:6px;min-width:6px;border-radius:50%;background:#3D9489}
+
+/* Center the comparison copy on the card, independently of the arrow. */
+.ars-v2 .gov-streak .gov-month-compare{position:relative!important;display:block!important;width:100%!important;text-align:center!important;padding:0 24px!important;box-sizing:border-box!important}
+.ars-v2 .gov-streak .gov-month-compare .gov-compare-arrow{position:absolute!important;left:12px!important;top:50%!important;transform:translateY(-50%)!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;margin:0!important}
