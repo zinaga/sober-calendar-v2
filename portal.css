@@ -995,3 +995,14 @@ html{scrollbar-gutter:stable}
 @media(max-width:700px){
  .ars-v2 .gov-pledge .pledge-display>span#pledgeText:not(.pledge-placeholder){font-family:"Noto Serif KR","Nanum Myeongjo",serif!important;font-weight:900!important;font-synthesis:weight!important}
 }
+
+/* Records calendar: month on the left, both navigation arrows grouped on the right. */
+.ars-v2 #monthly-report .nav{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important}
+.ars-v2 #monthly-report .nav .month-nav-actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;margin-left:auto!important}
+@media(max-width:700px){
+ .ars-v2 #monthly-report .nav{flex-wrap:nowrap!important;min-width:0!important}
+ .ars-v2 #monthly-report .nav #month{flex:1 1 auto!important;min-width:0!important;text-align:left!important;margin:0!important;font-size:clamp(18px,4.8vw,24px)!important;white-space:nowrap!important}
+ .ars-v2 #monthly-report .nav .month-nav-actions{flex:0 0 auto!important;gap:8px!important}
+ .ars-v2 #monthly-report .nav .month-nav-actions .month-arrow{width:40px!important;height:40px!important;min-width:40px!important;padding:0!important;touch-action:manipulation}
+ .ars-v2 #monthly-report .nav .month-nav-actions .month-current{font-size:11px!important;padding:7px 9px!important;white-space:nowrap!important}
+}
