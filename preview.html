@@ -1,0 +1,28 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>서비스 미리보기 | 나의 절주관리센터 (ARS)</title><style>html,body{margin:0;padding:0;background:#F7F8FA}iframe{display:block;width:100%;border:0;min-height:100vh}</style></head><body><iframe id="screenshots" src="sober-calendar-preview.html" title="실제 서비스 화면 미리보기" scrolling="no"></iframe><script>
+const frame=document.getElementById('screenshots');
+frame.addEventListener('load',()=>{
+ const doc=frame.contentDocument;if(!doc)return;
+ const style=doc.createElement('style');style.textContent=`
+ :root{color:#142C50!important;background:#F7F8FA!important}
+ .top{background:#F7F8FA!important;border-top:5px solid #142C50;border-bottom:1px solid #D0DFF1!important}
+ .top-inner{max-width:1240px!important;padding:16px 24px!important}
+ .brand:before{display:none!important}
+ .agency-brand{display:flex;align-items:center;gap:13px;color:#142C50}
+ .agency-brand strong{font-size:19px;font-weight:850;letter-spacing:-.05em}
+ .agency-brand .agency-divider{height:25px;border-left:1px solid #D0DFF1;margin:0 9px}
+ .agency-brand .agency-tagline{font-size:13px;font-weight:500}
+ .hero{background:#F7F8FA!important;padding:35px 24px 40px!important;border-bottom:1px solid #D0DFF1!important}
+ .hero h1{color:#142C50!important;font-size:clamp(30px,4vw,42px)!important}
+ .hero .eyebrow{color:#41618F!important}
+ .nav{background:#142C50!important}
+ .nav a:hover{background:#41618F!important}
+ .top a,.hero a{display:none!important}
+ @media(max-width:650px){.agency-brand .agency-tagline,.agency-brand .agency-divider{display:none}.hero{padding:27px 18px!important}}
+ `;doc.head.append(style);
+ const header=doc.querySelector('.top-inner');if(header)header.innerHTML=`<div class="agency-brand"><svg viewBox="0 0 48 48" width="32" height="32" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#142C50"/><circle cx="24" cy="24" r="17.5" fill="none" stroke="#FFFFFF" stroke-width="1.5"/><path d="M15 17.5V27.5C15 34 33 34 33 27.5V17.5" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round"/><path d="M15.5 24.5Q24 21 32.5 24.5" fill="none" stroke="#BE3447" stroke-width="3.5" stroke-linecap="round"/></svg><strong>절주관리청</strong><span class="agency-divider"></span><span class="agency-tagline">건강한 일상, 균형 있는 음주습관</span></div>`;
+ const hero=doc.querySelector('.hero-inner');if(hero)hero.innerHTML=`<div class="eyebrow">ARS 2026 · 서비스 화면 안내</div><h1>나의 절주관리센터 (ARS)</h1><p style="margin:0 0 10px">Alcohol Reduction Service</p><p>실제 서비스 화면을 통해 음주 기록과 절주 현황을 미리 확인해 보세요.</p>`;
+ const resize=()=>{frame.style.height=Math.max(doc.documentElement.scrollHeight,doc.body.scrollHeight)+'px'};
+ resize();new ResizeObserver(resize).observe(doc.body);
+ doc.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{setTimeout(()=>{const id=a.getAttribute('href').slice(1),target=doc.getElementById(id);if(target)window.scrollTo({top:frame.getBoundingClientRect().top+window.scrollY+target.getBoundingClientRect().top,behavior:'smooth'})},0)}));
+});
+</script></body></html>
