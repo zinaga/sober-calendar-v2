@@ -233,12 +233,10 @@ googleLogin.onclick=async()=>{
 // Only clear local personal data after a verified cloud save and successful sign-out.
 function clearSignedOutDeviceData(){
  clearTimeout(cloudTimer);
- for(const key of [KEY,LIMIT_KEY,PLEDGE_KEY,GOAL_KEY,VOLUME_KEY])localStorage.removeItem(key);
- // Clear in-memory state immediately as well, even if navigation is delayed.
- data={};personalLimits={};personalPledge='';
- window.arsMonthlyGoals?.set({});
- localStorage.removeItem(GOAL_KEY);
- render();renderPledge();renderExtraStats();
+ // Use literal storage keys: GOAL_KEY and VOLUME_KEY are scoped inside index.html.
+ for(const key of ['sober-calendar-v1','sober-personal-limits-v1','sober-personal-pledge-v1','ars-v2-monthly-drinking-goals','ars-v2-volume-unit']){
+  localStorage.removeItem(key);
+ }
 }
 cloudLogout.onclick=async()=>{
  if(!cloudClient||!cloudUser)return;
