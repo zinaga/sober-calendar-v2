@@ -860,3 +860,9 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 /* Unified neutral home-card surfaces and monthly summary headers. */
 .ars-v2 .gov-card{background:#F7F8FA!important;border-color:#D7DFEA!important}
 .ars-v2 .gov-month-summary .gov-summary-grid>div>span{background:#D7DFEA!important;color:#233047!important}
+
+/* Prevent viewport width from jumping when opening a dated record adds vertical scrolling. */
+html{scrollbar-gutter:stable}
+/* Do not let record details set an intrinsic minimum width for the calendar column. */
+.ars-v2 .gov-workspace>.gov-main{min-width:0!important;overflow-wrap:break-word}
+.ars-v2 .calendar-panel #detailSection,.ars-v2 .calendar-panel #editor{min-width:0!important;max-width:100%!important}
