@@ -230,6 +230,30 @@ googleLogin.onclick=async()=>{
   if(error)throw error;
  }catch(e){cloudSetStatus('Google 로그인 오류: '+e.message);googleLogin.disabled=false}
 };
-cloudLogout.onclick=async()=>{if(cloudClient)await cloudClient.auth.signOut()};
+// Only clear local personal data after a verified cloud save and successful sign-out.
+cloudLogout.onclick=async()=>{
+ if(!cloudClient||!cloudUser)return;
+ cloudLogout.disabled=true;
+ try{
+  clearTimeout(cloudTimer);
+  if(cloudPullInFlight)await cloudPullInFlight;
+  if(!cloudReady)throw new Error('클라우드 동기화가 완료되지 않았어요. 기록을 보호하기 위해 로그아웃을 중단했어요.');
+  // Wait for any ongoing write before taking the final snapshot.
+  while(cloudBusy)await new Promise(resolve=>setTimeout(resolve,100));
+  await pushCloud(true);
+  const snapshot=JSON.parse(JSON.stringify(data));
+  const {data:verified,error:verifyError}=await cloudClient.from('sober_records').select('days').eq('user_id',cloudUser.id).maybeSingle();
+  if(verifyError)throw verifyError;
+  if(!sameCloudRecord(verified?.days||{},snapshot))throw new Error('클라우드 기록 확인에 실패했어요.');
+  const {error:signOutError}=await cloudClient.auth.signOut();
+  if(signOutError)throw signOutError;
+  for(const key of [KEY,LIMIT_KEY,PLEDGE_KEY,GOAL_KEY,VOLUME_KEY])localStorage.removeItem(key);
+  // Reload to reset all in-memory data and derived statistics as well.
+  location.replace(location.pathname+location.search+location.hash);
+ }catch(err){
+  cloudSetStatus('로그아웃 중단: '+err.message+' · 기기 기록은 유지됩니다.');
+  cloudLogout.disabled=false;
+ }
+};
 cloudSync.onclick=async()=>{if(cloudUser&&!cloudBusy)await pullCloud()};
 void setupCloud();
