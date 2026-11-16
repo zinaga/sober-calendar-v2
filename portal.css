@@ -1346,3 +1346,32 @@ body.ars-v2 #googleLogin{
 }
 body.ars-v2 #googleLogin:hover{background:#F7F8FA}
 body.ars-v2 #googleLogin[hidden]{display:none!important}
+
+/* 2026-11-16: consistent home-card shortcuts and mini calendar controls */
+.ars-v2 .gov-month-summary>h3 #govLimitSettingsLink{
+ display:inline-flex!important;align-items:center!important;vertical-align:middle!important;
+ margin-left:10px!important;text-decoration:none!important;white-space:nowrap!important;
+ color:#142C50!important;font-size:12px!important;font-weight:650!important;
+ line-height:1.3!important;padding:0!important;border:0!important;background:none!important;
+}
+.ars-v2 .gov-mini .gov-card-heading .gov-mini-actions{
+ display:flex!important;align-items:center!important;gap:5px!important;
+}
+.ars-v2 .gov-mini .gov-card-heading .gov-mini-actions #govMiniPrev,
+.ars-v2 .gov-mini .gov-card-heading .gov-mini-actions #govMiniNext{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ width:28px!important;min-width:28px!important;height:32px!important;min-height:32px!important;
+ padding:0!important;line-height:1!important;vertical-align:middle!important;
+ border:0!important;background:transparent!important;box-shadow:none!important;
+}
+.ars-v2 .gov-mini .gov-card-heading .gov-mini-actions #govMiniPrev svg,
+.ars-v2 .gov-mini .gov-card-heading .gov-mini-actions #govMiniNext svg{
+ display:block!important;width:18px!important;height:18px!important;
+ fill:none!important;stroke:#142C50!important;stroke-width:2.6!important;
+ stroke-linecap:round!important;stroke-linejoin:round!important;
+}
+.ars-v2 .gov-mini .gov-card-heading .gov-mini-actions #govMiniToday:not([hidden]){
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ height:32px!important;min-height:32px!important;line-height:1!important;
+ padding:0 10px!important;margin:0 4px 0 0!important;vertical-align:middle!important;
+}
