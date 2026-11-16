@@ -523,3 +523,22 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .calendar-panel .day.kind-solo .number{color:#654f30!important}
 .ars-v2 .calendar-panel .day.kind-with .number,
 .ars-v2 .calendar-panel .day.kind-mixed .number{color:#254d45!important}
+
+/* Calendar palette: light surfaces, chart-consistent accent hues. */
+.ars-v2 .calendar-panel .day.kind-dry:not(.empty){background:#f0f4fa!important;border-color:#cbd7e8!important}
+.ars-v2 .calendar-panel .day.kind-solo:not(.empty){background:#fffaf0!important;border-color:#eeddb8!important}
+.ars-v2 .calendar-panel .day.kind-with:not(.empty),
+.ars-v2 .calendar-panel .day.kind-mixed:not(.empty){background:#f2f8f6!important;border-color:#c9ded9!important}
+.ars-v2 .calendar-panel .day .pill.dry{background:#e2ebf7!important;color:#25456e!important}
+.ars-v2 .calendar-panel .day .pill.solo{background:#fff0d1!important;color:#705018!important}
+.ars-v2 .calendar-panel .day.kind-with .pill:not(.after),
+.ars-v2 .calendar-panel .day.kind-mixed .pill:not(.solo):not(.after){background:#e3f2ee!important;color:#28675e!important}
+.ars-v2 .calendar-panel .day .pill.after{background:#f9e8eb!important;color:#8f3443!important}
+.ars-v2 .calendar-panel .day .pill{padding:3px 5px!important;margin:2px 0!important;border-radius:0!important}
+.ars-v2 .calendar-panel .day .pill .drinkdetail{margin-top:2px!important}
+.ars-v2 .calendar-panel .day.kind-solo .number{color:#74551d!important}
+.ars-v2 .calendar-panel .day.kind-with .number,
+.ars-v2 .calendar-panel .day.kind-mixed .number{color:#2e7167!important}
+/* Align month and today indicators to their respective heading baselines. */
+.ars-v2 .ars-current-month-badge{position:relative!important;top:-2px!important;vertical-align:middle!important}
+.ars-v2 .calendar-panel .today-badge{position:relative!important;top:2px!important}
