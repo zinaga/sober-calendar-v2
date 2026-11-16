@@ -1070,12 +1070,12 @@ window.addEventListener('focus',update);update();
    if(current){
     msg=!goalMatch?'이번 달 음주일 목표를 설정해 보세요.':remaining?'이번 달 남은 허용 음주일은 '+remaining[1]+'일입니다.':note.includes('초과')?'이번 달 음주 목표를 초과했습니다.':'이번 달 절주 목표를 확인해 보세요.';
     if(goalMatch&&note.includes('초과')){tagClass='gov-notice-alert';tagText='초과'}
-    if(!goalMatch)tagText='미설정';
+    if(!goalMatch){tagClass='gov-notice-alert';tagText='미설정'};
    }else{
     let drinkDays=0;
     for(let d=1;d<=end;d++){const k=year+'-'+String(month+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');if(data[k]?.status==='drink')drinkDays++}
     const goal=goalMatch?Number(goalMatch[1]):null;
-    if(goal===null){msg='해당 월에 설정된 절주 목표가 없습니다.';tagText='미설정'}
+    if(goal===null){msg='해당 월에 설정된 절주 목표가 없습니다.';tagClass='gov-notice-alert';tagText='미설정'}
     else if(drinkDays>goal){msg='해당 월의 허용 음주일수를 '+(drinkDays-goal)+'일 초과했습니다.';tagClass='gov-notice-alert';tagText='초과'}
     else {msg='해당 월의 절주 목표를 달성했습니다.';tagText='달성'}
    }
