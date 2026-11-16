@@ -510,7 +510,18 @@ function updateBulk(){
  done.textContent=drinking.length===n?'음주 신고 완료':'금주 처리 완료';
 }
 document.getElementById('bulkClear').onclick=()=>{const keys=[...multiSelected].filter(k=>k<=key(new Date())&&getDay(k).status==='dry');if(!keys.length)return;if(!confirm(`선택한 금주일 ${keys.length}일을 미기록으로 변경할까요?`))return;for(const k of keys){data[k]={status:'unknown',sessions:[]};if(editorDraftKey===k){editorDraft=null;editorDraftKey=null}}save();multiSelected.clear();selectionAnchor=null;render()};
-document.getElementById('bulkDry').onclick=()=>{const keys=[...multiSelected].filter(k=>k<=key(new Date())&&getDay(k).status==='unknown');if(!keys.length)return;for(const k of keys){data[k]={status:'dry',sessions:[]};if(editorDraftKey===k){editorDraft=null;editorDraftKey=null}}save();multiSelected.clear();selectionAnchor=null;render()};
+document.getElementById('bulkDry').onclick=()=>{
+ const keys=[...multiSelected].filter(k=>k<=key(new Date())&&getDay(k).status==='unknown');
+ if(!keys.length)return;
+ const affectedDraft=editorDraftKey&&keys.includes(editorDraftKey)&&editorDraft;
+ const hasDrinkingDraft=affectedDraft&&(editorDraft.status==='drink'&&(editorDraft.sessions||[]).length>0);
+ const hasChangedDraft=affectedDraft&&JSON.stringify(editorDraft)!==JSON.stringify(getDay(editorDraftKey));
+ if(hasDrinkingDraft||hasChangedDraft){
+  if(!confirm('금주로 변경하시겠습니까?\\n\\n작성 중인 음주 신고 내용이 삭제됩니다. 저장하지 않은 내용은 복구할 수 없습니다.'))return;
+ }
+ for(const k of keys){data[k]={status:'dry',sessions:[]};if(editorDraftKey===k){editorDraft=null;editorDraftKey=null}}
+ save();multiSelected.clear();selectionAnchor=null;render();
+};
 function renderMonthSummary(){
  const monthStart=new Date(year,month,1),todayStart=new Date(now.getFullYear(),now.getMonth(),now.getDate());
  const total=new Date(year,month+1,0).getDate(),isCurrent=year===now.getFullYear()&&month===now.getMonth();
@@ -560,7 +571,15 @@ function renderStats(){
   return `<div class="chartbox"><div class="chart-period"><span class="chart-accent" aria-hidden="true"></span><strong>${label} 음주 현황</strong></div>${expandable?`<button type="button" class="frequency-stack-toggle" aria-expanded="false" aria-controls="${detailId}" aria-label="${label} 음주 현황 상세보기"><span class="stack" role="img" aria-label="${label}: ${order.map(k=>names[k]+' '+counts[k]+'일').join(', ')}">${bar}</span><span class="frequency-detail-hint">상세보기 <span aria-hidden="true">⌄</span></span></button><div id="${detailId}" class="frequency-detail" hidden>${details}</div>`:`<div class="stack" role="img" aria-label="${label}: ${order.map(k=>names[k]+' '+counts[k]+'일').join(', ')}">${bar}</div>`}</div>`;
  }
  const legend=order.map(k=>`<span class="legenditem"><i class="dot ${k==='unknown'?'dot-unknown':''}" style="background:${colors[k]}"></i>${names[k]}</span>`).join('');
- document.getElementById('stats').innerHTML=`<div class="analysis-subsection-title"><span class="analysis-subsection-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20V11h4v9M10 20V5h4v15M16 20v-8h4v8M3 20h18"/></svg></span><h2>음주 빈도 분석</h2><span class="analysis-subsection-purpose">습관적인 음주 점검</span></div><div class="frequency-chart-frame"><div class="report-table">`+oneWindow(90,'최근 90일')+oneWindow(30,'최근 30일')+`</div><div class="legend-shared">${legend}</div></div>`;document.querySelectorAll('#stats .frequency-stack-toggle').forEach(btn=>btn.addEventListener('click',()=>{const detail=document.getElementById(btn.getAttribute('aria-controls'));const expanded=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!expanded));detail.hidden=expanded;btn.querySelector('.frequency-detail-hint').innerHTML=expanded?'상세보기 <span aria-hidden="true">⌄</span>':'접기 <span aria-hidden="true">⌃</span>'; }));renderExtraStats();
+ document.getElementById('stats').innerHTML=`<div class="analysis-subsection-title"><span class="analysis-subsection-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20V11h4v9M10 20V5h4v15M16 20v-8h4v8M3 20h18"/></svg></span><h2>음주 빈도 분석</h2><span class="analysis-subsection-purpose">습관적인 음주 점검</span></div><div class="frequency-chart-frame"><div class="report-table">`+oneWindow(90,'최근 90일')+oneWindow(30,'최근 30일')+`</div><div class="legend-shared">${legend}</div></div>`;document.querySelectorAll('#stats .frequency-stack-toggle').forEach(btn=>btn.addEventListener('click',()=>{
+ const detail=document.getElementById(btn.getAttribute('aria-controls'));
+ const expanded=btn.getAttribute('aria-expanded')==='true';
+ btn.setAttribute('aria-expanded',String(!expanded));
+ detail.hidden=expanded;
+ btn.querySelector('.frequency-detail-hint').innerHTML=expanded?'상세보기 <span aria-hidden="true">⌄</span>':'접기 <span aria-hidden="true">⌃</span>';
+ const legend=document.querySelector('#stats .legend-shared');
+ if(legend)legend.hidden=!!document.querySelector('#stats .frequency-stack-toggle[aria-expanded="true"]');
+}));renderExtraStats();
 }
 
 
