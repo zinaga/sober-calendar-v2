@@ -383,3 +383,11 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 /* Solo drinking metric: same navy hierarchy as neighboring metrics; quiet informational note. */
 .ars-v2 .gov-goal-row.gov-solo-row>strong{color:#0b2c56!important}
 .ars-v2 .gov-solo-row .gov-solo-mark{color:#8a96a7!important}
+
+/* Monthly summary option A: no tinted metric card, only colored number and one-line note. */
+.ars-v2 .gov-month-summary .gov-summary-grid>div[class*="gov-alcohol-stage-"]{background:transparent!important;border:0!important;border-radius:0!important;padding:0!important}
+.ars-v2 .gov-month-summary .gov-summary-grid>div[class*="gov-alcohol-stage-"]>span{background:inherit!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning,
+.ars-v2 .gov-month-summary:has(.gov-alcohol-stage-3) .gov-alcohol-warning,
+.ars-v2 .gov-month-summary:has(.gov-alcohol-stage-4) .gov-alcohol-warning{display:block!important;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;margin:10px 0 0!important;font-size:11px!important;line-height:1.5!important;color:#66788c!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning[hidden]{display:none!important}
