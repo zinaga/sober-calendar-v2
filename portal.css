@@ -887,3 +887,6 @@ html{scrollbar-gutter:stable}
 .ars-v2 .gov-month-compare.increase .gov-compare-arrow{color:#3D9489!important}
 .ars-v2 .gov-month-compare.decrease .gov-compare-arrow{color:#BE3447!important}
 .ars-v2 .gov-month-compare.same .gov-compare-arrow{color:#66788C!important}
+
+/* Short goal guidance immediately below the heading. */
+.ars-v2 #gov-goal-card .gov-goal-intro{margin:4px 0 8px!important;padding:0!important;font-size:11px!important;line-height:1.4!important;font-weight:500!important;color:#66788C!important}
