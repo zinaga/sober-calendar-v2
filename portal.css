@@ -1034,3 +1034,8 @@ html{scrollbar-gutter:stable}
  body.ars-v2 #monthly-report.calendar-panel > .nav > div{position:static!important;display:flex!important;align-items:center!important;gap:3px!important;margin:0!important;padding:0!important}
  body.ars-v2 #monthly-report.calendar-panel > .nav > div > #next{position:static!important;transform:none!important}
 }
+
+/* Restore the current-month badge next to the desktop records calendar month. */
+@media(min-width:701px){
+ body.ars-v2 #monthly-report.calendar-panel > .nav > #month > .ars-current-month-badge{position:static!important;left:auto!important;top:auto!important;transform:none!important;display:inline-flex!important;margin-left:10px!important;vertical-align:middle!important}
+}
