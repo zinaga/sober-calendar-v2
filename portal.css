@@ -983,3 +983,7 @@ html{scrollbar-gutter:stable}
 
 /* Expanded frequency details already identify each color; suppress duplicate legend. */
 .ars-v2 #stats .legend-shared[hidden]{display:none!important}
+
+/* Frequency chart is its own detail trigger; legend remains visible at all times. */
+.ars-v2 #stats .legend-shared,.ars-v2 #stats .legend-shared[hidden]{display:flex!important}
+.ars-v2 #stats .frequency-stack-toggle{margin-bottom:0!important}
