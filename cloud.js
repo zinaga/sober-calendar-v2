@@ -101,11 +101,12 @@ async function pullCloudMonthlyGoals(){
  const remote=cloudUser.user_metadata?.monthly_drinking_goals;
  if(remote&&typeof remote==='object'&&!Array.isArray(remote)){
   // Cloud is authoritative for signed-in users; avoid leaking another account's local goals.
-  monthGoals=Object.fromEntries(Object.entries(remote).filter(([k,v])=>/^\d{4}-\d{2}$/.test(k)&&Number.isInteger(v)&&v>=0&&v<=31));
-  localStorage.setItem(GOAL_KEY,JSON.stringify(monthGoals));
- }else if(Object.keys(monthGoals||{}).length){
+  const validated=Object.fromEntries(Object.entries(remote).filter(([k,v])=>/^\d{4}-\d{2}$/.test(k)&&Number.isInteger(v)&&v>=0&&v<=31));
+  window.arsMonthlyGoals?.set(validated);
+ }else{
   // First login migrates existing browser goals without changing the monthly dates.
-  await saveCloudMonthlyGoals(monthGoals);
+  const localGoals=window.arsMonthlyGoals?.get()||{};
+  if(Object.keys(localGoals).length)await saveCloudMonthlyGoals(localGoals);
  }
 }
 async function pullCloudLimits(){
