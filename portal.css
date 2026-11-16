@@ -561,3 +561,11 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-main-intro-title .ars-current-month-badge{top:0!important}
 .ars-v2 .agency-mark-emblem{display:inline-flex!important;align-items:center!important;justify-content:center!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important}
 .ars-v2 .agency-mark-emblem svg{display:block;width:26px;height:26px;flex-shrink:0}
+
+/* Keep the records month title geometrically centered regardless of its badge. */
+.ars-v2 .calendar-panel .nav #month{position:relative!important}
+.ars-v2 .calendar-panel .nav #month>.ars-current-month-badge{
+ position:absolute!important;left:100%!important;top:50%!important;
+ transform:translateY(-50%)!important;margin-left:12px!important;
+ vertical-align:initial!important;
+}
