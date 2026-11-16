@@ -618,3 +618,7 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-mini-grid{grid-auto-rows:30px!important}
 /* Keep the first summary warning's table spacing; tighten only warning-to-warning gap. */
 .ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]) + .gov-alcohol-warning:not([hidden]){margin-top:0!important}
+
+/* Home mini-calendar: slightly shorter dates and more breathing room before legend. */
+.ars-v2 .gov-mini-grid{grid-auto-rows:28px!important}
+.ars-v2 .gov-mini-caption{margin-top:12px!important}
