@@ -1019,7 +1019,7 @@ el('govMiniTitle').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' 
 el('govMiniCalendar').onclick=e=>{let b=e.target.closest('[data-mini-date]');if(!b)return;location.hash='#records';let t=document.querySelector('#calendar [data-day="'+b.dataset.miniDate+'"]');if(t)t.click()};
 window.addEventListener('focus',update);update();
 })();
-</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script src="config.js"></script><script src="cloud.js?v=20261115-19"></script>
+</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script src="config.js"></script><script src="cloud.js?v=20261115-20"></script>
 <script>
 (function(){
  const routeNames={home:'절주 현황',records:'음주 기록',analytics:'통계 분석',mypage:'마이페이지'};
