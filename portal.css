@@ -961,3 +961,17 @@ html{scrollbar-gutter:stable}
  .ars-v2 .calendar-panel .editor .sessionhead .session-title{display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:flex-start!important;gap:8px!important;min-width:0!important}
  .ars-v2 .calendar-panel .editor .sessionhead button[data-delete-session]{align-self:flex-end!important;flex:0 0 auto!important;margin:0!important;white-space:nowrap!important}
 }
+
+/* Expand narrow 30/90-day frequency segments into legible exact counts. */
+.ars-v2 .frequency-stack-toggle{display:block!important;width:100%!important;min-width:0!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;text-align:inherit!important;cursor:pointer!important;box-shadow:none!important}
+.ars-v2 .frequency-stack-toggle .stack{width:100%!important}
+.ars-v2 .frequency-stack-toggle:focus-visible{outline:2px solid #41618F!important;outline-offset:3px!important}
+.ars-v2 .frequency-detail-hint{display:block!important;text-align:right!important;font-size:11px!important;line-height:1.5!important;color:#41618F!important;font-weight:650!important;margin:5px 2px 0!important}
+.ars-v2 .frequency-detail[hidden]{display:none!important}
+.ars-v2 .frequency-detail{margin:7px 0 3px!important;padding:9px 12px!important;background:#FFFFFF!important;border:1px solid #D7DFEA!important;border-radius:6px!important}
+.ars-v2 .frequency-detail-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:5px 0;font-size:12px;color:#233047}
+.ars-v2 .frequency-detail-row+.frequency-detail-row{border-top:1px solid #F7F8FA}
+.ars-v2 .frequency-detail-name{display:inline-flex;align-items:center;gap:7px}
+.ars-v2 .frequency-detail-row strong{font-size:12px;color:#142C50;white-space:nowrap}
+.ars-v2 .frequency-detail-row small{font-size:11px;font-weight:500;color:#66788C}
+.ars-v2 .frequency-stack-toggle .segment.frequency-narrow{font-size:0!important;overflow:hidden!important}
