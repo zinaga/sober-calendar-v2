@@ -459,3 +459,11 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 }
 .ars-v2 .v2-service-nav a[aria-current="page"]::before,
 .ars-v2 .v2-service-nav a[aria-current="page"]::after{display:none!important}
+
+/* Link each monthly alcohol warning to the relevant metric, without tinted cards. */
+.ars-v2 .gov-month-summary .gov-summary-grid>div.gov-alcohol-avg-alert,
+.ars-v2 .gov-month-summary .gov-summary-grid>div.gov-alcohol-max-alert{background:transparent!important;border-bottom:2px solid #be3447!important;border-radius:0!important}
+.ars-v2 .gov-month-summary .gov-summary-grid>div.gov-alcohol-avg-alert strong,
+.ars-v2 .gov-month-summary .gov-summary-grid>div.gov-alcohol-max-alert strong{color:#be3447!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]){display:block!important;color:#8f3443!important;font-size:12px!important;line-height:1.6!important;padding:5px 0!important;margin:0!important;border:0!important;background:transparent!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning[hidden]{display:none!important}
