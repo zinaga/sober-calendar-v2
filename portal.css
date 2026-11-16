@@ -583,3 +583,21 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-pledge .pledge-panel{width:100%!important}
 .ars-v2 .gov-goal .gov-target-icon{color:#102849!important}
 .ars-v2 .gov-pledge h3>.gov-heading-icon{position:relative!important;top:2px!important}
+
+/* Unified ARS navy and blue-gray design tokens. */
+.ars-v2{--ars-navy:#142c50;--ars-blue:#49648f;--ars-pale:#e8eff8;--ars-muted:#f2f5fa}
+.ars-v2 .gov-pledge .pledge-display{background:#e8eff8!important}
+.ars-v2 .gov-pledge .pledge-display::before,
+.ars-v2 .gov-pledge .pledge-display::after{color:#89a8dc!important}
+.ars-v2 .gov-mini-grid{grid-auto-rows:36px!important}
+.ars-v2 .gov-mini-grid button{color:#142c50!important}
+.ars-v2 .gov-mini-grid button.today{outline-color:#49648f!important}
+.ars-v2 .gov-notice .gov-personal-notices .gov-notice-ok,
+.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-ok{background:#e8eff8!important;color:#142c50!important}
+.ars-v2 .gov-notice .gov-personal-notices .gov-notice-goal,
+.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-goal{background:#49648f!important;color:#fff!important}
+.ars-v2 .gov-notice .gov-personal-notices a,
+.ars-v2 .gov-notice .gov-personal-notices button{color:#142c50!important}
+.ars-v2 .gov-goal .gov-goal-foot{margin-top:8px!important;margin-bottom:8px!important;align-items:baseline!important}
+.ars-v2 .gov-goal .gov-goal-foot p{font-size:12px!important;color:#49648f!important;line-height:1.45!important}
+.ars-v2 .gov-goal .gov-goal-percent{color:#142c50!important;font-weight:700!important}
