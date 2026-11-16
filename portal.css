@@ -947,3 +947,10 @@ html{scrollbar-gutter:stable}
 @media(max-width:700px){
  .ars-v2 .gov-pledge .pledge-display>span:not(.pledge-placeholder){font-weight:800!important;font-synthesis:weight!important;font-size:clamp(16px,4.1vw,20px)!important;line-height:1.5!important}
 }
+
+/* Mobile home calendar: separate month arrows and enlarge tap targets. */
+@media(max-width:700px){
+ .ars-v2 .gov-mini .gov-card-heading .gov-mini-actions{gap:12px!important}
+ .ars-v2 .gov-mini .gov-card-heading .gov-mini-actions #govMiniPrev,
+ .ars-v2 .gov-mini .gov-card-heading .gov-mini-actions #govMiniNext{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 40px!important;width:40px!important;min-width:40px!important;height:40px!important;min-height:40px!important;padding:0!important;margin:0!important;box-sizing:border-box!important;touch-action:manipulation}
+}
