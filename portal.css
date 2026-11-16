@@ -434,3 +434,6 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="3"],
 .ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="4"]{font-weight:750!important}
 .ars-v2 .gov-warning-info{font-weight:500!important;margin-right:3px}
+
+/* Over-limit dates use the same 1px border thickness as other calendar dates. */
+.ars-v2 .calendar-panel .day.kind-over:not(.empty){border-width:1px!important;box-shadow:none!important}
