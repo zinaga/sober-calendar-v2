@@ -881,3 +881,9 @@ html{scrollbar-gutter:stable}
 /* Restore subtle gradient only on the five bordered home dashboard cards. */
 .ars-v2 .gov-dashboard .gov-top-cards>.gov-card,
 .ars-v2 .gov-dashboard .gov-bottom-cards>.gov-card{background:linear-gradient(125deg,#FFFFFF,#F7F8FA)!important;border-color:#D7DFEA!important}
+
+/* Neutral copy for month-over-month abstinence comparison; arrows retain status colors. */
+.ars-v2 .gov-month-compare.increase,.ars-v2 .gov-month-compare.decrease,.ars-v2 .gov-month-compare.same{color:#142C50!important}
+.ars-v2 .gov-month-compare.increase .gov-compare-arrow{color:#3D9489!important}
+.ars-v2 .gov-month-compare.decrease .gov-compare-arrow{color:#BE3447!important}
+.ars-v2 .gov-month-compare.same .gov-compare-arrow{color:#66788C!important}
