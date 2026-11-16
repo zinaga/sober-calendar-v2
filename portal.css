@@ -777,3 +777,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 #gov-goal-card .gov-progress{margin:0 0 2px!important}
 /* Increase space below divider before average gap while preserving fixed comparison rows. */
 .ars-v2 #gov-goal-card .gov-goal-row:not(.gov-solo-row){margin-top:10px!important}
+
+/* Dry calendar dates: blue tile, matching off-white border and status strip. */
+.ars-v2 .calendar-panel .day.kind-dry:not(.empty){background:#D0DFF1!important;border-color:#F7F8FA!important}
+.ars-v2 .calendar-panel .day.kind-dry .pill.dry{background:#F7F8FA!important;color:#142C50!important}
