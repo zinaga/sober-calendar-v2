@@ -364,3 +364,11 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-month-summary:has(.gov-alcohol-stage-3) .gov-alcohol-warning strong{color:#b5293b}
 .ars-v2 .gov-month-summary:has(.gov-alcohol-stage-4) .gov-alcohol-warning{background:#f8f0fb;border-color:#d7b7e2}
 .ars-v2 .gov-month-summary:has(.gov-alcohol-stage-4) .gov-alcohol-warning strong{color:#783b8c}
+
+/* Restore calendar semantic border colors after generic square-cell styling. */
+.ars-v2 .calendar-panel .day.kind-solo:not(.empty){border-color:var(--solo-border,#e5bf79)!important}
+.ars-v2 .calendar-panel .day.kind-with:not(.empty),
+.ars-v2 .calendar-panel .day.kind-mixed:not(.empty){border-color:var(--with-border,#8bcac1)!important}
+.ars-v2 .calendar-panel .day.kind-over:not(.empty){border-color:#c54b55!important;box-shadow:inset 0 0 0 1px #c54b55!important}
+.ars-v2 .calendar-panel .day.kind-dry:not(.empty){border-color:var(--dry-border,#c6d5ed)!important}
+.ars-v2 .calendar-panel .day.selected:not(.empty){outline:2px solid #193d65!important;outline-offset:-2px!important}
