@@ -857,7 +857,7 @@ for(let d=1;d<=limit;d++){
  maxDayAlcohol=Math.max(maxDayAlcohol,dayAlcohol);
 }
 let recorded=drink+dry,coverage=limit?Math.round(recorded/limit*100):null,rate=recorded?Math.round(dry/recorded*100):null,day=n.getFullYear()+'. '+(n.getMonth()+1)+'. '+n.getDate()+'.';
-el('govPeriod').textContent='('+year+'년 '+(month+1)+'월)';if(year===n.getFullYear()&&month===n.getMonth())el('govPeriod').insertAdjacentHTML('afterend','<span class="ars-current-month-badge">이번 달</span>');else{const oldBadge=document.querySelector('.gov-main-intro-title .ars-current-month-badge');if(oldBadge)oldBadge.remove();}el('govToday').textContent='기준일 '+day;el('govMiniTitle').textContent=year+'년 '+(month+1)+'월';el('govSummaryTitle').textContent='월간 요약 ('+(month+1)+'월)';
+el('govPeriod').textContent='('+year+'년 '+(month+1)+'월)';document.querySelectorAll('.gov-main-intro-title .ars-current-month-badge').forEach(b=>b.remove());if(year===n.getFullYear()&&month===n.getMonth())el('govPeriod').insertAdjacentHTML('afterend','<span class="ars-current-month-badge">이번 달</span>');el('govToday').textContent='기준일 '+day;el('govMiniTitle').textContent=year+'년 '+(month+1)+'월';el('govSummaryTitle').textContent='월간 요약 ('+(month+1)+'월)';
 el('v2Dry').textContent=recorded?drink+'일':'—';
 el('govSoloDays').textContent=recorded?soloDays+'일':'—';
 const soloNote=document.querySelector('.gov-solo-warning');
