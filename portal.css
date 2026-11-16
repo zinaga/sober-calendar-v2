@@ -1328,3 +1328,21 @@ body.ars-v2 .calendar-panel .editor .session{
   --drink-cols:minmax(0,1.1fr) minmax(0,1fr) minmax(0,.65fr) minmax(0,1.05fr) 30px;
  }
 }
+
+/* Google OAuth sign-in, visually consistent with existing auth controls. */
+body.ars-v2 #googleLogin{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ min-height:36px;
+ padding:7px 15px;
+ border:1px solid #D7DFEA;
+ border-radius:999px;
+ background:#FFFFFF;
+ color:#142C50;
+ font-size:13px;
+ font-weight:700;
+ white-space:nowrap;
+}
+body.ars-v2 #googleLogin:hover{background:#F7F8FA}
+body.ars-v2 #googleLogin[hidden]{display:none!important}
