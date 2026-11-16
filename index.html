@@ -911,6 +911,7 @@ let recorded=drink+dry,coverage=limit?Math.round(recorded/limit*100):null,rate=r
 const isCurrentDisplayMonth=year===n.getFullYear()&&month===n.getMonth();
 const monthCardLabel=isCurrentDisplayMonth?'이번 달':(month+1)+'월';
 document.querySelector('.gov-streak h3').textContent=monthCardLabel+' 금주일수';
+document.querySelector('.gov-streak-intro').textContent=monthCardLabel+' 금주일수 집계 현황';
 document.querySelector('#gov-goal-card h3').childNodes.forEach(node=>{if(node.nodeType===Node.TEXT_NODE&&node.textContent.trim())node.textContent=' '+monthCardLabel+' 음주일수 목표 ';});
 el('govPeriod').textContent='('+year+'년 '+(month+1)+'월)';document.querySelectorAll('.gov-main-intro-title .ars-current-month-badge').forEach(b=>b.remove());if(year===n.getFullYear()&&month===n.getMonth())el('govPeriod').insertAdjacentHTML('afterend','<span class="ars-current-month-badge">이번 달</span>');el('govToday').textContent='기준일 '+day;el('govMiniTitle').textContent=year+'년 '+(month+1)+'월';el('govMiniToday').hidden=year===n.getFullYear()&&month===n.getMonth();el('govSummaryTitle').textContent='월간 요약 ('+(month+1)+'월)';
 el('v2Dry').textContent=recorded?drink+'일':'—';
@@ -1027,7 +1028,7 @@ else{
  const currentDry=currentWindowRecorded-currentWindowDrinks;
  const previousDrySame=previousRecorded-previousDrinks;
  const diff=currentDry-previousDrySame;
- compare.innerHTML='<span class="gov-compare-arrow" aria-hidden="true">'+(diff<0?'↘':diff>0?'↗':'—')+'</span> '+(diff===0?'지난달 같은 기간과 금주일수가 같아요':diff<0?'지난달 같은 기간보다 금주일이 '+Math.abs(diff)+'일 줄었어요':'지난달 같은 기간보다<br>술을 안 마신 날이 '+diff+'일 더 많아요');
+ compare.innerHTML='<span class="gov-compare-arrow" aria-hidden="true">'+(diff<0?'↘':diff>0?'↗':'—')+'</span> '+(diff===0?'지난달 같은 기간과 금주일수가 같아요':diff<0?'지난달 같은 기간보다 금주일이 '+Math.abs(diff)+'일 줄었어요':'지난달 같은 기간보다<br>술을 '+diff+'일 더 안 마셨어요');
  compare.className='gov-month-compare '+(diff>0?'increase':diff<0?'decrease':'same');
 }
 el('v2StreakNote').textContent='';
