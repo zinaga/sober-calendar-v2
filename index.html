@@ -861,6 +861,10 @@ for(let d=1;d<=limit;d++){
  maxDayAlcohol=Math.max(maxDayAlcohol,dayAlcohol);
 }
 let recorded=drink+dry,coverage=limit?Math.round(recorded/limit*100):null,rate=recorded?Math.round(dry/recorded*100):null,day=n.getFullYear()+'. '+(n.getMonth()+1)+'. '+n.getDate()+'.';
+const isCurrentDisplayMonth=year===n.getFullYear()&&month===n.getMonth();
+const monthCardLabel=isCurrentDisplayMonth?'이번 달':(month+1)+'월';
+document.querySelector('.gov-streak h3').textContent=monthCardLabel+' 금주일수';
+document.querySelector('#gov-goal-card h3').childNodes.forEach(node=>{if(node.nodeType===Node.TEXT_NODE&&node.textContent.includes('이번 달'))node.textContent=' '+monthCardLabel+' 음주일수 목표 ';});
 el('govPeriod').textContent='('+year+'년 '+(month+1)+'월)';document.querySelectorAll('.gov-main-intro-title .ars-current-month-badge').forEach(b=>b.remove());if(year===n.getFullYear()&&month===n.getMonth())el('govPeriod').insertAdjacentHTML('afterend','<span class="ars-current-month-badge">이번 달</span>');el('govToday').textContent='기준일 '+day;el('govMiniTitle').textContent=year+'년 '+(month+1)+'월';el('govMiniToday').hidden=year===n.getFullYear()&&month===n.getMonth();el('govSummaryTitle').textContent='월간 요약 ('+(month+1)+'월)';
 el('v2Dry').textContent=recorded?drink+'일':'—';
 el('govSoloDays').textContent=recorded?soloDays+'일':'—';
@@ -970,8 +974,8 @@ const thisGap=currentWindowGapCount?currentWindowGapSum/currentWindowGapCount:nu
 el('govGapPrev').innerHTML=!comparable?insufficientComparison:prevGap===null||thisGap===null?'(음주일 2일 미만 · 비교 불가)':'('+previousPeriodLabel+' '+prevGap.toFixed(1)+'일) '+trend(thisGap,prevGap).replace('gov-trend up','gov-trend up positive').replace('gov-trend down','gov-trend down negative');
 el('v2Streak').innerHTML=recorded?dry+'<span class="gov-day-unit">일</span>':'—';
 const compare=el('govMonthCompare');
-if(!recorded){compare.textContent='이번 달 신고 기록이 없습니다.';compare.className='gov-month-compare';}
-else if(!comparable){compare.textContent='비교 기간에 미기록일 있음 · 비교 불가';compare.className='gov-month-compare';}
+if(!recorded){compare.textContent=monthCardLabel+' 신고 기록이 없습니다.';compare.className='gov-month-compare';}
+else if(!comparable){compare.textContent=limit+'일 중 '+dry+'일 금주했습니다.';compare.className='gov-month-compare';}
 else{
  const currentDry=currentWindowRecorded-currentWindowDrinks;
  const previousDrySame=previousRecorded-previousDrinks;
