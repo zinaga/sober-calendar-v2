@@ -1047,3 +1047,8 @@ body.ars-v2 .gov-mini .gov-card-heading > .gov-mini-month-group > #govMiniTitle{
 body.ars-v2 .gov-mini .gov-card-heading > .gov-mini-actions{grid-column:2!important;grid-row:1!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;justify-self:end!important;margin:0!important;min-width:0!important}
 /* No previous-month baseline: same typographic treatment as normal comparisons. */
 body.ars-v2 .gov-streak .gov-month-compare.no-baseline{font-size:12px!important;font-weight:750!important;color:#142C50!important;line-height:1.35!important;text-align:center!important;justify-content:center!important}
+
+/* Abstinent-day comparison: hide trend arrows on desktop too; keep text centered. */
+body.ars-v2 .gov-streak .gov-month-compare .gov-compare-arrow,
+body.ars-v2 .gov-streak .gov-month-compare .gov-compare-arrow::after{display:none!important;content:none!important}
+body.ars-v2 .gov-streak .gov-month-compare{gap:0!important;text-align:center!important;justify-content:center!important;padding:0!important}
