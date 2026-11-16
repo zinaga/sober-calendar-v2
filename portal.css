@@ -625,3 +625,21 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 
 /* Selected over-drinking dates: use one navy selection border, not stacked red/blue rings. */
 .ars-v2 .calendar-panel .day.kind-over.selected{border:2px solid #142C50!important;box-shadow:none!important;outline:none!important}
+
+/* 100% browser zoom: denser desktop layout without shrinking typography. */
+@media(min-width:1101px){
+ .ars-v2 .gov-main{padding:21px 22px 28px 23px!important}
+ .ars-v2 .gov-main-intro{padding-bottom:15px!important}
+ .ars-v2 .gov-top-cards{gap:10px!important}
+ .ars-v2 .gov-top-cards>.gov-card{min-height:218px!important}
+ .ars-v2 .gov-card{padding:12px 15px!important}
+ .ars-v2 .gov-mini{padding:11px 13px!important}
+ .ars-v2 .gov-bottom-cards{gap:11px!important;margin-top:11px!important}
+ .ars-v2 .gov-bottom-cards>.gov-card{min-height:145px!important}
+ .ars-v2 .calendar-panel .calendar .day:not(.empty){min-height:92px!important}
+ .ars-v2 .calendar-panel .calendar{gap:4px!important}
+ .ars-v2 #trend-analysis .extra-analysis{margin-top:16px!important;padding-top:16px!important}
+ .ars-v2 #trend-analysis .analysis-dashboard{gap:12px!important}
+ .ars-v2 #trend-analysis .trend-chart{padding:11px!important}
+ .ars-v2 #trend-analysis .analysis-subsection-title{margin-bottom:10px!important}
+}
