@@ -397,3 +397,18 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-month-summary .gov-summary-grid>div[class*="gov-alcohol-stage-"]>span{background:#e9eef5!important;color:#132941!important}
 .ars-v2 .gov-month-summary .gov-summary-grid>div[class*="gov-alcohol-stage-"]>strong{color:#102849!important}
 .ars-v2 .gov-month-summary .gov-alcohol-warning{font-size:11px!important;color:#66788c!important}
+
+/* Compact goal summary with separate usage percentage, matching the approved layout. */
+.ars-v2 .gov-goal-active .gov-goal-heading{background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;margin:8px 0 12px!important;align-items:center!important}
+.ars-v2 .gov-goal-heading .gov-goal-count{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex:1;min-width:0}
+.ars-v2 .gov-goal-heading #govGoalLabel{display:none!important}
+.ars-v2 .gov-goal-heading #govGoalRate{font-size:23px!important;color:#102849!important;white-space:nowrap!important;line-height:1.25}
+.ars-v2 .gov-goal-heading #govGoalRate b{font-size:32px!important;font-weight:850!important}
+.ars-v2 .gov-goal-heading #govGoalRate span{font-size:19px!important;font-weight:450!important;color:#647083!important}
+.ars-v2 .gov-goal-heading .gov-goal-percent{font-size:23px;font-weight:800;color:#102849;white-space:nowrap}
+.ars-v2 .gov-solo-warning.gov-solo-warning-active{color:#b66c24!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="1"]{color:#bf7b22!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="2"]{color:#d45f35!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="3"]{color:#bb3040!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="4"]{color:#773e90!important}
+@media(max-width:520px){.ars-v2 .gov-goal-heading #govGoalRate b{font-size:27px!important}.ars-v2 .gov-goal-heading #govGoalRate span{font-size:15px!important}.ars-v2 .gov-goal-heading .gov-goal-percent{font-size:20px!important}}
