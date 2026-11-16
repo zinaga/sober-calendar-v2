@@ -1365,6 +1365,3 @@ body.ars-v2 #googleLogin[hidden]{display:none!important}
  height:26px!important;min-height:26px!important;padding:0 9px!important;
  line-height:1!important;align-self:center!important;
 }
-
-/* Sidebar preview link: previously final inline style in index.html. */
-.ars-v2 .gov-sidebar-preview-link{display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;width:100%;margin:12px 0 18px;padding:12px 14px;border:1px solid #D0DFF1;border-radius:7px;background:#FFFFFF;color:#142C50;font-size:13px;font-weight:750;text-decoration:none}.gov-sidebar-preview-link:hover{background:#E3F2EE;border-color:#3D9489}.gov-sidebar-preview-link span{color:#41618F}
