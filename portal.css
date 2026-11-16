@@ -87,7 +87,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-mini-grid .week:first-child{color:#BE3447}.ars-v2 .gov-mini-grid .week:nth-child(7){color:#41618F}
 .ars-v2 .gov-mini-grid .blank{visibility:hidden}
 .ars-v2 .gov-mini-grid button{appearance:none!important;display:flex!important;justify-content:center;align-items:center;padding:0!important;min-width:0!important;min-height:0!important;width:100%!important;height:100%!important;line-height:1!important;border:0!important;border-radius:2px!important;background:#F7F8FA!important;color:#233047!important;box-shadow:none!important;font-size:12px!important;font-weight:700!important;cursor:pointer}
-.ars-v2 .gov-mini-grid button.dry{background:#D7DFEA!important;color:#142C50!important}
+.ars-v2 .gov-mini-grid button.dry{background:#D0DFF1!important;color:#142C50!important}
 .ars-v2 .gov-mini-grid button.drink{background:#BE3447!important;color:#FFFFFF!important}
 .ars-v2 .gov-mini-grid button.today{outline:1.5px solid #41618F!important;outline-offset:-1.5px!important;color:#41618F!important}
 .ars-v2 .gov-mini-grid button.today.drink{color:#FFFFFF!important}
