@@ -11,7 +11,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .agency-ministry strong{font-size:15px;font-weight:800;letter-spacing:-.045em}
 .ars-v2 .agency-mark{display:grid;place-items:center;width:27px;height:27px;background:conic-gradient(#BE3447 0 45%,#142C50 45% 100%);border:2px solid #FFFFFF;border-radius:50%;color:#FFFFFF;font-size:12px}
 .ars-v2 .agency-divider{height:18px;width:1px;background:#D0DFF1;margin:0 5px}
-.ars-v2 .agency-strip-right{color:#66788C;font-size:11px;#FFFFFF-space:nowrap}
+.ars-v2 .agency-strip-right{color:#66788C;font-size:11px;white-space:nowrap}
 .ars-v2 header.system-header{position:relative!important;isolation:isolate;display:block!important;height:98px!important;min-height:0!important;margin:0!important;padding:13px 4.2%!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:linear-gradient(100deg,#F7F8FA,#F7F8FA)!important;overflow:hidden}
 .ars-v2 .system-header-top{position:relative;z-index:2;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;height:100%}
 .ars-v2 .system-header-brand{display:block!important;text-decoration:none;color:var(--ink);min-width:0;position:relative;z-index:2}
@@ -58,7 +58,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-main-intro h2:before{content:"";display:inline-block;width:6px;height:25px;border-radius:2px;background:#BE3447;vertical-align:-4px;margin-right:13px}
 .ars-v2 .gov-main-intro h2 small{font-size:19px;font-weight:650;letter-spacing:-.025em}
 .ars-v2 .gov-main-intro p{font-size:13px!important;line-height:1.4!important;margin:0 0 0 19px!important;color:#233047}
-.ars-v2 .gov-date{font-size:12px;#FFFFFF-space:nowrap;color:#233047}
+.ars-v2 .gov-date{font-size:12px;white-space:nowrap;color:#233047}
 .ars-v2 .gov-top-cards{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr) minmax(0,1.53fr)!important;gap:12px!important;align-items:stretch}
 .ars-v2 .gov-bottom-cards{display:grid!important;grid-template-columns:1fr 1.15fr!important;gap:14px!important;margin-top:14px!important}
 .ars-v2 .gov-card{min-width:0!important;padding:12px 15px!important;border:1px solid #D0DFF1!important;border-radius:6px!important;background:linear-gradient(125deg,#FFFFFF,#F7F8FA)!important;box-shadow:0 1px 2px color-mix(in srgb, #142C50 3%, transparent)!important;overflow:visible!important}
@@ -67,7 +67,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .info-mark{font-size:12px;font-weight:500;color:#233047}
 .ars-v2 .gov-streak{display:flex!important;flex-direction:column;justify-content:space-between!important}
 .ars-v2 .gov-feature-number{display:flex!important;align-items:center;justify-content:center;flex:1;gap:7px!important;min-height:102px!important;padding:3px 0!important}
-.ars-v2 .gov-feature-number .gov-streak-value{font-family:Georgia,"Noto Serif KR",serif!important;font-size:clamp(45px,5.1vw,78px)!important;line-height:1!important;letter-spacing:-.06em!important;font-weight:700!important;color:#142C50!important;#FFFFFF-space:nowrap!important;background:none!important}
+.ars-v2 .gov-feature-number .gov-streak-value{font-family:Georgia,"Noto Serif KR",serif!important;font-size:clamp(45px,5.1vw,78px)!important;line-height:1!important;letter-spacing:-.06em!important;font-weight:700!important;color:#142C50!important;white-space:nowrap!important;background:none!important}
 .ars-v2 .gov-streak-value .gov-day-unit{font-size:.57em;letter-spacing:-.035em}
 .ars-v2 .gov-laurel{display:block;width:clamp(38px,4.2vw,64px)!important;height:clamp(75px,7.6vw,116px)!important;background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAB0CAMAAAACXMRXAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAKsUExURbfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1LfD1P///0IUqxIAAADidFJOUwAOSiwGQIOqv6FCn73EusADf7y2r7d4Ep6xorCuNgujpbudB5OnnL6UjWmmsoxi1805FqCkG8zIgqmtqD2WwbghArS5Sx61VjPGMVBtydHOD3o0s4cu1mDDGvE8xxNeWcXTI/J+GR2F1ZmsF0mPmIoKWuDZapvSz6vKwijbKT/QEXV83gQt4TUFPo6BclcrH3kICUiXgEUmmlFde4hxkXA4kgwQR0R2TQEihFLi3Srkb8tMi1+VFGZY2hXrJPT7ZDKQbEF3fSAnU2NPczdbboaJdCVoQzBlOtj1XGHnDVUcRk53+0TEAAAAAWJLR0TjsQauigAAAAd0SU1FB+oLDxUhF0EZQrwAAAkLSURBVFjD5Vnrf9PWGT4pBsmzZKmyTXQxtmzHpo0FhGDsWSZWYoPAlGBGKCjDyZIMttQ01GlxLhRaUkyTwVZwkg5vhEHCGCHZaN0MGug2LqOFbr2s3cYu3brLX7JjB7rtS9FJv+z32/NBfo/0ex695xyd97zvMQD/J6h4ZMEXYBsWLsJw4/z5XzIRpJmatwD9KGOxWmzk4nnyK1mOF+w2G7lkfnwH7+RFzG51uZFons+sKq+P571ebOlCFP5jjz+wqu2Q7/Q7pWUo/OUralbOWbWSc5XTb/IGrKsR+AuCROh+j7/MhGUMi3hta1AcqIsqFnN9yWqIxaW4ZLfY1qLw15GqRSLWl8wNNQmKMSekjSh88ARhVzkz/GxosIlp3JwMLtuCxAdfIaySyrDAALYGa5rYbU+i0eHMM5IlTtgdhsrN23dUorIhRM0SJaLxZk/4qzvnQYcCKVeUjEZbWv/5tXnxAZuMtqXa1Y6v7wKG3d9orkWk0+CbnWRj24qnsPSep7s4RpL3PrOe1s9vyNDdz6aCNY3B5/Zle3qj5j5JVRW3A8WDWi3YHwom9rcHKcZitiicXYm36CM/X7oYQPWBVH+SDFEUESUJhpEo4qA+fmv7C+Vfh+1FStM0SiNTZJShQqY9+vj1eDx0qGw1YynNTMD3a2SyJzTg0ccHLzEytWjO7ErGGoOh3vbDK0J1K/WOXk6IyViquWQeeXlw6FsDu44e+/Z3XvEYPLQ+geOKHBa5EyVTfOn+vQbakMkYGvQJrMHDfqdJzsNAnrxPb8jnh4eHdDoARlw8z476R+BgvKq32/+F75qNLFvHQ+/bnp+XwEmZdWcL7DLQjc2LD0DWmM0WIlVA+h5sbPz+qWPLxqoNKAKn04XsqP8HT9gAGBzlWZ8vEGk7gyJw1uLjjWG3dT04bTWy4z5fIWCbQOoDK0ciMhc+d0yBGypvNPpcP0QbhPNkk6UpmP6RJsuygPlZ9VHUYRxLmhmN0eKWuNKEYco2RDpNt3CHUwm4iomoRVUtAwjcJy9MQgEDfXGKSKRSMB+iKP80ysvDP7afhwKejOf0Tx5rCkUpthohCkLEg201+zwej4PeJuYOHbl0HLH3FVRvKPra69ABOnEKkVtGC1mEeG1hQ4NjxRvzEThH9iSTxR68Aqx+9sjcLTqPIjBs3p4MFrUVy8HBzgrYnp4aq5JRUmPadDhZLFIkBxbUAHAxK9YdnbEhpHU0+OmBfk2zSKmN9f1gj8zOXHZfFk/qFxgCV6h+xsZh1OKDL4KjcmHU1OV7E6EHMOq29tgEOcxFdgTW+Fk2W1e4/ALiRDyVEuzpdBxzO0VnwMixg4h8UMu57DKmqna/7HcpA0iTOIdmgWmKMYyWSAZF+PoNZ5EVKqtSuKb14OPnJ8DEvoA8C2cHEa1Z8ip53JGpdBwLqkRiD6B1bmr/xpJOreJaZWZ5J0FZyIPILtAOUPXW8cqKk71klIomfqZf4NL0znIE8IDunw96hh5v1xicbEII6ant1P7wmUrY562/uA5uFHHXUlvxMoLvNym5iQspTwMwkVwMbhExieMolDT1l1paENKx3k05EMmCOlta9ltjOjOrOdhtVjkmCP23QXUYFPpEMSC/jTT+s8G0HIsJ1sbpd/A7rDVgNKoIq7mEQDwtyxxcDHeN4+Os0R1Bja13SE7AOLsXSxf6Rlm3UUTbFiDeiAqRsD/A83vZrJHnygGx8l0UhREmFgiIRj4QEc3puSptWfs6FIWTPiZizDr5cNOmuWiwllN/hdaNu75YzGVrs8+1DtlFGfnMoWNh6/VCYi7L+7Uq+pn3UBUgHK6p0s9EDE4sM6+d8n1X6bpwaZjjlMJ8BM4ppVL7tEvgLPE08vdQwgcReJmx2WH9KmwBORpZYAtzFnjYWExhQmkHTHz0Rsbm7sWn3n8vB61uP3CEbYrC9PtoWrcDd0lOtjbZjLfqwWTsEY+KKzie/BAhsP4mZCxDkE9tmbZUykQcZ/pnG/RWXACsVvrgWoIZruhiV5qrP+rEGTLxsWG4AWR+m9Gl8DvKyLMBXgynY2m36xktypBuWDENgVtXdZ6C7YvyYoBPCxy31IYnXJTWO+JxGEAtrvRv0KuAhUVZUCBwgoj3VE1kPB6wvGiO8zrH4UKcUjnVFWdwhiC17OqMw2PIyY1mTtOb+K9exASD/SRJpYrJq7P5Co+Bbk7B1JvL6p6MO5v22vYngyF1Stq+Lger1o1FwiJhcb1ZH/xsDbUdgxs7WobOkeXQ8nvSKlgj0j29AsNw4OgcPZnLgyuHSxXoAsbbh3nlcb1dmBwyeHKZYQMN7Y4DMCjWSwGv1+nVOw+gVHgMDQ3lykvwRvAPMI21O/2icy5SftzqATk9Cg33l/AIzFNOSD6/028tt8dWdDkeur5ow3/Uq3fNuwc5URRlpdRyEHhy1UODFG0A67rf7ipcHt812wLWyyvrZL/IyaVHLUtJV7HrYR6A3K32P/ZoZgELC+nb61oDbswexkdLT5o1CleDpx8mMPWn3rYozFmd2dFCRByY4U0Bf+jPZQ9ciqpwqc/fLWgw+1Z7fyIueQOmbDbLhnledGLEldKzvNWGcZga+FwBOP6DZKcWk71On8/HsgFRZMXY2NzDccEkBvzaQ1J5GkycSJEKxmezBZPJ6cckKVrsKEu/2eRmRROjoyhumR5zwlyNsylxRtl28JL8XPlo/aI8muV5Tt8Zx+TW7h2f3Lp3fWXpJI5+/S/luDaTZgOcndoN9If7EgyGBrDE1bYTDo/q91qt1DsIArCkhvhrhs5/EM3WgjOJPslMvoIg0ODJ5B35fMXzzdcOul3v1t80x+PRegT3cx5H/trabU48rqw62pcMH5OIlAtl06Zzx09QwSKuqIxCKRJRg5vbZlAGkF5OkHgsxqkqJwiqwjAUGUT6s+HVwypnU2E912cXBA4qEG3ygQjCkfUn8KPkBE62yzImCyqT2Pzp5Nabm00XdCv87aO0y6XaMX84DOvCWN2N0s0jH+LqgO48dMvf702Nwk03XLi9ZvjBzYvVXBv7aYVuPyav7GmuoD9rlmJmfqTuwSHsvPGPs19Q4H8E/wJSLRq/gfQc2wAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyNi0xMS0xNVQyMTozMzoyMyswMDowMAz3TPMAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjYtMTEtMTVUMjE6MzM6MjMrMDA6MDB9qvRPAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDI2LTExLTE1VDIxOjMzOjIzKzAwOjAwKr/VkAAAAABJRU5ErkJggg==") center/contain no-repeat;flex:0 1 64px!important}
 .ars-v2 .gov-laurel.right{transform:scaleX(-1)}
@@ -79,7 +79,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-streak p{font-size:10px!important;text-align:center;margin:5px 0 0!important;color:#66788C}
 .ars-v2 .gov-mini{display:flex!important;flex-direction:column;padding:12px 13px!important}
 .ars-v2 .gov-card-heading{display:flex;justify-content:space-between;align-items:center;gap:6px;margin:0 0 9px!important}
-.ars-v2 .gov-card-heading h3{margin:0!important;#FFFFFF-space:nowrap}
+.ars-v2 .gov-card-heading h3{margin:0!important;white-space:nowrap}
 .ars-v2 .gov-card-heading>div{display:flex;align-items:center;gap:7px}
 .ars-v2 .gov-card-heading button{font-size:25px!important;line-height:1!important;font-weight:800!important;padding:0 4px!important;border:0!important;background:transparent!important;color:#142C50!important;box-shadow:none!important;cursor:pointer}
 .ars-v2 .gov-mini-grid{display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;grid-template-rows:18px!important;grid-auto-rows:25px!important;gap:3px!important;align-content:start!important;flex:0 0 auto!important;min-height:0!important}
@@ -106,14 +106,14 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-goal-row{display:grid!important;grid-template-columns:minmax(0,1fr) auto minmax(62px,.65fr);align-items:center;gap:7px;padding:6px 0!important;border-top:1px solid #D7DFEA;line-height:1.25;color:#233047;font-size:13px;font-weight:650}
 .ars-v2 .gov-goal-row>span{display:flex;align-items:center;gap:6px;min-width:0}
 .ars-v2 .gov-goal-row svg{width:17px;height:17px;flex:0 0 17px;color:#233047}
-.ars-v2 .gov-goal-row strong{font-size:19px!important;font-weight:800;color:#142C50;#FFFFFF-space:nowrap}
-.ars-v2 .gov-goal-row small{font-weight:500;font-size:10px;color:#41618F;text-align:right;#FFFFFF-space:nowrap}
+.ars-v2 .gov-goal-row strong{font-size:19px!important;font-weight:800;color:#142C50;white-space:nowrap}
+.ars-v2 .gov-goal-row small{font-weight:500;font-size:10px;color:#41618F;text-align:right;white-space:nowrap}
 .ars-v2 .gov-bottom-cards>.gov-card{min-height:157px!important;padding:12px 15px!important}
 .ars-v2 .gov-pledge .purpose-section,.ars-v2 .gov-pledge .pledge-panel{margin:0!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;min-height:0!important}
 .ars-v2 .gov-pledge .purpose-section>.calendar-section-heading,.ars-v2 .gov-pledge .purpose-copy,.ars-v2 .gov-pledge .pledge-heading,.ars-v2 .gov-pledge .pledge-feedback:empty,.ars-v2 .gov-pledge .pledge-actions{display:none!important}
 .ars-v2 .gov-pledge-shortcut{margin-left:auto!important;flex:0 0 auto;border:0!important;background:none!important;color:#142C50!important;font-size:12px!important;font-weight:650!important;cursor:pointer;padding:0!important;box-shadow:none!important}
 .ars-v2 .gov-pledge .pledge-display:not([hidden]){display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important;min-height:92px!important;height:auto!important;padding:12px 34px!important;border:0!important;border-radius:5px!important;box-shadow:none!important;background:#D7DFEA!important}
-.ars-v2 .gov-pledge .pledge-display>span{display:block!important;flex:1!important;width:100%!important;max-width:100%!important;min-width:0!important;padding:0!important;margin:0!important;text-align:center!important;#FFFFFF-space:normal!important;word-break:keep-all!important;overflow-wrap:anywhere!important;font-family:"Noto Serif KR","Nanum Myeongjo",Georgia,serif!important;font-size:clamp(15px,1.6vw,23px)!important;line-height:1.45!important;font-weight:700!important;color:#142C50!important}
+.ars-v2 .gov-pledge .pledge-display>span{display:block!important;flex:1!important;width:100%!important;max-width:100%!important;min-width:0!important;padding:0!important;margin:0!important;text-align:center!important;white-space:normal!important;word-break:keep-all!important;overflow-wrap:anywhere!important;font-family:"Noto Serif KR","Nanum Myeongjo",Georgia,serif!important;font-size:clamp(15px,1.6vw,23px)!important;line-height:1.45!important;font-weight:700!important;color:#142C50!important}
 .ars-v2 .gov-pledge .pledge-display:before,.ars-v2 .gov-pledge .pledge-display:after{position:absolute!important;line-height:1!important;font:700 55px Georgia,serif!important;color:#41618F!important;pointer-events:none}
 .ars-v2 .gov-pledge .pledge-display:before{content:"“"!important;left:13px!important;top:5px!important}
 .ars-v2 .gov-pledge .pledge-display:after{content:"”"!important;right:13px!important;bottom:-8px!important}
@@ -127,7 +127,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-summary-grid strong{display:block;padding:10px 2px!important;font-size:21px;font-weight:800;color:#142C50;line-height:1.2}
 .ars-v2 .gov-month-summary>p{font-size:10px!important;margin:5px 0 0!important;color:#66788C}
 .ars-v2 .gov-notice{display:grid!important;grid-template-columns:127px minmax(0,1fr) 14px;align-items:center;gap:14px!important;padding:10px 15px!important;margin-top:19px!important;min-height:82px!important;background:#F7F8FA!important;border:1px solid #D7DFEA!important;border-radius:6px!important;box-shadow:0 2px 5px color-mix(in srgb, #142C50 4%, transparent)!important}
-.ars-v2 .gov-notice>strong{display:flex;align-items:center;gap:8px;#FFFFFF-space:nowrap;border-right:1px solid #D0DFF1;font-size:17px;line-height:1.2;color:#142C50;height:100%}
+.ars-v2 .gov-notice>strong{display:flex;align-items:center;gap:8px;white-space:nowrap;border-right:1px solid #D0DFF1;font-size:17px;line-height:1.2;color:#142C50;height:100%}
 .ars-v2 .gov-notice .notice-symbol{width:23px;height:23px;flex:0 0 23px;color:#142C50}
 .ars-v2 .gov-notice>div{min-width:0}
 .ars-v2 .gov-notice p{display:flex;align-items:center;gap:8px;line-height:1.35;margin:0!important;padding:4px 0!important;font-size:12px;color:#233047;border-bottom:1px solid #D7DFEA}
@@ -154,23 +154,23 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 @media(max-width:480px){.ars-v2 .gov-top-cards{grid-template-columns:1fr!important}.ars-v2 .gov-top-cards>.gov-card{min-height:180px!important}.ars-v2 .gov-mini-grid{grid-auto-rows:33px!important;gap:4px!important}.ars-v2 .gov-feature-number .gov-streak-value{font-size:63px!important}.ars-v2 .gov-feature-number{gap:14px!important}.ars-v2 .gov-laurel{width:54px!important;height:100px!important}.ars-v2 .gov-summary-grid span{font-size:10px}.ars-v2 .gov-summary-grid strong{font-size:18px}}
 
 /* Goal vs. consumption summary: independent roles and compact reference layout. */
-.ars-v2 .gov-goal h3{display:flex!important;align-items:center!important;gap:7px!important;#FFFFFF-space:nowrap!important}
+.ars-v2 .gov-goal h3{display:flex!important;align-items:center!important;gap:7px!important;white-space:nowrap!important}
 .ars-v2 .gov-goal-edit{margin-left:auto!important;flex-shrink:0!important;border:1px solid #D0DFF1!important;border-radius:5px!important;padding:4px 7px!important;background:#F7F8FA!important;color:#41618F!important;font-size:11px!important;font-weight:700!important;cursor:pointer!important}
 .ars-v2 .gov-goal-heading{margin-top:1px!important;display:flex!important;justify-content:space-between!important;gap:7px!important;align-items:center!important}
-.ars-v2 .gov-goal-heading strong{font-size:14px!important;#FFFFFF-space:nowrap!important}
+.ars-v2 .gov-goal-heading strong{font-size:14px!important;white-space:nowrap!important}
 .ars-v2 .gov-goal>p#govGoalNote{font-size:10px!important;line-height:1.3!important;min-height:16px!important;margin:3px 0 6px!important;color:#66788C!important}
 .ars-v2 .gov-goal .gov-progress{margin:7px 0 5px!important;height:11px!important}
 .ars-v2 .gov-goal-row{padding:10px 0!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto auto!important;gap:7px!important;align-items:center!important}
 .ars-v2 .gov-goal-row span{min-width:0!important}
-.ars-v2 .gov-goal-row strong{font-size:21px!important;#FFFFFF-space:nowrap!important}
-.ars-v2 .gov-goal-row small{font-size:10px!important;#FFFFFF-space:nowrap!important}
+.ars-v2 .gov-goal-row strong{font-size:21px!important;white-space:nowrap!important}
+.ars-v2 .gov-goal-row small{font-size:10px!important;white-space:nowrap!important}
 .ars-v2 .gov-trend{font-size:19px!important;font-weight:900!important;vertical-align:middle!important}
 .ars-v2 .gov-trend.down{color:#41618F!important}
 .ars-v2 .gov-trend.up{color:#BE3447!important}
 .ars-v2 .gov-trend.flat{color:#66788C!important}
 .ars-v2 .gov-month-summary .gov-summary-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important}
 .ars-v2 .gov-month-summary .gov-summary-grid>div{min-width:0!important}
-.ars-v2 .gov-month-summary .gov-summary-grid span{font-size:11px!important;#FFFFFF-space:nowrap!important;letter-spacing:-.04em!important}
+.ars-v2 .gov-month-summary .gov-summary-grid span{font-size:11px!important;white-space:nowrap!important;letter-spacing:-.04em!important}
 .ars-v2 .gov-month-summary .gov-summary-grid strong{font-size:clamp(13px,1.5vw,20px)!important;letter-spacing:-.05em!important;word-break:keep-all!important;overflow-wrap:anywhere!important;line-height:1.25!important;min-height:49px!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:9px 3px!important}
 .ars-v2 .gov-month-summary>p{font-size:10px!important;color:#66788C!important;line-height:1.45!important}
 .ars-v2 .gov-pledge .gov-heading-icon{color:#142C50!important}
@@ -203,12 +203,12 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 
 /* No overlapping metric values and previous-month comparisons. */
 .ars-v2 .gov-goal .gov-goal-row{display:grid!important;grid-template-columns:minmax(135px,1fr) minmax(55px,auto) minmax(0,1.3fr)!important;align-items:center!important;gap:12px!important;min-width:0!important}
-.ars-v2 .gov-goal .gov-goal-row>span{display:flex!important;align-items:center!important;gap:6px!important;min-width:0!important;#FFFFFF-space:nowrap!important;font-size:12px!important}
-.ars-v2 .gov-goal .gov-goal-row>strong{font-size:22px!important;min-width:0!important;text-align:right!important;#FFFFFF-space:nowrap!important}
-.ars-v2 .gov-goal .gov-goal-row>small{min-width:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:4px!important;text-align:right!important;#FFFFFF-space:normal!important;line-height:1.35!important;font-size:10px!important;overflow-wrap:break-word!important}
+.ars-v2 .gov-goal .gov-goal-row>span{display:flex!important;align-items:center!important;gap:6px!important;min-width:0!important;white-space:nowrap!important;font-size:12px!important}
+.ars-v2 .gov-goal .gov-goal-row>strong{font-size:22px!important;min-width:0!important;text-align:right!important;white-space:nowrap!important}
+.ars-v2 .gov-goal .gov-goal-row>small{min-width:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:4px!important;text-align:right!important;white-space:normal!important;line-height:1.35!important;font-size:10px!important;overflow-wrap:break-word!important}
 .ars-v2 .gov-goal .gov-goal-row>small .gov-trend{flex:0 0 auto!important}
 .ars-v2 .gov-month-summary h3{flex-wrap:wrap!important;row-gap:5px!important}
-.ars-v2 .gov-month-summary .gov-unit-select-label{display:block!important;margin-left:auto!important;max-width:135px!important;#FFFFFF-space:nowrap!important;overflow:hidden!important}
+.ars-v2 .gov-month-summary .gov-unit-select-label{display:block!important;margin-left:auto!important;max-width:135px!important;white-space:nowrap!important;overflow:hidden!important}
 .ars-v2 .gov-month-summary #govVolumeUnit{box-sizing:border-box!important;display:block!important;max-width:100%!important;min-width:0!important}
 @media(max-width:1300px){.ars-v2 .gov-goal .gov-goal-row{grid-template-columns:minmax(0,1fr) auto!important;gap:5px 9px!important}.ars-v2 .gov-goal .gov-goal-row>small{grid-column:1/-1!important;justify-content:flex-end!important}}
 @media(max-width:650px){.ars-v2 .gov-goal .gov-goal-row{grid-template-columns:minmax(0,1fr) auto!important}}
@@ -238,7 +238,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-sidebar-guide h3{font-size:13px;font-weight:800;color:#142C50;margin:0 0 11px}
 .ars-v2 .gov-sidebar-guide p{font-size:11px!important;color:#66788C!important;line-height:1.7!important;margin:0 0 10px!important}
 .ars-v2 .gov-sidebar-note{margin-top:auto!important;padding-top:55px!important}
-.ars-v2 .gov-sidebar-head strong #govPersonalNumber{font-size:14px!important;line-height:1.4!important;word-break:normal!important;overflow-wrap:normal!important;#FFFFFF-space:nowrap!important}
+.ars-v2 .gov-sidebar-head strong #govPersonalNumber{font-size:14px!important;line-height:1.4!important;word-break:normal!important;overflow-wrap:normal!important;white-space:nowrap!important}
 .ars-v2 .gov-main>[hidden]{display:none!important}
 .ars-v2[data-ars-route="records"] .gov-main,.ars-v2[data-ars-route="analytics"] .gov-main,.ars-v2[data-ars-route="mypage"] .gov-main{min-height:68vh}
 .ars-v2[data-ars-route="records"] #monthly-report,.ars-v2[data-ars-route="analytics"] #trend-analysis,.ars-v2[data-ars-route="mypage"] #record-management{margin-top:0!important}
@@ -247,7 +247,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 /* Routed pages — shared dashboard visual language */
 .ars-v2 .gov-personal-row{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);align-items:center!important;gap:8px!important;padding:12px 0!important}
 .ars-v2 .gov-personal-row>span{font-size:12px!important;color:#66788C!important}
-.ars-v2 .gov-personal-row>strong{text-align:right!important;font-size:13px!important;#FFFFFF-space:normal}
+.ars-v2 .gov-personal-row>strong{text-align:right!important;font-size:13px!important;white-space:normal}
 .ars-v2 .gov-main>.panel{border:1px solid #D7DFEA!important;border-radius:7px!important;box-shadow:0 2px 9px color-mix(in srgb, #142C50 4%, transparent)!important;background:#FFFFFF!important;padding:23px 24px 25px!important}
 .ars-v2 .gov-main>.panel .calendar-section-heading{border-bottom:1px solid #D7DFEA!important;margin-bottom:20px!important;padding:0 0 16px!important}
 .ars-v2 .gov-main>.panel .calendar-section-heading h2{font-size:23px!important;font-weight:850!important;color:#142C50!important;letter-spacing:-.04em!important;line-height:1.35!important}
@@ -271,7 +271,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 
 /* Shared reference date, aligned with the home dashboard heading */
 .ars-v2 .gov-main>.panel>.calendar-section-heading{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;flex-wrap:wrap!important}
-.ars-v2 .gov-main>.panel>.calendar-section-heading .gov-detail-date{font-size:12px!important;font-weight:500!important;color:#66788C!important;#FFFFFF-space:nowrap!important;margin-left:auto!important}
+.ars-v2 .gov-main>.panel>.calendar-section-heading .gov-detail-date{font-size:12px!important;font-weight:500!important;color:#66788C!important;white-space:nowrap!important;margin-left:auto!important}
 @media(max-width:600px){.ars-v2 .gov-main>.panel>.calendar-section-heading .gov-detail-date{font-size:11px!important}}
 
 /* Contextual notices: action lives on each notice, not a misleading page arrow */
@@ -281,7 +281,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-personal-notices p+p{border-top:1px solid #D7DFEA}
 .ars-v2 .gov-personal-notices a,.ars-v2 .gov-personal-notices button{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:1;min-width:0;text-align:left;color:#142C50!important;font:inherit!important;text-decoration:none!important;background:transparent!important;border:0!important;padding:0!important;cursor:pointer}
 .ars-v2 .gov-personal-notices a:hover,.ars-v2 .gov-personal-notices button:hover{color:#41618F!important}
-.ars-v2 .gov-personal-notices a span,.ars-v2 .gov-personal-notices button span{#FFFFFF-space:nowrap;font-size:11px;font-weight:750;color:#41618F}
+.ars-v2 .gov-personal-notices a span,.ars-v2 .gov-personal-notices button span{white-space:nowrap;font-size:11px;font-weight:750;color:#41618F}
 .ars-v2 .gov-notice-tag{flex:0 0 auto;display:inline-block;border-radius:3px;padding:3px 7px;font-size:11px!important;line-height:1.4;font-weight:800!important}
 .ars-v2 .gov-notice-alert{background:#F9E8EB;color:#BE3447!important}
 .ars-v2 .gov-notice-goal{background:#D7DFEA;color:#41618F!important}
@@ -402,10 +402,10 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-goal-active .gov-goal-heading{background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;margin:8px 0 12px!important;align-items:center!important}
 .ars-v2 .gov-goal-heading .gov-goal-count{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex:1;min-width:0}
 .ars-v2 .gov-goal-heading #govGoalLabel{display:none!important}
-.ars-v2 .gov-goal-heading #govGoalRate{font-size:23px!important;color:#142C50!important;#FFFFFF-space:nowrap!important;line-height:1.25}
+.ars-v2 .gov-goal-heading #govGoalRate{font-size:23px!important;color:#142C50!important;white-space:nowrap!important;line-height:1.25}
 .ars-v2 .gov-goal-heading #govGoalRate b{font-size:32px!important;font-weight:850!important}
 .ars-v2 .gov-goal-heading #govGoalRate span{font-size:19px!important;font-weight:450!important;color:#66788C!important}
-.ars-v2 .gov-goal-heading .gov-goal-percent{font-size:23px;font-weight:800;color:#142C50;#FFFFFF-space:nowrap}
+.ars-v2 .gov-goal-heading .gov-goal-percent{font-size:23px;font-weight:800;color:#142C50;white-space:nowrap}
 .ars-v2 .gov-solo-warning.gov-solo-warning-active{color:#D7A334!important}
 .ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="1"]{color:#D7A334!important}
 .ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage="2"]{color:#BE3447!important}
@@ -423,7 +423,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-goal-heading .gov-goal-target,.ars-v2 .gov-goal-heading .gov-goal-actual{display:flex!important;flex-direction:column!important;gap:5px!important}
 .ars-v2 .gov-goal-heading .gov-goal-actual{align-items:flex-end!important;text-align:right!important}
 .ars-v2 .gov-goal-heading .gov-goal-target>span,.ars-v2 .gov-goal-heading .gov-goal-actual>span{font-size:11px!important;font-weight:500!important;color:#66788C!important}
-.ars-v2 .gov-goal-heading #govGoalTarget,.ars-v2 .gov-goal-heading #govGoalRate{font-size:28px!important;line-height:1.25!important;font-weight:850!important;color:#142C50!important;#FFFFFF-space:nowrap!important}
+.ars-v2 .gov-goal-heading #govGoalTarget,.ars-v2 .gov-goal-heading #govGoalRate{font-size:28px!important;line-height:1.25!important;font-weight:850!important;color:#142C50!important;white-space:nowrap!important}
 .ars-v2 .gov-goal-heading .gov-goal-label-hidden{display:none!important}
 .ars-v2 .gov-goal-foot{display:flex;justify-content:space-between;gap:12px;align-items:center}
 .ars-v2 .gov-goal-foot #govGoalNote{flex:1;min-width:0}
@@ -450,7 +450,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .v2-service-nav a{color:#D0DFF1!important;opacity:1!important}
 .ars-v2 .v2-service-nav a[aria-current="page"]{background:#FFFFFF!important;color:#142C50!important;border-radius:7px 7px 0 0!important;box-shadow:none!important;border-bottom:0!important;font-weight:800!important}
 .ars-v2 .v2-service-nav a[aria-current="page"]::after,.ars-v2 .v2-service-nav a[aria-current="page"]::before{display:none!important}
-.ars-v2 .gov-goal-actual #govDryPrev{font-size:11px!important;font-weight:500!important;color:#66788C!important;line-height:1.3!important;#FFFFFF-space:nowrap!important}
+.ars-v2 .gov-goal-actual #govDryPrev{font-size:11px!important;font-weight:500!important;color:#66788C!important;line-height:1.3!important;white-space:nowrap!important}
 
 /* Active tab: restrained government portal treatment, no #FFFFFF slab. */
 .ars-v2 .v2-service-nav a[aria-current="page"]{
@@ -496,7 +496,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
  margin-left:10px!important;padding:3px 7px!important;
  border-radius:3px!important;background:#D7DFEA!important;color:#142C50!important;
  font-family:inherit!important;font-size:11px!important;font-weight:700!important;
- line-height:1.3!important;letter-spacing:0!important;#FFFFFF-space:nowrap!important;
+ line-height:1.3!important;letter-spacing:0!important;white-space:nowrap!important;
  text-decoration:none!important;
 }
 
@@ -646,7 +646,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 
 /* Current-month navigation: no duplicate "this month" button on current month. */
 .ars-v2 #today[hidden],.ars-v2 #govMiniToday[hidden]{display:none!important}
-.ars-v2 .ars-mini-current-link{border:1px solid #D7DFEA;background:#FFFFFF;color:#142C50;border-radius:5px;padding:4px 7px;font-size:11px;font-weight:700;#FFFFFF-space:nowrap;cursor:pointer}
+.ars-v2 .ars-mini-current-link{border:1px solid #D7DFEA;background:#FFFFFF;color:#142C50;border-radius:5px;padding:4px 7px;font-size:11px;font-weight:700;white-space:nowrap;cursor:pointer}
 .ars-v2 .gov-mini .gov-card-heading{gap:5px!important}
 .ars-v2 .gov-mini .gov-card-heading #govMiniTitle{min-width:0}
 
