@@ -437,3 +437,6 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 
 /* Over-limit dates use the same 1px border thickness as other calendar dates. */
 .ars-v2 .calendar-panel .day.kind-over:not(.empty){border-width:1px!important;box-shadow:none!important}
+
+/* Slightly emphasize over-limit dates without double inner border. */
+.ars-v2 .calendar-panel .day.kind-over:not(.empty){border-width:1.5px!important;box-shadow:none!important}
