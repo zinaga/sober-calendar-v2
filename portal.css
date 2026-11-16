@@ -601,3 +601,14 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-goal .gov-goal-foot{margin-top:8px!important;margin-bottom:8px!important;align-items:baseline!important}
 .ars-v2 .gov-goal .gov-goal-foot p{font-size:12px!important;color:#49648f!important;line-height:1.45!important}
 .ars-v2 .gov-goal .gov-goal-percent{color:#142c50!important;font-weight:700!important}
+
+/* Mini calendar: give the weekday header breathing room, keep date cells compact. */
+.ars-v2 .gov-mini .gov-card-heading{margin-bottom:15px!important}
+.ars-v2 .gov-mini-grid{grid-auto-rows:33px!important;gap:4px!important}
+/* Monthly summary warning: match the goal card's 8px spacing below its progress bar. */
+.ars-v2 .gov-month-summary .gov-summary-grid + .gov-alcohol-warning:not([hidden]){
+ margin-top:8px!important;
+}
+.ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]) + .gov-alcohol-warning:not([hidden]){
+ margin-top:4px!important;
+}
