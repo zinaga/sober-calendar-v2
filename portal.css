@@ -1006,3 +1006,12 @@ html{scrollbar-gutter:stable}
  .ars-v2 #monthly-report .nav .month-nav-actions .month-arrow{width:40px!important;height:40px!important;min-width:40px!important;padding:0!important;touch-action:manipulation}
  .ars-v2 #monthly-report .nav .month-nav-actions .month-current{font-size:11px!important;padding:7px 9px!important;white-space:nowrap!important}
 }
+
+/* Explicit mobile calendar navigation layout; override legacy centered nav rules. */
+@media(max-width:700px){
+ body.ars-v2 #monthly-report.calendar-panel > .nav{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;justify-items:stretch!important;column-gap:8px!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > #month{grid-column:1!important;grid-row:1!important;justify-self:start!important;text-align:left!important;position:static!important;width:auto!important;max-width:100%!important;margin:0!important;transform:none!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > .month-nav-actions{grid-column:2!important;grid-row:1!important;justify-self:end!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:8px!important;margin:0!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > .month-nav-actions > #prev,
+ body.ars-v2 #monthly-report.calendar-panel > .nav > .month-nav-actions > #next{display:inline-flex!important;position:static!important;flex:0 0 40px!important;width:40px!important;height:40px!important;margin:0!important}
+}
