@@ -3,6 +3,7 @@ let cloudClient=null, cloudUser=null, cloudTimer=null, cloudBusy=false, cloudRea
 const cloudStatus=document.getElementById('cloudStatus');
 const cloudSetStatus=(msg)=>{cloudStatus.textContent=msg};
 const cloudLogin=document.getElementById('login');
+const googleLogin=document.getElementById('googleLogin');
 const loginSent=document.getElementById('loginSent');
 const cloudLogout=document.getElementById('logout');
 const cloudSync=document.getElementById('syncNow');
@@ -126,7 +127,7 @@ async function pullCloudLimits(){
   if(Object.keys(personalLimits||{}).length)await saveCloudLimits(personalLimits);
  }
 }
-function updateCloudUI(){cloudLogin.hidden=!!cloudUser;cloudEmail.hidden=!!cloudUser;cloudLogout.hidden=!cloudUser;cloudSync.hidden=!cloudUser;editReporter.hidden=!cloudUser;headerIdentity.hidden=!cloudUser;headerGuest.hidden=!!cloudUser;if(cloudUser){headerReporter.textContent=reporterName()?'신고자 · '+reporterName()+' 님':'신고자 · 이름 미등록';headerAccountEmail.textContent='계정: '+(cloudUser.email||'');editReporter.textContent=reporterName()?'✎ 신고자 이름 변경':'✎ 신고자 이름 등록'}const info=document.getElementById('cloudAccountInfo');if(info){info.hidden=!cloudUser;if(cloudUser){document.getElementById('cloudReporterName').textContent=(reporterName()||'이름 미등록')+(reporterName()?' 님':'');document.getElementById('cloudAccountAddress').textContent=cloudUser.email||'이메일 없음'}}const badge=document.getElementById('cloudConnection');if(badge)badge.hidden=!cloudUser;window.dispatchEvent(new Event('ars-cloud-user-changed'))}
+function updateCloudUI(){googleLogin.hidden=!!cloudUser;cloudLogin.hidden=!!cloudUser;cloudEmail.hidden=!!cloudUser;cloudLogout.hidden=!cloudUser;cloudSync.hidden=!cloudUser;editReporter.hidden=!cloudUser;headerIdentity.hidden=!cloudUser;headerGuest.hidden=!!cloudUser;if(cloudUser){headerReporter.textContent=reporterName()?'신고자 · '+reporterName()+' 님':'신고자 · 이름 미등록';headerAccountEmail.textContent='계정: '+(cloudUser.email||'');editReporter.textContent=reporterName()?'✎ 신고자 이름 변경':'✎ 신고자 이름 등록'}const info=document.getElementById('cloudAccountInfo');if(info){info.hidden=!cloudUser;if(cloudUser){document.getElementById('cloudReporterName').textContent=(reporterName()||'이름 미등록')+(reporterName()?' 님':'');document.getElementById('cloudAccountAddress').textContent=cloudUser.email||'이메일 없음'}}const badge=document.getElementById('cloudConnection');if(badge)badge.hidden=!cloudUser;window.dispatchEvent(new Event('ars-cloud-user-changed'))}
 function scheduleCloudSave(){if(!cloudReady||!cloudUser)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>void pushCloud(),850)}
 async function pushCloud(throwOnError=false){
  if(!cloudReady||!cloudUser)return false;
@@ -233,6 +234,15 @@ function updateLoginCooldown(){
  cloudLogin.textContent=remaining>0?'다시 보내기 ('+remaining+'초)':'이메일 로그인 링크 보내기';
  if(remaining>0)loginCooldownTimer=setInterval(updateLoginCooldown,1000);
 }
+googleLogin.onclick=async()=>{
+ if(!cloudClient){cloudSetStatus('클라우드 연결을 확인해 주세요.');return}
+ googleLogin.disabled=true;
+ cloudSetStatus('Google 로그인 페이지로 이동 중…');
+ try{
+  const {error}=await cloudClient.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}});
+  if(error)throw error;
+ }catch(e){cloudSetStatus('Google 로그인 오류: '+e.message);googleLogin.disabled=false}
+};
 cloudLogin.onclick=async()=>{
  if(loginSending||Number(localStorage.getItem(LOGIN_COOLDOWN_KEY)||0)>Date.now())return;
  loginSent.hidden=true;
