@@ -372,3 +372,10 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .calendar-panel .day.kind-over:not(.empty){border-color:#c54b55!important;box-shadow:inset 0 0 0 1px #c54b55!important}
 .ars-v2 .calendar-panel .day.kind-dry:not(.empty){border-color:var(--dry-border,#c6d5ed)!important}
 .ars-v2 .calendar-panel .day.selected:not(.empty){outline:2px solid #193d65!important;outline-offset:-2px!important}
+
+/* Restore understated solo row: no tinted panel, only the metric and a quiet note. */
+.ars-v2 .gov-goal-row.gov-solo-row{background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;margin:0!important}
+.ars-v2 .gov-goal-row.gov-solo-row>span{color:inherit!important;font-weight:inherit!important}
+.ars-v2 .gov-goal-row.gov-solo-row>strong{color:#b87522!important;font-weight:800!important}
+.ars-v2 .gov-solo-row .gov-solo-mark{background:transparent!important;color:#b87522!important;border:0!important;font-size:12px!important;font-weight:600!important;width:auto!important;height:auto!important;margin-left:4px!important}
+.ars-v2 .gov-solo-warning{background:transparent!important;border:0!important;border-radius:0!important;color:#7c8797!important;padding:2px 0 8px 23px!important;margin:0!important;font-size:11px!important;line-height:1.5!important}
