@@ -906,3 +906,9 @@ html{scrollbar-gutter:stable}
 
 /* Supporting caption under the abstinent-days card title. */
 .ars-v2 .gov-streak .gov-streak-intro{font-size:11px!important;line-height:1.4!important;font-weight:500!important;text-align:left!important;color:#66788C!important;margin:4px 0 0!important;padding:0!important}
+
+/* Alert-only red numbers; ordinary summary values stay navy. */
+.ars-v2 .gov-month-summary .gov-summary-grid>div.gov-alcohol-avg-alert>strong,
+.ars-v2 .gov-month-summary .gov-summary-grid>div.gov-alcohol-max-alert>strong{color:#BE3447!important}
+/* Solo-drinking day count turns red only when its warning is active. */
+.ars-v2 #gov-goal-card:has(.gov-solo-warning.gov-solo-warning-active) #govSoloDays{color:#BE3447!important}
