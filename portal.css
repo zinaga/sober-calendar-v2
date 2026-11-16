@@ -594,7 +594,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 
 /* Mini calendar: give the weekday header breathing room, keep date cells compact. */
 
-.ars-v2 .gov-mini-grid{gap:4px!important}
+
 /* Monthly summary warning: match the goal card's 8px spacing below its progress bar. */
 .ars-v2 .gov-month-summary .gov-summary-grid + .gov-alcohol-warning:not([hidden]){
  margin-top:8px!important;
@@ -637,7 +637,7 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 /* Current-month navigation: no duplicate "this month" button on current month. */
 .ars-v2 #today[hidden],.ars-v2 #govMiniToday[hidden]{display:none!important}
 .ars-v2 .ars-mini-current-link{border:1px solid #D7DFEA;background:#FFFFFF;color:#142C50;border-radius:5px;padding:4px 7px;font-size:11px;font-weight:700;white-space:nowrap;cursor:pointer}
-.ars-v2 .gov-mini .gov-card-heading{gap:5px!important}
+
 .ars-v2 .gov-mini .gov-card-heading #govMiniTitle{min-width:0}
 
 /* Goal card: trim vertical whitespace, preserve legibility and comparisons. */
