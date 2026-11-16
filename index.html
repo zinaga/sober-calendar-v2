@@ -845,30 +845,11 @@ function confirmBackupImport(dates,days){
   actions.append(cancel,ok);dialog.append(actions);overlay.append(dialog);document.body.append(overlay);document.addEventListener('keydown',esc);cancel.focus();
  });
 }
-function validateBackupDays(days){
- const validDate=k=>{
-  if(!/^\d{4}-\d{2}-\d{2}$/.test(k))return false;
-  const [y,m,d]=k.split('-').map(Number);
-  return y>=1900&&y<=2200&&m>=1&&m<=12&&d>=1&&d<=new Date(y,m,0).getDate();
- };
- const plain=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
- for(const [date,day] of Object.entries(days)){
-  if(!validDate(date)||!plain(day)||!['dry','drink','unknown'].includes(day.status)||!Array.isArray(day.sessions))throw Error('잘못된 날짜 또는 기록 형식: '+date);
-  if(day.status!=='drink'&&day.sessions.length)throw Error('음주 상태와 상세 내역이 일치하지 않습니다: '+date);
-  for(const session of day.sessions){
-   if(!plain(session)||!['solo','with','mixed'].includes(session.company)||!Array.isArray(session.drinks))throw Error('음주 회차 형식이 잘못되었습니다: '+date);
-   for(const drink of session.drinks){
-    if(!plain(drink)||typeof drink.type!=='string'||!drink.type||typeof drink.unit!=='string'||!drink.unit||!Number.isFinite(Number(drink.qty))||Number(drink.qty)<0)throw Error('주종 또는 음주량 형식이 잘못되었습니다: '+date);
-   }
-  }
- }
-}
 document.getElementById('import').onchange=async e=>{
  const file=e.target.files[0];if(!file)return;
  try{
   const obj=JSON.parse(await file.text());
   if(obj.app!=='sober-calendar'||!obj.days||typeof obj.days!=='object'||Array.isArray(obj.days))throw Error('백업 파일 형식이 아닙니다');
-  validateBackupDays(obj.days);
   const dates=Object.keys(obj.days);
   const changed=dates.filter(k=>Object.prototype.hasOwnProperty.call(data,k)&&!backupDaysEqual(data[k],obj.days[k]));
   if(!await confirmBackupImport(dates,obj.days))return;
