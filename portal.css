@@ -699,3 +699,22 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
  .ars-v2 .gov-month-summary .gov-summary-grid strong{font-size:clamp(14px,3.3vw,20px)!important}
  .ars-v2 #gov-goal-card .gov-goal-row>small{font-size:10px!important}
 }
+
+/* Dashboard mini-calendar: reserve separate space for month, return link and arrows. */
+.ars-v2 .gov-mini .gov-card-heading{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;grid-template-rows:auto auto!important;align-items:center!important;column-gap:8px!important;row-gap:5px!important}
+.ars-v2 .gov-mini .gov-card-heading #govMiniTitle{grid-column:1!important;grid-row:1!important;font-size:clamp(17px,1.55vw,24px)!important;white-space:nowrap!important}
+.ars-v2 .gov-mini .gov-card-heading #govMiniToday:not([hidden]){grid-column:1!important;grid-row:2!important;justify-self:start!important;position:static!important;display:inline-flex!important;align-items:center!important;width:auto!important;max-width:100%!important;font-size:11px!important;line-height:1.25!important;padding:3px 7px!important;white-space:nowrap!important}
+.ars-v2 .gov-mini .gov-card-heading>div{grid-column:2!important;grid-row:1!important;display:flex!important;align-items:center!important;gap:5px!important;justify-self:end!important;white-space:nowrap!important}
+.ars-v2 .gov-mini .gov-card-heading>div button{flex:0 0 auto!important}
+/* Goal: large combined usage, stable percentage and prior-month comparison. */
+.ars-v2 #gov-goal-card .gov-goal-heading .gov-goal-count{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:10px!important}
+.ars-v2 #gov-goal-card .gov-goal-heading .gov-goal-target{flex:1 1 auto!important;min-width:0!important}
+.ars-v2 #gov-goal-card .gov-goal-heading #govGoalTarget{font-size:28px!important;line-height:1.2!important;font-weight:800!important;white-space:normal!important}
+.ars-v2 #gov-goal-card .gov-goal-heading .gov-goal-used{font-size:28px!important;color:#142C50!important;font-weight:850!important}
+.ars-v2 #gov-goal-card .gov-goal-heading .gov-goal-allow{font-size:20px!important;color:#66788C!important;font-weight:500!important}
+.ars-v2 #gov-goal-card .gov-goal-heading .gov-goal-actual{flex:0 0 auto!important;align-items:flex-end!important;min-width:0!important}
+.ars-v2 #gov-goal-card .gov-goal-heading #govGoalRate{font-size:20px!important;line-height:1.2!important;font-weight:800!important}
+.ars-v2 #gov-goal-card .gov-goal-heading #govDryPrev{display:block!important;font-size:12px!important;line-height:1.35!important;white-space:normal!important;text-align:right!important;max-width:190px!important}
+.ars-v2 #gov-goal-card .gov-goal-heading #govDryPrev .gov-trend{font-size:15px!important;line-height:1!important;vertical-align:baseline!important}
+.ars-v2 #gov-goal-card .gov-goal-foot #govGoalPercent{display:none!important}
+@media(max-width:700px){.ars-v2 #gov-goal-card .gov-goal-heading .gov-goal-used{font-size:clamp(20px,5vw,28px)!important}.ars-v2 #gov-goal-card .gov-goal-heading .gov-goal-allow{font-size:clamp(13px,3.5vw,20px)!important}.ars-v2 #gov-goal-card .gov-goal-heading #govGoalRate{font-size:18px!important}.ars-v2 #gov-goal-card .gov-goal-heading #govDryPrev{max-width:125px!important;font-size:10px!important}}
