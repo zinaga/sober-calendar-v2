@@ -391,3 +391,9 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-month-summary:has(.gov-alcohol-stage-3) .gov-alcohol-warning,
 .ars-v2 .gov-month-summary:has(.gov-alcohol-stage-4) .gov-alcohol-warning{display:block!important;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;margin:10px 0 0!important;font-size:11px!important;line-height:1.5!important;color:#66788c!important}
 .ars-v2 .gov-month-summary .gov-alcohol-warning[hidden]{display:none!important}
+
+/* Monthly summary final: uniform four-column table and navy values; warning only in footer text. */
+.ars-v2 .gov-month-summary .gov-summary-grid>div[class*="gov-alcohol-stage-"]{background:transparent!important;border-right:1px solid #d8e0eb!important;border-top:0!important;border-bottom:0!important;border-left:0!important;border-radius:0!important;padding:0!important}
+.ars-v2 .gov-month-summary .gov-summary-grid>div[class*="gov-alcohol-stage-"]>span{background:#e9eef5!important;color:#132941!important}
+.ars-v2 .gov-month-summary .gov-summary-grid>div[class*="gov-alcohol-stage-"]>strong{color:#102849!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning{font-size:11px!important;color:#66788c!important}
