@@ -82,6 +82,32 @@ async function pullCloudPledge(){
   await saveCloudPledge(personalPledge);
  }
 }
+// Monthly goals are stored in Auth user metadata, alongside personal limits and pledge.
+async function saveCloudMonthlyGoals(goals){
+ if(!cloudClient||!cloudUser){cloudSetStatus('월별 목표가 이 브라우저에 저장됐어요. 로그인하면 동기화됩니다.');return}
+ try{
+  const {data:result,error}=await cloudClient.auth.updateUser({data:{monthly_drinking_goals:goals}});
+  if(error)throw error;
+  cloudUser=result.user||cloudUser;
+  cloudSetStatus('월별 목표가 계정에 동기화됐어요.');
+ }catch(err){cloudSetStatus('월별 목표 동기화 실패: '+err.message+' · 브라우저에는 저장돼 있어요.')}
+}
+async function pullCloudMonthlyGoals(){
+ if(!cloudClient||!cloudUser)return;
+ const {data:result,error}=await cloudClient.auth.getUser();
+ if(error)throw error;
+ if(!result.user||result.user.id!==cloudUser.id)return;
+ cloudUser=result.user;
+ const remote=cloudUser.user_metadata?.monthly_drinking_goals;
+ if(remote&&typeof remote==='object'&&!Array.isArray(remote)){
+  // Cloud is authoritative for signed-in users; avoid leaking another account's local goals.
+  monthGoals=Object.fromEntries(Object.entries(remote).filter(([k,v])=>/^\\d{4}-\\d{2}$/.test(k)&&Number.isInteger(v)&&v>=0&&v<=31));
+  localStorage.setItem(GOAL_KEY,JSON.stringify(monthGoals));
+ }else if(Object.keys(monthGoals||{}).length){
+  // First login migrates existing browser goals without changing the monthly dates.
+  await saveCloudMonthlyGoals(monthGoals);
+ }
+}
 async function pullCloudLimits(){
  if(!cloudClient||!cloudUser)return;
  const {data:result,error}=await cloudClient.auth.getUser();
@@ -146,7 +172,7 @@ async function pullCloud(){if(!cloudUser)return;cloudReady=false;cloudSetStatus(
   if(!priority){cloudSetStatus('기록 충돌 '+conflicts.length+'일 · 선택 전까지 동기화가 일시 중지됐어요. 다시 동기화 버튼을 눌러 결정할 수 있어요.');return}
  }
  data=priority==='local'?{...remote,...local}:{...local,...remote};
- localStorage.setItem(KEY,JSON.stringify(data));await pullCloudLimits();await pullCloudPledge();render();cloudReady=true;await pushCloud();
+ localStorage.setItem(KEY,JSON.stringify(data));await pullCloudLimits();await pullCloudPledge();await pullCloudMonthlyGoals();render();cloudReady=true;await pushCloud();
  }catch(err){cloudSetStatus('클라우드 불러오기 실패: '+err.message+' · 로컬 기록은 유지돼요.');cloudReady=false}}
 async function setupCloud(){
  if(!window.SOBER_SUPABASE_URL||!window.SOBER_SUPABASE_PUBLISHABLE_KEY){cloudSetStatus('클라우드 미설정 · 현재 브라우저에만 저장 중 (config.js 설정 필요)');return}
