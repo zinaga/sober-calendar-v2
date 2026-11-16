@@ -211,7 +211,7 @@ async function pullCloudOnce(){if(!cloudUser)return;cloudReady=false;cloudSetSta
   const {data:verified,error:verifyError}=await cloudClient.from('sober_records').select('days').eq('user_id',cloudUser.id).maybeSingle();
   if(verifyError)throw verifyError;
   if(!sameCloudRecord(verified?.days||{},data))throw new Error('클라우드에 선택한 기록이 반영되지 않았습니다. 다른 기기의 동기화 상태를 확인해 주세요.');
- }else await pushCloud();
+ }else await pushCloud(true);
  await pullCloudLimits();await pullCloudPledge();await pullCloudMonthlyGoals();
  }catch(err){cloudSetStatus('클라우드 동기화 확인 필요: '+err.message+' · 기기 기록은 유지됩니다.');cloudReady=false}}
 async function setupCloud(){
@@ -259,7 +259,9 @@ cloudLogout.onclick=async()=>{
  try{
   const {error}=await cloudClient.auth.signOut();
   if(error)throw error;
-  clearSignedOutDeviceData();
+  if(!syncError)clearSignedOutDeviceData();
+  // If verification failed and the user chose to sign out anyway, preserve
+  // local records rather than deleting the only potentially complete copy.
   location.reload();
  }catch(err){
   cloudSetStatus('로그아웃 실패: '+err.message);
