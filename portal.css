@@ -866,3 +866,14 @@ html{scrollbar-gutter:stable}
 /* Do not let record details set an intrinsic minimum width for the calendar column. */
 .ars-v2 .gov-workspace>.gov-main{min-width:0!important;overflow-wrap:break-word}
 .ars-v2 .calendar-panel #detailSection,.ars-v2 .calendar-panel #editor{min-width:0!important;max-width:100%!important}
+
+/* Reduce nested borders without changing status labels or field borders. */
+.ars-v2 .gov-personal-panel{border:0!important;box-shadow:none!important}
+.ars-v2 .gov-notice{border:0!important;box-shadow:none!important}
+.ars-v2 .trend-report .limit-settings{border:0!important;box-shadow:none!important}
+/* Date selection must never change the calendar cell box dimensions. */
+.ars-v2 .calendar-panel .calendar .day:not(.empty){box-sizing:border-box!important;border-width:1px!important}
+.ars-v2 .calendar-panel .calendar .day.selected:not(.empty),
+.ars-v2 .calendar-panel .calendar .day.multi-selected:not(.empty),
+.ars-v2 .calendar-panel .calendar .day.kind-over.selected:not(.empty),
+.ars-v2 .calendar-panel .calendar .day.today.multi-selected:not(.empty){box-sizing:border-box!important;border-width:1px!important;outline:2px solid #142C50!important;outline-offset:-2px!important;box-shadow:none!important}
