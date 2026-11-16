@@ -1187,3 +1187,11 @@ body.ars-v2 .gov-streak > #v2StreakNote{display:none!important}
   flex:none!important;
  }
 }
+
+/* Optical centering: reserve the right-side current-month badge's width
+   in every month, so the entire title area is visually centered. */
+@media(min-width:701px){
+ body.ars-v2 #monthly-report.calendar-panel > .nav > #month{
+  left:calc(50% - 34px)!important;
+ }
+}
