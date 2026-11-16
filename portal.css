@@ -683,3 +683,19 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
  .ars-v2 #gov-goal-card .gov-solo-row{margin-top:12px!important}
  .ars-v2 #gov-goal-card .gov-solo-warning{margin-top:0!important;margin-bottom:6px!important}
 }
+
+
+/* Consistent dashboard typography scale: title > goal headline > metric > label. */
+.ars-v2 #gov-goal-card .gov-goal-heading #govGoalTarget{font-size:28px!important;line-height:1.18!important}
+.ars-v2 #gov-goal-card .gov-goal-heading #govGoalRate{font-size:20px!important;line-height:1.2!important}
+.ars-v2 #gov-goal-card .gov-goal-row>strong{font-size:20px!important;line-height:1.2!important}
+.ars-v2 .gov-month-summary .gov-summary-grid strong{font-size:20px!important;line-height:1.2!important}
+.ars-v2 .gov-month-summary .gov-summary-grid span{font-size:11px!important;line-height:1.3!important}
+.ars-v2 #gov-goal-card .gov-goal-foot #govGoalNote,
+.ars-v2 #gov-goal-card .gov-goal-foot #govGoalPercent{font-size:12px!important;line-height:1.35!important}
+.ars-v2 #gov-goal-card .gov-goal-row>small,
+.ars-v2 #gov-goal-card #govDryPrev{font-size:12px!important;line-height:1.3!important}
+@media(max-width:700px){
+ .ars-v2 .gov-month-summary .gov-summary-grid strong{font-size:clamp(14px,3.3vw,20px)!important}
+ .ars-v2 #gov-goal-card .gov-goal-row>small{font-size:10px!important}
+}
