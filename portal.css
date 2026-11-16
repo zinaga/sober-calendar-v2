@@ -499,3 +499,27 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
  line-height:1.3!important;letter-spacing:0!important;white-space:nowrap!important;
  text-decoration:none!important;
 }
+
+/* Records calendar: restrained institutional palette, preserving emoji and semantic cues. */
+.ars-v2 .calendar-panel .day.kind-dry:not(.empty){background:#e3eaf4!important;border-color:#c5d3e7!important}
+.ars-v2 .calendar-panel .day.kind-solo:not(.empty){background:#f6f0e3!important;border-color:#e5d6b9!important}
+.ars-v2 .calendar-panel .day.kind-with:not(.empty),
+.ars-v2 .calendar-panel .day.kind-mixed:not(.empty){background:#e9f1ee!important;border-color:#c7dcd4!important}
+.ars-v2 .calendar-panel .day.kind-unknown:not(.empty){background:#fff!important;border-color:#d7dfea!important}
+.ars-v2 .calendar-panel .day.kind-over:not(.empty){border-color:#d36b77!important;box-shadow:inset 0 0 0 1px #d36b77!important}
+.ars-v2 .calendar-panel .day .pill{
+ border-radius:0!important;
+ padding:4px 6px!important;
+ margin:3px 0!important;
+ line-height:1.35!important;
+}
+.ars-v2 .calendar-panel .day .pill.dry{background:#d2dfef!important;color:#17395f!important}
+.ars-v2 .calendar-panel .day .pill.solo{background:#eee2c9!important;color:#604c2f!important}
+.ars-v2 .calendar-panel .day.kind-with .pill:not(.after),
+.ars-v2 .calendar-panel .day.kind-mixed .pill:not(.solo):not(.after){background:#dbe9e4!important;color:#254d45!important}
+.ars-v2 .calendar-panel .day .pill.after{background:#f9ecee!important;color:#8f3443!important}
+.ars-v2 .calendar-panel .day .pill.unknown{background:transparent!important;color:#8792a5!important;padding-left:0!important}
+.ars-v2 .calendar-panel .day .pill .drinkdetail{margin-top:2px!important;line-height:1.3!important}
+.ars-v2 .calendar-panel .day.kind-solo .number{color:#654f30!important}
+.ars-v2 .calendar-panel .day.kind-with .number,
+.ars-v2 .calendar-panel .day.kind-mixed .number{color:#254d45!important}
