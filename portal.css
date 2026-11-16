@@ -609,8 +609,8 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 /* Keep the first summary warning's table spacing; tighten only warning-to-warning gap. */
 .ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]) + .gov-alcohol-warning:not([hidden]){margin-top:0!important}
 
-/* Home mini-calendar: slightly shorter dates and more breathing room before legend. */
-.ars-v2 .gov-mini-grid{grid-auto-rows:28px!important}
+/* Home mini-calendar: compact date tiles; leave heading and legend unchanged. */
+.ars-v2 .gov-mini-grid{grid-auto-rows:25px!important}
 .ars-v2 .gov-mini-caption{margin-top:12px!important}
 
 /* Selected over-drinking dates: use one navy selection border, not stacked red/blue rings. */
