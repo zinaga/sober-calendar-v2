@@ -848,3 +848,11 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 /* Optical alignment of current-month badges in home and records headings. */
 .ars-v2 .gov-main-intro-title .ars-current-month-badge{top:-2px!important}
 .ars-v2 .calendar-panel .nav #month>.ars-current-month-badge{transform:translateY(calc(-50% + 2px))!important}
+
+/* Keep the workspace and records calendar width stable when a day's editor opens. */
+.ars-v2 .gov-workspace{width:100%!important;min-width:0!important;grid-template-columns:17.7% minmax(0,1fr)!important}
+.ars-v2 .gov-main,.ars-v2 .gov-main>.panel,.ars-v2 .calendar-panel,.ars-v2 .calendar-panel .editor,.ars-v2 .calendar-panel .session{min-width:0!important;max-width:100%!important;box-sizing:border-box!important}
+.ars-v2 .calendar-panel .editor .drinkrow{min-width:0!important;max-width:100%!important;grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,.65fr) minmax(0,78px) minmax(0,auto)!important}
+.ars-v2 .calendar-panel .editor .drinkrow>*{min-width:0!important;max-width:100%!important}
+@media(max-width:1100px){.ars-v2 .gov-workspace{grid-template-columns:190px minmax(0,1fr)!important}}
+@media(max-width:700px){.ars-v2 .gov-workspace{grid-template-columns:minmax(0,1fr)!important}}
