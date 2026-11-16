@@ -996,17 +996,6 @@ html{scrollbar-gutter:stable}
  .ars-v2 .gov-pledge .pledge-display>span#pledgeText:not(.pledge-placeholder){font-family:"Noto Serif KR","Nanum Myeongjo",serif!important;font-weight:900!important;font-synthesis:weight!important}
 }
 
-/* Records calendar: month on the left, both navigation arrows grouped on the right. */
-.ars-v2 #monthly-report .nav{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important}
-.ars-v2 #monthly-report .nav .month-nav-actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;margin-left:auto!important}
-@media(max-width:700px){
- .ars-v2 #monthly-report .nav{flex-wrap:nowrap!important;min-width:0!important}
- .ars-v2 #monthly-report .nav #month{flex:1 1 auto!important;min-width:0!important;text-align:left!important;margin:0!important;font-size:clamp(18px,4.8vw,24px)!important;white-space:nowrap!important}
- .ars-v2 #monthly-report .nav .month-nav-actions{flex:0 0 auto!important;gap:8px!important}
- .ars-v2 #monthly-report .nav .month-nav-actions .month-arrow{width:40px!important;height:40px!important;min-width:40px!important;padding:0!important;touch-action:manipulation}
- .ars-v2 #monthly-report .nav .month-nav-actions .month-current{font-size:11px!important;padding:7px 9px!important;white-space:nowrap!important}
-}
-
 /* Explicit mobile calendar navigation layout; override legacy centered nav rules. */
 @media(max-width:700px){
  body.ars-v2 #monthly-report.calendar-panel > .nav{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;justify-items:stretch!important;column-gap:8px!important}
@@ -1016,13 +1005,6 @@ html{scrollbar-gutter:stable}
  body.ars-v2 #monthly-report.calendar-panel > .nav > .month-nav-actions > #next{display:inline-flex!important;position:static!important;flex:0 0 40px!important;width:40px!important;height:40px!important;margin:0!important}
 }
 
-/* Desktop records calendar retains its original previous / month / today-next layout. */
-@media(min-width:701px){
- body.ars-v2 #monthly-report.calendar-panel > .nav{display:grid!important;grid-template-columns:40px minmax(0,1fr) auto!important;align-items:center!important;gap:8px!important}
- body.ars-v2 #monthly-report.calendar-panel > .nav > #prev{grid-column:1!important;grid-row:1!important;justify-self:start!important}
- body.ars-v2 #monthly-report.calendar-panel > .nav > #month{grid-column:2!important;grid-row:1!important;text-align:center!important;margin:0!important}
- body.ars-v2 #monthly-report.calendar-panel > .nav > div{grid-column:3!important;grid-row:1!important;display:flex!important;align-items:center!important;gap:8px!important}
-}
 /* Only mobile groups both arrows to the right, with month on the left. */
 @media(max-width:700px){
  body.ars-v2 #monthly-report.calendar-panel > .nav{position:relative!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:6px!important}
@@ -1042,4 +1024,13 @@ html{scrollbar-gutter:stable}
 /* Mobile home mini-calendar: match the 10px month-title inset in records. */
 @media(max-width:700px){
  body.ars-v2 .gov-mini .gov-card-heading .gov-mini-month-group #govMiniTitle{padding-left:10px!important}
+}
+
+/* Desktop: fully restore the original flex navigation, never inherit mobile positioning. */
+@media(min-width:701px){
+ body.ars-v2 #monthly-report.calendar-panel > .nav{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > #prev{position:static!important;transform:none!important;flex:0 0 auto!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > #month{position:relative!important;flex:0 1 auto!important;text-align:center!important;margin:0!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > div{position:static!important;display:flex!important;align-items:center!important;gap:3px!important;margin:0!important;padding:0!important}
+ body.ars-v2 #monthly-report.calendar-panel > .nav > div > #next{position:static!important;transform:none!important}
 }
