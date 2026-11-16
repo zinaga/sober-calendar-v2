@@ -954,3 +954,10 @@ html{scrollbar-gutter:stable}
  .ars-v2 .gov-mini .gov-card-heading .gov-mini-actions #govMiniPrev,
  .ars-v2 .gov-mini .gov-card-heading .gov-mini-actions #govMiniNext{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 40px!important;width:40px!important;min-width:40px!important;height:40px!important;min-height:40px!important;padding:0!important;margin:0!important;box-sizing:border-box!important;touch-action:manipulation}
 }
+
+/* Mobile editor: keep the delete-session action on its own aligned row. */
+@media(max-width:700px){
+ .ars-v2 .calendar-panel .editor .sessionhead{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:8px!important}
+ .ars-v2 .calendar-panel .editor .sessionhead .session-title{display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:flex-start!important;gap:8px!important;min-width:0!important}
+ .ars-v2 .calendar-panel .editor .sessionhead button[data-delete-session]{align-self:flex-end!important;flex:0 0 auto!important;margin:0!important;white-space:nowrap!important}
+}
