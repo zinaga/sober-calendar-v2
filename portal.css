@@ -807,3 +807,11 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-month-summary #govAvgAlcoholWarning:not([hidden]){margin-top:12px!important}
 .ars-v2 .gov-month-summary #govMaxAlcoholWarning:not([hidden]){margin-top:12px!important}
 .ars-v2 .gov-month-summary #govAvgAlcoholWarning:not([hidden]) ~ #govMaxAlcoholWarning:not([hidden]){margin-top:0!important}
+
+/* Goal-card vertical rhythm: lower solo count, move average-gap divider up and its content down. */
+.ars-v2 #gov-goal-card .gov-solo-row{margin-top:11px!important}
+.ars-v2 #gov-goal-card .gov-solo-warning{margin-bottom:0!important}
+.ars-v2 #gov-goal-card .gov-goal-row:not(.gov-solo-row){margin-top:3px!important;padding-top:11px!important;box-sizing:content-box!important}
+/* Monthly warning text sits closer to the summary metrics, regardless of which warning appears. */
+.ars-v2 .gov-month-summary #govAvgAlcoholWarning:not([hidden]),.ars-v2 .gov-month-summary #govMaxAlcoholWarning:not([hidden]){margin-top:7px!important}
+.ars-v2 .gov-month-summary #govAvgAlcoholWarning:not([hidden]) ~ #govMaxAlcoholWarning:not([hidden]){margin-top:0!important}
