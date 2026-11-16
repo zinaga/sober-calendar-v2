@@ -826,3 +826,14 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 .ars-v2 .gov-notice .gov-personal-notices .gov-notice-goal,.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-goal{background:#D0DFF1!important;border-color:#41618F!important;color:#142C50!important}
 .ars-v2 .gov-notice .gov-personal-notices .gov-notice-alert,.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-alert{background:#F9E8EB!important;border-color:#BE3447!important;color:#142C50!important}
 .ars-v2 .gov-notice .gov-personal-notices .gov-notice-neutral,.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-neutral{background:#F7F8FA!important;border-color:#66788C!important;color:#142C50!important}
+
+/* Status labels: green reporting, blue goal states, red only for problems. */
+.ars-v2 .gov-notice .gov-personal-notices .gov-notice-neutral,.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-neutral{background:#D0DFF1!important;border-color:#41618F!important;color:#142C50!important}
+/* Directional comparison arrows: semantic positive/negative colors. */
+.ars-v2 .gov-trend.down{color:#3D9489!important}
+.ars-v2 .gov-trend.up{color:#BE3447!important}
+.ars-v2 .gov-goal .gov-goal-row #govGapPrev .gov-trend.up.positive{color:#3D9489!important}
+.ars-v2 .gov-goal .gov-goal-row #govGapPrev .gov-trend.down.negative{color:#BE3447!important}
+.ars-v2 .gov-month-compare.increase .gov-compare-arrow{color:#3D9489!important}
+.ars-v2 .gov-month-compare.decrease .gov-compare-arrow{color:#BE3447!important}
+.ars-v2 .gov-month-compare.same .gov-compare-arrow{color:#66788C!important}
