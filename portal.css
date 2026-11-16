@@ -665,3 +665,21 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 /* Flat trend glyphs should be centered relative to their comparison text. */
 .ars-v2 .gov-trend.flat{display:inline-flex!important;align-items:center!important;justify-content:center!important;vertical-align:middle!important;line-height:1!important;transform:translateY(-1px)}
 .ars-v2 .gov-month-compare.same .gov-compare-arrow{display:inline-flex!important;align-items:center!important;justify-content:center!important;line-height:1!important;transform:translateY(-1px)}
+
+
+/* Flat comparison: draw a centered rule rather than relying on the font's low dash glyph. */
+.ars-v2 .gov-trend.flat,
+.ars-v2 .gov-month-compare.same .gov-compare-arrow{
+ font-size:0!important;line-height:0!important;vertical-align:middle!important;
+ transform:none!important;display:inline-flex!important;align-items:center!important;
+ justify-content:center!important;width:17px!important;height:18px!important;
+}
+.ars-v2 .gov-trend.flat::after,
+.ars-v2 .gov-month-compare.same .gov-compare-arrow::after{
+ content:"";display:block;width:13px;height:2px;border-radius:1px;background:currentColor;
+}
+/* Give the solo-day metric breathing room, but keep its warning close below. */
+@media(min-width:1101px){
+ .ars-v2 #gov-goal-card .gov-solo-row{margin-top:12px!important}
+ .ars-v2 #gov-goal-card .gov-solo-warning{margin-top:0!important;margin-bottom:6px!important}
+}
