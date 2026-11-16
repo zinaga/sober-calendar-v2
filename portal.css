@@ -1279,3 +1279,41 @@ body.ars-v2 .calendar-panel .editor .session .session-actions{margin-top:9px!imp
  }
  body.ars-v2 .calendar-panel .editor .session .drinkrow .drink-remove{width:30px!important;height:34px!important}
 }
+
+/* Smaller drink inputs without shrinking their text or changing column widths. */
+body.ars-v2 .calendar-panel .editor .session .drinkrow > select,
+body.ars-v2 .calendar-panel .editor .session .drinkrow > input,
+body.ars-v2 .calendar-panel .editor .session .drinkrow > .drink-type-cell > select,
+body.ars-v2 .calendar-panel .editor .session .drinkrow .share-field input{
+ height:36px!important;
+ min-height:36px!important;
+ padding-top:4px!important;
+ padding-bottom:4px!important;
+ font-size:14px!important;
+}
+body.ars-v2 .calendar-panel .editor .session .drinkrow{margin:4px 0!important}
+body.ars-v2 .calendar-panel .editor .session .drinkrow .drink-remove{
+ height:34px!important;
+ width:36px!important;
+}
+body.ars-v2 .calendar-panel .editor .session{
+ padding-bottom:9px!important;
+}
+body.ars-v2 .calendar-panel .editor .session .field{margin-bottom:3px!important}
+body.ars-v2 .calendar-panel .editor .session .field > input{
+ height:36px!important;
+ min-height:36px!important;
+ padding-top:5px!important;
+ padding-bottom:5px!important;
+}
+body.ars-v2 .calendar-panel .editor .session .session-actions{margin-top:5px!important}
+@media(max-width:700px){
+ body.ars-v2 .calendar-panel .editor .session .drinkrow > select,
+ body.ars-v2 .calendar-panel .editor .session .drinkrow > input,
+ body.ars-v2 .calendar-panel .editor .session .drinkrow .share-field input{
+  height:34px!important;
+  min-height:34px!important;
+  font-size:12px!important;
+ }
+ body.ars-v2 .calendar-panel .editor .session .drinkrow .drink-remove{height:32px!important;width:30px!important}
+}
