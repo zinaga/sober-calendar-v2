@@ -1039,3 +1039,11 @@ html{scrollbar-gutter:stable}
 @media(min-width:701px){
  body.ars-v2 #monthly-report.calendar-panel > .nav > #month > .ars-current-month-badge{position:static!important;left:auto!important;top:auto!important;transform:none!important;display:inline-flex!important;margin-left:10px!important;vertical-align:middle!important}
 }
+
+/* Home mini calendar: keep month title anchored regardless of return-button visibility. */
+body.ars-v2 .gov-mini .gov-card-heading{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;grid-template-rows:auto!important;align-items:center!important;justify-content:initial!important;gap:8px!important}
+body.ars-v2 .gov-mini .gov-card-heading > .gov-mini-month-group{grid-column:1!important;grid-row:1!important;display:flex!important;justify-content:flex-start!important;align-items:center!important;justify-self:start!important;width:100%!important;min-width:0!important;margin:0!important;padding:0!important;transform:none!important}
+body.ars-v2 .gov-mini .gov-card-heading > .gov-mini-month-group > #govMiniTitle{position:static!important;left:auto!important;right:auto!important;transform:none!important;margin:0!important;text-align:left!important;justify-self:start!important}
+body.ars-v2 .gov-mini .gov-card-heading > .gov-mini-actions{grid-column:2!important;grid-row:1!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;justify-self:end!important;margin:0!important;min-width:0!important}
+/* No previous-month baseline: same typographic treatment as normal comparisons. */
+body.ars-v2 .gov-streak .gov-month-compare.no-baseline{font-size:12px!important;font-weight:750!important;color:#142C50!important;line-height:1.35!important;text-align:center!important;justify-content:center!important}
