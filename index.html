@@ -738,7 +738,21 @@ function renderEditor(){
  if(!sessions.length&&editorDraftKey===selected&&editorDraft){h+='<div class="session-actions"><div class="session-submit-help"><span>용량 참고 · 소주 1병 360mL · 맥주 1병 330~500mL · 위스키(글렌피딕 등) 1병 700mL · 서울의 밤 1병 375mL (제품별 상이, 라벨 확인)</span><span>※ 나눠 마신 인원에는 본인이 포함됩니다. 1명 입력 시 전량 음주로 계산됩니다.</span></div><div class="session-action-buttons"><span class="filing-status pending">◷ 삭제 미접수</span><button class="primary" id="saveDay">삭제 내용 제출</button><button id="cancelDay">수정 취소</button></div></div>'}
  h+='<button class="primary compact-add-session" id="addSession">'+(sessions.length?'+ 음주 내역 추가 신고':'+ 음주 내역 신고')+'</button>';
  document.getElementById('editor').innerHTML=h;
- document.querySelectorAll('[data-delete-session]').forEach(b=>b.onclick=()=>{let a=structuredClone(editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected));a.sessions.splice(+b.dataset.deleteSession,1);editDay(selected,a.sessions.length?{status:'drink',sessions:a.sessions}:{status:getDay(selected).status==='dry'?'dry':'unknown',sessions:[]})});
+ document.querySelectorAll('[data-delete-session]').forEach(b=>b.onclick=()=>{
+  const dayKey=selected;
+  const saved=getDay(dayKey);
+  const hasDraft=editorDraftKey===dayKey&&!!editorDraft;
+  const draft=hasDraft?editorDraft:saved;
+  const index=Number(b.dataset.deleteSession);
+  if(!Number.isInteger(index)||index<0||index>=(draft.sessions||[]).length)return;
+  const hasUnsavedChanges=hasDraft&&JSON.stringify(draft)!==JSON.stringify(saved);
+  if(!confirm('음주 회차 '+String(index+1).padStart(2,'0')+'을(를) 삭제하고 즉시 저장할까요?'+(hasUnsavedChanges?'\\n\\n주의: 현재 작성 중인 다른 수정 사항도 함께 저장됩니다.':'')))return;
+  const updated=structuredClone(draft);
+  updated.sessions.splice(index,1);
+  const result=updated.sessions.length?{...updated,status:'drink'}:{status:saved.status==='dry'?'dry':'unknown',sessions:[]};
+  editorDraft=null;editorDraftKey=null;
+  setDay(dayKey,result);
+ });
  document.getElementById('saveDay')?.addEventListener('click',e=>{e.stopPropagation();if(editorDraftKey===selected&&editorDraft){const v=editorDraft;if(getDay(selected).status==='dry'&&v.status==='drink'&&!confirm('금주 처리를 해제하고 음주 신고서를 제출할까요?'))return;editorDraft=null;editorDraftKey=null;setDay(selected,v)}else{renderEditor()}});
  document.getElementById('cancelDay')?.addEventListener('click',()=>{editorDraft=null;editorDraftKey=null;renderEditor()});
  document.getElementById('addSession').onclick=()=>{let a=structuredClone(editorDraftKey===selected&&editorDraft?editorDraft:getDay(selected));if(a.status==='dry'&&!confirm('금주 체크를 해제하고 음주 세션을 추가할까요?'))return;let ss=a.status==='drink'?(a.sessions||[]):[];ss.push(newSession());editDay(selected,{status:'drink',sessions:ss})};
