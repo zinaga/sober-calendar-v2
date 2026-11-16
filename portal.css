@@ -338,3 +338,29 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .trend-report .analysis-heading h3{border-left:3px solid #193d65!important;padding-left:12px!important;line-height:1.5!important}
 .ars-v2 .trend-report .chart-period{display:flex!important;align-items:center!important;gap:12px!important}
 .ars-v2 .trend-report .chart-period .chart-accent{display:block!important;flex:0 0 3px!important;width:3px!important;height:22px!important;background:#193d65!important;border-radius:1px!important}
+
+/* Goal hierarchy, solo drinking awareness and graduated average intake notices */
+.ars-v2 .gov-goal-active .gov-goal-heading{background:#f1f5fb;border:1px solid #d9e4f1;border-radius:6px;padding:12px 14px;margin:8px 0 12px}
+.ars-v2 .gov-goal-active #govGoalLabel{font-weight:800!important;color:#15395f!important}
+.ars-v2 .gov-goal-active #govGoalRate{font-size:19px!important;color:#14385f!important}
+.ars-v2 .gov-solo-row{background:#fff7ec!important;border:1px solid #efd7b5!important;border-radius:6px!important;padding:10px 12px!important;margin:7px 0 0!important}
+.ars-v2 .gov-solo-row>span,.ars-v2 .gov-solo-row>strong{color:#a96516!important;font-weight:800!important}
+.ars-v2 .gov-solo-mark{display:inline-flex!important;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:#b77627;color:#fff!important;font-size:11px!important;font-weight:800;margin-left:4px}
+.ars-v2 .gov-solo-warning{background:#fff9f0!important;color:#815d34!important;border:1px solid #f0dfc5!important;border-top:0!important;border-radius:0 0 6px 6px!important;padding:9px 12px!important;margin:-2px 0 9px!important;font-size:11px!important;line-height:1.6!important}
+.ars-v2 .gov-summary-grid>div[class*="gov-alcohol-stage-"]{border-radius:6px!important;padding:10px!important}
+.ars-v2 .gov-summary-grid .gov-alcohol-stage-1{background:#fff7ed!important;border:1px solid #f4d5ae!important}
+.ars-v2 .gov-summary-grid .gov-alcohol-stage-2{background:#fff0e9!important;border:1px solid #efb89f!important}
+.ars-v2 .gov-summary-grid .gov-alcohol-stage-3{background:#fff0f1!important;border:1px solid #e8a5ae!important}
+.ars-v2 .gov-summary-grid .gov-alcohol-stage-4{background:#f7effa!important;border:1px solid #d3b0df!important}
+.ars-v2 .gov-summary-grid .gov-alcohol-stage-1 strong{color:#c47a19!important}
+.ars-v2 .gov-summary-grid .gov-alcohol-stage-2 strong{color:#d75d32!important}
+.ars-v2 .gov-summary-grid .gov-alcohol-stage-3 strong{color:#bf293b!important}
+.ars-v2 .gov-summary-grid .gov-alcohol-stage-4 strong{color:#783b8c!important}
+.ars-v2 .gov-alcohol-warning{margin-top:10px;padding:11px 13px;border:1px solid #efd1b8;border-radius:6px;background:#fff7f0;color:#7b4a2c;display:flex;flex-direction:column;gap:4px;font-size:12px;line-height:1.5}
+.ars-v2 .gov-alcohol-warning[hidden]{display:none!important}
+.ars-v2 .gov-alcohol-warning strong{font-size:12px;font-weight:800;color:#a94c27}
+.ars-v2 .gov-alcohol-warning small{font-size:10px;color:#756c70;line-height:1.5}
+.ars-v2 .gov-month-summary:has(.gov-alcohol-stage-3) .gov-alcohol-warning{background:#fff1f2;border-color:#edbbc3}
+.ars-v2 .gov-month-summary:has(.gov-alcohol-stage-3) .gov-alcohol-warning strong{color:#b5293b}
+.ars-v2 .gov-month-summary:has(.gov-alcohol-stage-4) .gov-alcohol-warning{background:#f8f0fb;border-color:#d7b7e2}
+.ars-v2 .gov-month-summary:has(.gov-alcohol-stage-4) .gov-alcohol-warning strong{color:#783b8c}
