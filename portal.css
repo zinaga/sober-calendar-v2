@@ -983,3 +983,10 @@ html{scrollbar-gutter:stable}
 /* Frequency chart is its own detail trigger; legend remains visible at all times. */
 .ars-v2 #stats .legend-shared,.ars-v2 #stats .legend-shared[hidden]{display:flex!important}
 .ars-v2 #stats .frequency-stack-toggle{margin-bottom:0!important}
+
+/* On mobile, show only the centered month-over-month comparison copy. */
+@media(max-width:700px){
+ .ars-v2 .gov-streak .gov-month-compare .gov-compare-arrow,
+ .ars-v2 .gov-streak .gov-month-compare .gov-compare-arrow::after{display:none!important;content:none!important}
+ .ars-v2 .gov-streak .gov-month-compare{padding:0!important;text-align:center!important}
+}
