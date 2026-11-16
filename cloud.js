@@ -237,6 +237,7 @@ function clearSignedOutDeviceData(){
  // Clear in-memory state immediately as well, even if navigation is delayed.
  data={};personalLimits={};personalPledge='';
  window.arsMonthlyGoals?.set({});
+ localStorage.removeItem(GOAL_KEY);
  render();renderPledge();renderExtraStats();
 }
 cloudLogout.onclick=async()=>{
