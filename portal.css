@@ -542,3 +542,6 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 /* Align month and today indicators to their respective heading baselines. */
 .ars-v2 .ars-current-month-badge{position:relative!important;top:-2px!important;vertical-align:middle!important}
 .ars-v2 .calendar-panel .today-badge{position:relative!important;top:2px!important}
+
+/* Home heading badge sits slightly lower for optical vertical centering. */
+.ars-v2 .gov-main-intro-title .ars-current-month-badge{top:2px!important}
