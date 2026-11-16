@@ -841,3 +841,10 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 /* Warm gold pledge quotation (palette B); keep outer card and navy text unchanged. */
 .ars-v2 .gov-pledge .pledge-display:not([hidden]){background:#FFF0D1!important}
 .ars-v2 .gov-pledge .pledge-display::before,.ars-v2 .gov-pledge .pledge-display::after{color:#D7A334!important}
+
+/* Pledge option A: restrained soft blue, navy text, blue quotation marks. */
+.ars-v2 .gov-pledge .pledge-display:not([hidden]){background:#D0DFF1!important}
+.ars-v2 .gov-pledge .pledge-display::before,.ars-v2 .gov-pledge .pledge-display::after{color:#41618F!important}
+/* Optical alignment of current-month badges in home and records headings. */
+.ars-v2 .gov-main-intro-title .ars-current-month-badge{top:-2px!important}
+.ars-v2 .calendar-panel .nav #month>.ars-current-month-badge{transform:translateY(calc(-50% + 2px))!important}
