@@ -781,3 +781,14 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 /* Dry calendar dates: blue tile, matching off-white border and status strip. */
 .ars-v2 .calendar-panel .day.kind-dry:not(.empty){background:#D0DFF1!important;border-color:#F7F8FA!important}
 .ars-v2 .calendar-panel .day.kind-dry .pill.dry{background:#F7F8FA!important;color:#142C50!important}
+
+/* Active top navigation: lighter navy tab with the red underline. */
+.ars-v2 .v2-service-nav a[aria-current="page"]{background:#41618F!important;color:#FFFFFF!important;border-radius:0!important;box-shadow:inset 0 -4px 0 #BE3447!important;font-weight:800!important}
+.ars-v2 .v2-service-nav a[aria-current="page"]::before,.ars-v2 .v2-service-nav a[aria-current="page"]::after{display:none!important}
+/* Home title marker matches the smaller marker used by the three detail pages. */
+.ars-v2 .gov-home-frame .gov-main-intro-title h2::before{content:""!important;display:inline-block!important;width:5px!important;height:23px!important;background:#BE3447!important;border-radius:2px!important;vertical-align:-4px!important;margin-right:13px!important}
+/* Warning states change color only, never typography or spacing. */
+.ars-v2 #gov-goal-card .gov-solo-warning,.ars-v2 #gov-goal-card .gov-solo-warning.gov-solo-warning-active{font-size:11px!important;line-height:1.3!important;font-weight:400!important;letter-spacing:normal!important}
+.ars-v2 #gov-goal-card .gov-solo-warning.gov-solo-warning-active{color:#BE3447!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]),.ars-v2 .gov-month-summary .gov-alcohol-warning[data-stage]:not([hidden]){font-size:11px!important;line-height:1.5!important;font-weight:400!important;letter-spacing:normal!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]) b{font-size:inherit!important;line-height:inherit!important}
