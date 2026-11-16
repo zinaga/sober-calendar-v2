@@ -903,3 +903,6 @@ html{scrollbar-gutter:stable}
 /* Keep the month-over-month comparison neatly centered on two lines. */
 .ars-v2 .gov-month-compare{font-weight:500!important;line-height:1.45!important;text-align:center!important}
 .ars-v2 .gov-month-compare .gov-compare-arrow{flex:0 0 auto!important}
+
+/* Supporting caption under the abstinent-days card title. */
+.ars-v2 .gov-streak .gov-streak-intro{font-size:11px!important;line-height:1.4!important;font-weight:500!important;text-align:left!important;color:#66788C!important;margin:4px 0 0!important;padding:0!important}
