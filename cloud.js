@@ -156,7 +156,15 @@ function chooseCloudConflict(local,remote,conflicts){
   });dlg.showModal();
  });
 }
-async function pullCloud(){if(!cloudUser)return;cloudReady=false;cloudSetStatus('클라우드 기록을 확인하고 있어요…');try{
+let cloudPullInFlight=null;
+function pullCloud(){
+ if(cloudPullInFlight)return cloudPullInFlight;
+ const task=pullCloudOnce();
+ cloudPullInFlight=task;
+ void task.finally(()=>{if(cloudPullInFlight===task)cloudPullInFlight=null});
+ return task;
+}
+async function pullCloudOnce(){if(!cloudUser)return;cloudReady=false;cloudSetStatus('클라우드 기록을 확인하고 있어요…');try{
  const {data:record,error}=await cloudClient.from('sober_records').select('days').eq('user_id',cloudUser.id).maybeSingle();
  if(error)throw error;
  const remote=record?.days||{};
