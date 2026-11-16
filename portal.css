@@ -479,3 +479,13 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 }
 .ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]) b{font-weight:700!important}
 .ars-v2 .gov-goal-card .gov-solo-warning.gov-solo-warning-active{color:#be3447!important}
+
+/* Warning typography: target the real goal card ID, not the nonexistent .gov-goal-card class. */
+.ars-v2 #gov-goal-card .gov-solo-warning.gov-solo-warning-active,
+.ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]){
+ color:#be3447!important;
+ font-size:11px!important;
+ font-weight:400!important;
+ line-height:1.5!important;
+}
+.ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]) b{font-weight:700!important}
