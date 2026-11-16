@@ -990,3 +990,8 @@ html{scrollbar-gutter:stable}
  .ars-v2 .gov-streak .gov-month-compare .gov-compare-arrow::after{display:none!important;content:none!important}
  .ars-v2 .gov-streak .gov-month-compare{padding:0!important;text-align:center!important}
 }
+
+/* Load and use the actual heavy Noto Serif KR face for the mobile pledge. */
+@media(max-width:700px){
+ .ars-v2 .gov-pledge .pledge-display>span#pledgeText:not(.pledge-placeholder){font-family:"Noto Serif KR","Nanum Myeongjo",serif!important;font-weight:900!important;font-synthesis:weight!important}
+}
