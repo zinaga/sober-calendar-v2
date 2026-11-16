@@ -467,3 +467,15 @@ body.ars-v2{margin:0!important;background:#f7f8fa!important;color:var(--ink)!imp
 .ars-v2 .gov-month-summary .gov-summary-grid>div.gov-alcohol-max-alert strong{color:#be3447!important}
 .ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]){display:block!important;color:#8f3443!important;font-size:12px!important;line-height:1.6!important;padding:5px 0!important;margin:0!important;border:0!important;background:transparent!important}
 .ars-v2 .gov-month-summary .gov-alcohol-warning[hidden]{display:none!important}
+
+/* Monthly summary warning typography matches the solo-drinking warning. */
+.ars-v2 .gov-month-summary .gov-summary-grid>div.gov-alcohol-avg-alert,
+.ars-v2 .gov-month-summary .gov-summary-grid>div.gov-alcohol-max-alert{border-bottom:0!important}
+.ars-v2 .gov-month-summary .gov-summary-grid>div.gov-alcohol-avg-alert strong,
+.ars-v2 .gov-month-summary .gov-summary-grid>div.gov-alcohol-max-alert strong{color:#be3447!important}
+.ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]){
+ font-size:11px!important;line-height:1.5!important;font-weight:400!important;
+ color:#be3447!important;padding:2px 0!important;margin:0!important;
+}
+.ars-v2 .gov-month-summary .gov-alcohol-warning:not([hidden]) b{font-weight:700!important}
+.ars-v2 .gov-goal-card .gov-solo-warning.gov-solo-warning-active{color:#be3447!important}
