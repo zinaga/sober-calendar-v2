@@ -815,3 +815,14 @@ body.ars-v2{margin:0!important;background:#F7F8FA!important;color:var(--ink)!imp
 /* Monthly warning text sits closer to the summary metrics, regardless of which warning appears. */
 .ars-v2 .gov-month-summary #govAvgAlcoholWarning:not([hidden]),.ars-v2 .gov-month-summary #govMaxAlcoholWarning:not([hidden]){margin-top:7px!important}
 .ars-v2 .gov-month-summary #govAvgAlcoholWarning:not([hidden]) ~ #govMaxAlcoholWarning:not([hidden]){margin-top:0!important}
+
+/* Statistics: section-separating horizontal rules have square ends; retain rounded cards and vertical markers. */
+.ars-v2 #trend-analysis .extra-analysis{border-radius:0!important}
+.ars-v2 #trend-analysis .stats{border-radius:0!important}
+.ars-v2 #trend-analysis .extra-analysis,.ars-v2 #trend-analysis .stats{border-top-left-radius:0!important;border-top-right-radius:0!important}
+/* Consistent outlined status labels, with navy lettering from the approved palette. */
+.ars-v2 .gov-notice .gov-personal-notices .gov-notice-tag{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:39px!important;padding:3px 7px!important;border:1px solid #41618F!important;border-radius:3px!important;color:#142C50!important;background:#D0DFF1!important;box-shadow:none!important}
+.ars-v2 .gov-notice .gov-personal-notices .gov-notice-ok,.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-ok{background:#E3F2EE!important;border-color:#3D9489!important;color:#142C50!important}
+.ars-v2 .gov-notice .gov-personal-notices .gov-notice-goal,.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-goal{background:#D0DFF1!important;border-color:#41618F!important;color:#142C50!important}
+.ars-v2 .gov-notice .gov-personal-notices .gov-notice-alert,.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-alert{background:#F9E8EB!important;border-color:#BE3447!important;color:#142C50!important}
+.ars-v2 .gov-notice .gov-personal-notices .gov-notice-neutral,.ars-v2 .gov-notice .gov-personal-notices p:first-child b.gov-notice-neutral{background:#F7F8FA!important;border-color:#66788C!important;color:#142C50!important}
