@@ -161,7 +161,7 @@ function chooseCloudConflict(local,remote,conflicts){
     return (i+1)+'차: '+(details||JSON.stringify(session));
    });
    const extra=Object.entries(record).filter(([k])=>!['status','sessions'].includes(k)).map(([k,v])=>k+': '+(typeof v==='object'?JSON.stringify(v):String(v)));
-   return [status,...sessions,...extra].join('\\n');
+   return [status,...sessions,...extra].join('\n');
   };
   const sorted=conflicts.slice().sort();
   const rows=sorted.map((date,i)=>'<section class="conflict-day-compare" style="border:1px solid #d7dfea;border-radius:9px;padding:12px;margin:12px 0"><strong>'+esc(date)+'</strong><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px"><div><strong>이 기기</strong><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:12px">'+esc(describe(local[date]))+'</pre></div><div><strong>클라우드</strong><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:12px">'+esc(describe(remote[date]))+'</pre></div></div><label style="display:block;margin-top:8px">남길 기록 <select data-conflict-index="'+i+'" style="padding:8px;max-width:100%"><option value="remote">클라우드 기록</option><option value="local">이 기기 기록</option></select></label></section>').join('');
