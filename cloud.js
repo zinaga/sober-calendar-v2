@@ -151,9 +151,21 @@ function downloadCloudSnapshot(days,source){
 function chooseCloudConflict(local,remote,conflicts){
  return new Promise(resolve=>{
   const dlg=document.createElement('dialog');dlg.className='sync-conflict-dialog';
-  const dates=conflicts.slice().sort().map(d=>{const m=/^\d{4}-(\d{2})-(\d{2})$/.exec(d);return m?Number(m[1])+'월 '+Number(m[2])+'일':d});
-  const dateSummary=dates.length<=8?dates.join(', '):dates.slice(0,8).join(', ')+' 외 '+(dates.length-8)+'일';
-  dlg.innerHTML='<form method="dialog"><h3>서로 다른 신고 기록이 발견되었습니다</h3><p>이 기기와 클라우드에 저장된 기록 중 <strong>'+conflicts.length+'일</strong>의 내용이 서로 다릅니다.</p><p class="conflict-dates">충돌 날짜: '+dateSummary+'</p><p>어떤 기록을 남길지 선택해 주세요. <strong>충돌하지 않는 날짜의 기록은 모두 유지됩니다.</strong></p><div class="conflict-backup"><strong>선택 전 기록 백업 (선택 사항)</strong><div class="sync-conflict-actions"><button type="button" data-action="download-local">기기 기록 백업</button><button type="button" data-action="download-cloud">클라우드 기록 백업</button></div></div><p><strong>서로 다른 날짜의 기록 중 어느 쪽을 남길까요?</strong></p><div class="conflict-choice-list"><button type="button" data-action="local"><strong>이 기기의 기록을 우선 적용</strong><small>충돌하는 날짜에는 현재 기기에 저장된 내용을 남깁니다.</small></button><button type="button" data-action="remote"><strong>클라우드 기록을 우선 적용</strong><small>충돌하는 날짜에는 클라우드에 저장된 내용을 남깁니다.</small></button></div><button type="button" class="conflict-cancel" data-action="cancel">나중에 결정 — 기록을 변경하지 않고 동기화를 중단합니다.</button></form>';
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' ,"'":'&#39;'}[c]));
+  const describe=record=>{
+   if(!record)return '기록 없음';
+   const status=record.status==='dry'?'금주':record.status==='drink'?'음주':record.status==='unknown'?'미기록':String(record.status||'기록');
+   const sessions=(record.sessions||[]).map((session,i)=>{
+    const drinks=session.drinks||session.items||[];
+    const details=Array.isArray(drinks)?drinks.map(d=>[d.type||d.name||d.alcoholType||d.kind,d.amount||d.volume||d.size,d.quantity||d.count].filter(v=>v!==undefined&&v!==null&&v!=='').join(' · ')).join(' / '):'';
+    return (i+1)+'차: '+(details||JSON.stringify(session));
+   });
+   const extra=Object.entries(record).filter(([k])=>!['status','sessions'].includes(k)).map(([k,v])=>k+': '+(typeof v==='object'?JSON.stringify(v):String(v)));
+   return [status,...sessions,...extra].join('\\n');
+  };
+  const sorted=conflicts.slice().sort();
+  const rows=sorted.map((date,i)=>'<section class="conflict-day-compare" style="border:1px solid #d7dfea;border-radius:9px;padding:12px;margin:12px 0"><strong>'+esc(date)+'</strong><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px"><div><strong>이 기기</strong><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:12px">'+esc(describe(local[date]))+'</pre></div><div><strong>클라우드</strong><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:12px">'+esc(describe(remote[date]))+'</pre></div></div><label style="display:block;margin-top:8px">남길 기록 <select data-conflict-index="'+i+'" style="padding:8px;max-width:100%"><option value="remote">클라우드 기록</option><option value="local">이 기기 기록</option></select></label></section>').join('');
+  dlg.innerHTML='<form method="dialog"><h3>서로 다른 신고 기록이 발견되었습니다</h3><p>충돌하는 <strong>'+sorted.length+'일</strong>의 기록을 날짜별로 비교하고 선택할 수 있어요. 충돌하지 않는 기록은 모두 유지됩니다.</p><div class="conflict-backup"><strong>선택 전 기록 백업 (선택 사항)</strong><div class="sync-conflict-actions"><button type="button" data-action="download-local">기기 기록 백업</button><button type="button" data-action="download-cloud">클라우드 기록 백업</button></div></div><div style="max-height:55vh;overflow:auto;margin:12px 0">'+rows+'</div><div class="conflict-choice-list"><button type="button" data-action="apply"><strong>선택한 기록으로 동기화</strong><small>각 날짜에서 선택한 기록을 적용합니다.</small></button></div><button type="button" class="conflict-cancel" data-action="cancel">나중에 결정 — 기록을 변경하지 않고 동기화를 중단합니다.</button></form>';
   document.body.appendChild(dlg);let settled=false;
   function finish(choice){if(settled)return;settled=true;dlg.close();dlg.remove();resolve(choice)}
   dlg.addEventListener('cancel',e=>{e.preventDefault();finish(null)});
@@ -161,7 +173,7 @@ function chooseCloudConflict(local,remote,conflicts){
    const action=e.target.closest('button[data-action]')?.dataset.action;
    if(action==='download-local')downloadCloudSnapshot(local,'device');
    if(action==='download-cloud')downloadCloudSnapshot(remote,'cloud');
-   if(action==='local'||action==='remote')finish(action);
+   if(action==='apply'){const selections={};dlg.querySelectorAll('[data-conflict-index]').forEach(select=>{selections[sorted[Number(select.dataset.conflictIndex)]]=select.value});finish(selections)}
    if(action==='cancel')finish(null);
   });dlg.showModal();
  });
@@ -199,7 +211,7 @@ async function pullCloudOnce(){if(!cloudUser)return;cloudReady=false;cloudSetSta
   priority=await chooseCloudConflict(local,remote,conflicts);
   if(!priority){cloudSetStatus('기록 충돌 '+conflicts.length+'일 · 선택 전까지 동기화가 일시 중지됐어요. 다시 동기화 버튼을 눌러 결정할 수 있어요.');return}
  }
- data=priority==='local'?{...remote,...local}:{...local,...remote};
+ data={...local,...remote};if(conflicts.length)for(const date of conflicts)data[date]=priority[date]==='local'?local[date]:remote[date];
  localStorage.setItem(KEY,JSON.stringify(data));
  render();
  cloudReady=true;
