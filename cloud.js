@@ -214,12 +214,13 @@ async function pullCloudOnce(){if(!cloudUser)return;cloudReady=false;cloudSetSta
  }else await pushCloud();
  await pullCloudLimits();await pullCloudPledge();await pullCloudMonthlyGoals();
  }catch(err){cloudSetStatus('클라우드 동기화 확인 필요: '+err.message+' · 기기 기록은 유지됩니다.');cloudReady=false}}
+function hideSignedOutRecords(){if(cloudUser)return;data={};if(typeof render==='function')render()}
 async function setupCloud(){
  if(!window.SOBER_SUPABASE_URL||!window.SOBER_SUPABASE_PUBLISHABLE_KEY){cloudSetStatus('클라우드 미설정 · 현재 브라우저에만 저장 중 (config.js 설정 필요)');return}
  if(!window.supabase){cloudSetStatus('Supabase 라이브러리를 불러오지 못했어요. 인터넷 연결을 확인해 주세요.');return}
  cloudClient=window.supabase.createClient(window.SOBER_SUPABASE_URL,window.SOBER_SUPABASE_PUBLISHABLE_KEY);
- cloudClient.auth.onAuthStateChange((_event,session)=>{const old=cloudUser?.id;cloudUser=session?.user||null;updateCloudUI();if(cloudUser&&old!==cloudUser.id)setTimeout(()=>void pullCloud(),0);if(!cloudUser){cloudReady=false;cloudSetStatus('로그아웃됨 · 브라우저에만 저장 중')}});
- const {data:sessionInfo}=await cloudClient.auth.getSession();if(sessionInfo.session){cloudUser=sessionInfo.session.user;updateCloudUI();await pullCloud()}else cloudSetStatus('Google로 로그인하면 클라우드 동기화가 시작돼요.');
+ cloudClient.auth.onAuthStateChange((_event,session)=>{const old=cloudUser?.id;cloudUser=session?.user||null;updateCloudUI();if(cloudUser&&old!==cloudUser.id)setTimeout(()=>void pullCloud(),0);if(!cloudUser){cloudReady=false;if(old){clearSignedOutDeviceData()}hideSignedOutRecords();cloudSetStatus('로그아웃됨 · 로그인하면 기록을 불러옵니다')}});
+ const {data:sessionInfo}=await cloudClient.auth.getSession();if(sessionInfo.session){cloudUser=sessionInfo.session.user;updateCloudUI();await pullCloud()}else{cloudSetStatus('Google로 로그인하면 클라우드 동기화가 시작돼요.');hideSignedOutRecords()}
 }
 googleLogin.onclick=async()=>{
  if(!cloudClient){cloudSetStatus('클라우드 연결을 확인해 주세요.');return}
