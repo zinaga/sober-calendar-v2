@@ -149,34 +149,63 @@ function downloadCloudSnapshot(days,source){
  document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 function chooseCloudConflict(local,remote,conflicts){
- return new Promise(resolve=>{
-  const dlg=document.createElement('dialog');dlg.className='sync-conflict-dialog';
-  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' ,"'":'&#39;'}[c]));
-  const describe=record=>{
-   if(!record)return '기록 없음';
-   const status=record.status==='dry'?'금주':record.status==='drink'?'음주':record.status==='unknown'?'미기록':String(record.status||'기록');
-   const sessions=(record.sessions||[]).map((session,i)=>{
-    const drinks=session.drinks||session.items||[];
-    const details=Array.isArray(drinks)?drinks.map(d=>[d.type||d.name||d.alcoholType||d.kind,d.amount||d.volume||d.size,d.quantity||d.count].filter(v=>v!==undefined&&v!==null&&v!=='').join(' · ')).join(' / '):'';
-    return (i+1)+'차: '+(details||JSON.stringify(session));
-   });
-   const extra=Object.entries(record).filter(([k])=>!['status','sessions'].includes(k)).map(([k,v])=>k+': '+(typeof v==='object'?JSON.stringify(v):String(v)));
-   return [status,...sessions,...extra].join('\n');
-  };
-  const sorted=conflicts.slice().sort();
-  const rows=sorted.map((date,i)=>'<section class="conflict-day-compare" style="border:1px solid #d7dfea;border-radius:9px;padding:12px;margin:12px 0"><strong>'+esc(date)+'</strong><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px"><div><strong>이 기기</strong><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:12px">'+esc(describe(local[date]))+'</pre></div><div><strong>클라우드</strong><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:12px">'+esc(describe(remote[date]))+'</pre></div></div><label style="display:block;margin-top:8px">남길 기록 <select data-conflict-index="'+i+'" style="padding:8px;max-width:100%"><option value="remote">클라우드 기록</option><option value="local">이 기기 기록</option></select></label></section>').join('');
-  dlg.innerHTML='<form method="dialog"><h3>서로 다른 신고 기록이 발견되었습니다</h3><p>충돌하는 <strong>'+sorted.length+'일</strong>의 기록을 날짜별로 비교하고 선택할 수 있어요. 충돌하지 않는 기록은 모두 유지됩니다.</p><div class="conflict-backup"><strong>선택 전 기록 백업 (선택 사항)</strong><div class="sync-conflict-actions"><button type="button" data-action="download-local">기기 기록 백업</button><button type="button" data-action="download-cloud">클라우드 기록 백업</button></div></div><div style="max-height:55vh;overflow:auto;margin:12px 0">'+rows+'</div><div class="conflict-choice-list"><button type="button" data-action="apply"><strong>선택한 기록으로 동기화</strong><small>각 날짜에서 선택한 기록을 적용합니다.</small></button></div><button type="button" class="conflict-cancel" data-action="cancel">나중에 결정 — 기록을 변경하지 않고 동기화를 중단합니다.</button></form>';
-  document.body.appendChild(dlg);let settled=false;
-  function finish(choice){if(settled)return;settled=true;dlg.close();dlg.remove();resolve(choice)}
-  dlg.addEventListener('cancel',e=>{e.preventDefault();finish(null)});
-  dlg.addEventListener('click',e=>{
-   const action=e.target.closest('button[data-action]')?.dataset.action;
-   if(action==='download-local')downloadCloudSnapshot(local,'device');
-   if(action==='download-cloud')downloadCloudSnapshot(remote,'cloud');
-   if(action==='apply'){const selections={};dlg.querySelectorAll('[data-conflict-index]').forEach(select=>{selections[sorted[Number(select.dataset.conflictIndex)]]=select.value});finish(selections)}
-   if(action==='cancel')finish(null);
-  });dlg.showModal();
+ const sorted=conflicts.slice().sort();
+ const describe=record=>{
+  if(!record)return '기록 없음';
+  const status=record.status==='dry'?'금주':record.status==='drink'?'음주':record.status==='unknown'?'미기록':String(record.status||'기록');
+  const sessions=(record.sessions||[]).map((session,i)=>{
+   const drinks=session.drinks||session.items||[];
+   const details=Array.isArray(drinks)?drinks.map(d=>[d.type||d.name||d.alcoholType||d.kind,d.amount||d.volume||d.size,d.quantity||d.count].filter(v=>v!==undefined&&v!==null&&v!=='').join(' · ')).join(' / '):'';
+   return (i+1)+'차: '+(details||JSON.stringify(session));
+  });
+  const extra=Object.entries(record).filter(([k])=>!['status','sessions'].includes(k)).map(([k,v])=>k+': '+(typeof v==='object'?JSON.stringify(v):String(v)));
+  return [status,...sessions,...extra].join('\n');
+ };
+ const styleButton=(button,primary=false)=>{button.type='button';button.style.cssText='padding:10px 14px;border:1px solid #cbd6e5;border-radius:9px;cursor:pointer;background:'+(primary?'#142c50':'white')+';color:'+(primary?'white':'#142c50');return button};
+ const makeButton=(label,primary=false)=>styleButton(Object.assign(document.createElement('button'),{textContent:label}),primary);
+ const makePanel=(wide=false)=>{
+  const overlay=document.createElement('div');overlay.style.cssText='position:fixed;inset:0;background:#17263caa;z-index:99999;display:flex;align-items:center;justify-content:center;padding:18px';
+  const panel=document.createElement('div');panel.style.cssText='background:white;color:#142c50;border-radius:16px;padding:22px;max-width:'+(wide?'700':'480')+'px;width:100%;max-height:85vh;overflow:auto;font-family:inherit;box-sizing:border-box';
+  overlay.append(panel);document.body.append(overlay);return {overlay,panel};
+ };
+ const chooseMode=()=>new Promise(resolve=>{
+  const {overlay,panel}=makePanel();
+  const title=document.createElement('h2');title.textContent='기기 · 클라우드 충돌 해결';title.style.marginTop='0';panel.append(title);
+  const intro=document.createElement('p');intro.textContent='서로 다른 신고 기록 '+sorted.length+'일이 발견됐어요. 먼저 처리 방법을 선택하세요.';panel.append(intro);
+  const options=[['local','기기 기록으로 일괄 적용','충돌한 날짜는 이 기기의 기록을 유지'],['remote','클라우드 기록으로 일괄 적용','충돌한 날짜는 클라우드 기록을 유지'],['later','나중에 결정','아무것도 변경하지 않고 동기화를 보류'],['individual','기록별로 직접 선택','각 날짜의 기록을 비교해서 하나씩 결정']];
+  const group=document.createElement('div');group.style.cssText='display:grid;gap:9px;margin:18px 0';
+  for(const [value,label,description] of options){
+   const item=document.createElement('label');item.style.cssText='display:flex;align-items:flex-start;gap:10px;border:1px solid #dbe2ec;border-radius:10px;padding:12px;cursor:pointer';
+   const radio=document.createElement('input');radio.type='radio';radio.name='sober-conflict-mode';radio.value=value;radio.checked=value==='later';radio.style.marginTop='4px';
+   const copy=document.createElement('span'),strong=document.createElement('strong'),small=document.createElement('span');strong.textContent=label;small.textContent=description;small.style.cssText='display:block;color:#76849a;font-size:12px;margin-top:4px';copy.append(strong,small);item.append(radio,copy);group.append(item);
+  }panel.append(group);
+  const backup=document.createElement('div');backup.style.cssText='display:flex;flex-wrap:wrap;gap:8px;margin:12px 0';
+  for(const [label,source,kind] of [['기기 기록 백업',local,'device'],['클라우드 기록 백업',remote,'cloud']]){const btn=makeButton(label);btn.onclick=()=>downloadCloudSnapshot(source,kind);backup.append(btn)}
+  panel.append(backup);
+  const note=document.createElement('p');note.textContent='일괄 적용은 충돌한 날짜에만 적용됩니다. 한쪽에만 있는 기록은 유지합니다.';note.style.cssText='font-size:12px;color:#76849a';panel.append(note);
+  const footer=document.createElement('div');footer.style.cssText='display:flex;justify-content:flex-end;gap:9px;margin-top:15px';const next=makeButton('계속',true);
+  next.onclick=()=>{const mode=group.querySelector('input:checked').value;if((mode==='local'||mode==='remote')&&!confirm('충돌한 '+sorted.length+'일에 '+(mode==='local'?'기기':'클라우드')+' 기록을 일괄 적용하고 동기화할까요? 반대쪽의 충돌 기록을 덮어씁니다.'))return;overlay.remove();resolve(mode)};
+  footer.append(next);panel.append(footer);
  });
+ const chooseIndividual=()=>new Promise(resolve=>{
+  const {overlay,panel}=makePanel(true);
+  const title=document.createElement('h2');title.textContent='기기 · 클라우드 기록 비교';title.style.marginTop='0';panel.append(title);
+  const intro=document.createElement('p');intro.textContent='서로 다른 날짜만 표시해요. 각 날짜에서 유지할 기록을 선택하세요. 나중에 결정하면 아무 기록도 변경하지 않아요.';panel.append(intro);
+  const selections={};
+  for(const date of sorted){
+   const section=document.createElement('section');section.style.cssText='border-top:1px solid #ddd;padding:14px 0';
+   const h=document.createElement('h3');h.textContent=date;section.append(h);
+   const grid=document.createElement('div');grid.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;font-size:13px';
+   for(const [label,record] of [['이 기기',local[date]],['클라우드',remote[date]]]){const cell=document.createElement('div');cell.style.cssText='background:#f5f7fb;padding:10px;min-width:0;white-space:pre-wrap;overflow-wrap:anywhere';const heading=document.createElement('strong');heading.textContent=label;const body=document.createElement('div');body.style.marginTop='8px';body.textContent=describe(record);cell.append(heading,body);grid.append(cell)}
+   section.append(grid);const select=document.createElement('select');select.style.cssText='margin-top:10px;padding:9px;border:1px solid #cbd6e5;border-radius:8px;width:100%;background:white;color:#142c50';
+   for(const [value,label] of [['local','이 기기 기록 유지'],['remote','클라우드 기록 유지']]){const opt=document.createElement('option');opt.value=value;opt.textContent=label;select.append(opt)}
+   selections[date]=select;section.append(select);panel.append(section);
+  }
+  const footer=document.createElement('div');footer.style.cssText='display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px;position:sticky;bottom:0;background:white;padding-top:12px';
+  for(const [label,action] of [['← 뒤로','back'],['나중에 결정','later'],['선택한 내용으로 동기화','save']]){const btn=makeButton(label,action==='save');btn.onclick=()=>{overlay.remove();resolve(action==='back'?'back':action==='later'?null:Object.fromEntries(Object.entries(selections).map(([date,select])=>[date,select.value])))};footer.append(btn)}
+  panel.append(footer);
+ });
+ return (async()=>{while(true){const mode=await chooseMode();if(mode==='later')return null;if(mode==='local'||mode==='remote')return Object.fromEntries(sorted.map(date=>[date,mode]));const choices=await chooseIndividual();if(choices==='back')continue;return choices}})();
 }
 function sameCloudRecord(a,b){
  // JSON object property order is not meaningful for a saved drinking record.
