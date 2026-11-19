@@ -478,7 +478,20 @@ header.system-header{padding-top:20px;padding-bottom:20px}
 const KEY='sober-calendar-v1';let data={};try{data=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch{};let now=new Date(),today=key(now);let year=now.getFullYear(),month=now.getMonth(),selected=null;
 try{const savedMonth=JSON.parse(sessionStorage.getItem('ars-calendar-view-month')||'null');if(savedMonth&&Number.isInteger(savedMonth.year)&&Number.isInteger(savedMonth.month)&&savedMonth.year>=1900&&savedMonth.year<=2200&&savedMonth.month>=0&&savedMonth.month<=11){year=savedMonth.year;month=savedMonth.month}}catch{}const multiSelected=new Set();let selectionAnchor=null;
 const types={beer:'🍺 맥주',wine:'🍷 와인',soju:'🟢 소주',liquor:'🥃 위스키·칵테일',cheongju:'🍶 청주·약주',takju:'🥛 탁주',sake:'🌸 사케',other:'✎ 직접 입력'};const units={beer:[['smallcan','작은 캔 (330mL)'],['largecan','큰 캔 (500mL)'],['bottle','작은 병 (330mL)'],['largebottle','큰 병 (500mL)'],['glass','잔 (500mL)'],['ml','직접 입력 (mL)']],wine:[['glass','잔 (150mL)'],['half','반 병 (375mL)'],['bottle','병 (750mL)'],['ml','직접 입력 (mL)']],soju:[['shot','잔 (50mL)'],['half','반 병 (180mL)'],['bottle','병 (360mL)'],['ml','직접 입력 (mL)']],liquor:[['glass','잔'],['half','반 병'],['bottle','한 병'],['ml','직접 입력 (mL)']],whisky:[['glass','잔'],['half','반 병'],['bottle','한 병'],['ml','직접 입력 (mL)']],cocktail:[['glass','잔'],['half','반 병'],['bottle','한 병'],['ml','직접 입력 (mL)']],cheongju:[['glass','잔'],['half','반 병'],['bottle','한 병'],['ml','직접 입력 (mL)']],takju:[['glass','잔'],['half','반 병'],['bottle','한 병'],['ml','직접 입력 (mL)']],sake:[['glass','잔'],['half','반 병'],['bottle','한 병'],['ml','직접 입력 (mL)']],spirits:[['shot','샷 (45mL)'],['glass','잔 (90mL)'],['ml','직접 입력 (mL)']],other:[['ml','직접 입력 (mL)']]};
-function key(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}function save(){localStorage.setItem(KEY,JSON.stringify(data));scheduleCloudSave()}function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function getDay(k){return data[k]||{status:'unknown',sessions:[]}}function setDay(k,v){data[k]=v;save();render()}
+function key(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}let arsSavedSnapshot=JSON.stringify(data);
+function save(){
+ const before=JSON.parse(arsSavedSnapshot||'{}');
+ const now=Date.now();
+ for(const k of Object.keys(data)){
+  if(k.startsWith('_'))continue;
+  const strip=v=>{if(!v||typeof v!=='object')return v;const x={...v};delete x._syncModifiedAt;return x};
+  if(JSON.stringify(strip(before[k]))!==JSON.stringify(strip(data[k]))){
+   data[k]._syncModifiedAt=new Date(now).toISOString();
+  }
+ }
+ arsSavedSnapshot=JSON.stringify(data);
+ localStorage.setItem(KEY,arsSavedSnapshot);scheduleCloudSave();
+}function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function getDay(k){return data[k]||{status:'unknown',sessions:[]}}function setDay(k,v){data[k]=v;save();render()}
 function isRecordedDay(k){const v=getDay(k);return v.status==='dry'||(v.status==='drink'&&(v.sessions||[]).length>0)}
 function analysisDate(offset){const d=new Date(now.getFullYear(),now.getMonth(),now.getDate());d.setDate(d.getDate()-offset-(isRecordedDay(today)?0:1));return d}
 // Browser-native navigation warning only for locally recorded days without an authenticated account.
@@ -1108,7 +1121,7 @@ el('govMiniTitle').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' 
 el('govMiniCalendar').onclick=e=>{let b=e.target.closest('[data-mini-date]');if(!b)return;location.hash='#records';let t=document.querySelector('#calendar [data-day="'+b.dataset.miniDate+'"]');if(t)t.click()};
 window.addEventListener('focus',update);update();
 })();
-</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script src="config.js"></script><script src="cloud.js?v=20261119-conflict-mode"></script>
+</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script src="config.js"></script><script src="cloud.js?v=20261119-timestamp-sync"></script>
 <script>
 (function(){
  const routeNames={home:'절주 현황',records:'음주 기록',analytics:'통계 분석',mypage:'마이페이지'};
