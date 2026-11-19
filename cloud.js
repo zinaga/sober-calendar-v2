@@ -232,7 +232,14 @@ async function pullCloudOnce(){if(!cloudUser)return;cloudReady=false;cloudSetSta
  // Merge by date rather than asking users to overwrite an entire device.
  // When both sources contain different records for one date, preserve the cloud
  // version and keep a local recovery copy before merging.
- const conflicts=Object.keys(local).filter(k=>Object.prototype.hasOwnProperty.call(remote,k)&&!sameCloudRecord(local[k],remote[k]));
+ const different=Object.keys(local).filter(k=>Object.prototype.hasOwnProperty.call(remote,k)&&!sameCloudRecord(local[k],remote[k]));
+ const conflicts=[];
+ const automatic={};
+ for(const k of different){
+  const lt=Date.parse(local[k]?._syncModifiedAt||''),rt=Date.parse(remote[k]?._syncModifiedAt||'');
+  if(Number.isFinite(lt)&&Number.isFinite(rt)&&lt!==rt)automatic[k]=lt>rt?'local':'remote';
+  else conflicts.push(k);
+ }
  let priority='remote';
  if(conflicts.length){
   const backupKey='sober-calendar-recovery-'+cloudUser.id+'-'+Date.now();
@@ -240,13 +247,14 @@ async function pullCloudOnce(){if(!cloudUser)return;cloudReady=false;cloudSetSta
   priority=await chooseCloudConflict(local,remote,conflicts);
   if(!priority){cloudSetStatus('기록 충돌 '+conflicts.length+'일 · 선택 전까지 동기화가 일시 중지됐어요. 다시 동기화 버튼을 눌러 결정할 수 있어요.');return}
  }
- data={...local,...remote};if(conflicts.length)for(const date of conflicts)data[date]=priority[date]==='local'?local[date]:remote[date];
+ data={...local,...remote};for(const [date,source] of Object.entries(automatic))data[date]=source==='local'?local[date]:remote[date];if(conflicts.length)for(const date of conflicts)data[date]=priority[date]==='local'?local[date]:remote[date];
+ if(typeof arsSavedSnapshot!=='undefined')arsSavedSnapshot=JSON.stringify(data);
  localStorage.setItem(KEY,JSON.stringify(data));
  render();
  cloudReady=true;
  // A conflict is resolved only when the chosen merged snapshot is actually
  // written to the cloud. Do not silently report success on an upsert failure.
- if(conflicts.length){
+ if(conflicts.length||Object.keys(automatic).length){
   const saved=await pushCloud(true);
   if(!saved)throw new Error('클라우드 저장이 아직 진행 중입니다. 잠시 후 다시 동기화해 주세요.');
   const {data:verified,error:verifyError}=await cloudClient.from('sober_records').select('days').eq('user_id',cloudUser.id).maybeSingle();
